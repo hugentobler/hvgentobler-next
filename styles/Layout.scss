@@ -1,0 +1,51 @@
+// styles/Layout.scss
+
+@import 'variables';
+@import 'mixins';
+
+.wrap {
+  background-color: var(--classic-blue);
+  bottom: 0;
+  font-size: 0;
+  left: 0;
+  right: 0;
+  top: 0;
+  position: fixed;
+  z-index: 0;
+}
+
+.line {
+  display: inline-block;
+  height: 100%;
+  padding: var(--spacing-none);
+  position: relative;
+  vertical-align: top;
+  width: calc(100% / 12 * 1);
+  @include for-large {
+    width: calc(100% / 12 * 2) !important;
+  }
+  &.wide {
+    width: calc(100% / 12 * 5);
+  }
+}
+
+.line::after {
+  border-right: 1px solid var(--baby-blue);
+  bottom: 0;
+  content: '';
+  right: 0;
+  top: 0;
+  transform: scaleY(0);
+  transform-origin: center top;
+  transition: transform 1.2s cubic-bezier(.45,.05,.55,.95);
+  position: absolute;
+}
+
+.ready .line::after { transform: scaleY(1); }
+
+.line:nth-child(1)::after { transition-delay: .3s; }
+.line:nth-child(2)::after { transition-delay: .6s; }
+.line:nth-child(3)::after { transition-delay: .9s; }
+.line:nth-child(4)::after { transition-delay: 1.2s; }
+.line:nth-child(5)::after { transition-delay: 1.5s; }
+.line:last-child::after { content: none; }

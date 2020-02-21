@@ -1,0 +1,29 @@
+// Header.scss
+
+.wrap {
+  font-size: 0;
+  top: 0;
+  padding-top: var(--spacing-medium);
+  position: sticky;
+  z-index: 9999;
+}
+
+.flex {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.btn {
+  background: none;
+  border-style: none;
+  border-width: 0;
+  cursor: pointer;
+  outline: 0;
+  padding: var(--spacing-none);
+  text-align: left;
+}
+
+.btn-text {
+  color: white;
+}

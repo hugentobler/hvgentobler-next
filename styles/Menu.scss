@@ -1,0 +1,24 @@
+// Menu.scss
+
+.wrap {
+  bottom: 0;
+  left: 0;
+  padding-left: var(--spacing-medium);
+  padding-right: var(--spacing-medium);
+  padding-top: var(--spacing-medium);
+  position: fixed;
+  right: 0;
+  transition: visibility 0s 1.2s;
+  top: 0;
+  visibility: hidden;
+  z-index: 999;
+}
+
+.bg {
+  bottom: 0;
+  font-size: 0;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+}

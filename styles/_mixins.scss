@@ -1,0 +1,14 @@
+// _mixins.scss
+
+@mixin for-not-small {
+  @media screen and (min-width: 30em) { @content; }
+}
+@mixin for-medium {
+  @media screen and (min-width: 30em) and (max-width: 60em) { @content; }
+}
+@mixin for-large {
+  @media screen and (min-width: 60em) { @content; }
+}
+@mixin for-wide {
+  @media screen and (min-width: 80em) { @content; }
+}
