@@ -1,0 +1,9 @@
+// styles/body.scss
+
+@import 'variables';
+
+body {
+  font-family: Neue Haas Grotesk, Helvetica, Arial, sans-serif;
+  padding-left: var(--spacing-medium);
+  padding-right: var(--spacing-medium);
+}

@@ -1,5 +1,8 @@
 // Menu.scss
 
+@import 'variables';
+@import 'mixins';
+
 .wrap {
   bottom: 0;
   left: 0;
@@ -14,6 +17,13 @@
   z-index: 999;
 }
 
+.open {}
+
+.open .wrap {
+  visibility: visible;
+  transition-delay: 0s;
+}
+
 .bg {
   bottom: 0;
   font-size: 0;
@@ -21,4 +31,37 @@
   position: absolute;
   right: 0;
   top: 0;
+}
+
+.line {
+  display: inline-block;
+  height: 100%;
+  padding: var(--spacing-none);
+  position: relative;
+  vertical-align: top;
+  width: calc(100% / 12 * 1);
+  @include for-not-small {
+    width: calc(100% / 12 * 2) !important;
+  }
+  &.wide {
+    width: calc(100% / 12 * 5);
+  }
+}
+
+.line::after {
+  background-color: var(--baby-blue);
+  border-right: 1px solid var(--classic-blue);
+  bottom: 0;
+  content: '';
+  right: 0;
+  top: 0;
+  transform: scaleX(0);
+  transform-origin: center right;
+  transition: transform .6s cubic-bezier(.45,.05,.55,.95);
+  position: absolute;
+}
+
+.open .line::after {
+  transform: scaleX(1);
+  transform-origin: center left;
 }

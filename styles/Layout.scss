@@ -21,7 +21,7 @@
   position: relative;
   vertical-align: top;
   width: calc(100% / 12 * 1);
-  @include for-large {
+  @include for-not-small {
     width: calc(100% / 12 * 2) !important;
   }
   &.wide {

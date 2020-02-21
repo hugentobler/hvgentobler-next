@@ -1,0 +1,55 @@
+// styles/fonts.scss
+
+@font-face {
+  font-family: 'Neue Haas Grotesk';
+  font-display: fallback;
+  src: url('/fonts/NeueHaasGroteskText55Roman.woff2') format('woff2'),
+    url('/fonts/NeueHaasGroteskText55Roman.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Neue Haas Grotesk';
+  font-display: fallback;
+  src: url('/fonts/NeueHaasGroteskText56Italic.woff2') format('woff2'),
+    url('/fonts/NeueHaasGroteskText56Italic.woff') format('woff');
+  font-weight: 400;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Neue Haas Grotesk';
+  font-display: fallback;
+  src: url('/fonts/NeueHaasGroteskText65Medium.woff2') format('woff2'),
+    url('/fonts/NeueHaasGroteskText65Medium.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Neue Haas Grotesk';
+  font-display: fallback;
+  src: url('/fonts/NeueHaasGroteskText66MediumItalic.woff2') format('woff2'),
+    url('/fonts/NeueHaasGroteskText66MediumItalic.woff') format('woff');
+  font-weight: 500;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Neue Haas Grotesk';
+  font-display: fallback;
+  src: url('/fonts/NeueHaasGroteskText75Bold.woff2') format('woff2'),
+    url('/fonts/NeueHaasGroteskText75Bold.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Neue Haas Grotesk';
+  font-display: fallback;
+  src: url('/fonts/NeueHaasGroteskText76BoldItalic.woff2') format('woff2'),
+    url('/fonts/NeueHaasGroteskText76BoldItalic.woff') format('woff');
+  font-weight: 700;
+  font-style: italic;
+}

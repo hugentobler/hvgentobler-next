@@ -9,7 +9,9 @@ import css from '../styles/index.scss';
 export default function Index() {
   return (
     <Layout>
-      <p>Hello Next.js</p>
+      <div style={{height: '200vh'}}>
+        <p>Hello Next.js</p>
+      </div>
     </Layout>
   );
 }
