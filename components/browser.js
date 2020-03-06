@@ -33,7 +33,6 @@ const browser = () => {
     const c = Scrolled;
     // Let body know that user has scrolled
     Y > 16 ? body.classList.add(c) : body.classList.remove(c);
-    // Let marqueeScroll know the scroll position
   }
 
   /*

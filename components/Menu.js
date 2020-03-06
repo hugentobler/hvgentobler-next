@@ -27,12 +27,12 @@ const Menu = () => {
         <div className={css.line}></div>
         <div className={css.line}></div>
       </div>
-      <section class="nav-text relative mt4">
+      <section className={css.text}>
         <Link href="/">
-          <a class="f2 fw5 lh-title neue navy no-underline db">Home &#8617;</a>
+          <a className={css.link}>Home &#8617;</a>
         </Link>
         <Link href="/25th">
-          <a class="f2 fw5 lh-title neue navy no-underline db">25th Birthday &#127812;</a>
+          <a className={css.link}>25th Birthday &#127812;</a>
         </Link>
       </section>
     </nav>

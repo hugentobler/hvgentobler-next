@@ -1,6 +1,5 @@
 // styles/Layout.scss
 
-@import 'variables';
 @import 'mixins';
 
 .wrap {
@@ -49,3 +48,24 @@
 .line:nth-child(4)::after { transition-delay: 1.2s; }
 .line:nth-child(5)::after { transition-delay: 1.5s; }
 .line:last-child::after { content: none; }
+
+main {
+  height: 100%;
+  max-width: 32rem;
+  min-height: 100vh;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  z-index: 1;
+}
+
+section {
+  margin-top: var(--spacing-extra-extra-large);
+}
+
+h1 { font-size: 3rem; }
+h2 { font-size: 2.25rem; font-weight: 500; }
+h3 { font-size: 1.5rem; }
+h4 { font-size: 1.25rem; }
+h5 { font-size: 1rem; }
+h6 { font-size: .875rem; }

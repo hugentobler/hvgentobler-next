@@ -1,6 +1,5 @@
 // Menu.scss
 
-@import 'variables';
 @import 'mixins';
 
 .wrap {
@@ -11,7 +10,7 @@
   padding-top: var(--spacing-medium);
   position: fixed;
   right: 0;
-  transition: visibility 0s 1.2s;
+  transition: visibility 0s .6s;
   top: 0;
   visibility: hidden;
   z-index: 999;
@@ -53,15 +52,33 @@
   border-right: 1px solid var(--classic-blue);
   bottom: 0;
   content: '';
+  left: 0;
+  position: absolute;
   right: 0;
   top: 0;
   transform: scaleX(0);
   transform-origin: center right;
-  transition: transform .6s cubic-bezier(.45,.05,.55,.95);
-  position: absolute;
+  transition: transform .6s cubic-bezier(.45,.05,.55,.95) 0s;
 }
 
 .open .line::after {
   transform: scaleX(1);
   transform-origin: center left;
 }
+
+.text {
+  margin-top: var(--spacing-large);
+  position: relative;
+}
+
+.link {
+  color: var(--classic-blue);
+  display: block;
+  font-size: 2.25rem;
+  font-weight: 500;
+  line-height: 1.25;
+  text-decoration: none;
+  visibility: hidden;
+}
+
+.open .link { visibility: visible; }

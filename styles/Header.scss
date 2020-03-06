@@ -32,6 +32,10 @@
   line-height: 1;
 }
 
+.btn-text-open {
+  color: var(--classic-blue);
+}
+
 .scrolled .btn-text > span:last-child {
   transition: opacity .6s cubic-bezier(.45,.05,.55,.95);
   opacity: 0;

@@ -28,7 +28,9 @@ const Layout = props => (
       <div className={css.line}></div>
       <div className={css.line}></div>
     </div>
-    {props.children}
+    <main>
+      {props.children}
+    </main>
   </div>
 );
 
