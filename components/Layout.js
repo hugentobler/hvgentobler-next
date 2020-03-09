@@ -2,7 +2,6 @@
 
 // Modules
 import dynamic from 'next/dynamic';
-import Header from '../components/Header';
 
 // Styles
 import css from '../styles/Layout.scss';
@@ -11,6 +10,11 @@ import css from '../styles/Layout.scss';
 // Client side javascript, we don't want server side rendering
 const Browser = dynamic(
   () => import('../components/browser'),
+  { ssr: false }
+);
+
+const Header = dynamic(
+  () => import('../components/Header'),
   { ssr: false }
 );
 

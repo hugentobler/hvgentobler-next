@@ -25,6 +25,10 @@
   text-align: left;
 }
 
+.animating .btn {
+  cursor: wait;
+}
+
 .btn-text {
   color: var(--baby-blue);
   font-size: 1.25rem;
@@ -69,8 +73,6 @@
     visibility: hidden;
   }
 }
-
-.scrolled {}
 
 .scrolled .cph > span:first-child { opacity: 0; }
 
