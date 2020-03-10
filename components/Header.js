@@ -15,9 +15,12 @@ const Header = () => {
   const toggleMenu = (e) => {
     const button = document.querySelector('header button');
     const nav = document.querySelector('nav');
+    // If click is from nav, prevent default;
+    if (e.target.matches('a')) e.preventDefault();
+
     // Toggle nav open and close.
     body.classList.toggle(cssMenu.open);
-    e.currentTarget.firstChild.classList.toggle(cssHeader['btn-text-open']);
+    button.firstChild.classList.toggle(cssHeader['btn-text-open']);
 
     // Disable menu button during animation.
     body.classList.add(cssHeader.animating);
@@ -58,16 +61,6 @@ const Header = () => {
           </div>
         </div>
       </header>
-      /*<button class="menu fixed top-50 left-0 tl dib ma0 outline-0 bn z-9999">
-        <div class="menu-w relative dib v-mid">
-          <span></span><span></span><span></span><span></span><span></span>
-          <span></span><span></span><span></span><span></span>
-        </div>
-        <div class="menu-l relative v-mid ml3 dn dib-l">
-          <span class="f6 f4-w sans-serif">Index</span>
-          <span class="f6 f4-w sans-serif close">Close</span>
-        </div>
-      </button>*/
       <nav className={cssMenu.wrap}>
         <div className={cssMenu.bg}>
           <div className={cssMenu.line}></div>
