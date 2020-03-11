@@ -1,7 +1,8 @@
 // components/browser.js
 
 import {ready as Ready} from '../styles/Layout.scss';
-import {scrolled as Scrolled} from '../styles/Header.scss';
+import {scrolled as Scrolled1} from '../styles/Header.scss';
+import {scrolled as Scrolled2} from '../styles/Menu.scss';
 
 const browser = () => {
   const body = document.querySelector('body');
@@ -30,9 +31,8 @@ const browser = () => {
   }
 
   const onScroll = (Y) => {
-    const c = Scrolled;
     // Let body know that user has scrolled
-    Y > 16 ? body.classList.add(c) : body.classList.remove(c);
+    Y > 16 ? body.classList.add(Scrolled1, Scrolled2) : body.classList.remove(Scrolled1, Scrolled2);
   }
 
   /*

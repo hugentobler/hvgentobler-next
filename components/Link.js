@@ -6,7 +6,6 @@ import { useRouter } from 'next/router';
 import Link from 'next/link';
 
 // Styles
-
 import {active as Active} from '../styles/Menu.scss';
 
 export default ({ href, children }) => {

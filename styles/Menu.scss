@@ -2,6 +2,63 @@
 
 @import 'mixins';
 
+.btn {
+  background: white;
+  border-radius: var(--spacing-extra-small);
+  border-style: none;
+  border-width: 0;
+  bottom: var(--spacing-large);
+  color: var(--classic-blue);
+  cursor: pointer;
+  font-size: 1.25rem;
+  font-weight: 500;
+  height: 2rem;
+  line-height: 1;
+  outline: 0;
+  overflow: hidden;
+  position: fixed;
+  right: var(--spacing-medium);
+  transition: width .3s cubic-bezier(.45,.05,.55,.95) 0s;
+  width: 8rem;
+  z-index: 9999;
+}
+
+.animating .btn {
+  cursor: wait;
+}
+
+.scrolled .btn {
+  transition: width .3s cubic-bezier(.45,.05,.55,.95) 0.3s;
+  width: 3rem;
+}
+
+.scrolled.open .btn {
+  width: 8rem;
+}
+
+.btn>div {
+  bottom: 0;
+  left: 0;
+  opacity: 0;
+  padding: var(--spacing-small) var(--spacing-medium);
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+.menu>span:last-child {
+  clip-path: inset(0);
+  transition: clip-path .3s cubic-bezier(.45,.05,.55,.95) 0.3s;
+}
+.scrolled .menu>span:last-child {
+  clip-path: inset(0 100% 0 0);
+  transition: clip-path .3s cubic-bezier(.45,.05,.55,.95) 0s;
+}
+.menu {
+  opacity: 1 !important;
+}
+.open .menu {opacity: 0 !important;}
+.open .back {opacity: 1 !important;}
+
 .wrap {
   bottom: 0;
   left: 0;
@@ -16,7 +73,9 @@
   z-index: 999;
 }
 
-.open {}
+.open {
+  overflow: hidden;
+}
 
 .open .wrap {
   visibility: visible;
@@ -91,6 +150,6 @@
 
 .open .link {
   clip-path: inset(0);
-  transition: .6s cubic-bezier(.45,.05,.55,.95) .3s;
+  transition: all .6s cubic-bezier(.45,.05,.55,.95) .3s;
   visibility: visible;
 }

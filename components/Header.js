@@ -20,7 +20,7 @@ const Header = () => {
   body.classList.remove(cssMenu.open);
   // Handle button click.
   const toggleMenu = (e) => {
-    const button = document.querySelector('header button');
+    const button = document.querySelector('.' + cssMenu.btn);
     const nav = document.querySelector('nav');
     let pathname;
     let route = false;
@@ -35,10 +35,11 @@ const Header = () => {
 
     // Toggle nav open and close.
     body.classList.toggle(cssMenu.open);
-    button.firstChild.classList.toggle(cssHeader['btn-text-open']);
+    // button.firstChild.classList.toggle(cssHeader['btn-text-open']);
 
     // Disable menu button during animation.
     body.classList.add(cssHeader.animating);
+    body.classList.add(cssMenu.animating);
     button.disabled = true;
 
     // Listen for end of nav animation.
@@ -47,6 +48,7 @@ const Header = () => {
       // transitionEndCount++
       //if (transitionEndCount >= 6) { // # of children to be animated.
         body.classList.remove(cssHeader.animating);
+        body.classList.remove(cssMenu.animating);
         button.disabled = false;
         nav.removeEventListener('transitionend', animating);
       //}
@@ -59,9 +61,9 @@ const Header = () => {
     <div>
       <header className={cssHeader.wrap}>
         <div className={cssHeader.flex}>
-          <button className={cssHeader.btn} onClick={toggleMenu}>
+          {/*<button className={cssHeader.btn} onClick={toggleMenu}>
             <div className={cssHeader['btn-text']}><span>O</span><span>ff-menu</span></div>
-          </button>
+          </button>*/}
           <div className={cssHeader.name}>
             <a href="/" className={[cssHeader['cph'], cssHeader['name-text']].join(' ')}>
               <span>Christoph<span>er</span></span>
@@ -74,6 +76,10 @@ const Header = () => {
           </div>
         </div>
       </header>
+      <button className={cssMenu.btn} onClick={toggleMenu}>
+        <div className={cssMenu.menu}><span>O</span><span>ff-menu</span></div>
+        <div className={cssMenu.back}>Back</div>
+      </button>
       <nav className={cssMenu.wrap}>
         <div className={cssMenu.bg}>
           <div className={cssMenu.line}></div>
