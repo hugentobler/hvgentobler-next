@@ -67,18 +67,30 @@
 }
 
 .text {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
   margin-top: var(--spacing-large);
   position: relative;
 }
 
 .link {
+  clip-path: inset(0 100% 0 0);
   color: var(--classic-blue);
-  display: block;
   font-size: 2.25rem;
   font-weight: 500;
   line-height: 1.25;
   text-decoration: none;
+  transition: 0s;
   visibility: hidden;
 }
 
-.open .link { visibility: visible; }
+.link.active {
+  text-decoration: line-through;
+}
+
+.open .link {
+  clip-path: inset(0);
+  transition: .6s cubic-bezier(.45,.05,.55,.95) .3s;
+  visibility: visible;
+}

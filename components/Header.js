@@ -1,13 +1,20 @@
 // components/Header.js
 
+// TODOs
+/*
+  - unsure if router.prefetch is really working
+*/
+
 // Libraries
-import Link from 'next/link';
+import { useRouter } from 'next/router';
+import Link from '../components/Link';
 
 // Styles
 import cssHeader from '../styles/Header.scss';
 import cssMenu from '../styles/Menu.scss';
 
 const Header = () => {
+  const router = useRouter();
   const body = document.querySelector('body');
   // Reset navigation menu.
   body.classList.remove(cssMenu.open);
@@ -15,8 +22,16 @@ const Header = () => {
   const toggleMenu = (e) => {
     const button = document.querySelector('header button');
     const nav = document.querySelector('nav');
-    // If click is from nav, prevent default;
-    if (e.target.matches('a')) e.preventDefault();
+    let pathname;
+    let route = false;
+    // If click is from nav, prevent default and save pathname.
+    // Then prefetch the page while nav is animating.
+    if (e.target.matches('a')) {
+      e.preventDefault();
+      pathname = e.target.pathname;
+      route = true;
+      router.prefetch(pathname);
+    }
 
     // Toggle nav open and close.
     body.classList.toggle(cssMenu.open);
@@ -35,6 +50,8 @@ const Header = () => {
         button.disabled = false;
         nav.removeEventListener('transitionend', animating);
       //}
+      // If click is from nav, handle page routing.
+        if (route == true) router.push(pathname);
     })
   };
 
@@ -46,18 +63,14 @@ const Header = () => {
             <div className={cssHeader['btn-text']}><span>O</span><span>ff-menu</span></div>
           </button>
           <div className={cssHeader.name}>
-            <Link href="/">
-              <a className={[cssHeader['cph'], cssHeader['name-text']].join(' ')}>
-                <span>Christoph<span>er</span></span>
-                <span>Hugentobler</span>
-              </a>
-            </Link>
-            <Link href="/">
-              <a className={[cssHeader['cph2'], cssHeader['name-text']].join(' ')}>
-                <span>Christopher</span>
-                <span>Hugentobler</span>
-              </a>
-            </Link>
+            <a href="/" className={[cssHeader['cph'], cssHeader['name-text']].join(' ')}>
+              <span>Christoph<span>er</span></span>
+              <span>Hugentobler</span>
+            </a>
+            <a href="/" className={[cssHeader['cph2'], cssHeader['name-text']].join(' ')}>
+              <span>Christopher</span>
+              <span>Hugentobler</span>
+            </a>
           </div>
         </div>
       </header>
