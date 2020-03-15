@@ -59,11 +59,22 @@ const Header = () => {
 
   return (
     <div>
-      <header className={cssHeader.wrap}>
+      <header className={cssHeader.bottom}>
+        <div className={cssHeader.inner}>
+          <div className={cssHeader.name}>
+            <a href="/">christopher hugentobler</a>
+          </div>
+          <button className={cssMenu.btn} onClick={toggleMenu}>
+            <div className={cssMenu.menu}><span>O</span><span>ff-menu</span></div>
+            <div className={cssMenu.back}>Back</div>
+          </button>
+        </div>
+      </header>
+      {/*<header className={cssHeader.wrap}>
         <div className={cssHeader.flex}>
-          {/*<button className={cssHeader.btn} onClick={toggleMenu}>
+          <button className={cssHeader.btn} onClick={toggleMenu}>
             <div className={cssHeader['btn-text']}><span>O</span><span>ff-menu</span></div>
-          </button>*/}
+          </button>
           <div className={cssHeader.name}>
             <a href="/" className={[cssHeader['cph'], cssHeader['name-text']].join(' ')}>
               <span>Christoph<span>er</span></span>
@@ -75,11 +86,7 @@ const Header = () => {
             </a>
           </div>
         </div>
-      </header>
-      <button className={cssMenu.btn} onClick={toggleMenu}>
-        <div className={cssMenu.menu}><span>O</span><span>ff-menu</span></div>
-        <div className={cssMenu.back}>Back</div>
-      </button>
+      </header>*/}
       <nav className={cssMenu.wrap}>
         <div className={cssMenu.bg}>
           <div className={cssMenu.line}></div>

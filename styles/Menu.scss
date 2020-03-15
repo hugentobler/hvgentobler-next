@@ -7,18 +7,19 @@
   border-radius: var(--spacing-extra-small);
   border-style: none;
   border-width: 0;
-  bottom: var(--spacing-large);
+  // bottom: var(--spacing-large);
   color: var(--classic-blue);
   cursor: pointer;
   font-size: 1.25rem;
   font-weight: 500;
-  height: 2rem;
+  height: 2.25rem;
   line-height: 1;
   outline: 0;
   overflow: hidden;
-  position: fixed;
-  right: var(--spacing-medium);
-  transition: width .3s cubic-bezier(.45,.05,.55,.95) 0s;
+  position: relative;
+  // position: fixed;
+  // right: var(--spacing-medium);
+  transition: all .3s cubic-bezier(.45,.05,.55,.95) 0s;
   width: 8rem;
   z-index: 9999;
 }
@@ -28,12 +29,19 @@
 }
 
 .scrolled .btn {
+  background: rgba(255, 255, 255, 0.5);
   transition: width .3s cubic-bezier(.45,.05,.55,.95) 0.3s;
-  width: 3rem;
+  // width: 3rem;
 }
 
 .scrolled.open .btn {
-  width: 8rem;
+  background: white;
+  // width: 8rem;
+}
+
+.btn:hover {
+  background: white;
+  transition: all .3s cubic-bezier(.45,.05,.55,.95) 0s;
 }
 
 .btn>div {
@@ -50,7 +58,7 @@
   transition: clip-path .3s cubic-bezier(.45,.05,.55,.95) 0.3s;
 }
 .scrolled .menu>span:last-child {
-  clip-path: inset(0 100% 0 0);
+  // clip-path: inset(0 100% 0 0);
   transition: clip-path .3s cubic-bezier(.45,.05,.55,.95) 0s;
 }
 .menu {
@@ -129,8 +137,12 @@
   align-items: flex-start;
   display: flex;
   flex-direction: column;
+  margin-left: auto;
+  margin-right: auto;
   margin-top: var(--spacing-large);
+  max-width: 32rem;
   position: relative;
+  width: 100%;
 }
 
 .link {
