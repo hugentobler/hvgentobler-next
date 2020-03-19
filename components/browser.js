@@ -14,11 +14,12 @@ const browser = () => {
   /*
     Handle scroll events
   */
-  let lastKnownScrollY = 0,
+  let newScrollY = 0,
+    lastScrollY = 0,
     ticking = false;
 
   window.addEventListener('scroll', () => {
-    lastKnownScrollY = window.scrollY;
+    newScrollY = window.scrollY;
     if (!ticking) {
       window.requestAnimationFrame(update)
     }
@@ -26,13 +27,20 @@ const browser = () => {
   })
 
   const update = () => {
-    onScroll(lastKnownScrollY);
+    let difference = newScrollY - lastScrollY;
+    difference > 0 ? scrollingDown(difference) : scrollingUp(difference);
+    lastScrollY = newScrollY; // save the number to compare in next tick
     ticking = false;
   }
 
-  const onScroll = (Y) => {
+  const scrollingDown = (Y) => {
     // Let body know that user has scrolled
-    Y > 16 ? body.classList.add(Scrolled1, Scrolled2) : body.classList.remove(Scrolled1, Scrolled2);
+    // Y > 16 ? body.classList.add(Scrolled1, Scrolled2) : body.classList.remove(Scrolled1, Scrolled2);
+    if (Y >= 16) body.classList.add(Scrolled1);
+  }
+
+  const scrollingUp = (Y) => {
+    body.classList.remove(Scrolled1);
   }
 
   /*

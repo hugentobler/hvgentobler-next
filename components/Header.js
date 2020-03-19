@@ -62,10 +62,11 @@ const Header = () => {
       <header className={cssHeader.bottom}>
         <div className={cssHeader.inner}>
           <div className={cssHeader.name}>
-            <a href="/">christopher hugentobler</a>
+            <a href="/">Christopher Hugentobler</a>
           </div>
           <button className={cssMenu.btn} onClick={toggleMenu}>
-            <div className={cssMenu.menu}><span>O</span><span>ff-menu</span></div>
+            {/*<div className={cssMenu.menu}><span>O</span><span>ff-menu</span></div>*/}
+            <div className={cssMenu.menu}>Index</div>
             <div className={cssMenu.back}>Back</div>
           </button>
         </div>

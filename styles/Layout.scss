@@ -52,7 +52,7 @@ $max-width: 999px;
 }
 
 .line::after {
-  border-right: 2px solid white;
+  border-right: 1px solid white;
   bottom: 0;
   content: '';
   right: 0;
@@ -60,7 +60,7 @@ $max-width: 999px;
   transform: scaleY(0);
   transform-origin: center top;
   transition: transform .9s cubic-bezier(.45,.05,.55,.95);
-  opacity: .5;
+  opacity: .25;
   position: absolute;
 }
 
