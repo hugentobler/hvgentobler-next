@@ -89,6 +89,7 @@ const Header = () => {
         </div>
       </header>*/}
       <nav className={cssMenu.wrap}>
+        <div className={cssMenu['bg-side']}></div>
         <div className={cssMenu.bg}>
           <div className={cssMenu.line}></div>
           <div className={[cssMenu.line, cssMenu.wide].join(' ')}></div>
@@ -97,6 +98,7 @@ const Header = () => {
           <div className={cssMenu.line}></div>
           <div className={cssMenu.line}></div>
         </div>
+        <div className={cssMenu['bg-side']}></div>
         <section className={cssMenu.text}>
           <Link href="/">
             <a onClick={toggleMenu} className={cssMenu.link}>Home &#8617;</a>

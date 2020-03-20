@@ -1,6 +1,7 @@
 // Menu.scss
 
 @import 'mixins';
+$max-width: 999px;
 
 .btn {
   background: white;
@@ -70,10 +71,8 @@
 
 .wrap {
   bottom: 0;
+  display: flex;
   left: 0;
-  padding-left: var(--spacing-medium);
-  padding-right: var(--spacing-medium);
-  padding-top: var(--spacing-medium);
   position: fixed;
   right: 0;
   transition: visibility 0s .6s;
@@ -92,12 +91,15 @@
 }
 
 .bg {
-  bottom: 0;
   font-size: 0;
-  left: 0;
-  position: absolute;
-  right: 0;
-  top: 0;
+  max-width: $max-width;
+  width: 100%;
+  position: relative;
+}
+
+.bg-side {
+  background-color: white;
+  flex-grow: 1;
 }
 
 .line {
@@ -131,7 +133,7 @@
 }
 
 .line:last-child::after {
-  border-right: none;
+  // border-right: none;
 }
 
 .open .line::after {
@@ -143,11 +145,11 @@
   align-items: flex-start;
   display: flex;
   flex-direction: column;
-  margin-left: auto;
-  margin-right: auto;
+  left: 50%;
+  margin-left: -12rem;
   margin-top: var(--spacing-large);
-  max-width: 32rem;
-  position: relative;
+  max-width: 24rem;
+  position: absolute;
   width: 100%;
 }
 
