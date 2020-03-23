@@ -91,6 +91,80 @@ const Header = () => {
       <nav className={cssMenu.wrap}>
         <div className={cssMenu['bg-side']}></div>
         <div className={cssMenu.bg}>
+          <section className={cssMenu.text}>
+            <Link href="/">
+              <a onClick={toggleMenu} className={cssMenu.link}>First</a>
+            </Link>
+            <Link href="/25th">
+              <a onClick={toggleMenu} className={cssMenu.link}>25th Birthday &#127812;</a>
+            </Link>
+            <Link href="/">
+              <a onClick={toggleMenu} className={cssMenu.link}>Home &#8617;</a>
+            </Link>
+            <Link href="/25th">
+              <a onClick={toggleMenu} className={cssMenu.link}>25th Birthday &#127812;</a>
+            </Link>
+            <Link href="/">
+              <a onClick={toggleMenu} className={cssMenu.link}>Home &#8617;</a>
+            </Link>
+            <Link href="/25th">
+              <a onClick={toggleMenu} className={cssMenu.link}>25th Birthday &#127812;</a>
+            </Link>
+            <Link href="/">
+              <a onClick={toggleMenu} className={cssMenu.link}>Home &#8617;</a>
+            </Link>
+            <Link href="/25th">
+              <a onClick={toggleMenu} className={cssMenu.link}>25th Birthday &#127812;</a>
+            </Link>
+            <Link href="/">
+              <a onClick={toggleMenu} className={cssMenu.link}>Home &#8617;</a>
+            </Link>
+            <Link href="/25th">
+              <a onClick={toggleMenu} className={cssMenu.link}>25th Birthday &#127812;</a>
+            </Link>
+            <Link href="/">
+              <a onClick={toggleMenu} className={cssMenu.link}>Home &#8617;</a>
+            </Link>
+            <Link href="/25th">
+              <a onClick={toggleMenu} className={cssMenu.link}>25th Birthday &#127812;</a>
+            </Link>
+            <Link href="/">
+              <a onClick={toggleMenu} className={cssMenu.link}>Home &#8617;</a>
+            </Link>
+            <Link href="/25th">
+              <a onClick={toggleMenu} className={cssMenu.link}>25th Birthday &#127812;</a>
+            </Link>
+            <Link href="/">
+              <a onClick={toggleMenu} className={cssMenu.link}>Home &#8617;</a>
+            </Link>
+            <Link href="/25th">
+              <a onClick={toggleMenu} className={cssMenu.link}>25th Birthday &#127812;</a>
+            </Link>
+            <Link href="/">
+              <a onClick={toggleMenu} className={cssMenu.link}>Home &#8617;</a>
+            </Link>
+            <Link href="/25th">
+              <a onClick={toggleMenu} className={cssMenu.link}>25th Birthday &#127812;</a>
+            </Link>
+            <Link href="/">
+              <a onClick={toggleMenu} className={cssMenu.link}>Home &#8617;</a>
+            </Link>
+            <Link href="/25th">
+              <a onClick={toggleMenu} className={cssMenu.link}>25th Birthday &#127812;</a>
+            </Link>
+            <Link href="/">
+              <a onClick={toggleMenu} className={cssMenu.link}>Home &#8617;</a>
+            </Link>
+            <Link href="/25th">
+              <a onClick={toggleMenu} className={cssMenu.link}>25th Birthday &#127812;</a>
+            </Link>
+            <Link href="/">
+              <a onClick={toggleMenu} className={cssMenu.link}>Home &#8617;</a>
+            </Link>
+            <Link href="/25th">
+              <a onClick={toggleMenu} className={cssMenu.link}>25th Birthday &#127812;</a>
+            </Link>
+          </section>
           <div className={cssMenu.line}></div>
           <div className={[cssMenu.line, cssMenu.wide].join(' ')}></div>
           <div className={[cssMenu.line, cssMenu.wide].join(' ')}></div>
@@ -99,14 +173,6 @@ const Header = () => {
           <div className={cssMenu.line}></div>
         </div>
         <div className={cssMenu['bg-side']}></div>
-        <section className={cssMenu.text}>
-          <Link href="/">
-            <a onClick={toggleMenu} className={cssMenu.link}>Home &#8617;</a>
-          </Link>
-          <Link href="/25th">
-            <a onClick={toggleMenu} className={cssMenu.link}>25th Birthday &#127812;</a>
-          </Link>
-        </section>
       </nav>
     </div>
   )

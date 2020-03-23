@@ -1,6 +1,7 @@
 // Menu.scss
 
 @import 'mixins';
+$letter-spacing: -1.2px;
 $max-width: 999px;
 
 .btn {
@@ -12,9 +13,9 @@ $max-width: 999px;
   color: var(--classic-blue);
   cursor: pointer;
   font-size: 1.6rem;
-  font-weight: 400;
+  font-weight: 300;
   height: 2.4rem;
-  letter-spacing: -1.2px;
+  letter-spacing: $letter-spacing;
   line-height: 1;
   outline: 0;
   overflow: hidden;
@@ -24,6 +25,11 @@ $max-width: 999px;
   transition: all .3s cubic-bezier(.45,.05,.55,.95) 0s;
   width: 4.8rem;
   z-index: 9999;
+  @include for-not-small {
+    font-size: 2rem;
+    height: 2.6rem;
+    width: 5.6rem;
+  }
 }
 
 .animating .btn {
@@ -92,6 +98,7 @@ $max-width: 999px;
 
 .bg {
   font-size: 0;
+  height: 100%;
   max-width: $max-width;
   width: 100%;
   position: relative;
@@ -100,6 +107,11 @@ $max-width: 999px;
 .bg-side {
   background-color: white;
   flex-grow: 1;
+  opacity: 0;
+}
+
+.open .bg-side {
+  opacity: 1;
 }
 
 .line {
@@ -142,30 +154,39 @@ $max-width: 999px;
 }
 
 .text {
-  align-items: flex-start;
   display: flex;
   flex-direction: column;
-  left: 50%;
-  margin-left: -12rem;
-  margin-top: var(--spacing-large);
-  max-width: 24rem;
+  left: 0;
+  bottom: 4rem;
+  justify-content: flex-start;
+  margin-left: var(--spacing-small);
+  margin-top: 0;
+  // max-width: 24rem;
+  top: 0;
+  overflow: scroll;
   position: absolute;
   width: 100%;
+  z-index: 9999;
 }
 
 .link {
   clip-path: inset(0 100% 0 0);
   color: var(--classic-blue);
   font-size: 2.25rem;
-  font-weight: 500;
-  line-height: 1.25;
+  font-weight: 300;
+  letter-spacing: $letter-spacing;
+  line-height: 1.5;
   text-decoration: none;
   transition: 0s;
   visibility: hidden;
 }
 
+.link:first-child {
+  margin-top: var(--spacing-large);
+}
+
 .link.active {
-  text-decoration: line-through;
+  text-decoration: underline;
 }
 
 .open .link {
