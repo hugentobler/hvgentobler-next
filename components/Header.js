@@ -66,8 +66,8 @@ const Header = () => {
           </div>
           <button className={cssMenu.btn} onClick={toggleMenu}>
             {/*<div className={cssMenu.menu}><span>O</span><span>ff-menu</span></div>*/}
-            <div className={cssMenu.menu}>Index</div>
-            <div className={cssMenu.back}>Back</div>
+            <span className={cssMenu.menu}>Index</span>
+            <span className={cssMenu.back}>Back</span>
           </button>
         </div>
       </header>

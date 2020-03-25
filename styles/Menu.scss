@@ -1,10 +1,11 @@
 // Menu.scss
 
 @import 'mixins';
-$letter-spacing: -1.2px;
+$letter-spacing: -0.05rem;
 $max-width: 999px;
 
 .btn {
+  align-items: center;
   background: white;
   border-radius: var(--spacing-extra-small);
   border-style: none;
@@ -12,11 +13,9 @@ $max-width: 999px;
   // bottom: var(--spacing-large);
   color: var(--classic-blue);
   cursor: pointer;
-  font-size: 1.6rem;
-  font-weight: 300;
+  display: flex;
   height: 2.4rem;
-  letter-spacing: $letter-spacing;
-  line-height: 1;
+  justify-content: center;
   outline: 0;
   overflow: hidden;
   position: relative;
@@ -26,7 +25,6 @@ $max-width: 999px;
   width: 4.8rem;
   z-index: 9999;
   @include for-not-small {
-    font-size: 2rem;
     height: 2.6rem;
     width: 5.6rem;
   }
@@ -52,14 +50,17 @@ $max-width: 999px;
   // transition: all .3s cubic-bezier(.45,.05,.55,.95) 0s;
 }
 
-.btn>div {
-  bottom: 0;
-  left: 0;
-  opacity: 0;
-  padding-top: .4rem;
-  position: absolute;
-  right: 0;
-  top: 0;
+.btn>span {
+  display: none;
+  font-size: 1.6rem;
+  font-weight: 300;
+  height: 1.6rem;
+  letter-spacing: $letter-spacing;
+  line-height: 1;
+  @include for-not-small {
+    font-size: 2rem;
+    height: 2rem;
+  }
 }
 .menu>span:last-child {
   // clip-path: inset(0);
@@ -70,10 +71,10 @@ $max-width: 999px;
   // transition: clip-path .3s cubic-bezier(.45,.05,.55,.95) 0s;
 }
 .menu {
-  opacity: 1 !important;
+  display: unset !important;
 }
-.open .menu {opacity: 0 !important;}
-.open .back {opacity: 1 !important;}
+.open .menu {display: none !important;}
+.open .back {display: unset !important;}
 
 .wrap {
   bottom: 0;

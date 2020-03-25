@@ -31,7 +31,9 @@ export default function TwentyFifth() {
           before I'm back<br/>
           to Taipei.
         </h2>
-        <img data-src='images/25th/main.jpg'/>
+        <picture>
+          <img loading='lazy' className={'lazyload'} data-src='images/25th/main.jpg' alt='My 25th birthday' width='' height=''/>
+        </picture>
         <h2>
           See you soon!
         </h2>

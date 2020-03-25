@@ -2,7 +2,7 @@
 
 import {ready as Ready} from '../styles/Layout.scss';
 import {scrolled as Scrolled1} from '../styles/Header.scss';
-import {scrolled as Scrolled2} from '../styles/Menu.scss';
+// import {scrolled as Scrolled2} from '../styles/Menu.scss';
 
 const browser = () => {
   const body = document.querySelector('body');
@@ -41,6 +41,22 @@ const browser = () => {
 
   const scrollingUp = (Y) => {
     body.classList.remove(Scrolled1);
+  }
+
+  /*
+    Handle lazy loading
+  */
+  if ('loading' in HTMLImageElement.prototype) {
+    // Lazyload supported in browser
+    const images = document.querySelectorAll('img[loading="lazy"]');
+    images.forEach(img => {
+      img.src = img.dataset.src;
+    });
+  } else {
+    // Dynamically import the LazySizes library
+    const script = document.createElement('script');
+    script.src = 'https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.2.0/lazysizes.min.js';
+    document.body.appendChild(script);
   }
 
   /*
