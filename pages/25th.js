@@ -10,16 +10,6 @@ export default function TwentyFifth() {
   return (
     <Layout>
       <section className={css.yellow}>
-        <p>
-          🇭🇰<br/>
-          Aug 24<sup>th</sup> Sat from 4:00 to 7:00 p.m.<br/>
-          At Lantau - Lower Cheung Sha Beach<br/>
-        </p>
-        <p>
-          🇹🇼<br/>
-          Aug 31<sup>st</sup> Sat from 7:00 to 10:00 p.m.<br/>
-          At Basement Cafe Taipei<br/>
-        </p>
         <h2>🍺 🏖️ 🧞 🌊</h2>
         <h2>
           I'm turning 25<br/>
@@ -31,6 +21,16 @@ export default function TwentyFifth() {
           before I'm back<br/>
           to Taipei.
         </h2>
+        <p>
+          🇭🇰<br/>
+          Aug 24<sup>th</sup> Sat from 4:00 to 7:00 p.m.<br/>
+          At Lantau - Lower Cheung Sha Beach<br/>
+        </p>
+        <p>
+          🇹🇼<br/>
+          Aug 31<sup>st</sup> Sat from 7:00 to 10:00 p.m.<br/>
+          At Basement Cafe Taipei<br/>
+        </p>
         <picture>
           <img loading='lazy' className={'lazyload'} data-src='images/25th/main.jpg' alt='My 25th birthday' width='' height=''/>
         </picture>
