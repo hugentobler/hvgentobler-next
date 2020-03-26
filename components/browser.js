@@ -9,7 +9,7 @@ const browser = () => {
   // No need to watch dom load event. Since this component is
   // dynamically imported, when it loads, the dom must be ready.
   body.classList.add(Ready); // Import hashed style.
-  window.scrollTo(0,0);
+  // window.scrollTo(0,0);
 
   /*
     Handle scroll events
@@ -44,19 +44,26 @@ const browser = () => {
   }
 
   /*
-    Handle lazy loading
+    Lazy load images if lazyload images exist.
   */
-  if ('loading' in HTMLImageElement.prototype) {
-    // Lazyload supported in browser
-    const images = document.querySelectorAll('img[loading="lazy"]');
-    images.forEach(img => {
-      img.src = img.dataset.src;
-    });
-  } else {
-    // Dynamically import the LazySizes library
-    const script = document.createElement('script');
-    script.src = 'https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.2.0/lazysizes.min.js';
-    document.body.appendChild(script);
+  const images = document.querySelectorAll('img[loading="lazy"]');
+  if (images.length != 0) { // Are there images?
+    if ('loading' in HTMLImageElement.prototype) {
+      // Lazyload supported in browser
+      const images = document.querySelectorAll('img[loading="lazy"]');
+      images.forEach(img => {
+        img.src = img.dataset.src;
+      });
+    } else {
+      if (typeof lazySizes == 'object') {
+        // Lazysizes already exists
+      } else {
+        // Dynamically import the LazySizes library
+        const script = document.createElement('script');
+        script.src = 'https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.2.0/lazysizes.min.js';
+        document.body.appendChild(script);
+      }
+    }
   }
 
   /*

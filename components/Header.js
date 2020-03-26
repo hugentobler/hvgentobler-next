@@ -38,7 +38,7 @@ const Header = () => {
     // button.firstChild.classList.toggle(cssHeader['btn-text-open']);
 
     // Disable menu button during animation.
-    body.classList.add(cssHeader.animating);
+    // body.classList.add(cssHeader.animating);
     body.classList.add(cssMenu.animating);
     button.disabled = true;
 
@@ -62,7 +62,9 @@ const Header = () => {
       <header className={cssHeader.bottom}>
         <div className={cssHeader.inner}>
           <div className={cssHeader.name}>
-            <a href="/">Christopher Hugentobler</a>
+            <Link href="/">
+              <a>Christopher Hugentobler</a>
+            </Link>
           </div>
           <button className={cssMenu.btn} onClick={toggleMenu}>
             {/*<div className={cssMenu.menu}><span>O</span><span>ff-menu</span></div>*/}
