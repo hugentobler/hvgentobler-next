@@ -30,7 +30,7 @@ const Header = () => {
       e.preventDefault();
       pathname = e.target.pathname;
       route = true;
-      router.prefetch(pathname);
+      router.prefetch(pathname); // Prefetch seems to be working on production. THis may not even be necessary.
     }
 
     // Toggle nav open and close.
