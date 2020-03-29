@@ -1,5 +1,9 @@
 // components/browser.js
 
+// Modules
+import { useRouter } from 'next/router';
+
+// Styles
 import {ready as Ready} from '../styles/Layout.scss';
 import {scrolled as Scrolled1} from '../styles/Header.scss';
 // import {scrolled as Scrolled2} from '../styles/Menu.scss';
@@ -10,6 +14,20 @@ const browser = () => {
   // dynamically imported, when it loads, the dom must be ready.
   body.classList.add(Ready); // Import hashed style.
   // window.scrollTo(0,0);
+
+  /*
+    Update custom properties if available
+  */
+  const pageStyles = {
+    '/': ['--black', '--white'],
+    '/25th': ['--classic-blue', '--yellow']
+  };
+  const pathname = useRouter().pathname;
+  const updateProperties = pageStyles[pathname];
+  if (updateProperties) {
+    document.documentElement.style.setProperty('--background-color', `var(${pageStyles[pathname][0]})`);
+    document.documentElement.style.setProperty('--text-color', `var(${pageStyles[pathname][1]})`);
+  }
 
   /*
     Handle scroll events

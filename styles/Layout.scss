@@ -18,7 +18,7 @@ $max-width: 999px;
 }
 
 .wrap {
-  background-color: var(--classic-blue);
+  background-color: var(--background-color);
   bottom: 0;
   display: flex;
   font-size: 0;
@@ -53,7 +53,7 @@ $max-width: 999px;
 }
 
 .line::after {
-  border-right: 1px solid white;
+  border-right: 1px solid var(--text-color);
   bottom: 0;
   content: '';
   right: 0;

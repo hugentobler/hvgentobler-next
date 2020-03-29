@@ -20,26 +20,29 @@ const Header = dynamic(
 
 // Component
 
-const Layout = props => (
-  <div className={css.body}>
-    <div className={css.container}>
-      <Browser />
-      <Header />
-      <div className={css.wrap}>
-        <div className={css.inner}>
-          <div className={css.line}></div>
-          <div className={[css.line, css.wide].join(' ')}></div>
-          <div className={[css.line, css.wide].join(' ')}></div>
-          <div className={css.line}></div>
-          <div className={css.line}></div>
-          <div className={css.line}></div>
+const Layout = props => {
+
+  return (
+    <div className={css.body}>
+      <div className={css.container}>
+        <Browser />
+        <Header />
+        <div className={css.wrap}>
+          <div className={css.inner}>
+            <div className={css.line}></div>
+            <div className={[css.line, css.wide].join(' ')}></div>
+            <div className={[css.line, css.wide].join(' ')}></div>
+            <div className={css.line}></div>
+            <div className={css.line}></div>
+            <div className={css.line}></div>
+          </div>
         </div>
+        <main>
+          {props.children}
+        </main>
       </div>
-      <main>
-        {props.children}
-      </main>
     </div>
-  </div>
-);
+  )
+};
 
 export default Layout;

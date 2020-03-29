@@ -9,7 +9,7 @@ import css from '../styles/index.scss';
 export default function TwentyFifth() {
   return (
     <Layout>
-      <section className={css.yellow}>
+      <section>
         <h2>🍺 🏖️ 🧞 🌊</h2>
         <h2>
           I'm turning 25<br/>

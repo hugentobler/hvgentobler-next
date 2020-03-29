@@ -4,6 +4,7 @@
 @import 'mixins';
 
 body {
+  color: var(--text-color);
   font-family: Soehne, Helvetica, Arial, sans-serif;
   padding-left: var(--spacing-medium);
   padding-right: var(--spacing-medium);

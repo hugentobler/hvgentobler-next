@@ -3,10 +3,15 @@
 :root {
   // Colors
   --baby-blue: #bdd6e6;
+  --black: #151515;
   --classic-blue: #0F4C81;
   --white: #fff;
   --transparent: transparent;
   --yellow: #f6eb61;
+
+  // Styling
+  --background-color: var(--white);
+  --text-color: var(--black);
 
   //Spacing
   --spacing-extra-extra-large: 8rem;
