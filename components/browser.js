@@ -3,16 +3,12 @@
 // Modules
 import { useRouter } from 'next/router';
 
-// Styles
-import {ready as Ready} from '../styles/Layout.module.scss';
-import {scrolled as Scrolled1} from '../styles/Header.module.scss';
-// import {scrolled as Scrolled2} from '../styles/Menu.scss';
-
 const browser = () => {
+  const scrolled = 'scrolled';
   const body = document.querySelector('body');
   // No need to watch dom load event. Since this component is
   // dynamically imported, when it loads, the dom must be ready.
-  body.classList.add(Ready); // Import hashed style.
+  body.classList.add('ready');
   // window.scrollTo(0,0);
 
   /*
@@ -54,11 +50,11 @@ const browser = () => {
   const scrollingDown = (Y) => {
     // Let body know that user has scrolled
     // Y > 16 ? body.classList.add(Scrolled1, Scrolled2) : body.classList.remove(Scrolled1, Scrolled2);
-    if (Y >= 16) body.classList.add(Scrolled1);
+    if (Y >= 16) body.classList.add(scrolled);
   }
 
   const scrollingUp = (Y) => {
-    body.classList.remove(Scrolled1);
+    body.classList.remove(scrolled);
   }
 
   /*

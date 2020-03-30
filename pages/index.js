@@ -3,15 +3,11 @@
 // Modules
 import Layout from '../components/Layout';
 
-// Styles
-import css from '../styles/index.module.scss';
-import {narrow as Narrow} from '../styles/Layout.module.scss';
-
 export default function Index() {
   return (
     <Layout>
-      <section className={css.yellow}>
-        <div className={Narrow}>
+      <section>
+        <div>
           <h2>
             Wide-eyed<br/>
             outdoors<br/>
@@ -24,7 +20,7 @@ export default function Index() {
           </h2>
         </div>
       </section>
-      <section className={css.yellow}>
+      <section>
         <h2>
           Wide-eyed<br/>
           outdoors<br/>
@@ -36,7 +32,7 @@ export default function Index() {
           entrepreneur<br/>
         </h2>
       </section>
-      <section className={css.yellow}>
+      <section>
         <h2>
           Wide-eyed<br/>
           outdoors<br/>

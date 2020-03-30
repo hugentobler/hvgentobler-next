@@ -3,9 +3,6 @@
 // Modules
 import Layout from '../components/Layout';
 
-// Styles
-import css from '../styles/index.module.scss';
-
 export default function TwentyFifth() {
   return (
     <Layout>
