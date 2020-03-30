@@ -4,8 +4,8 @@
 import Layout from '../components/Layout';
 
 // Styles
-import css from '../styles/index.scss';
-import {narrow as Narrow} from '../styles/Layout.scss';
+import css from '../styles/index.module.scss';
+import {narrow as Narrow} from '../styles/Layout.module.scss';
 
 export default function Index() {
   return (

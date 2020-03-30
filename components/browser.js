@@ -4,8 +4,8 @@
 import { useRouter } from 'next/router';
 
 // Styles
-import {ready as Ready} from '../styles/Layout.scss';
-import {scrolled as Scrolled1} from '../styles/Header.scss';
+import {ready as Ready} from '../styles/Layout.module.scss';
+import {scrolled as Scrolled1} from '../styles/Header.module.scss';
 // import {scrolled as Scrolled2} from '../styles/Menu.scss';
 
 const browser = () => {

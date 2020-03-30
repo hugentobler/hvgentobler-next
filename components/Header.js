@@ -10,8 +10,8 @@ import { useRouter } from 'next/router';
 import Link from '../components/Link';
 
 // Styles
-import cssHeader from '../styles/Header.scss';
-import cssMenu from '../styles/Menu.scss';
+import cssHeader from '../styles/Header.module.scss';
+import cssMenu from '../styles/Menu.module.scss';
 
 const Header = () => {
   const router = useRouter();

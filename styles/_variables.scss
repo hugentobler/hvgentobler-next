@@ -13,11 +13,14 @@
   --background-color: var(--white);
   --text-color: var(--black);
 
-  //Spacing
+  // Spacing
   --spacing-extra-extra-large: 8rem;
   --spacing-large: 2rem;
   --spacing-medium: 1rem;
   --spacing-small: .5rem;
   --spacing-extra-small: .25rem;
   --spacing-none: 0rem;
+
+  // Width
+  --max-width: 999px;
 }

@@ -4,7 +4,7 @@
 import Layout from '../components/Layout';
 
 // Styles
-import css from '../styles/index.scss';
+import css from '../styles/index.module.scss';
 
 export default function TwentyFifth() {
   return (

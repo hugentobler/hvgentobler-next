@@ -6,7 +6,7 @@ import { useRouter } from 'next/router';
 import Link from 'next/link';
 
 // Styles
-import {active as Active} from '../styles/Menu.scss';
+import {active as Active} from '../styles/Menu.module.scss';
 
 export default ({ href, children }) => {
   const router = useRouter()
