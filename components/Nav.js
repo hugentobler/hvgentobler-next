@@ -145,8 +145,7 @@ const Header = () => {
             width: 4rem;
           }
           &:hover, &:focus, &:active {
-            background: var(--text-color);
-            color: var(--background-color);
+            border-color: var(--background-color);
             transition: none;
           }
           & > span {

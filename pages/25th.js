@@ -29,7 +29,7 @@ export default function TwentyFifth() {
           At Basement Cafe Taipei<br/>
         </p>
         <picture>
-          <img loading='lazy' className={'lazyload'} data-src='images/25th/main.jpg' alt='My 25th birthday' width='' height=''/>
+          <img loading='lazy' className={'lazyload'} data-src='/images/25th/main.jpg' alt='My 25th birthday' width='' height=''/>
         </picture>
         <h2>
           See you soon!
