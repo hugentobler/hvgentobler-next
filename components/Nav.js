@@ -53,13 +53,13 @@ const Header = () => {
       <header>
         <div className='inner'>
           <div className='name'>
-            <Link href='/'>
+            {/*<Link href='/'>
               <a>Christopher Hugentobler</a>
-            </Link>
+            </Link>*/}
           </div>
           <button onClick={toggleMenu}>
-            <span className='menu'>Index</span>
-            <span className='back'>Back</span>
+            <span className='menu'>🍔</span>
+            <span className='back'>🍔</span>
           </button>
         </div>
       </header>
@@ -68,7 +68,7 @@ const Header = () => {
         <div className='background'>
           <section className='text'>
             <Link href="/">
-              <a onClick={toggleMenu} className='link'>First</a>
+              <a onClick={toggleMenu} className='link'>Home</a>
             </Link>
             <Link href='/25th'>
               <a onClick={toggleMenu} className='link'>25th Birthday &#127812;</a>
@@ -83,11 +83,11 @@ const Header = () => {
         $letter-spacing: -0.05rem;
         header {
           align-items: center;
-          background: var(--background-color);
+          // background: var(--background-color);
           bottom: 0;
           display: flex;
           flex-direction: column;
-          height: 4rem;
+          height: 6rem;
           justify-content: center;
           left: 0;
           right: 0;
@@ -123,26 +123,26 @@ const Header = () => {
         }
         button {
           align-items: center;
-          background: none;
+          background: var(--text-color);
           border-color: var(--text-color);
-          border-radius: 30% 70% 30% 70% / 30% 70% 30% 70%;
+          border-radius: 50%;
           border-style: solid;
           border-width: 2px;
           color: var(--text-color);
           cursor: pointer;
           display: flex;
-          height: 2.4rem;
+          height: 3rem;
           justify-content: center;
           margin-right: var(--spacing-small);
           outline: 0;
           overflow: hidden;
           position: relative;
           transition: all .3s cubic-bezier(.45,.05,.55,.95) 0s;
-          width: 4.8rem;
+          width: 3rem;
           z-index: 9999;
           @media ($for-not-small) {
-            height: 3rem;
-            width: 6rem;
+            height: 4rem;
+            width: 4rem;
           }
           &:hover, &:focus, &:active {
             background: var(--text-color);
@@ -157,13 +157,16 @@ const Header = () => {
             letter-spacing: $letter-spacing;
             line-height: 1;
             @media ($for-not-small) {
-              font-size: 2rem;
-              height: 2rem;
+              font-size: 1.6rem;
+              height: 1.6rem;
             }
           }
         }
         :global(.animating) button {
           cursor: wait;
+        }
+        :global(.open) button {
+          border-color: var(--background-color);
         }
         .menu {
           display: unset !important;
