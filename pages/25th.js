@@ -5,7 +5,10 @@ import Layout from '../components/Layout';
 
 export default function TwentyFifth() {
   return (
-    <Layout>
+    <Layout
+      title={'Christopher\'s 25th Birthday Party 🎂'}
+      description={'On Aug 24th Sat afternoon, let\'s catch up on Lantau.'}
+    >
       <section>
         <h2>🍺 🏖️ 🧞 🌊</h2>
         <h2>

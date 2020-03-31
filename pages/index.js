@@ -5,7 +5,10 @@ import Layout from '../components/Layout';
 
 export default function Index() {
   return (
-    <Layout>
+    <Layout
+      title={'Christopher Hugentobler'}
+      description={'This is the description.'}
+    >
       <section>
         <div>
           <h2>
