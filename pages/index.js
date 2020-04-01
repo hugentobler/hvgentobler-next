@@ -8,6 +8,7 @@ export default function Index() {
     <Layout
       title={'Christopher Hugentobler'}
       description={'This is the description.'}
+      image={'/'}
     >
       <section>
         <div>

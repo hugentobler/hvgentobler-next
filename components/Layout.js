@@ -20,6 +20,8 @@ const Header = dynamic(
 const Layout = props => {
   // Get current path for frontmatter.
   const router = useRouter();
+  // Get build environment from next config.
+  const isProd = process.env.IS_PROD;
 
   return (
     <>
@@ -30,7 +32,8 @@ const Layout = props => {
         <meta property="og:description" content={props.description} />
         <meta property="og:type" content="website" />
         <meta property="og:url" content={`https://hvgentobler.com${router.asPath}`} />
-        <meta property="og:image" content={props.image} />
+        <meta property="og:image" content={`https://hvgentobler.com${props.image}`} />
+        {isProd ? <meta name="robots" content="index, follow" /> : <meta name="robots" content="noindex, nofollow" />}
       </Head>
       <div className='root'>
         <div className='container'>

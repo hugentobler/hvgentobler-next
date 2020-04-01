@@ -8,6 +8,7 @@ export default function TwentyFifth() {
     <Layout
       title={'Christopher\'s 25th Birthday Party 🎂'}
       description={'On Aug 24th Sat afternoon, let\'s catch up on Lantau.'}
+      image={'/images/25th/og.jpg'}
     >
       <section>
         <h2>🍺 🏖️ 🧞 🌊</h2>
