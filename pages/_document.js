@@ -9,8 +9,7 @@ class MyDocument extends Document {
     return (
       <Html lang="en">
         <Head>
-          <meta name="HandheldFriendly" content="True" />
-          <meta name="MobileOptimized" content="320" />
+          <meta name="viewport" content="width=device-width,initial-scale=1" />
           <Favicon />
         </Head>
         <body>

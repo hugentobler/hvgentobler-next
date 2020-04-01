@@ -31,6 +31,7 @@ const Layout = props => {
         <meta property="og:title" content={props.title} />
         <meta property="og:description" content={props.description} />
         <meta property="og:type" content="website" />
+        <meta property="og:site_name" content="Christopher Hugentobler" />
         <meta property="og:url" content={`https://hvgentobler.com${router.asPath}`} />
         <meta property="og:image" content={`https://hvgentobler.com${props.image}`} />
         {isProd ? <meta name="robots" content="index, follow" /> : <meta name="robots" content="noindex, nofollow" />}
