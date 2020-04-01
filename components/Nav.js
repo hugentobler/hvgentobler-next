@@ -71,7 +71,7 @@ const Header = () => {
               <a onClick={toggleMenu} className='link'>Home</a>
             </Link>
             <Link href='/25th'>
-              <a onClick={toggleMenu} className='link'>25th Birthday &#127812;</a>
+              <a onClick={toggleMenu} className='link'>25<sup>th</sup> Birthday &#127812;</a>
             </Link>
           </section>
           {[...Array(6)].map((e, i) => <div className='line' key={i}></div>)}
@@ -238,6 +238,7 @@ const Header = () => {
           transform-origin: center left;
         }
         .text {
+          align-items: flex-start;
           display: flex;
           flex-direction: column;
           left: 0;
@@ -252,12 +253,15 @@ const Header = () => {
           z-index: 9999;
         }
         .link {
+          border: none;
+          border-color: var(--background-color);
           clip-path: inset(0 100% 0 0);
           color: var(--background-color);
           font-size: 2.25rem;
           font-weight: 300;
           letter-spacing: $letter-spacing;
-          line-height: 1.5;
+          line-height: 1.25;
+          margin-bottom: var(--spacing-small);
           text-decoration: none;
           transition: 0s;
           visibility: hidden;
@@ -266,7 +270,7 @@ const Header = () => {
           }
         }
         :global(.active) {
-          text-decoration: underline !important;
+          border-bottom: 2px solid !important;
         }
         :global(.open) .link {
           clip-path: inset(0);
