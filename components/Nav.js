@@ -87,7 +87,7 @@ const Header = () => {
           bottom: 0;
           display: flex;
           flex-direction: column;
-          height: 6rem;
+          height: 8rem;
           justify-content: center;
           left: 0;
           right: 0;
@@ -133,7 +133,7 @@ const Header = () => {
           display: flex;
           height: 3rem;
           justify-content: center;
-          margin-right: var(--spacing-small);
+          margin-right: var(--spacing-medium);
           outline: 0;
           overflow: hidden;
           position: relative;
@@ -145,8 +145,15 @@ const Header = () => {
             width: 4rem;
           }
           &:hover, &:focus, &:active {
-            border-color: var(--background-color);
             transition: none;
+            & > span {
+              font-size: 2rem;
+              height: 2rem;
+              @media ($for-not-small) {
+                font-size: 2.4rem;
+                height: 2.4rem;
+              }
+            }
           }
           & > span {
             display: none;
@@ -155,10 +162,6 @@ const Header = () => {
             height: 1.6rem;
             letter-spacing: $letter-spacing;
             line-height: 1;
-            @media ($for-not-small) {
-              font-size: 1.6rem;
-              height: 1.6rem;
-            }
           }
         }
         :global(.animating) button {
@@ -166,6 +169,14 @@ const Header = () => {
         }
         :global(.open) button {
           border-color: var(--background-color);
+          & > span {
+            font-size: 2rem;
+            height: 2rem;
+            @media ($for-not-small) {
+              font-size: 2.4rem;
+              height: 2.4rem;
+            }
+          }
         }
         .menu {
           display: unset !important;
