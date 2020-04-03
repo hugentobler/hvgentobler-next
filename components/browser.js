@@ -1,30 +1,16 @@
 // components/browser.js
 
 // Modules
-import { useRouter } from 'next/router';
+import { useContext } from 'react';
+import UserContext from '../components/UserContext';
 
 const browser = () => {
+
+  const {history} = useContext(UserContext);
+  console.log(history)
+
   const scrolled = 'scrolled';
   const body = document.querySelector('body');
-  // No need to watch dom load event. Since this component is
-  // dynamically imported, when it loads, the dom must be ready.
-  body.classList.add('ready');
-  // window.scrollTo(0,0);
-
-  /*
-    Update custom properties if available
-  */
-  const pageStyles = {
-    '/': ['--black', '--white'],
-    '/25th': ['--classic-blue', '--yellow']
-  };
-  const pathname = useRouter().pathname;
-  const updateProperties = pageStyles[pathname];
-  if (updateProperties) {
-    document.documentElement.style.setProperty('--background-color', `var(${pageStyles[pathname][0]})`);
-    document.documentElement.style.setProperty('--text-color', `var(${pageStyles[pathname][1]})`);
-  }
-
   /*
     Handle scroll events
   */
@@ -80,9 +66,7 @@ const browser = () => {
     }
   }
 
-  /*
-    Component has no UI, so return null
-  */
+  //Component has no UI, so return null
   return null;
 };
 

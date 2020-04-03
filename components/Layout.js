@@ -8,7 +8,7 @@ import Head from 'next/head';
 // Dynamic import
 // Client side javascript, we don't want server side rendering
 const Browser = dynamic(
-  () => import('../components/browser'),
+  () => import('../components/Browser'),
   { ssr: false }
 );
 

@@ -1,53 +1,10 @@
 // components/Header.js
 
 // Libraries
-import { useRouter } from 'next/router';
 import Link from '../components/Link';
+import { ToggleMenu } from '../components/Animation';
 
 const Header = () => {
-  const router = useRouter();
-  const body = document.querySelector('body');
-  const animating = 'animating';
-  const open = 'open';
-  // Reset navigation menu.
-  body.classList.remove(open);
-  // Handle button click.
-  const toggleMenu = (e) => {
-    const button = document.querySelector('header button');
-    const nav = document.querySelector('nav');
-    let pathname;
-    let route = false;
-    // If click is from nav, prevent default and save pathname.
-    // Then prefetch the page while nav is animating.
-    if (e.target.matches('a')) {
-      e.preventDefault();
-      pathname = e.target.pathname;
-      route = true;
-      router.prefetch(pathname); // Prefetch seems to be working on production autmagically. This may not even be necessary.
-    }
-
-    // Toggle nav open and close.
-    body.classList.toggle(open);
-
-    // Disable menu button during animation.
-    body.classList.add(animating);
-    button.disabled = true;
-
-    // Listen for end of nav animation.
-    // let transitionEndCount = 0
-    nav.addEventListener('transitionend', function animatingEnd() {
-      // transitionEndCount++
-      //if (transitionEndCount >= 6) { // # of children to be animated.
-        body.classList.remove(animating);
-        body.classList.remove(animating);
-        button.disabled = false;
-        nav.removeEventListener('transitionend', animatingEnd);
-      //}
-      // If click is from nav, handle page routing.
-        if (route == true) router.push(pathname);
-    })
-  };
-
   return (
     <>
       <header>
@@ -57,9 +14,9 @@ const Header = () => {
               <a>Christopher Hugentobler</a>
             </Link>*/}
           </div>
-          <button onClick={toggleMenu}>
-            <span className='menu'>🍔</span>
-            <span className='back'>🍔</span>
+          <button onClick={ToggleMenu}>
+            <span id='menu'>🍔</span>
+            <span id='back'>🍔</span>
           </button>
         </div>
       </header>
@@ -68,10 +25,10 @@ const Header = () => {
         <div className='background'>
           <section className='text'>
             <Link href="/">
-              <a onClick={toggleMenu} className='link'>Home</a>
+              <a className='link'>Home</a>
             </Link>
             <Link href='/25th'>
-              <a onClick={toggleMenu} className='link'>25<sup>th</sup> Birthday &#127812;</a>
+              <a className='link'>25<sup>th</sup> Birthday &#127812;</a>
             </Link>
           </section>
           {[...Array(6)].map((e, i) => <div className='line' key={i}></div>)}
@@ -87,7 +44,10 @@ const Header = () => {
           bottom: 0;
           display: flex;
           flex-direction: column;
-          height: 8rem;
+          height: 6rem;
+          @media ($for-not-small) {
+            height: 8rem;
+          }
           justify-content: center;
           left: 0;
           right: 0;
@@ -167,7 +127,7 @@ const Header = () => {
         :global(.animating) button {
           cursor: wait;
         }
-        :global(.open) button {
+        :global(.menu) button {
           border-color: var(--background-color);
           & > span {
             font-size: 2rem;
@@ -178,13 +138,13 @@ const Header = () => {
             }
           }
         }
-        .menu {
+        #menu {
           display: unset !important;
         }
-        :global(.open) .menu {
+        :global(.menu) #menu {
           display: none !important;
         }
-        :global(.open) .back {
+        :global(.menu) #back {
           display: unset !important;
         }
         nav {
@@ -198,10 +158,10 @@ const Header = () => {
           visibility: hidden;
           z-index: 999;
         }
-        :global(.open) {
+        :global(.blinds) {
           overflow: hidden;
         }
-        :global(.open) nav {
+        :global(.blinds) nav {
           visibility: visible;
           transition-delay: 0s;
         }
@@ -217,7 +177,7 @@ const Header = () => {
           position: relative;
           width: 100%;
         }
-        :global(.open) .side {
+        :global(.blinds) .side {
           opacity: 1;
         }
         .line {
@@ -244,7 +204,7 @@ const Header = () => {
             border-right: none;
           }
         }
-        :global(.open) .line::after {
+        :global(.blinds) .line::after {
           transform: scaleX(1);
           transform-origin: center left;
         }
@@ -283,7 +243,7 @@ const Header = () => {
         :global(.active) {
           border-bottom: 2px solid !important;
         }
-        :global(.open) .link {
+        :global(.menu) .link {
           clip-path: inset(0);
           transition: all .4s cubic-bezier(.45,.05,.55,.95) .2s;
           visibility: visible;

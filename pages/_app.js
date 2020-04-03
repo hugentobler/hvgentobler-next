@@ -1,12 +1,52 @@
 // pages/_app.js
 
-// Styles
+// Modules
+import App from 'next/app';
+import UserContext from '../components/UserContext';
+import SetProperty from '../components/CustomCssProperties';
+import {PageReady} from '../components/Animation';
+
+// Global styles
 import '../styles/reset.scss';
 import '../styles/fonts.scss';
 import '../styles/body.scss';
 
-const MyApp = ({ Component, pageProps }) => (
-  <Component {...pageProps} />
-);
+export default class MyApp extends App {
+  state = {
+    history: [] // Store page history.
+  };
 
-export default MyApp;
+  componentDidMount = () => {
+    console.log('componentDidMount')
+    // Save initial path to history.
+    const { asPath } = this.props.router;
+    this.setState(prevState => ({ history: [...prevState.history, asPath] }));
+
+    SetProperty(this.props.router.pathname);
+    PageReady();
+  };
+
+  componentDidUpdate = () => {
+    console.log('componentDidUpdate')
+    const { history } = this.state;
+    const { asPath } = this.props.router;
+    // If current path doesn't equal latest item in history, let's save the change.
+    if (history[history.length - 1] !== asPath) {
+      this.setState(prevState => ({ history: [...prevState.history, asPath] }));
+    }
+
+    SetProperty(this.props.router.pathname);
+    PageReady();
+  };
+
+  render() {
+    const { Component, pageProps } = this.props;
+
+    return (
+      // User context passes the state down the tree.
+      <UserContext.Provider value={{ history: this.state.history }}>
+        <Component {...pageProps} />
+      </UserContext.Provider>
+    )
+  };
+}

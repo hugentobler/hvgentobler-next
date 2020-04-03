@@ -2,6 +2,7 @@
 
 // Modules
 import Layout from '../components/Layout';
+import Link from '../components/Link';
 
 export default function Index() {
   return (
@@ -13,6 +14,12 @@ export default function Index() {
       <section>
         <div>
           <h2>
+          <Link href="/">
+            <a className='link'>Home</a>
+          </Link>
+          <Link href='/25th'>
+            <a className='link'>25<sup>th</sup> Birthday &#127812;</a>
+          </Link>
             Wide-eyed<br/>
             outdoors<br/>
             addict<br/>
