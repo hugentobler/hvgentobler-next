@@ -2,13 +2,19 @@
 
 // Modules
 import Layout from '../components/Layout';
+import { motion } from 'framer-motion';
 
 export default function TwentyFifth() {
+  const frontmatter= {
+    title:'Christopher\'s 25th Birthday Party 🎂',
+    description:'On Aug 24th Sat afternoon, let\'s catch up on Lantau.',
+    image:'/images/25th/og.jpg'
+  }
   return (
-    <Layout
-      title={'Christopher\'s 25th Birthday Party 🎂'}
-      description={'On Aug 24th Sat afternoon, let\'s catch up on Lantau.'}
-      image={'/images/25th/og.jpg'}
+    <motion.div
+      initial={{ scale: 1 }}
+      animate={{ scale: 0.5 }}
+      exit={{ scale: 0.1 }}
     >
       <section>
         <h2>🍺 🏖️ 🧞 🌊</h2>
@@ -39,6 +45,6 @@ export default function TwentyFifth() {
           See you soon!
         </h2>
       </section>
-    </Layout>
+    </motion.div>
   );
 }

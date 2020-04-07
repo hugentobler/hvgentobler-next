@@ -1,20 +1,30 @@
 // pages/index.js
 
 // Modules
-import Layout from '../components/Layout';
+// import Layout from '../components/Layout';
 import Link from '../components/Link';
+import { motion } from 'framer-motion';
 
-export default function Index() {
+export default function Index(props) {
+  const frontmatter = {
+    title: 'Christopher Hugentobler',
+    description:'This is the description.',
+    image: '/'
+  };
+
   return (
-    <Layout
-      title={'Christopher Hugentobler'}
-      description={'This is the description.'}
-      image={'/'}
+    // <Layout
+    //
+    // >
+    <motion.div
+      initial={{ scale: 1 }}
+      animate={{ scale: 0.5 }}
+      exit={{ scale: 0.1 }}
     >
       <section>
         <div>
           <h2>
-          <Link href="/">
+          <Link href='/'>
             <a className='link'>Home</a>
           </Link>
           <Link href='/25th'>
@@ -55,6 +65,6 @@ export default function Index() {
           entrepreneur<br/>
         </h2>
       </section>
-    </Layout>
+    </motion.div>
   );
 }

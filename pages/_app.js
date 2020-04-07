@@ -4,7 +4,9 @@
 import App from 'next/app';
 import UserContext from '../components/UserContext';
 import SetProperty from '../components/CustomCssProperties';
-import {PageReady} from '../components/Animation';
+import { PageReady } from '../components/Animation';
+import { AnimatePresence } from 'framer-motion';
+import Layout from '../components/Layout';
 
 // Global styles
 import '../styles/reset.scss';
@@ -40,12 +42,17 @@ export default class MyApp extends App {
   };
 
   render() {
-    const { Component, pageProps } = this.props;
-
+    const { Component, pageProps, router } = this.props;
     return (
-      // User context passes the state down the tree.
       <UserContext.Provider value={{ history: this.state.history }}>
-        <Component {...pageProps} />
+      {/*User context passes the state down the tree.*/}
+        <Layout>
+        {/*Wrap animated page content inside animated components.*/}
+          <AnimatePresence exitBeforeEnter>
+          {/*Framer motion animation on mount / dismount.*/}
+            <Component {...pageProps} key={router.route} />
+          </AnimatePresence>
+        </Layout>
       </UserContext.Provider>
     )
   };

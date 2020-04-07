@@ -4,6 +4,7 @@
 import dynamic from 'next/dynamic';
 import { useRouter } from 'next/router';
 import Head from 'next/head';
+import { motion } from 'framer-motion';
 
 // Dynamic import
 // Client side javascript, we don't want server side rendering
