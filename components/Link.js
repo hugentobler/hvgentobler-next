@@ -21,14 +21,15 @@ export default ({ href, children }) => {
     e.preventDefault();
     const newPath = e.target.pathname; // Persist synthetic event.
 
-    Blinds('link');
-    router.push(newPath);
-
     router.events.on('routeChangeStart', url => {
-      // body.classList.remove(ready);
-      // body.classList.add(animating);
+      const body = document.querySelector('body');
+      body.classList.remove('ready');
+      body.classList.add('animating');
       // body.classList.remove(blinds);
     });
+
+    // Blinds('link');
+    router.push(newPath);
   }
 
   return (

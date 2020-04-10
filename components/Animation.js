@@ -7,7 +7,7 @@ export const PageReady = () => {
   console.log('PageReady')
   const body = document.querySelector('body');
   body.classList.add('ready');
-  body.classList.remove('open');
+  body.classList.remove('open', 'animating');
 
   //Component has no UI, so return null
   return null;

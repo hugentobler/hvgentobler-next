@@ -4,6 +4,7 @@
 // import Layout from '../components/Layout';
 import Link from '../components/Link';
 import { motion } from 'framer-motion';
+import Background from '../components/Background';
 
 export default function Index(props) {
   const frontmatter = {
@@ -17,10 +18,11 @@ export default function Index(props) {
     //
     // >
     <motion.div
-      initial={{ scale: 1 }}
-      animate={{ scale: 0.5 }}
-      exit={{ scale: 0.1 }}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
     >
+      <Background />
       <section>
         <div>
           <h2>
