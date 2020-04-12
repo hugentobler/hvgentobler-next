@@ -19,9 +19,9 @@
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "strip-ansi": "^6.0.0",
-    "styled-jsx": "^3.2.5"
+    "styled-components": "^5.1.0"
   },
   "devDependencies": {
-    "styled-jsx-plugin-sass": "^1.0.0"
+    "babel-plugin-styled-components": "^1.10.7"
   }
 }

@@ -5,6 +5,9 @@ import dynamic from 'next/dynamic';
 import { useRouter } from 'next/router';
 import Head from 'next/head';
 import { motion } from 'framer-motion';
+import Favicon from '../components/Favicon';
+import Background from '../components/Background';
+import Blinds from '../components/Blinds';
 
 // Dynamic import
 // Client side javascript, we don't want server side rendering
@@ -13,10 +16,10 @@ const Browser = dynamic(
   { ssr: false }
 );
 
-const Header = dynamic(
-  () => import('../components/Nav'),
-  { ssr: false }
-);
+// const Header = dynamic(
+//   () => import('../components/Nav'),
+//   { ssr: false }
+// );
 
 const Layout = props => {
   // Get current path for frontmatter.
@@ -27,6 +30,8 @@ const Layout = props => {
   return (
     <>
       <Head>
+        <Favicon/>
+        <meta name="viewport" content="width=device-width,initial-scale=1" key="viewport" />
         <title>{props.title}</title>
         <meta name="description" content={props.description} />
         <meta property="og:title" content={props.title} />
@@ -40,10 +45,11 @@ const Layout = props => {
       <div className='root'>
         <div className='container'>
           <Browser />
-          <Header />
           <main>
             {props.children}
           </main>
+          <Background />
+          <Blinds />
         </div>
         <style jsx>{`
           .root {

@@ -35,7 +35,7 @@ const Header = () => {
         </div>
         <div className='side'></div>
       </nav>
-      <style jsx>{`
+      {/*<style jsx>{`
         $for-not-small: screen and (min-width: 30em);
         $letter-spacing: -0.05rem;
         header {
@@ -248,7 +248,7 @@ const Header = () => {
           transition: all .4s cubic-bezier(.45,.05,.55,.95) .2s;
           visibility: visible;
         }
-      `}</style>
+      `}</style>*/}
     </>
   )
 };
