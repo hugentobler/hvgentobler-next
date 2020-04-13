@@ -7,33 +7,30 @@ import styled from 'styled-components';
 const Blinds = () => (
   <Wrap>
     <Side>
-        <Fill
-          initial='hidden'
-          animate='visible'
-          variants={fillVariants}
-          exit='exit'
-        />
+      <Fill
+
+      />
     </Side>
     {/*<Inner>
       {[...Array(6)].map((e, i) =>
         <Blind key={i}
-          custom={i}
-          initial='hidden'
-          animate='visible'
+      custom={i}
+      initial='hidden'
+      animate='visible'
         >
-          <Fill
-            initial='hidden'
-            animate='visible'
-            variants={fillVariants}
-          />
+      <Fill
+      initial='hidden'
+      animate='visible'
+      variants={fillVariants}
+      />
         </Blind>
       )}
     </Inner>*/}
     <Side>
       <Fill
-        initial='hidden'
-        animate='visible'
         variants={fillVariants}
+        animate='fold'
+        exit={['reset', 'unfold']}
       />
     </Side>
   </Wrap>
@@ -41,11 +38,20 @@ const Blinds = () => (
 
 // Animations
 const fillVariants = {
-  exit: {
-    right: 0,
+  fold: {
+    left: 'unset',
+    transition: { duration: 1, ease: [.45,.05,.55,.95] }
+  },
+  reset: {
+    right: 'unset',
+    left: '0',
+    transition: { duration: 0 }
+  },
+  unfold: {
+    right: '0',
     transition: {
       duration: 1,
-      ease: [.45,.05,.55,.95],
+      ease: [.45,.05,.55,.95]
     }
   }
 }
@@ -97,6 +103,7 @@ const Fill = styled(motion.div)`
   bottom: 0;
   left: 0;
   position: absolute;
+  right: 0;
   top: 0;
 `;
 

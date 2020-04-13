@@ -7,14 +7,14 @@ import styled from 'styled-components';
 const Background = () => (
   <Wrap>
     <Inner>
-        {[...Array(6)].map((e, i) =>
-          <Line key={i}
-            custom={i}
-            initial='hidden'
-            animate='visible'
-            variants={lineVariants}
-          />
-        )}
+      {[...Array(6)].map((e, i) =>
+        <Line key={i}
+          custom={i}
+          initial='hidden'
+          animate='visible'
+          variants={lineVariants}
+        />
+      )}
     </Inner>
   </Wrap>
 );
