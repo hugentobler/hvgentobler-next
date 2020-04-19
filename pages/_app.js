@@ -36,7 +36,7 @@ export default class MyApp extends App {
       this.setState(prevState => ({ history: [...prevState.history, asPath] }));
     }
 
-    SetProperty(this.props.router.pathname);
+    // SetProperty(this.props.srouter.pathname);
     PageReady();
   };
 

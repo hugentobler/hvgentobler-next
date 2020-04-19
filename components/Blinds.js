@@ -1,7 +1,7 @@
 // components/Blinds.js
 
 // Modules
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import styled from 'styled-components';
 
 const Blinds = () => (
@@ -29,8 +29,7 @@ const Blinds = () => (
     <Side>
       <Fill
         variants={fillVariants}
-        animate='fold'
-        exit={['reset', 'unfold']}
+        exit='exit'
       />
     </Side>
   </Wrap>
@@ -38,23 +37,32 @@ const Blinds = () => (
 
 // Animations
 const fillVariants = {
-  fold: {
-    left: 'unset',
-    transition: { duration: 1, ease: [.45,.05,.55,.95] }
-  },
-  reset: {
-    right: 'unset',
-    left: '0',
-    transition: { duration: 0 }
-  },
-  unfold: {
-    right: '0',
+  exit: {
+    width: ['0%', '100%', '0%'],
     transition: {
-      duration: 1,
-      ease: [.45,.05,.55,.95]
+      duration: 2,
+      times: [0, 0.5, 1]
     }
   }
 }
+// const fillVariants = {
+//   fold: {
+//     left: 'unset',
+//     transition: { duration: 1, ease: [.45,.05,.55,.95] }
+//   },
+//   reset: {
+//     right: 'unset',
+//     left: '0',
+//     transition: { duration: 2 }
+//   },
+//   unfold: {
+//     right: '0',
+//     transition: {
+//       duration: 1,
+//       ease: [.45,.05,.55,.95]
+//     }
+//   }
+// }
 
 // Styled components
 const Wrap = styled.div`
@@ -103,8 +111,9 @@ const Fill = styled(motion.div)`
   bottom: 0;
   left: 0;
   position: absolute;
-  right: 0;
+  //right: 0;
   top: 0;
+  width: 0%;
 `;
 
 export default Blinds;
