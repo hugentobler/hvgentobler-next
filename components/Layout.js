@@ -4,7 +4,6 @@
 import dynamic from 'next/dynamic';
 import { useRouter } from 'next/router';
 import Head from 'next/head';
-import { motion } from 'framer-motion';
 import Favicon from '../components/Favicon';
 import Background from '../components/Background';
 import Blinds from '../components/Blinds';

@@ -29,7 +29,6 @@ const Blinds = () => (
     <Side>
       <Fill
         variants={fillVariants}
-        exit='exit'
       />
     </Side>
   </Wrap>

@@ -20,7 +20,6 @@ export default ({ href, children }) => {
   const onClick = (e) => {
     e.preventDefault();
     const newPath = e.target.pathname; // Persist synthetic event.
-
     router.events.on('routeChangeStart', url => {
       const body = document.querySelector('body');
       body.classList.remove('ready');
