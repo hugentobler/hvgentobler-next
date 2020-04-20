@@ -5,7 +5,6 @@
 import React from 'react';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
-import { Blinds } from '../components/Animation';
 
 export default ({ href, children }) => {
   const router = useRouter();
@@ -24,10 +23,8 @@ export default ({ href, children }) => {
       const body = document.querySelector('body');
       body.classList.remove('ready');
       body.classList.add('animating');
-      // body.classList.remove(blinds);
     });
 
-    // Blinds('link');
     router.push(newPath);
   }
 

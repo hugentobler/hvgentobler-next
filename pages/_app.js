@@ -44,9 +44,7 @@ export default class MyApp extends App {
     const { Component, pageProps, router } = this.props;
     return (
       <UserContext.Provider value={{ history: this.state.history }}>
-      {/*User context passes the state down the tree.*/}
         <AnimatePresence exitBeforeEnter>
-        {/*Framer motion animation on mount / dismount.*/}
           <Component {...pageProps} key={router.route} />
         </AnimatePresence>
       </UserContext.Provider>

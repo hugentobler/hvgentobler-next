@@ -28,7 +28,7 @@ const Blinds = () => (
     </Inner>*/}
     <Side>
       <Fill
-        variants={fillVariants}
+
       />
     </Side>
   </Wrap>
