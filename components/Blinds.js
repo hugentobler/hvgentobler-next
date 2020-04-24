@@ -13,24 +13,22 @@ const Blinds = () => (
         variants={fillVariants}
       />
     </Side>
-    {/*<Inner>
+    <Inner>
       {[...Array(6)].map((e, i) =>
-        <Blind key={i}
-      custom={i}
-      initial='hidden'
-      animate='visible'
-        >
-      <Fill
-      initial='hidden'
-      animate='visible'
-      variants={fillVariants}
-      />
+        <Blind key={i}>
+          <Fill
+            animate='hidden'
+            exit='exit'
+            variants={fillVariants}
+          />
         </Blind>
       )}
-    </Inner>*/}
+    </Inner>
     <Side>
       <Fill
-
+        animate='hidden'
+        exit='exit'
+        variants={fillVariants}
       />
     </Side>
   </Wrap>
@@ -43,8 +41,9 @@ const fillVariants = {
   },
   exit: {
     width: ['0%', '100%', '0%'],
+    opacity: 1,
     transition: {
-      duration: 2,
+      duration: .4,
       times: [0, 0.5, 1]
     }
   }
@@ -89,6 +88,8 @@ const Side = styled(motion.div)`
 `;
 
 const Inner = styled.div`
+  display: flex;
+  flex-direction: row;
   font-size: 0;
   height: 100%;
   max-width: var(--max-width);
@@ -99,12 +100,11 @@ const Inner = styled.div`
 const Blind = styled(motion.div)`
   border-right: 1px solid var(--background-color);
   box-sizing: border-box;
-  display: inline-block;
+  flex-grow: 1;
   height: 100%;
+  opacity: 0;
   padding: var(--spacing-none);
   position: relative;
-  vertical-align: top;
-  width: calc(100% / 12 * 2);
   &:last-child {
     //border-right: none;
   }
