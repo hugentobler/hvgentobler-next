@@ -10,7 +10,6 @@ const Background = () => (
       {[...Array(6)].map((e, i) =>
         <Line key={i}
           custom={i}
-          initial='hidden'
           animate='visible'
           variants={lineVariants}
         />
@@ -44,6 +43,8 @@ const Wrap = styled.div`
 `;
 
 const Inner = styled.div`
+  display: flex;
+  flex-direction: row;
   height: 100%;
   margin: 0 auto;
   max-width: var(--max-width);
@@ -51,11 +52,9 @@ const Inner = styled.div`
 `;
 
 const Line = styled(motion.div)`
-  display: inline-block;
+  flex-grow: 1;
   height: 0;
   position: relative;
-  vertical-align: top;
-  width: calc(100% / 12 * 2);
   &::after {
     border-right: 1px solid var(--text-color);
     bottom: 0;

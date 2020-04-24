@@ -8,7 +8,9 @@ const Blinds = () => (
   <Wrap>
     <Side>
       <Fill
-
+        animate='hidden'
+        exit='exit'
+        variants={fillVariants}
       />
     </Side>
     {/*<Inner>
@@ -36,6 +38,9 @@ const Blinds = () => (
 
 // Animations
 const fillVariants = {
+  hidden: {
+    width: '0%'
+  },
   exit: {
     width: ['0%', '100%', '0%'],
     transition: {

@@ -3,6 +3,8 @@
 // Modules
 import dynamic from 'next/dynamic';
 import { useRouter } from 'next/router';
+import { motion } from 'framer-motion';
+import styled from 'styled-components';
 import Head from 'next/head';
 import Favicon from '../components/Favicon';
 import Background from '../components/Background';
@@ -10,10 +12,10 @@ import Blinds from '../components/Blinds';
 
 // Dynamic import
 // Client side javascript, we don't want server side rendering
-const Browser = dynamic(
-  () => import('../components/Browser'),
-  { ssr: false }
-);
+// const Browser = dynamic(
+//   () => import('../components/Browser'),
+//   { ssr: false }
+// );
 
 // const Header = dynamic(
 //   () => import('../components/Nav'),
@@ -41,30 +43,50 @@ const Layout = props => {
         <meta property="og:image" content={`https://hvgentobler.com${props.image}`} />
         {isProd ? <meta name="robots" content="index, follow" /> : <meta name="robots" content="noindex, nofollow" />}
       </Head>
-      <div className='root'>
-        <div className='container'>
-          <Browser />
-          <main>
+      <Root>
+        <Container>
+          <motion.main
+            initial='hidden'
+            animate='visible'
+            exit='hidden'
+            variants={mainVariants}
+          >
             {props.children}
-          </main>
+          </motion.main>
           <Background />
           <Blinds />
-        </div>
-        <style jsx>{`
-          .root {
-            align-items: center;
-            display: flex;
-            flex-direction: column;
-            text-rendering: optimizeLegibility;
-          }
-          .container {
-            max-width: var(--max-width);
-            width: 100%;
-          }
-        `}</style>
-      </div>
+        </Container>>
+      </Root>>
     </>
   )
 };
+
+// Animations Framer Motion
+const mainVariants = {
+  hidden: {
+    opacity: 0
+  },
+  visible: {
+    opacity: 1,
+    transition: {
+      delay: .5,
+      duration: .3,
+      ease: [.45,.05,.55,.95],
+    }
+  }
+}
+
+// Styled components
+const Root = styled.div`
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  text-rendering: optimizeLegibility;
+`;
+
+const Container = styled.div`
+  max-width: var(--max-width);
+  width: 100%;
+`;
 
 export default Layout;

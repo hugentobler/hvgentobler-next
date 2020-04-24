@@ -2,7 +2,6 @@
 
 // Modules
 import Link from '../components/Link';
-import { motion } from 'framer-motion';
 import Layout from '../components/Layout';
 
 export default function TwentyFifth() {
@@ -13,6 +12,14 @@ export default function TwentyFifth() {
       image='/images/25th/og.jpg'
     >
       <section>
+        <h1>
+          <Link href='/'>
+            <a>Home</a>
+          </Link>
+          <Link href='/25th'>
+            <a>25<sup>th</sup> Birthday &#127812;</a>
+          </Link>
+        </h1>
         <h2>🍺 🏖️ 🧞 🌊</h2>
         <h2>
           I'm turning 25<br/>

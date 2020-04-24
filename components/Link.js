@@ -19,6 +19,7 @@ export default ({ href, children }) => {
   const onClick = (e) => {
     e.preventDefault();
     const newPath = e.target.pathname; // Persist synthetic event.
+    console.log(newPath)
     router.events.on('routeChangeStart', url => {
       const body = document.querySelector('body');
       body.classList.remove('ready');
@@ -30,7 +31,8 @@ export default ({ href, children }) => {
 
   return (
     <Link href={href}>
-      {React.cloneElement(children, { className, onClick })}
+      {React.cloneElement(children, { className })}
+      {/*React.cloneElement(children, { className, onClick })*/}
     </Link>
   );
 }

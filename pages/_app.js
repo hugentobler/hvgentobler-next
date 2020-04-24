@@ -24,7 +24,7 @@ export default class MyApp extends App {
     this.setState(prevState => ({ history: [...prevState.history, asPath] }));
 
     SetProperty(this.props.router.pathname);
-    PageReady();
+    //PageReady();
   };
 
   componentDidUpdate = () => {
@@ -37,7 +37,7 @@ export default class MyApp extends App {
     }
 
     // SetProperty(this.props.srouter.pathname);
-    PageReady();
+    //PageReady();
   };
 
   render() {

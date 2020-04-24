@@ -2,7 +2,6 @@
 
 // Modules
 import Link from '../components/Link';
-import { motion } from 'framer-motion';
 import Layout from '../components/Layout';
 
 export default function Index() {
@@ -14,13 +13,15 @@ export default function Index() {
     >
       <section>
         <div>
-          <h2>
+          <h1>
             <Link href='/'>
-              <a className='link'>Home</a>
+              <a>Home</a>
             </Link>
             <Link href='/25th'>
-              <a className='link'>25<sup>th</sup> Birthday &#127812;</a>
+              <a>25<sup>th</sup> Birthday &#127812;</a>
             </Link>
+          </h1>
+          <h2>
             Wide-eyed<br/>
             outdoors<br/>
             addict<br/>
