@@ -64,12 +64,15 @@ const Layout = props => {
 // Animations Framer Motion
 const mainVariants = {
   hidden: {
-    opacity: 0
+    opacity: 0,
+    transition: {
+      duration: 0
+    }
   },
   visible: {
     opacity: 1,
     transition: {
-      delay: .1,
+      delay: 0,
       duration: .3,
       ease: [.45,.05,.55,.95],
     }

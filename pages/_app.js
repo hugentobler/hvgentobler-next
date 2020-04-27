@@ -36,12 +36,12 @@ export default class MyApp extends App {
       this.setState(prevState => ({ history: [...prevState.history, asPath] }));
     }
 
-    // SetProperty(this.props.srouter.pathname);
     //PageReady();
   };
 
   render() {
     const { Component, pageProps, router } = this.props;
+
     return (
       <UserContext.Provider value={{ history: this.state.history }}>
         <AnimatePresence exitBeforeEnter>

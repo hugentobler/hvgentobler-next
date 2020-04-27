@@ -5,6 +5,7 @@
 import React from 'react';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
+import SetProperty from '../components/CustomCssProperties';
 
 export default ({ href, children }) => {
   const router = useRouter();
@@ -18,12 +19,14 @@ export default ({ href, children }) => {
   // Pass clicks through page transition.
   const onClick = (e) => {
     e.preventDefault();
+    let event = e.target
+    console.log(event)
     const newPath = e.target.pathname; // Persist synthetic event.
-    console.log(newPath)
     router.events.on('routeChangeStart', url => {
-      const body = document.querySelector('body');
-      body.classList.remove('ready');
-      body.classList.add('animating');
+      // const body = document.querySelector('body');
+      // body.classList.remove('ready');
+      // body.classList.add('animating');
+      SetProperty(newPath);
     });
 
     router.push(newPath);
@@ -31,8 +34,8 @@ export default ({ href, children }) => {
 
   return (
     <Link href={href}>
-      {React.cloneElement(children, { className })}
-      {/*React.cloneElement(children, { className, onClick })*/}
+      {/*React.cloneElement(children, { className })*/}
+      {React.cloneElement(children, { className, onClick })}
     </Link>
   );
 }

@@ -7,15 +7,18 @@ import styled from 'styled-components';
 const Blinds = () => (
   <Wrap>
     <Side>
-      <Fill
+      {/*<Fill
         animate='hidden'
         exit='exit'
         variants={fillVariants}
-      />
+      />*/}
     </Side>
     <Inner>
       {[...Array(6)].map((e, i) =>
-        <Blind key={i}>
+        <Blind key={i}
+          exit={{ opacity: 1 }}
+          transition={{ duration: 0 }}
+        >
           <Fill
             animate='hidden'
             exit='exit'
@@ -25,11 +28,11 @@ const Blinds = () => (
       )}
     </Inner>
     <Side>
-      <Fill
+      {/*<Fill
         animate='hidden'
         exit='exit'
         variants={fillVariants}
-      />
+      />*/}
     </Side>
   </Wrap>
 );
@@ -41,7 +44,7 @@ const fillVariants = {
   },
   exit: {
     width: ['0%', '100%', '0%'],
-    opacity: 1,
+    opacity: [1, 1, 1],
     transition: {
       duration: .4,
       times: [0, 0.5, 1]
