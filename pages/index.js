@@ -12,26 +12,16 @@ export default function Index() {
       image='/'
     >
       <section>
-        <div>
-          <h1>
-            <Link href='/'>
-              <a>Home</a>
-            </Link>
-            <Link href='/25th'>
-              <a>25<sup>th</sup> Birthday &#127812;</a>
-            </Link>
-          </h1>
-          <h2>
-            Wide-eyed<br/>
-            outdoors<br/>
-            addict<br/>
-            Millennial<br/>
-            tech<br/>
-            nut<br/>
-            Software<br/>
-            entrepreneur<br/>
-          </h2>
-        </div>
+        <h2>
+          Wide-eyed<br/>
+          outdoors<br/>
+          addict<br/>
+          Millennial<br/>
+          tech<br/>
+          nut<br/>
+          Software<br/>
+          entrepreneur<br/>
+        </h2>
       </section>
       <section>
         <h2>

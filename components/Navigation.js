@@ -1,44 +1,38 @@
 // components/Header.js
 
-// Libraries
+// Modules
+import styled from 'styled-components';
 import Link from '../components/Link';
+import { motion, useViewportScroll } from "framer-motion"
 import { ToggleMenu } from '../components/Animation';
 
-const Header = () => {
+const Navigation = () => {
   return (
     <>
-      <header>
-        <div className='inner'>
-          <div className='name'>
-            {/*<Link href='/'>
-              <a>Christopher Hugentobler</a>
-            </Link>*/}
-          </div>
-          <button onClick={ToggleMenu}>
-            <span id='menu'>🍔</span>
-            <span id='back'>🍔</span>
-          </button>
-        </div>
-      </header>
-      <nav>
+      <Menu>
+        <MenuInner>
+          <Hamburger onClick={ToggleMenu}>🍔</Hamburger>
+        </MenuInner>
+      </Menu>
+      {/*<nav>
         <div className='side'></div>
         <div className='background'>
           <section className='text'>
-            <Link href="/">
-              <a className='link'>Home</a>
-            </Link>
-            <Link href='/25th'>
-              <a className='link'>25<sup>th</sup> Birthday &#127812;</a>
-            </Link>
+        <Link href="/">
+        <a className='link'>Home</a>
+        </Link>
+        <Link href='/25th'>
+        <a className='link'>25<sup>th</sup> Birthday &#127812;</a>
+        </Link>
           </section>
           {[...Array(6)].map((e, i) => <div className='line' key={i}></div>)}
         </div>
         <div className='side'></div>
-      </nav>
-      {/*<style jsx>{`
-        $for-not-small: screen and (min-width: 30em);
-        $letter-spacing: -0.05rem;
-        header {
+        </nav>
+        <style jsx>{`
+          $for-not-small: screen and (min-width: 30em);
+          $letter-spacing: -0.05rem;
+          header {
           align-items: center;
           // background: var(--background-color);
           bottom: 0;
@@ -46,7 +40,7 @@ const Header = () => {
           flex-direction: column;
           height: 6rem;
           @media ($for-not-small) {
-            height: 8rem;
+          height: 8rem;
           }
           justify-content: center;
           left: 0;
@@ -54,34 +48,34 @@ const Header = () => {
           transition: all .3s cubic-bezier(.45,.05,.55,.95) 0s;
           position: fixed;
           z-index: 9999;
-        }
-        :global(.scrolled) header {
+          }
+          :global(.scrolled) header {
           transform: translateY(100%);
           opacity: 0;
-        }
-        .inner {
+          }
+          .inner {
           align-items: center;
           display: flex;
           flex-direction: row;
           justify-content: space-between;
           max-width: var(--max-width);
           width: 100%;
-        }
-        .name {
+          }
+          .name {
           font-size: 1.6rem;
           @media ($for-not-small) {
-            font-size: 2rem;
+          font-size: 2rem;
           }
           font-weight: 300;
           letter-spacing: -0.05rem;
           line-height: 1;
           margin-left: var(--spacing-small);
           & a {
-            color: var(--text-color);
-            text-decoration: none !important;
+          color: var(--text-color);
+          text-decoration: none !important;
           }
-        }
-        button {
+          }
+          button {
           align-items: center;
           background: var(--text-color);
           border-color: var(--text-color);
@@ -101,29 +95,29 @@ const Header = () => {
           width: 3rem;
           z-index: 9999;
           @media ($for-not-small) {
-            height: 4rem;
-            width: 4rem;
+          height: 4rem;
+          width: 4rem;
           }
           &:hover, &:focus, &:active {
-            transition: none;
-            & > span {
-              font-size: 2rem;
-              height: 2rem;
-              @media ($for-not-small) {
-                font-size: 2.4rem;
-                height: 2.4rem;
-              }
-            }
+          transition: none;
+          & > span {
+          font-size: 2rem;
+          height: 2rem;
+          @media ($for-not-small) {
+          font-size: 2.4rem;
+          height: 2.4rem;
+          }
+          }
           }
           & > span {
-            display: none;
-            font-size: 1.6rem;
-            font-weight: 300;
-            height: 1.6rem;
-            letter-spacing: $letter-spacing;
-            line-height: 1;
+          display: none;
+          font-size: 1.6rem;
+          font-weight: 300;
+          height: 1.6rem;
+          letter-spacing: $letter-spacing;
+          line-height: 1;
           }
-        }
+          }
         :global(.animating) button {
           cursor: wait;
         }
@@ -253,4 +247,64 @@ const Header = () => {
   )
 };
 
-export default Header;
+// Styled components
+const theme = {
+  forNotSmall: 'screen and (min-width: 30em)',
+  letterSpacing: '-0.05rem'
+};
+
+const Menu = styled.div`
+  bottom: 0;
+  height: 6rem;
+  @media ${theme.forNotSmall} {
+    height: 8rem;
+  }
+  left: 0;
+  right: 0;
+  position: fixed;
+  z-index: 9999;
+`;
+
+const MenuInner = styled.div`
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: center;
+  margin: 0 auto;
+  max-width: var(--max-width);
+  width: 100%;
+`;
+
+const Hamburger = styled.button`
+  align-self: end;
+  background: var(--text-color);
+  border-color: var(--text-color);
+  border-radius: 50%;
+  border-style: solid;
+  border-width: 2px;
+  color: var(--text-color);
+  cursor: pointer;
+  height: 3rem;
+  outline: 0;
+  overflow: hidden;
+  width: 3rem;
+  z-index: 9999;
+  @media ${theme.forNotSmall} {
+    height: 4rem;
+    width: 4rem;
+  }
+  &:hover, &:focus, &:active {
+    transition: none;
+    font-size: 2rem;
+    @media ${theme.forNotSmall} {
+      font-size: 2.4rem;
+    }
+  }
+  font-size: 1.6rem;
+  font-weight: 300;
+  height: 1.6rem;
+  line-height: 1;
+`;
+
+
+export default Navigation;

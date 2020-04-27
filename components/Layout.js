@@ -17,10 +17,10 @@ import Blinds from '../components/Blinds';
 //   { ssr: false }
 // );
 
-// const Header = dynamic(
-//   () => import('../components/Nav'),
-//   { ssr: false }
-// );
+const Navigation = dynamic(
+  () => import('../components/Navigation'),
+  { ssr: false }
+);
 
 const Layout = props => {
   // Get current path for frontmatter.
@@ -55,8 +55,9 @@ const Layout = props => {
           </motion.main>
           <Background />
           <Blinds />
-        </Container>>
-      </Root>>
+          <Navigation />
+        </Container>
+      </Root>
     </>
   )
 };
