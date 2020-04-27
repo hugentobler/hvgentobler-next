@@ -51,24 +51,6 @@ const fillVariants = {
     }
   }
 }
-// const fillVariants = {
-//   fold: {
-//     left: 'unset',
-//     transition: { duration: 1, ease: [.45,.05,.55,.95] }
-//   },
-//   reset: {
-//     right: 'unset',
-//     left: '0',
-//     transition: { duration: 2 }
-//   },
-//   unfold: {
-//     right: '0',
-//     transition: {
-//       duration: 1,
-//       ease: [.45,.05,.55,.95]
-//     }
-//   }
-// }
 
 // Styled components
 const Wrap = styled.div`

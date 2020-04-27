@@ -4,7 +4,6 @@
 import App from 'next/app';
 import UserContext from '../components/UserContext';
 import SetProperty from '../components/CustomCssProperties';
-import { PageReady } from '../components/Animation';
 import { AnimatePresence } from 'framer-motion';
 
 // Global styles
@@ -22,9 +21,8 @@ export default class MyApp extends App {
     // Save initial path to history.
     const { asPath } = this.props.router;
     this.setState(prevState => ({ history: [...prevState.history, asPath] }));
-
+    // Set css properties on load. 
     SetProperty(this.props.router.pathname);
-    //PageReady();
   };
 
   componentDidUpdate = () => {
@@ -35,8 +33,6 @@ export default class MyApp extends App {
     if (history[history.length - 1] !== asPath) {
       this.setState(prevState => ({ history: [...prevState.history, asPath] }));
     }
-
-    //PageReady();
   };
 
   render() {

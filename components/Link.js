@@ -19,13 +19,12 @@ export default ({ href, children }) => {
   // Pass clicks through page transition.
   const onClick = (e) => {
     e.preventDefault();
-    let event = e.target
-    console.log(event)
-    const newPath = e.target.pathname; // Persist synthetic event.
+    const newPath = e.currentTarget.pathname; // Persist synthetic event.
     router.events.on('routeChangeStart', url => {
       // const body = document.querySelector('body');
       // body.classList.remove('ready');
       // body.classList.add('animating');
+      // Set css properties on link click.
       SetProperty(newPath);
     });
 
