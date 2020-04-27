@@ -3,17 +3,18 @@
 // Modules
 import styled from 'styled-components';
 import Link from '../components/Link';
-import { motion, useViewportScroll } from "framer-motion"
-import { ToggleMenu } from '../components/Animation';
+import UserContext from '../components/UserContext';
 
 const Navigation = () => {
   return (
-    <>
-      <Menu>
-        <MenuInner>
-          <Hamburger onClick={ToggleMenu}>🍔</Hamburger>
-        </MenuInner>
-      </Menu>
+    <UserContext.Consumer>
+      {context => (
+        <Menu>
+          <MenuInner>
+            <Hamburger name='menu' onClick={() => context.toggleMenu()}>🍔</Hamburger>
+          </MenuInner>
+        </Menu>
+      )}
       {/*<nav>
         <div className='side'></div>
         <div className='background'>
@@ -243,9 +244,10 @@ const Navigation = () => {
           visibility: visible;
         }
       `}</style>*/}
-    </>
+    </UserContext.Consumer>
   )
 };
+
 
 // Styled components
 const theme = {
@@ -261,6 +263,7 @@ const Menu = styled.div`
   }
   left: 0;
   right: 0;
+  padding: 0 var(--spacing-small);
   position: fixed;
   z-index: 9999;
 `;
@@ -302,7 +305,6 @@ const Hamburger = styled.button`
   }
   font-size: 1.6rem;
   font-weight: 300;
-  height: 1.6rem;
   line-height: 1;
 `;
 

@@ -13,7 +13,8 @@ import '../styles/body.scss';
 
 export default class MyApp extends App {
   state = {
-    history: [] // Store page history.
+    history: [], // Store page history.
+    menuOpen: false
   };
 
   componentDidMount = () => {
@@ -21,7 +22,7 @@ export default class MyApp extends App {
     // Save initial path to history.
     const { asPath } = this.props.router;
     this.setState(prevState => ({ history: [...prevState.history, asPath] }));
-    // Set css properties on load. 
+    // Set css properties on load.
     SetProperty(this.props.router.pathname);
   };
 
@@ -38,8 +39,18 @@ export default class MyApp extends App {
   render() {
     const { Component, pageProps, router } = this.props;
 
+    // Handle menu toggling, and pass through context provider.
+    const toggleMenu = () => {
+      this.setState({
+        toggleMenu: !this.state.toggleMenu
+      });
+    };
+
     return (
-      <UserContext.Provider value={{ history: this.state.history }}>
+      <UserContext.Provider value={{
+        state: this.state,
+        toggleMenu: toggleMenu
+      }}>
         <AnimatePresence exitBeforeEnter>
           <Component {...pageProps} key={router.route} />
         </AnimatePresence>
