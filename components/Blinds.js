@@ -1,52 +1,101 @@
 // components/Blinds.js
 
 // Modules
-import { motion } from 'framer-motion';
+import { useContext } from 'react';
+import UserContext from '../components/UserContext';
+import { motion, useAnimation } from 'framer-motion';
 import styled from 'styled-components';
 
-const Blinds = () => (
-  <Wrap>
-    <Side>
-      {/*<Fill
-        animate='hidden'
-        exit='exit'
-        variants={fillVariants}
-      />*/}
-    </Side>
-    <Inner>
-      {[...Array(6)].map((e, i) =>
-        <Blind key={i}
-          exit={{ opacity: 1 }}
-          transition={{ duration: 0 }}
-        >
-          <Fill
-            animate='hidden'
-            exit='exit'
-            variants={fillVariants}
-          />
-        </Blind>
-      )}
-    </Inner>
-    <Side>
-      {/*<Fill
-        animate='hidden'
-        exit='exit'
-        variants={fillVariants}
-      />*/}
-    </Side>
-  </Wrap>
-);
+const Blinds = () => {
+  // Is menuOpen? Consume static context.
+  const menuOpen = useContext(UserContext)['state']['menuOpen'];
+  // Connect menuOpen status to component animation.
+  const fillControls = useAnimation();
+  const blindControls = useAnimation();
+  if (menuOpen) {
+    blindControls.start('visible').then(() => {
+      fillControls.start('open');
+    })
+  } else {
+    fillControls.start('close').then(() => {
+      blindControls.start('hidden');
+    })
+  }
+
+  return (
+    <Wrap>
+      <Side>
+        {/*<Fill
+          animate='hidden'
+          exit='exit'
+          variants={fillVariants}
+        />*/}
+      </Side>
+      <Inner>
+        {[...Array(6)].map((e, i) =>
+          <Blind key={i}
+            animate={blindControls}
+            exit='visible'
+            variants={blindVariants}
+          >
+            <Fill
+              animate={fillControls}
+              exit='exit'
+              variants={fillVariants}
+            />
+          </Blind>
+        )}
+      </Inner>
+      <Side>
+        {/*<Fill
+          animate='hidden'
+          exit='exit'
+          variants={fillVariants}
+        />*/}
+      </Side>
+    </Wrap>
+  )
+};
 
 // Animations
+const blindVariants = {
+  hidden: {
+    opacity: 0,
+    transition: {
+      duration: 0
+    }
+  },
+  visible: {
+    opacity: 1,
+    transition: {
+      duration: 0
+    }
+  }
+}
+
 const fillVariants = {
   hidden: {
     width: '0%'
   },
-  exit: {
-    width: ['0%', '100%', '0%'],
-    opacity: [1, 1, 1],
+  open: {
+    width: '100%',
     transition: {
       duration: .4,
+      ease: [.45,.05,.55,.95]
+    }
+  },
+  close: {
+    width: '0%',
+    transition: {
+      duration: .4,
+      ease: [.45,.05,.55,.95]
+    }
+  },
+  exit: {
+    width: ['0%', '100%', '0%'],
+    transition: {
+      duration: .4,
+      ease: [.45,.05,.55,.95],
       times: [0, 0.5, 1]
     }
   }

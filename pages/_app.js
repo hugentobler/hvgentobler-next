@@ -2,7 +2,7 @@
 
 // Modules
 import App from 'next/app';
-import UserContext from '../components/UserContext';
+import { Provider } from '../components/UserContext';
 import SetProperty from '../components/CustomCssProperties';
 import { AnimatePresence } from 'framer-motion';
 
@@ -42,19 +42,19 @@ export default class MyApp extends App {
     // Handle menu toggling, and pass through context provider.
     const toggleMenu = () => {
       this.setState({
-        toggleMenu: !this.state.toggleMenu
+        menuOpen: !this.state.menuOpen
       });
     };
 
     return (
-      <UserContext.Provider value={{
+      <Provider value={{
         state: this.state,
         toggleMenu: toggleMenu
       }}>
         <AnimatePresence exitBeforeEnter>
           <Component {...pageProps} key={router.route} />
         </AnimatePresence>
-      </UserContext.Provider>
+      </Provider>
     )
   };
 }

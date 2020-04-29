@@ -1,252 +1,52 @@
 // components/Header.js
 
 // Modules
+import React from 'react';
+import { useContext } from 'react';
+import UserContext from '../components/UserContext';
+import { motion, useAnimation } from 'framer-motion';
 import styled from 'styled-components';
 import Link from '../components/Link';
-import UserContext from '../components/UserContext';
 
 const Navigation = () => {
+  // Is menuOpen? and toggleMenu. Consume static context.
+  const menuOpen = useContext(UserContext)['state']['menuOpen'];
+  const toggleMenu = useContext(UserContext)['toggleMenu'];
+  // Connect menuOpen status to component animation.
+  const linkControls = useAnimation();
+
   return (
-    <UserContext.Consumer>
-      {context => (
-        <Menu>
-          <MenuInner>
-            <Hamburger name='menu' onClick={() => context.toggleMenu()}>🍔</Hamburger>
-          </MenuInner>
-        </Menu>
-      )}
-      {/*<nav>
-        <div className='side'></div>
-        <div className='background'>
-          <section className='text'>
-        <Link href="/">
-        <a className='link'>Home</a>
-        </Link>
-        <Link href='/25th'>
-        <a className='link'>25<sup>th</sup> Birthday &#127812;</a>
-        </Link>
-          </section>
-          {[...Array(6)].map((e, i) => <div className='line' key={i}></div>)}
-        </div>
-        <div className='side'></div>
-        </nav>
-        <style jsx>{`
-          $for-not-small: screen and (min-width: 30em);
-          $letter-spacing: -0.05rem;
-          header {
-          align-items: center;
-          // background: var(--background-color);
-          bottom: 0;
-          display: flex;
-          flex-direction: column;
-          height: 6rem;
-          @media ($for-not-small) {
-          height: 8rem;
-          }
-          justify-content: center;
-          left: 0;
-          right: 0;
-          transition: all .3s cubic-bezier(.45,.05,.55,.95) 0s;
-          position: fixed;
-          z-index: 9999;
-          }
-          :global(.scrolled) header {
-          transform: translateY(100%);
-          opacity: 0;
-          }
-          .inner {
-          align-items: center;
-          display: flex;
-          flex-direction: row;
-          justify-content: space-between;
-          max-width: var(--max-width);
-          width: 100%;
-          }
-          .name {
-          font-size: 1.6rem;
-          @media ($for-not-small) {
-          font-size: 2rem;
-          }
-          font-weight: 300;
-          letter-spacing: -0.05rem;
-          line-height: 1;
-          margin-left: var(--spacing-small);
-          & a {
-          color: var(--text-color);
-          text-decoration: none !important;
-          }
-          }
-          button {
-          align-items: center;
-          background: var(--text-color);
-          border-color: var(--text-color);
-          border-radius: 50%;
-          border-style: solid;
-          border-width: 2px;
-          color: var(--text-color);
-          cursor: pointer;
-          display: flex;
-          height: 3rem;
-          justify-content: center;
-          margin-right: var(--spacing-medium);
-          outline: 0;
-          overflow: hidden;
-          position: relative;
-          transition: all .3s cubic-bezier(.45,.05,.55,.95) 0s;
-          width: 3rem;
-          z-index: 9999;
-          @media ($for-not-small) {
-          height: 4rem;
-          width: 4rem;
-          }
-          &:hover, &:focus, &:active {
-          transition: none;
-          & > span {
-          font-size: 2rem;
-          height: 2rem;
-          @media ($for-not-small) {
-          font-size: 2.4rem;
-          height: 2.4rem;
-          }
-          }
-          }
-          & > span {
-          display: none;
-          font-size: 1.6rem;
-          font-weight: 300;
-          height: 1.6rem;
-          letter-spacing: $letter-spacing;
-          line-height: 1;
-          }
-          }
-        :global(.animating) button {
-          cursor: wait;
-        }
-        :global(.menu) button {
-          border-color: var(--background-color);
-          & > span {
-            font-size: 2rem;
-            height: 2rem;
-            @media ($for-not-small) {
-              font-size: 2.4rem;
-              height: 2.4rem;
-            }
-          }
-        }
-        #menu {
-          display: unset !important;
-        }
-        :global(.menu) #menu {
-          display: none !important;
-        }
-        :global(.menu) #back {
-          display: unset !important;
-        }
-        nav {
-          bottom: 0;
-          display: flex;
-          left: 0;
-          position: fixed;
-          right: 0;
-          transition: visibility 0s .6s;
-          top: 0;
-          visibility: hidden;
-          z-index: 999;
-        }
-        :global(.blinds) {
-          overflow: hidden;
-        }
-        :global(.blinds) nav {
-          visibility: visible;
-          transition-delay: 0s;
-        }
-        .side {
-          background-color: var(--text-color);
-          flex-grow: 1;
-          opacity: 0;
-        }
-        .background {
-          font-size: 0;
-          height: 100%;
-          max-width: var(--max-width);
-          position: relative;
-          width: 100%;
-        }
-        :global(.blinds) .side {
-          opacity: 1;
-        }
-        .line {
-          display: inline-block;
-          height: 100%;
-          padding: var(--spacing-none);
-          position: relative;
-          vertical-align: top;
-          width: calc(100% / 12 * 2);
-          &::after {
-            background-color: var(--text-color);
-            border-right: 1px solid var(--background-color);
-            bottom: 0;
-            content: '';
-            left: 0;
-            position: absolute;
-            right: 0;
-            top: 0;
-            transform: scaleX(0);
-            transform-origin: center right;
-            transition: transform .3s cubic-bezier(.45,.05,.55,.95) 0s;
-          }
-          &:last-child::after {
-            border-right: none;
-          }
-        }
-        :global(.blinds) .line::after {
-          transform: scaleX(1);
-          transform-origin: center left;
-        }
-        .text {
-          align-items: flex-start;
-          display: flex;
-          flex-direction: column;
-          left: 0;
-          bottom: 4rem;
-          justify-content: flex-start;
-          margin-left: var(--spacing-small);
-          margin-top: 0;
-          top: 0;
-          overflow: scroll;
-          position: absolute;
-          width: 100%;
-          z-index: 9999;
-        }
-        .link {
-          border: none;
-          border-color: var(--background-color);
-          clip-path: inset(0 100% 0 0);
-          color: var(--background-color);
-          font-size: 2.25rem;
-          font-weight: 300;
-          letter-spacing: $letter-spacing;
-          line-height: 1.25;
-          margin-bottom: var(--spacing-small);
-          text-decoration: none;
-          transition: 0s;
-          visibility: hidden;
-          &:first-child {
-            margin-top: var(--spacing-large);
-          }
-        }
-        :global(.active) {
-          border-bottom: 2px solid !important;
-        }
-        :global(.menu) .link {
-          clip-path: inset(0);
-          transition: all .4s cubic-bezier(.45,.05,.55,.95) .2s;
-          visibility: visible;
-        }
-      `}</style>*/}
-    </UserContext.Consumer>
+    <>
+      <Menu>
+        <MenuInner>
+          <Hamburger name='menu'
+            className={(menuOpen ? 'open' : '')}
+            onClick={toggleMenu}>
+          🍔</Hamburger>
+        </MenuInner>
+      </Menu>
+      <Nav className={(menuOpen ? 'open' : '')}>
+        <NavInner>
+          <LinkParent>
+            <Link href='/'><a>Home ↩</a></Link>
+            <Link href='/25th'><a>25th Birthday 🍄</a></Link>
+          </LinkParent>
+        </NavInner>
+      </Nav>
+    </>
   )
 };
+
+// components
+const LinkParent = ({children}) => {
+  console.log({children})
+  return (
+    <>
+    </>
+  )
+};
+
+// Animations
 
 
 // Styled components
@@ -263,7 +63,6 @@ const Menu = styled.div`
   }
   left: 0;
   right: 0;
-  padding: 0 var(--spacing-small);
   position: fixed;
   z-index: 9999;
 `;
@@ -283,29 +82,83 @@ const Hamburger = styled.button`
   background: var(--text-color);
   border-color: var(--text-color);
   border-radius: 50%;
-  border-style: solid;
-  border-width: 2px;
+  border-style: none;
   color: var(--text-color);
   cursor: pointer;
+  font-size: 1.6rem;
+  line-height: 1;
   height: 3rem;
+  margin-right: var(--spacing-medium);
   outline: 0;
   overflow: hidden;
+  position: relative;
   width: 3rem;
-  z-index: 9999;
   @media ${theme.forNotSmall} {
     height: 4rem;
     width: 4rem;
   }
-  &:hover, &:focus, &:active {
+  &:hover, &:focus, &:active, &.open {
     transition: none;
     font-size: 2rem;
     @media ${theme.forNotSmall} {
       font-size: 2.4rem;
     }
   }
-  font-size: 1.6rem;
-  font-weight: 300;
-  line-height: 1;
+  &.open {
+    background: var(--background-color);
+    transform: rotate(30deg);
+  }
+`;
+
+const Nav = styled.nav`
+  bottom: 8rem;
+  display: none;
+  left: 0;
+  overflow-y: scroll;
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: 999;
+  &.open {
+    display: block;
+    a {
+      clip-path: inset(0);
+    }
+  }
+`;
+
+const NavInner = styled.div`
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  margin: 0 auto;
+  max-width: var(--max-width);
+  width: 100%;
+  a {
+    border-color: var(--text-color);
+    border-style: solid;
+    border-bottom-width: 2px;
+    clip-path: inset(0 100% 0 0);
+    color: var(--background-color);
+    font-size: 2.25rem;
+    font-weight: 300;
+    letter-spacing: $letter-spacing;
+    line-height: 1.25;
+    text-decoration: none;
+    transition: clip-path .4s cubic-bezier(.45,.05,.55,.95) .2s;
+    &.active {
+      border-color: var(--background-color);
+    }
+  }
+`;
+
+const LinkWrap = styled(motion.div)`
+  align-self: flex-start;
+  margin-bottom: var(--spacing-medium);
+  margin-left: var(--spacing-medium);
+  &:first-child {
+    margin-top: 16%;
+  }
 `;
 
 
