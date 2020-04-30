@@ -1,14 +1,6 @@
 // components/browser.js
 
-// Modules
-import { useContext } from 'react';
-import UserContext from '../components/UserContext';
-
 const browser = () => {
-
-  const {history} = useContext(UserContext);
-  console.log(history)
-
   const scrolled = 'scrolled';
   const body = document.querySelector('body');
   /*

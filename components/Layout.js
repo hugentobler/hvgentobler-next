@@ -9,16 +9,12 @@ import Head from 'next/head';
 import Favicon from '../components/Favicon';
 import Background from '../components/Background';
 import Blinds from '../components/Blinds';
+import Navigation from '../components/Navigation';
 
 // Dynamic import
 // Client side javascript, we don't want server side rendering
-// const Browser = dynamic(
-//   () => import('../components/Browser'),
-//   { ssr: false }
-// );
-
-const Navigation = dynamic(
-  () => import('../components/Navigation'),
+const Browser = dynamic(
+  () => import('../components/Browser'),
   { ssr: false }
 );
 

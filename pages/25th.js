@@ -1,8 +1,9 @@
 // pages/25th.js
 
 // Modules
-import Link from '../components/Link';
 import Layout from '../components/Layout';
+import Link from '../components/Link';
+import Image from '../components/Image';
 
 export default function TwentyFifth() {
   return (
@@ -33,8 +34,15 @@ export default function TwentyFifth() {
           Aug 31<sup>st</sup> Sat from 7:00 to 10:00 p.m.<br/>
           At Basement Cafe Taipei<br/>
         </p>
+        <Image>
+          <img
+            alt='Christopher pointing up and smiling!'
+            src='/images/25th/main.jpg'
+            loading='lazy'
+          />
+        </Image>
         <picture>
-          <img loading='lazy' className={'lazyload'} data-src='/images/25th/main.jpg' alt='My 25th birthday' width='' height=''/>
+          <img loading='lazy' className={'lazyload'} data-src='/images/25th/main-1200.jpg' alt='My 25th birthday' width='' height=''/>
         </picture>
         <h2>
           See you soon!
