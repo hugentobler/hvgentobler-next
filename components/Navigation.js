@@ -38,10 +38,17 @@ const Navigation = () => {
 };
 
 // components
+
+// LinkParent wraps each child in LinkWrap
 const LinkParent = ({children}) => {
   console.log({children})
   return (
     <>
+      {React.Children.map(children, child => {
+        return (
+          <LinkWrap>{child}</LinkWrap>
+        )
+      })}
     </>
   )
 };
@@ -142,7 +149,7 @@ const NavInner = styled.div`
     color: var(--background-color);
     font-size: 2.25rem;
     font-weight: 300;
-    letter-spacing: $letter-spacing;
+    letter-spacing: ${theme.letterSpacing};
     line-height: 1.25;
     text-decoration: none;
     transition: clip-path .4s cubic-bezier(.45,.05,.55,.95) .2s;
