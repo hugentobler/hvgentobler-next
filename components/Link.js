@@ -37,4 +37,4 @@ export default ({ href, children }) => {
       {React.cloneElement(children, { className, onClick })}
     </Link>
   );
-}
+};

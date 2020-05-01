@@ -85,7 +85,7 @@ const MenuInner = styled.div`
 `;
 
 const Hamburger = styled.button`
-  align-self: end;
+  align-self: flex-end;
   background: var(--text-color);
   border-color: var(--text-color);
   border-radius: 50%;
