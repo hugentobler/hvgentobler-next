@@ -34,16 +34,13 @@ export default function TwentyFifth() {
           Aug 31<sup>st</sup> Sat from 7:00 to 10:00 p.m.<br/>
           At Basement Cafe Taipei<br/>
         </p>
-        <Image>
-          <img
-            alt='Christopher pointing up and smiling!'
-            src='/images/25th/main.jpg'
-            loading='lazy'
-          />
-        </Image>
-        <picture>
-          <img loading='lazy' className={'lazyload'} data-src='/images/25th/main-1200.jpg' alt='My 25th birthday' width='' height=''/>
-        </picture>
+        <Image
+          alt='Christopher pointing up and smiling!'
+          src='/images/25th/main.jpg'
+          height='1599'
+          width='1200'
+          loading='lazy'
+        />
         <h2>
           See you soon!
         </h2>

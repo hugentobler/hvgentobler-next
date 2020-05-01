@@ -35,29 +35,6 @@ const browser = () => {
     body.classList.remove(scrolled);
   }
 
-  /*
-    Lazy load images if lazyload images exist.
-  */
-  const images = document.querySelectorAll('img[loading="lazy"]');
-  if (images.length != 0) { // Are there images?
-    if ('loading' in HTMLImageElement.prototype) {
-      // Lazyload supported in browser
-      const images = document.querySelectorAll('img[loading="lazy"]');
-      images.forEach(img => {
-        img.src = img.dataset.src;
-      });
-    } else {
-      if (typeof lazySizes == 'object') {
-        // Lazysizes already exists
-      } else {
-        // Dynamically import the LazySizes library
-        const script = document.createElement('script');
-        script.src = 'https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.2.0/lazysizes.min.js';
-        document.body.appendChild(script);
-      }
-    }
-  }
-
   //Component has no UI, so return null
   return null;
 };
