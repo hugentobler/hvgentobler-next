@@ -1,15 +1,12 @@
 // components/Blinds.js
 
 // Modules
-import { useContext } from 'react';
-import UserContext from '../components/UserContext';
 import { motion, useAnimation } from 'framer-motion';
 import styled from 'styled-components';
 
-const Blinds = () => {
-  // Is menuOpen? Consume static context.
-  const menuOpen = useContext(UserContext)['state']['menuOpen'];
-  // Connect menuOpen status to component animation.
+const Blinds = props => {
+  // Consume menuOpen from parent.
+  const menuOpen = props.menuOpen;
   const fillControls = useAnimation();
   const blindControls = useAnimation();
   if (menuOpen) {

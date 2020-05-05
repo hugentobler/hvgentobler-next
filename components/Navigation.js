@@ -1,17 +1,14 @@
 // components/Header.js
 
 // Modules
-import React from 'react';
-import { useContext } from 'react';
-import UserContext from '../components/UserContext';
 import { motion, useAnimation } from 'framer-motion';
 import styled from 'styled-components';
 import Link from '../components/Link';
 
-const Navigation = () => {
-  // Is menuOpen? and toggleMenu. Consume static context.
-  const menuOpen = useContext(UserContext)['state']['menuOpen'];
-  const toggleMenu = useContext(UserContext)['toggleMenu'];
+const Navigation = props => {
+  // Consume menuOpen and toggleMenu from parent.
+  const {menuOpen, toggleMenu} = props;
+
   // Connect menuOpen status to component animation.
   const linkControls = useAnimation();
 
@@ -20,8 +17,12 @@ const Navigation = () => {
       <Menu>
         <MenuInner>
           <Hamburger name='menu'
-            className={(menuOpen ? 'open' : '')}
-            onClick={toggleMenu}>
+            className={
+              (menuOpen ? 'open' : '')
+            }
+            onClick={
+              () => toggleMenu(!menuOpen)
+            }>
           🍔</Hamburger>
         </MenuInner>
       </Menu>
