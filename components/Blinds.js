@@ -20,7 +20,9 @@ const Blinds = props => {
   }
 
   return (
-    <Wrap>
+    <Wrap
+      menuOpen={menuOpen}
+    >
       <Side>
         {/*<Fill
           animate='hidden'
@@ -108,7 +110,8 @@ const Wrap = styled.div`
   //transition: visibility 0s .6s;
   top: 0;
   //visibility: hidden;
-  z-index: 0;
+  transition-delay: ${props => props.menuOpen ? '0s' : '.4s'};
+  z-index: ${props => props.menuOpen ? '999' : '0'};
 `;
 
 const Side = styled(motion.div)`
