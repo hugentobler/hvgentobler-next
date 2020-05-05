@@ -1,6 +1,7 @@
 // components/Layout.js
 
 // Modules
+import { useState } from 'react';
 import dynamic from 'next/dynamic';
 import { useRouter } from 'next/router';
 import { motion } from 'framer-motion';
@@ -23,6 +24,9 @@ const Layout = props => {
   const router = useRouter();
   // Get build environment from next config.
   const isProd = process.env.IS_PROD;
+
+  // Declare state variable for toggling navigation menu
+  const [menuOpen, toggleMenu] = useState(false);
 
   return (
     <>
@@ -50,8 +54,13 @@ const Layout = props => {
             {props.children}
           </motion.main>
           <Background />
-          <Blinds />
-          <Navigation />
+          <Blinds
+            menuOpen={menuOpen}
+          />
+          <Navigation
+            menuOpen={menuOpen}
+            toggleMenu={toggleMenu}
+          />
         </Container>
       </Root>
     </>

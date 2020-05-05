@@ -14,7 +14,6 @@ import '../styles/body.scss';
 export default class MyApp extends App {
   state = {
     history: [], // Store page history.
-    menuOpen: false
   };
 
   componentDidMount = () => {
@@ -39,17 +38,9 @@ export default class MyApp extends App {
   render() {
     const { Component, pageProps, router } = this.props;
 
-    // Handle menu toggling, and pass through context provider.
-    const toggleMenu = () => {
-      this.setState({
-        menuOpen: !this.state.menuOpen
-      });
-    };
-
     return (
       <Provider value={{
         state: this.state,
-        toggleMenu: toggleMenu
       }}>
         <AnimatePresence exitBeforeEnter>
           <Component {...pageProps} key={router.route} />

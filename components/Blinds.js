@@ -1,15 +1,12 @@
 // components/Blinds.js
 
 // Modules
-import { useContext } from 'react';
-import UserContext from '../components/UserContext';
 import { motion, useAnimation } from 'framer-motion';
 import styled from 'styled-components';
 
-const Blinds = () => {
-  // Is menuOpen? Consume static context.
-  const menuOpen = useContext(UserContext)['state']['menuOpen'];
-  // Connect menuOpen status to component animation.
+const Blinds = props => {
+  // Consume menuOpen from parent.
+  const menuOpen = props.menuOpen;
   const fillControls = useAnimation();
   const blindControls = useAnimation();
   if (menuOpen) {
@@ -23,7 +20,9 @@ const Blinds = () => {
   }
 
   return (
-    <Wrap>
+    <Wrap
+      menuOpen={menuOpen}
+    >
       <Side>
         {/*<Fill
           animate='hidden'
@@ -111,7 +110,8 @@ const Wrap = styled.div`
   //transition: visibility 0s .6s;
   top: 0;
   //visibility: hidden;
-  z-index: 0;
+  transition-delay: ${props => props.menuOpen ? '0s' : '.4s'};
+  z-index: ${props => props.menuOpen ? '999' : '0'};
 `;
 
 const Side = styled(motion.div)`

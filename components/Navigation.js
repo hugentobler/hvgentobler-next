@@ -1,33 +1,34 @@
 // components/Header.js
 
 // Modules
-import React from 'react';
-import { useContext } from 'react';
-import UserContext from '../components/UserContext';
-import { motion, useAnimation } from 'framer-motion';
 import styled from 'styled-components';
 import Link from '../components/Link';
 
-const Navigation = () => {
-  // Is menuOpen? and toggleMenu. Consume static context.
-  const menuOpen = useContext(UserContext)['state']['menuOpen'];
-  const toggleMenu = useContext(UserContext)['toggleMenu'];
-  // Connect menuOpen status to component animation.
-  const linkControls = useAnimation();
+const Navigation = props => {
+  // Consume menuOpen and toggleMenu from parent.
+  const {menuOpen, toggleMenu} = props;
 
   return (
     <>
       <Menu>
         <MenuInner>
           <Hamburger name='menu'
-            className={(menuOpen ? 'open' : '')}
-            onClick={toggleMenu}>
+            className={
+              (menuOpen ? 'open' : '')
+            }
+            onClick={
+              () => toggleMenu(!menuOpen)
+            }>
           🍔</Hamburger>
         </MenuInner>
       </Menu>
-      <Nav className={(menuOpen ? 'open' : '')}>
+      <Nav
+        menuOpen={menuOpen}
+      >
         <NavInner>
-          <LinkParent>
+          <LinkParent
+            menuOpen={menuOpen}
+          >
             <Link href='/'><a>Home ↩</a></Link>
             <Link href='/25th'><a>25th Birthday 🍄</a></Link>
           </LinkParent>
@@ -38,20 +39,15 @@ const Navigation = () => {
 };
 
 // components
-
-// LinkParent wraps each child in LinkWrap
-const LinkParent = ({children}) => {
-  console.log({children})
-  return (
-    <>
-      {React.Children.map(children, child => {
-        return (
-          <LinkWrap>{child}</LinkWrap>
-        )
-      })}
-    </>
-  )
-};
+const LinkParent = props => (
+  React.Children.map(props.children, child => (
+    <LinkWrap
+      menuOpen={props.menuOpen}
+    >
+      {child}
+    </LinkWrap>
+  ))
+);
 
 // Animations
 
@@ -119,19 +115,13 @@ const Hamburger = styled.button`
 
 const Nav = styled.nav`
   bottom: 8rem;
-  display: none;
+  visibility: ${props => props.menuOpen ? 'visible' : 'hidden'};
   left: 0;
   overflow-y: scroll;
   position: fixed;
   right: 0;
   top: 0;
-  z-index: 999;
-  &.open {
-    display: block;
-    a {
-      clip-path: inset(0);
-    }
-  }
+  z-index: ${props => props.menuOpen ? '999' : '0'};
 `;
 
 const NavInner = styled.div`
@@ -142,27 +132,27 @@ const NavInner = styled.div`
   max-width: var(--max-width);
   width: 100%;
   a {
-    border-color: var(--text-color);
+    border-color: transparent;
     border-style: solid;
     border-bottom-width: 2px;
-    clip-path: inset(0 100% 0 0);
     color: var(--background-color);
     font-size: 2.25rem;
     font-weight: 300;
     letter-spacing: ${theme.letterSpacing};
     line-height: 1.25;
     text-decoration: none;
-    transition: clip-path .4s cubic-bezier(.45,.05,.55,.95) .2s;
     &.active {
       border-color: var(--background-color);
     }
   }
 `;
 
-const LinkWrap = styled(motion.div)`
+const LinkWrap = styled.div`
   align-self: flex-start;
+  clip-path: ${props => props.menuOpen ? 'inset(0)' : 'inset(0 100% 0 0)'};
   margin-bottom: var(--spacing-medium);
   margin-left: var(--spacing-medium);
+  transition: clip-path .4s cubic-bezier(.45,.05,.55,.95) .2s;
   &:first-child {
     margin-top: 16%;
   }
