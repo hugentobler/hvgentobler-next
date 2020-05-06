@@ -14,10 +14,10 @@ import Navigation from '../components/Navigation';
 
 // Dynamic import
 // Client side javascript, we don't want server side rendering
-const Browser = dynamic(
-  () => import('../components/Browser'),
-  { ssr: false }
-);
+// const Browser = dynamic(
+//   () => import('../components/Browser'),
+//   { ssr: false }
+// );
 
 const Layout = props => {
   // Get current path for frontmatter.
@@ -67,7 +67,6 @@ const Layout = props => {
           />
         </Container>
       </Root>
-      <Browser/>
     </>
   )
 };
