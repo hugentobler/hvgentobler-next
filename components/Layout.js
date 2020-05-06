@@ -67,6 +67,7 @@ const Layout = props => {
           />
         </Container>
       </Root>
+      <Browser/>
     </>
   )
 };

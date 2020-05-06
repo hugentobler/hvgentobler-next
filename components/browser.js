@@ -1,6 +1,6 @@
-// components/browser.js
+// components/Browser.js
 
-const browser = () => {
+const Browser = () => {
   const scrolled = 'scrolled';
   const body = document.querySelector('body');
   /*
@@ -39,4 +39,4 @@ const browser = () => {
   return null;
 };
 
-export default browser;
+export default Browser;
