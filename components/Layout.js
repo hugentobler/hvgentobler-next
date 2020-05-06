@@ -27,6 +27,7 @@ const Layout = props => {
 
   // Declare state variable for toggling navigation menu
   const [menuOpen, toggleMenu] = useState(false);
+  const [menuAnimating, animateMenu] = useState(false);
 
   return (
     <>
@@ -56,10 +57,13 @@ const Layout = props => {
           <Background />
           <Blinds
             menuOpen={menuOpen}
+            animateMenu={animateMenu}
           />
           <Navigation
             menuOpen={menuOpen}
             toggleMenu={toggleMenu}
+            menuAnimating={menuAnimating}
+            animateMenu={animateMenu}
           />
         </Container>
       </Root>

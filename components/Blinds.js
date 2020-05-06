@@ -1,14 +1,17 @@
 // components/Blinds.js
 
 // Modules
+import { useEffect } from 'react';
 import { motion, useAnimation } from 'framer-motion';
 import styled from 'styled-components';
 
 const Blinds = props => {
   // Consume menuOpen from parent.
-  const menuOpen = props.menuOpen;
+  const {menuOpen, animateMenu} = props;
+
   const fillControls = useAnimation();
   const blindControls = useAnimation();
+
   if (menuOpen) {
     blindControls.start('visible').then(() => {
       fillControls.start('open');
@@ -17,6 +20,11 @@ const Blinds = props => {
     fillControls.start('close').then(() => {
       blindControls.start('hidden');
     })
+  }
+
+  // One of the blinds will notify animation status.
+  const onComplete = () => {
+    animateMenu(false);
   }
 
   return (
@@ -31,7 +39,7 @@ const Blinds = props => {
         />*/}
       </Side>
       <Inner>
-        {[...Array(6)].map((e, i) =>
+        {[...Array(5)].map((e, i) =>
           <Blind key={i}
             animate={blindControls}
             exit='visible'
@@ -44,6 +52,18 @@ const Blinds = props => {
             />
           </Blind>
         )}
+        <Blind
+          animate={blindControls}
+          exit='visible'
+          variants={blindVariants}
+        >
+          <Fill
+            animate={fillControls}
+            exit='exit'
+            variants={fillVariants}
+            onAnimationComplete={onComplete}
+          />
+        </Blind>
       </Inner>
       <Side>
         {/*<Fill

@@ -6,7 +6,7 @@ import Link from '../components/Link';
 
 const Navigation = props => {
   // Consume menuOpen and toggleMenu from parent.
-  const {menuOpen, toggleMenu} = props;
+  const {menuOpen, toggleMenu, menuAnimating, animateMenu} = props;
 
   return (
     <>
@@ -16,9 +16,12 @@ const Navigation = props => {
             className={
               (menuOpen ? 'open' : '')
             }
-            onClick={
-              () => toggleMenu(!menuOpen)
-            }>
+            onClick={() => {
+              toggleMenu(prevState => !prevState);
+              animateMenu(prevState => !prevState);
+            }}
+            disabled={menuAnimating}
+          >
           🍔</Hamburger>
         </MenuInner>
       </Menu>
@@ -110,6 +113,9 @@ const Hamburger = styled.button`
   &.open {
     background: var(--background-color);
     transform: rotate(30deg);
+  }
+  &:disabled {
+    cursor: progress;
   }
 `;
 
