@@ -31,7 +31,7 @@ const Navigation = props => {
         <NavInner>
           <LinkParent
             menuOpen={menuOpen}
-            animateMenu={animateMenu}
+            toggleMenu={toggleMenu}
           >
             <Link href='/'><a>Home ↩</a></Link>
             <Link href='/25th'><a>25th Birthday 🍄</a></Link>
@@ -48,7 +48,7 @@ const LinkParent = props => (
     <LinkWrap
       menuOpen={props.menuOpen}
     >
-      {React.cloneElement(child, { animateMenu: props.animateMenu })}
+      {React.cloneElement(child, { toggleMenu: props.toggleMenu })}
     </LinkWrap>
   ))
 );

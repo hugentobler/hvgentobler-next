@@ -1,9 +1,10 @@
 // components/Layout.js
 
 // Modules
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import dynamic from 'next/dynamic';
 import { useRouter } from 'next/router';
+import Router from 'next/router';
 import { motion } from 'framer-motion';
 import styled from 'styled-components';
 import Head from 'next/head';
@@ -11,6 +12,7 @@ import Favicon from '../components/Favicon';
 import Background from '../components/Background';
 import Blinds from '../components/Blinds';
 import Navigation from '../components/Navigation';
+import SetProperty from '../components/CustomCssProperties';
 
 // Dynamic import
 // Client side javascript, we don't want server side rendering
@@ -28,6 +30,17 @@ const Layout = props => {
   // Declare state variable for toggling navigation menu
   const [menuOpen, toggleMenu] = useState(false);
   const [menuAnimating, animateMenu] = useState(false);
+
+  // Set page color when route change is complete.
+  useEffect(() => {
+    const handleRouteChange = url => {
+      SetProperty(url);
+    }
+    Router.events.on('routeChangeComplete', handleRouteChange)
+    return () => {
+      Router.events.off('routeChangeComplete', handleRouteChange)
+    }
+  }, [])
 
   return (
     <>
@@ -49,7 +62,6 @@ const Layout = props => {
           <motion.main
             initial='hidden'
             animate='visible'
-            //exit='hidden'
             variants={mainVariants}
           >
             {props.children}

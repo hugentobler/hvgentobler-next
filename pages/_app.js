@@ -4,7 +4,6 @@
 import App from 'next/app';
 import { Provider } from '../components/UserContext';
 import SetProperty from '../components/CustomCssProperties';
-import { AnimatePresence } from 'framer-motion';
 
 // Global styles
 import '../styles/reset.scss';
@@ -42,9 +41,7 @@ export default class MyApp extends App {
       <Provider value={{
         state: this.state,
       }}>
-        <AnimatePresence exitBeforeEnter>
-          <Component {...pageProps} key={router.route} />
-        </AnimatePresence>
+        <Component {...pageProps} key={router.route} />
       </Provider>
     )
   };

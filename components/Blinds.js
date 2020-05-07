@@ -22,7 +22,7 @@ const Blinds = props => {
     })
   }
 
-  // One of the blinds will notify animation status.
+  // For Motion - one of the blinds will notify that animation has ended.
   const onComplete = () => {
     animateMenu(false);
   }
@@ -42,24 +42,21 @@ const Blinds = props => {
         {[...Array(5)].map((e, i) =>
           <Blind key={i}
             animate={blindControls}
-            exit='visible'
             variants={blindVariants}
           >
             <Fill
               animate={fillControls}
-              exit='close'
+              exit={{ opacity: 0 }}
               variants={fillVariants}
             />
           </Blind>
         )}
         <Blind
           animate={blindControls}
-          exit='visible'
           variants={blindVariants}
         >
           <Fill
             animate={fillControls}
-            exit='close'
             variants={fillVariants}
             onAnimationComplete={onComplete}
           />
