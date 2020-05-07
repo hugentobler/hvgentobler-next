@@ -2,6 +2,7 @@
 
 // Modules
 import styled from 'styled-components';
+import { motion } from 'framer-motion';
 import Link from '../components/Link';
 
 const Navigation = props => {
@@ -21,6 +22,7 @@ const Navigation = props => {
               animateMenu(prevState => !prevState);
             }}
             disabled={menuAnimating}
+            drag
           >
           🍔</Hamburger>
         </MenuInner>
@@ -84,7 +86,7 @@ const MenuInner = styled.div`
   width: 100%;
 `;
 
-const Hamburger = styled.button`
+const Hamburger = styled(motion.button)`
   align-self: flex-end;
   background: var(--text-color);
   border-color: var(--text-color);
