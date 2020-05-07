@@ -5,6 +5,8 @@
 import React from 'react';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
+import { motion } from 'framer-motion';
+import styled from 'styled-components';
 import SetProperty from '../components/CustomCssProperties';
 
 export default ({ href, children }) => {
@@ -34,7 +36,15 @@ export default ({ href, children }) => {
   return (
     <Link href={href}>
       {/*React.cloneElement(children, { className })*/}
-      {React.cloneElement(children, { className, onClick })}
+      <Hover
+        whileHover={{ translateY: '-1px' }}
+      >
+        {React.cloneElement(children, { className, onClick })}
+      </Hover>
     </Link>
   );
 };
+
+const Hover = styled(motion.div)`
+  cursor: pointer;
+`
