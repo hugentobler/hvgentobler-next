@@ -23,6 +23,8 @@ const Navigation = props => {
             }}
             disabled={menuAnimating}
             drag
+            whileHover={{ fontSize: '32px', rotate: '30deg' }}
+            whileTap={{ fontSize: '32px', rotate: '30deg' }}
           >
           🍔</Hamburger>
         </MenuInner>
