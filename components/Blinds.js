@@ -47,7 +47,7 @@ const Blinds = props => {
           >
             <Fill
               animate={fillControls}
-              exit='exit'
+              exit='close'
               variants={fillVariants}
             />
           </Blind>
@@ -59,7 +59,7 @@ const Blinds = props => {
         >
           <Fill
             animate={fillControls}
-            exit='exit'
+            exit='close'
             variants={fillVariants}
             onAnimationComplete={onComplete}
           />

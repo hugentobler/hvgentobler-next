@@ -6,10 +6,9 @@ import React from 'react';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import styled from 'styled-components';
 import SetProperty from '../components/CustomCssProperties';
 
-export default ({ href, children }) => {
+export default ({ href, animateMenu, children }) => {
   const router = useRouter();
 
   // Append class if this is active page.
@@ -27,6 +26,7 @@ export default ({ href, children }) => {
       // body.classList.remove('ready');
       // body.classList.add('animating');
       // Set css properties on link click.
+      animateMenu(false);
       SetProperty(newPath);
     });
 
@@ -34,17 +34,14 @@ export default ({ href, children }) => {
   }
 
   return (
-    <Link href={href}>
-      {/*React.cloneElement(children, { className })*/}
-      <Hover
-        whileHover={{ translateY: '-1px' }}
-      >
+    <motion.div
+      whileHover={{ translateY: '-1px' }}
+    >
+      <Link href={href}>
+        {/*React.cloneElement(children, { className })*/}
+
         {React.cloneElement(children, { className, onClick })}
-      </Hover>
-    </Link>
+      </Link>
+    </motion.div>
   );
 };
-
-const Hover = styled(motion.div)`
-  cursor: pointer;
-`

@@ -49,7 +49,7 @@ const Layout = props => {
           <motion.main
             initial='hidden'
             animate='visible'
-            exit='hidden'
+            //exit='hidden'
             variants={mainVariants}
           >
             {props.children}
@@ -76,7 +76,7 @@ const mainVariants = {
   hidden: {
     opacity: 0,
     transition: {
-      duration: 0
+      duration: .4
     }
   },
   visible: {
