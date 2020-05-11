@@ -72,15 +72,15 @@ const LinkParent = props => (
 // Animations
 const burgerVariants = {
   on: {
-    fontSize: '32px',
+    fontSize: '45px',
     rotate: '30deg'
   },
   off: {
-    fontSize: '25.6px',
+    fontSize: '32px',
     rotate: '0deg'
   },
   hover: {
-    fontSize: '32px',
+    fontSize: '45px',
     rotate: '30deg',
     translateX: '-2px',
     translateY: '-2px'
@@ -94,10 +94,9 @@ const theme = {
 };
 
 const Menu = styled.div`
-  bottom: 0;
-  height: 6rem;
+  bottom: var(--spacing-medium);
   @media ${theme.forNotSmall} {
-    height: 8rem;
+    bottom: 8rem;
   }
   left: 0;
   right: 0;
@@ -107,9 +106,8 @@ const Menu = styled.div`
 
 const MenuInner = styled.div`
   display: flex;
-  flex-direction: column;
-  height: 100%;
-  justify-content: center;
+  height: 0;
+  justify-content: flex-end;
   margin: 0 auto;
   max-width: var(--max-width);
   width: 100%;
@@ -123,17 +121,17 @@ const Hamburger = styled(motion.button)`
   border-style: none;
   color: var(--text-color);
   cursor: pointer;
-  font-size: 1.6rem;
+  font-size: 32px;
   line-height: 1;
-  height: 3rem;
+  height: 4rem;
   margin-right: var(--spacing-medium);
   outline: 0;
   overflow: hidden;
   position: relative;
-  width: 3rem;
+  width: 4rem;
   @media ${theme.forNotSmall} {
-    height: 4rem;
-    width: 4rem;
+    height: 4.5rem;
+    width: 4.5rem;
   }
   &.open {
     background: var(--background-color);
