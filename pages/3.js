@@ -10,9 +10,9 @@ export default function PageThree() {
   const mount = useRef(null);
 
   useEffect(() => {
+    let frameId;
     let width = mount.current.clientWidth;
     let height = mount.current.clientHeight;
-    let frameId;
 
     const camera = new Three.PerspectiveCamera( 70, width / height, 0.01, 10 );
     camera.position.z = 1;
@@ -26,7 +26,15 @@ export default function PageThree() {
     scene.add( mesh );
 
     const renderer = new Three.WebGLRenderer( { alpha: true, antialias: true } );
-    renderer.setSize( width, height );
+
+    // Return's the dpi adjusted width and height.
+    const getDisplaySize = () => {
+      const pixelRatio = window.devicePixelRatio;
+      return { w: width * pixelRatio | 0, h: height * pixelRatio | 0 };
+    };
+
+    let { w, h } = getDisplaySize();
+    renderer.setSize(w, h);
 
     const renderScene = () => {
       renderer.render(scene, camera);
@@ -35,7 +43,9 @@ export default function PageThree() {
     const handleResize = () => {
       width = mount.current.clientWidth;
       height = mount.current.clientHeight;
-      renderer.setSize(width, height);
+      let { w, h } = getDisplaySize();
+      
+      renderer.setSize(w, h, false);
       camera.aspect = width / height;
       camera.updateProjectionMatrix();
       renderScene();
@@ -80,4 +90,9 @@ export default function PageThree() {
 
 const Canvas = styled.div`
   height: 100vh;
+  width: 100%;
+  & canvas {
+    height: 100% !important;
+    width: 100% !important;
+  }
 `;

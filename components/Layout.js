@@ -46,7 +46,7 @@ const Layout = props => {
     <>
       <Head>
         <Favicon/>
-        <meta name="viewport" content="width=device-width,initial-scale=1" key="viewport" />
+        <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
         <title>{props.title}</title>
         <meta name="description" content={props.description} />
         <meta property="og:title" content={props.title} />
