@@ -2,14 +2,21 @@
 
 // Modules
 import Layout from '../components/Layout';
+import dynamic from 'next/dynamic';
 
 export default function Index() {
+  const Animation = dynamic(
+    () => import('../components/home/SpinningText'),
+    { ssr: false, loading: () => <p>Loading</p> }
+  )
+
   return (
     <Layout
       title='Christopher Hugentobler'
       description='This is the description.'
       image='/'
     >
+      <Animation/>
       <section>
         <h2>
           Wide-eyed<br/>

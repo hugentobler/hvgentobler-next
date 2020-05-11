@@ -47,7 +47,6 @@ const Navigation = props => {
           >
             <Link href='/'><a>Home ↩</a></Link>
             <Link href='/25th'><a>25th Birthday 🍄</a></Link>
-            <Link href='/3'><a>Three</a></Link>
           </LinkParent>
         </NavInner>
       </Nav>
@@ -95,9 +94,6 @@ const theme = {
 
 const Menu = styled.div`
   bottom: var(--spacing-medium);
-  @media ${theme.forNotSmall} {
-    bottom: 8rem;
-  }
   left: 0;
   right: 0;
   position: fixed;

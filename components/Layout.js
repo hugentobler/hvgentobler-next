@@ -64,7 +64,9 @@ const Layout = props => {
             animate='visible'
             variants={mainVariants}
           >
-            {props.children}
+            {React.Children.map(props.children, child => {
+              return React.cloneElement(child, {menuOpen})
+            })}
           </motion.main>
           <Background />
           <Blinds

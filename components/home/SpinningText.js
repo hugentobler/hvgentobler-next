@@ -1,13 +1,14 @@
-// pages/3.js
+// pages/three.js
 
 // Modules
 import { useEffect, useRef } from 'react';
 import * as Three from 'three';
 import styled from 'styled-components';
-import Layout from '../components/Layout';
 
-export default function PageThree() {
+export default function SpinningText(props) {
   const mount = useRef(null);
+  const controls = useRef(null);
+  const menuOpen = props.menuOpen;
 
   useEffect(() => {
     let frameId;
@@ -44,20 +45,26 @@ export default function PageThree() {
       width = mount.current.clientWidth;
       height = mount.current.clientHeight;
       let { w, h } = getDisplaySize();
-      
+
       renderer.setSize(w, h, false);
       camera.aspect = width / height;
       camera.updateProjectionMatrix();
       renderScene();
     };
 
-    const animate = () => {
+    const render = () => {
       mesh.rotation.x += 0.01;
       mesh.rotation.y += 0.02;
 
       renderScene();
-      frameId = window.requestAnimationFrame(animate);
+      frameId = window.requestAnimationFrame(render);
     };
+
+    const start = () => {
+      if (!frameId) {
+        frameId = requestAnimationFrame(render)
+      }
+    }
 
     const stop = () => {
       cancelAnimationFrame(frameId);
@@ -66,7 +73,9 @@ export default function PageThree() {
 
     mount.current.appendChild(renderer.domElement);
     window.addEventListener('resize', handleResize);
-    animate();
+    start();
+
+    controls.current = { start, stop };
 
     return () => {
       stop();
@@ -76,15 +85,21 @@ export default function PageThree() {
       scene.remove( mesh );
       geometry.dispose();
       material.dispose();
+      scene.dispose();
     }
   }, [])
 
+  if (menuOpen) {
+    console.log('stop')
+    controls.current.stop();
+  } else {
+    controls.current.start();
+  }
+
   return (
-    <Layout>
-      <Canvas
-        ref={mount}
-      />
-    </Layout>
+    <Canvas
+      ref={mount}
+    />
   );
 }
 
