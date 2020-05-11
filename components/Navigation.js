@@ -1,6 +1,7 @@
 // components/Header.js
 
 // Modules
+import { useRef } from 'react';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
 import Link from '../components/Link';
@@ -8,6 +9,9 @@ import Link from '../components/Link';
 const Navigation = props => {
   // Consume menuOpen and toggleMenu from parent.
   const {menuOpen, toggleMenu, menuAnimating, animateMenu} = props;
+
+  // Ref for hamburger drag constraint.
+  const constraintsRef = useRef(null);
 
   return (
     <>
@@ -23,8 +27,12 @@ const Navigation = props => {
             }}
             disabled={menuAnimating}
             drag
-            whileHover={{ fontSize: '32px', rotate: '30deg' }}
-            whileTap={{ fontSize: '32px', rotate: '30deg' }}
+            dragConstraints={constraintsRef}
+            initial={menuOpen ? 'on' : 'off'}
+            animate={menuOpen ? 'on' : 'off'}
+            variants={burgerVariants}
+            whileHover='hover'
+            whileTap='hover'
           >
           🍔</Hamburger>
         </MenuInner>
@@ -42,6 +50,9 @@ const Navigation = props => {
           </LinkParent>
         </NavInner>
       </Nav>
+      <HamburgerRef
+        ref={constraintsRef}
+      />
     </>
   )
 };
@@ -58,7 +69,22 @@ const LinkParent = props => (
 );
 
 // Animations
-
+const burgerVariants = {
+  on: {
+    fontSize: '32px',
+    rotate: '30deg'
+  },
+  off: {
+    fontSize: '25.6px',
+    rotate: '0deg'
+  },
+  hover: {
+    fontSize: '32px',
+    rotate: '30deg',
+    translateX: '-2px',
+    translateY: '-2px'
+  }
+}
 
 // Styled components
 const theme = {
@@ -107,13 +133,6 @@ const Hamburger = styled(motion.button)`
   @media ${theme.forNotSmall} {
     height: 4rem;
     width: 4rem;
-  }
-  &:hover, &:focus, &:active, &.open {
-    transition: none;
-    font-size: 2rem;
-    @media ${theme.forNotSmall} {
-      font-size: 2.4rem;
-    }
   }
   &.open {
     background: var(--background-color);
@@ -168,6 +187,16 @@ const LinkWrap = styled.div`
     margin-top: 16%;
   }
 `;
+
+// Constrain the dragging boundary of Hamburger
+const HamburgerRef = styled.div`
+  bottom: 0;
+  left: 0;
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: 0;
+`
 
 
 export default Navigation;
