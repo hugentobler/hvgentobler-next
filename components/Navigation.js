@@ -47,6 +47,7 @@ const Navigation = props => {
           >
             <Link href='/'><a>Home ↩</a></Link>
             <Link href='/25th'><a>25th Birthday 🍄</a></Link>
+            <Link href='/3'><a>Three</a></Link>
           </LinkParent>
         </NavInner>
       </Nav>
@@ -196,7 +197,7 @@ const HamburgerRef = styled.div`
   right: 0;
   top: 0;
   z-index: 0;
-`
+`;
 
 
 export default Navigation;

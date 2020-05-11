@@ -1,7 +1,6 @@
 // pages/index.js
 
 // Modules
-import Link from '../components/Link';
 import Layout from '../components/Layout';
 
 export default function Index() {
