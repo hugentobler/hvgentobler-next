@@ -20,11 +20,15 @@ export default function SpinningText(props) {
 
     const scene = new Three.Scene();
 
-    const geometry = new Three.BoxGeometry( 0.2, 0.2, 0.2 );
+    const geometry = new Three.BoxBufferGeometry( 0.3, 0.6, 0.2 );
+    const axis = new Three.Vector3(0.3, 0.3, -0.2).normalize();
     const material = new Three.MeshNormalMaterial();
 
     const mesh = new Three.Mesh( geometry, material );
     scene.add( mesh );
+
+    const axesHelper = new Three.AxesHelper(5);
+    scene.add( axesHelper );
 
     const renderer = new Three.WebGLRenderer( { alpha: true, antialias: true } );
 
@@ -53,8 +57,10 @@ export default function SpinningText(props) {
     };
 
     const render = () => {
-      mesh.rotation.x += 0.01;
-      mesh.rotation.y += 0.02;
+      // mesh.rotation.x = -0.4;
+      // mesh.rotation.y += 0.02;
+
+      mesh.rotateOnAxis(axis, 0.015);
 
       renderScene();
       frameId = window.requestAnimationFrame(render);
@@ -89,12 +95,14 @@ export default function SpinningText(props) {
     }
   }, [])
 
-  if (menuOpen) {
-    console.log('stop')
-    controls.current.stop();
-  } else {
-    controls.current.start();
-  }
+  useEffect(() => {
+    if (menuOpen) {
+      console.log('stop')
+      controls.current.stop();
+    } else {
+      controls.current.start();
+    }
+  }, [menuOpen])
 
   return (
     <Canvas

@@ -65,7 +65,12 @@ const Layout = props => {
             variants={mainVariants}
           >
             {React.Children.map(props.children, child => {
-              return React.cloneElement(child, {menuOpen})
+              if (typeof child.type == 'object') {
+                // If child is a component, duplicate with additional props.
+                return React.cloneElement(child, { menuOpen });
+              } else {
+                return child;
+              }
             })}
           </motion.main>
           <Background />
