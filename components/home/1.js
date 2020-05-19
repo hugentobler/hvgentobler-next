@@ -1,4 +1,4 @@
-// pages/three.js
+// components/home/three.js
 
 // Modules
 import { useEffect, useRef } from 'react';
@@ -21,7 +21,8 @@ export default function SpinningText(props) {
     const scene = new Three.Scene();
 
     const geometry = new Three.BoxBufferGeometry( 0.3, 0.6, 0.2 );
-    const axis = new Three.Vector3(0.3, 0.3, -0.2).normalize();
+    const axis = new Three.Vector3(-2, 3, 1).normalize();
+    console.log(axis)
     const material = new Three.MeshNormalMaterial();
 
     const mesh = new Three.Mesh( geometry, material );
@@ -57,10 +58,11 @@ export default function SpinningText(props) {
     };
 
     const render = () => {
-      // mesh.rotation.x = -0.4;
-      // mesh.rotation.y += 0.02;
+      // mesh.rotation.x = -0.5;
+      // mesh.rotation.z = 0.5;
+      // mesh.rotation.y += 0.01;
 
-      mesh.rotateOnAxis(axis, 0.015);
+      mesh.rotateOnAxis(axis, 0.01);
 
       renderScene();
       frameId = window.requestAnimationFrame(render);

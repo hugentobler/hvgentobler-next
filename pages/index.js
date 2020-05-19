@@ -5,8 +5,12 @@ import Layout from '../components/Layout';
 import dynamic from 'next/dynamic';
 
 export default function Index() {
-  const Animation = dynamic(
-    () => import('../components/home/SpinningText'),
+  const Animation1 = dynamic(
+    () => import('../components/home/1'),
+    { ssr: false, loading: () => <p>Loading</p> }
+  )
+  const Animation2 = dynamic(
+    () => import('../components/home/2'),
     { ssr: false, loading: () => <p>Loading</p> }
   )
 
@@ -16,7 +20,8 @@ export default function Index() {
       description='This is the description.'
       image='/'
     >
-      <Animation/>
+      <Animation2/>
+      <Animation1/>
       <section>
         <h2>
           Wide-eyed<br/>
