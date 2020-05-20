@@ -16,7 +16,6 @@ export default class MyApp extends App {
   };
 
   componentDidMount = () => {
-    console.log('componentDidMount')
     // Save initial path to history.
     const { asPath } = this.props.router;
     this.setState(prevState => ({ history: [...prevState.history, asPath] }));
@@ -25,7 +24,6 @@ export default class MyApp extends App {
   };
 
   componentDidUpdate = () => {
-    console.log('componentDidUpdate')
     const { history } = this.state;
     const { asPath } = this.props.router;
     // If current path doesn't equal latest item in history, let's save the change.

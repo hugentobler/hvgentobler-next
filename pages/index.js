@@ -21,7 +21,7 @@ export default function Index() {
       image='/'
     >
       <Animation2/>
-      <Animation1/>
+      {/* <Animation1/> */}
       <section>
         <h2>
           Wide-eyed<br/>
