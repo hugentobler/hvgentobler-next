@@ -14,7 +14,7 @@ export default (props) => {
 
   useEffect(() => {
 
-    const VIEW_ANGLE = 45,
+    const FOV = 45,
       NEAR = 1,
       FAR = 10000;
 
@@ -34,7 +34,7 @@ export default (props) => {
     let directionVectorAngle = 0, directionVectorHelper;
 
     const directionVectorRadius = 50,
-      directionVector = new THREE.Vector3(1, 1, 1).normalize();
+      directionVector = new THREE.Vector3(0, 1, 0).normalize();
 
     let box1;
 
@@ -89,12 +89,12 @@ export default (props) => {
       directionVectorHelper = new THREE.ArrowHelper(directionVector, origin, 50);
       scene.add(directionVectorHelper);
 
-      box1 = new Box(20, 30, 20);
-      box1.position.set(50, 50, 0);
+      box1 = new Box(40, 100, 30);
+      box1.position.set(0, 0, 0);
       scene.add(box1);
 
-      camera = new THREE.PerspectiveCamera(VIEW_ANGLE, ASPECT, NEAR, FAR);
-      camera.position.set(150, 150, 150);
+      camera = new THREE.PerspectiveCamera(FOV, ASPECT, NEAR, FAR);
+      camera.position.set(150, -120, 150);
       camera.lookAt(origin);
 
       renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
@@ -102,14 +102,21 @@ export default (props) => {
       renderer.setSize(renderSize.w, renderSize.h);
 
       controls = new OrbitControls(camera, renderer.domElement);
+      controls.enableZoom = false;
 
       mount.current.appendChild(renderer.domElement);
       window.addEventListener('resize', handleResize);
     };
 
+    const update = () => {
+      //box1.setDirection(directionVector);
+      box1.rotation.y += 0.02;
+      controls.update();
+    };
+
     const animate = () => {
       requestAnimationFrame(animate);
-      controls.update();
+      update();
       renderer.render(scene, camera);
     };
 
