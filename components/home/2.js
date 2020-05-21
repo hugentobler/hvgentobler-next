@@ -34,14 +34,14 @@ export default (props) => {
     let directionVectorAngle = 0, directionVectorHelper;
 
     const directionVectorRadius = 50,
-      directionVector = new THREE.Vector3(0, 1, 0).normalize();
+      directionVector = new THREE.Vector3(-0.3, 1, 0).normalize();
 
     let box1;
 
     const origin = new THREE.Vector3(0, 0, 0);
 
     function Box(w, h, d){
-      const geometry = new THREE.BoxGeometry(w, h, d);
+      const geometry = new THREE.BoxBufferGeometry(w, h, d);
       const material = new THREE.MeshBasicMaterial({ wireframe: true });
       THREE.Mesh.call(this, geometry, material);
 
@@ -89,9 +89,10 @@ export default (props) => {
       directionVectorHelper = new THREE.ArrowHelper(directionVector, origin, 50);
       scene.add(directionVectorHelper);
 
-      box1 = new Box(40, 100, 30);
+      box1 = new Box(60, 30, 100);
       box1.position.set(0, 0, 0);
       scene.add(box1);
+      box1.setDirection(directionVector);
 
       camera = new THREE.PerspectiveCamera(FOV, ASPECT, NEAR, FAR);
       camera.position.set(150, -120, 150);
@@ -109,8 +110,8 @@ export default (props) => {
     };
 
     const update = () => {
-      //box1.setDirection(directionVector);
-      box1.rotation.y += 0.02;
+      box1.rotation.z += 0.02;
+      //box1.rotateOnAxis(directionVector, 0.02)
       controls.update();
     };
 
