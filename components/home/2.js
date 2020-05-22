@@ -10,9 +10,10 @@ export default (props) => {
   const menuOpen = props.menuOpen;
 
   const mount = useRef(null),
-    controls = useRef(null);
+    control = useRef(null);
 
   useEffect(() => {
+    let frameId;
 
     const FOV = 45,
       NEAR = 1,
@@ -40,10 +41,39 @@ export default (props) => {
 
     const origin = new THREE.Vector3(0, 0, 0);
 
+    // Text
+    const ctx = document.createElement('canvas').getContext('2d');
+    ctx.canvas.width = 120;
+    ctx.canvas.height = 40;
+    ctx.fillStyle = 'white';
+    ctx.fillRect(0, 0, ctx.canvas.width, ctx.canvas.height);
+    var x = ctx.canvas.width / 2;
+    var y = ctx.canvas.height / 2;
+    ctx.font = '30px Soehne';
+    ctx.fillStyle = 'blue';
+    ctx.fillText('Christopher', 0, 0, ctx.canvas.width);
+    //ctx.fillRect(0, 0, 150, 100);
+    //var strDataURI = canvas.toDataURL("image/jpeg");
+    //var imag = new Image();
+    //imag.src = strDataURI;
+    const texture = new THREE.CanvasTexture(ctx.canvas);
+
+    const material = new THREE.MeshBasicMaterial({
+      map: texture,
+    });
+
+    const textMaterials = [
+      material
+    ];
+
+    /*
+    USE TEXTURE LOADER INSTEAD
+    */
+
     function Box(w, h, d){
       const geometry = new THREE.BoxBufferGeometry(w, h, d);
-      const material = new THREE.MeshBasicMaterial({ wireframe: true });
-      THREE.Mesh.call(this, geometry, material);
+      //const material = new THREE.MeshBasicMaterial();
+      THREE.Mesh.call(this, geometry, textMaterials);
 
       // Define a vector in world coordinates for this box to look at
       this.lookAtVector = new THREE.Vector3();
@@ -60,7 +90,7 @@ export default (props) => {
       this.arrow = new THREE.ArrowHelper(direction, position, h, 0xffffff);
 
       // And make it a child of the box
-      this.add(this.arrow);
+      // this.add(this.arrow);
     };
 
     Box.prototype = Object.assign(Object.create(THREE.Mesh.prototype), {
@@ -81,15 +111,15 @@ export default (props) => {
       scene = new THREE.Scene();
 
       gridHelper = new THREE.GridHelper(100, 10);
-      scene.add(gridHelper);
+      //scene.add(gridHelper);
 
       axesHelper = new THREE.AxesHelper(100);
-      scene.add(axesHelper);
+      //scene.add(axesHelper);
 
       directionVectorHelper = new THREE.ArrowHelper(directionVector, origin, 50);
-      scene.add(directionVectorHelper);
+      //scene.add(directionVectorHelper);
 
-      box1 = new Box(60, 30, 100);
+      box1 = new Box(80, 40, 120);
       box1.position.set(0, 0, 0);
       scene.add(box1);
       box1.setDirection(directionVector);
@@ -102,22 +132,17 @@ export default (props) => {
       let renderSize = getDisplaySize();
       renderer.setSize(renderSize.w, renderSize.h);
 
-      controls = new OrbitControls(camera, renderer.domElement);
-      controls.enableZoom = false;
+      // controls = new OrbitControls(camera, renderer.domElement);
+      // controls.enableZoom = false;
 
       mount.current.appendChild(renderer.domElement);
       window.addEventListener('resize', handleResize);
     };
 
-    const update = () => {
-      box1.rotation.z += 0.02;
-      //box1.rotateOnAxis(directionVector, 0.02)
-      controls.update();
-    };
-
     const animate = () => {
-      requestAnimationFrame(animate);
-      update();
+      frameId = requestAnimationFrame(animate);
+      box1.rotation.z += 0.02;
+      //controls.update();
       renderer.render(scene, camera);
     };
 
@@ -129,16 +154,35 @@ export default (props) => {
       renderer.render(scene, camera);
     };
 
+    const start = () => {
+      if (!frameId) frameId = requestAnimationFrame(animate);
+    };
+
+    const stop = () => {
+      cancelAnimationFrame(frameId);
+      frameId = null;
+    };
+
     init();
-    animate();
+    start();
+
+    control.current = {start, stop};
 
     return () => {
+      stop();
       mount.current.removeChild(renderer.domElement);
       window.removeEventListener('resize', handleResize);
-    }
 
+      scene.remove(box1);
+      box1.geometry.dispose();
+      box1.material.dispose();
+      scene.dispose();
+    }
   }, [])
 
+  useEffect(() => {
+    menuOpen ? control.current.stop() : control.current.start();
+  }, [menuOpen])
 
   return (
     <Canvas
