@@ -10,7 +10,8 @@ export default (props) => {
   const menuOpen = props.menuOpen;
 
   const mount = useRef(null),
-    control = useRef(null);
+    control = useRef(null),
+    canvasVisual = useRef(null);
 
   useEffect(() => {
     let frameId;
@@ -30,73 +31,40 @@ export default (props) => {
       return { w: WIDTH * r | 0, h: HEIGHT * r | 0 }
     };
 
+    // Scene and box
     let scene, camera, renderer, axesHelper, gridHelper, controls;
 
-    let directionVectorAngle = 0, directionVectorHelper;
+    // let directionVectorAngle = 0, directionVectorHelper;
 
-    const directionVectorRadius = 50,
-      directionVector = new THREE.Vector3(-0.3, 1, 0).normalize();
+    // const directionVectorRadius = 50,
+    const directionVector = new THREE.Vector3(-0.3, 1, 0).normalize();
 
-    let box1;
+    let box, textures;
 
     const origin = new THREE.Vector3(0, 0, 0);
 
-    // Text
-    const ctx = document.createElement('canvas').getContext('2d');
-    ctx.canvas.width = 120;
-    ctx.canvas.height = 40;
-    ctx.fillStyle = 'white';
-    ctx.fillRect(0, 0, ctx.canvas.width, ctx.canvas.height);
-    var x = ctx.canvas.width / 2;
-    var y = ctx.canvas.height / 2;
-    ctx.font = '30px Soehne';
-    ctx.fillStyle = 'blue';
-    ctx.fillText('Christopher', 0, 0, ctx.canvas.width);
-    //ctx.fillRect(0, 0, 150, 100);
-    //var strDataURI = canvas.toDataURL("image/jpeg");
-    //var imag = new Image();
-    //imag.src = strDataURI;
-    const texture = new THREE.CanvasTexture(ctx.canvas);
-
-    const material = new THREE.MeshBasicMaterial({
-      map: texture,
-    });
-
-    const textMaterials = [
-      material
-    ];
-
-    /*
-    USE TEXTURE LOADER INSTEAD
-    */
-
+    // The box
     function Box(w, h, d){
       const geometry = new THREE.BoxBufferGeometry(w, h, d);
-      //const material = new THREE.MeshBasicMaterial();
-      THREE.Mesh.call(this, geometry, textMaterials);
+      // Pass array of textures as material.
+      THREE.Mesh.call(this, geometry, textures);
 
       // Define a vector in world coordinates for this box to look at
       this.lookAtVector = new THREE.Vector3();
-
       // Set the initial direction of the arrow
       // This MUST have the  correct orientation for the initial box
       // so that when the box is rotated, then this arrow will rotate with it
-      const direction = new THREE.Vector3(0, 0, 1);
-
+      // const direction = new THREE.Vector3(0, 0, 1);
       // Create a vector to hold the arrows position
-      const position = new THREE.Vector3();
-
+      // const position = new THREE.Vector3();
       // Create the arrow
-      this.arrow = new THREE.ArrowHelper(direction, position, h, 0xffffff);
-
+      // this.arrow = new THREE.ArrowHelper(direction, position, h, 0xffffff);
       // And make it a child of the box
       // this.add(this.arrow);
     };
 
     Box.prototype = Object.assign(Object.create(THREE.Mesh.prototype), {
-
       constructor: Box,
-
       setDirection(vector) {
         this.lookAtVector.set(
           this.position.x + vector.x,
@@ -107,22 +75,54 @@ export default (props) => {
       },
     });
 
+    // The text textures
+    function Texture(w, h, text){
+      const ctx = document.createElement('canvas').getContext('2d');
+      ctx.canvas.width = w;
+      ctx.canvas.height = h;
+      ctx.fillStyle = 'gray';
+      ctx.fillRect(0, 0, w, h);
+      ctx.font = '100px Soehne';
+      ctx.fillStyle = 'white';
+      ctx.fillText(text, 0, h-30, w);
+
+      const texture = new THREE.CanvasTexture(ctx.canvas);
+
+      this.canvas = ctx.canvas;
+
+      this.material = new THREE.MeshBasicMaterial({
+        map: texture
+      });
+    };
+
+    canvasVisual.current.appendChild(new Texture(100,100, 'BACKFACE').canvas);
+
     const init = () => {
       scene = new THREE.Scene();
 
-      gridHelper = new THREE.GridHelper(100, 10);
-      //scene.add(gridHelper);
-
-      axesHelper = new THREE.AxesHelper(100);
-      //scene.add(axesHelper);
-
-      directionVectorHelper = new THREE.ArrowHelper(directionVector, origin, 50);
+      // gridHelper = new THREE.GridHelper(100, 10);
+      // scene.add(gridHelper);
+      // axesHelper = new THREE.AxesHelper(100);
+      // scene.add(axesHelper);
+      // directionVectorHelper = new THREE.ArrowHelper(directionVector, origin, 50);
       //scene.add(directionVectorHelper);
 
-      box1 = new Box(80, 40, 120);
-      box1.position.set(0, 0, 0);
-      scene.add(box1);
-      box1.setDirection(directionVector);
+      // Create the text textures
+      textures = [
+        new Texture(100, 100, 'ONE').material,
+        new Texture(240, 160, 'TWO').material,
+        new Texture(480, 320, 'THREE').material,
+        new Texture(100, 100, 'FOUR').material,
+        new Texture(100, 100, 'BACKFACE').material,
+        new Texture(320, 160, 'BOTTOM').material,
+      ];
+
+      // Create the box
+      box = new Box(80, 40, 120);
+      box.position.set(0, 0, 0);
+      scene.add(box);
+      // Set the rotation angle of box
+      box.setDirection(directionVector);
 
       camera = new THREE.PerspectiveCamera(FOV, ASPECT, NEAR, FAR);
       camera.position.set(150, -120, 150);
@@ -141,7 +141,8 @@ export default (props) => {
 
     const animate = () => {
       frameId = requestAnimationFrame(animate);
-      box1.rotation.z += 0.02;
+      // Rotate the box
+      box.rotation.z += 0.02;
       //controls.update();
       renderer.render(scene, camera);
     };
@@ -173,9 +174,10 @@ export default (props) => {
       mount.current.removeChild(renderer.domElement);
       window.removeEventListener('resize', handleResize);
 
-      scene.remove(box1);
-      box1.geometry.dispose();
-      box1.material.dispose();
+      // Memory cleanup
+      scene.remove(box);
+      //box1.geometry.dispose();
+      //box1.material.dispose();
       scene.dispose();
     }
   }, [])
@@ -185,14 +187,20 @@ export default (props) => {
   }, [menuOpen])
 
   return (
-    <Canvas
-      ref={mount}
-    />
+    <>
+      <div
+        ref={canvasVisual}
+      />
+      <Canvas
+        ref={mount}
+      />
+    </>
   );
 }
 
 // Styled components
 const Canvas = styled.div`
+  max-height: 800px;
   height: 100vh;
   width: 100%;
   & canvas {
