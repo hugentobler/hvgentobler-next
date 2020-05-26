@@ -8,6 +8,7 @@ const Footer = () => (
     <Container>
       <Inner>
         <Social>
+          <a href='https://github.com/hugentobler/hvgentobler-next' target='_blank'><span>Source</span></a>
           <Insta href='https://instagram.com/globehunter' target='_blank'><span>instagram</span></Insta>
           <a href='https://linkedin.com/in/hugentobler/' target='_blank'><span>linkedin</span></a>
         </Social>
