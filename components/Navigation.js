@@ -93,7 +93,7 @@ const theme = {
 };
 
 const Menu = styled.div`
-  bottom: var(--spacing-medium);
+  bottom: var(--space-4);
   left: 0;
   right: 0;
   position: fixed;
@@ -120,7 +120,7 @@ const Hamburger = styled(motion.button)`
   font-size: 32px;
   line-height: 1;
   height: 4rem;
-  margin-right: var(--spacing-medium);
+  margin-right: var(--space-4);
   outline: 0;
   overflow: hidden;
   position: relative;
@@ -175,8 +175,8 @@ const NavInner = styled.div`
 const LinkWrap = styled.div`
   align-self: flex-start;
   clip-path: ${props => props.menuOpen ? 'inset(0)' : 'inset(0 100% 0 0)'};
-  margin-bottom: var(--spacing-medium);
-  margin-left: var(--spacing-medium);
+  margin-bottom: var(--space-3);
+  margin-left: var(--space-1);
   transition: clip-path .4s cubic-bezier(.45,.05,.55,.95) .2s;
   &:first-child {
     margin-top: 16%;

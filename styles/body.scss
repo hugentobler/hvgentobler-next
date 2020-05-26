@@ -11,17 +11,17 @@ body {
 main {
   height: 100%;
   min-height: 100vh;
-  padding: 0 var(--spacing-small);
+  padding: 0 var(--space-1);
   position: relative;
   z-index: 1;
 }
 
 section {
-  margin-top: var(--spacing-extra-extra-large);
+  margin: var(--space-6) 0;
 }
 
 section:last-child {
-  margin-bottom: var(--spacing-extra-extra-large);
+
 }
 
 h1 {
@@ -48,8 +48,8 @@ p {
   font-weight: 400;
   letter-spacing: 0.025rem;
   line-height: 1.5;
-  margin-bottom: var(--spacing-medium);
-  margin-top: var(--spacing-medium);
+  margin-bottom: var(--space-3);
+  margin-top: var(--space-3);
 }
 
 span {

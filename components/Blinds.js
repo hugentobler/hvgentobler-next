@@ -154,7 +154,7 @@ const Blind = styled(motion.div)`
   flex-grow: 1;
   height: 100%;
   opacity: 0;
-  padding: var(--spacing-none);
+  padding: var(--space-0);
   position: relative;
   &:last-child {
     //border-right: none;

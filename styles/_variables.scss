@@ -1,6 +1,8 @@
 // _variables.scss
 
 :root {
+  font-size: 16px;
+
   // Colors
   --baby-blue: #bdd6e6;
   --black: #151515;
@@ -14,12 +16,13 @@
   --text-color: var(--black);
 
   // Spacing
-  --spacing-extra-extra-large: 8rem;
-  --spacing-large: 2rem;
-  --spacing-medium: 1rem;
-  --spacing-small: .5rem;
-  --spacing-extra-small: .25rem;
-  --spacing-none: 0rem;
+  --space-0: 0rem;
+  --space-1: 0.5rem;
+  --space-2: 1.0rem;
+  --space-3: 1.5rem;
+  --space-4: 2.0rem;
+  --space-5: 2.5rem;
+  --space-6: 3.0rem;
 
   // Width
   --max-width: 999px;
