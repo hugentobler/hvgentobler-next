@@ -33,12 +33,12 @@ const lineVariants = {
 // Styled components
 const Wrap = styled.div`
   background-color: var(--background-color);
-  bottom: 0;
   font-size: 0;
+  height: 100vh;
   left: 0;
   right: 0;
   top: 0;
-  position: fixed;
+  position: sticky;
   z-index: 0;
 `;
 

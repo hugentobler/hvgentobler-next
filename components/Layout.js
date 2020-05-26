@@ -12,6 +12,7 @@ import Favicon from '../components/Favicon';
 import Background from '../components/Background';
 import Blinds from '../components/Blinds';
 import Navigation from '../components/Navigation';
+import Footer from '../components/Footer';
 import SetProperty from '../components/CustomCssProperties';
 
 // Dynamic import
@@ -73,7 +74,6 @@ const Layout = props => {
               }
             })}
           </motion.main>
-          <Background />
           <Blinds
             menuOpen={menuOpen}
             animateMenu={animateMenu}
@@ -85,6 +85,7 @@ const Layout = props => {
             animateMenu={animateMenu}
           />
         </Container>
+        <Footer />
       </Root>
     </>
   )
@@ -110,9 +111,7 @@ const mainVariants = {
 
 // Styled components
 const Root = styled.div`
-  align-items: center;
-  display: flex;
-  flex-direction: column;
+  background-color: red;
   text-rendering: optimizeLegibility;
 `;
 

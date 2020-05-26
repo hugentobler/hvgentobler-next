@@ -26,6 +26,7 @@ section:last-child {
 
 h1 {
   font-size: 3rem;
+  font-weight: 700;
   margin-bottom: 3rem;
   margin-top: 3rem;
 }
@@ -49,6 +50,13 @@ p {
   line-height: 1.5;
   margin-bottom: var(--spacing-medium);
   margin-top: var(--spacing-medium);
+}
+
+span {
+  font-size: 0.7rem;
+  font-weight: 400;
+  letter-spacing: 0.1rem;
+  text-transform: uppercase;
 }
 
 sub,
