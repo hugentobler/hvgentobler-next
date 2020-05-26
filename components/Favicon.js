@@ -21,12 +21,12 @@ export default () => {
         href="/favicon/favicon-16x16.png"
       />
       <link rel="manifest" href="/favicon/site.webmanifest" />
-      <link rel="mask-icon" href="/favicon/safari-pinned-tab.svg" color="#151515" />
+      <link rel="mask-icon" href="/favicon/safari-pinned-tab.svg" color="#0f4c81" />
       <link rel="shortcut icon" href="/favicon/favicon.ico" />
       <link rel="icon" href="/favicon/favicon.ico" type="image/x-icon" />
-      <meta name="msapplication-TileColor" content="#151515" />
+      <meta name="msapplication-TileColor" content="#ffc40d" />
       <meta name="msapplication-config" content="/favicon/browserconfig.xml" />
-      <meta name="theme-color" content="#151515" />
+      <meta name="theme-color" content="#0f4c81" />
     </>
   )
 }
