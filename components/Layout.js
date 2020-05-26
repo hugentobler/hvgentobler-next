@@ -46,7 +46,7 @@ const Layout = props => {
   return (
     <>
       <Head>
-        <Favicon/>
+        <Favicon />
         <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
         <title>{props.title}</title>
         <meta name="description" content={props.description} />
@@ -59,6 +59,11 @@ const Layout = props => {
         {isProd ? <meta name="robots" content="index, follow" /> : <meta name="robots" content="noindex, nofollow" />}
       </Head>
       <Root>
+        <Background />
+        <Blinds
+          menuOpen={menuOpen}
+          animateMenu={animateMenu}
+        />
         <Container>
           <motion.main
             initial='hidden'
@@ -74,19 +79,15 @@ const Layout = props => {
               }
             })}
           </motion.main>
-          <Blinds
-            menuOpen={menuOpen}
-            animateMenu={animateMenu}
-          />
-          <Navigation
-            menuOpen={menuOpen}
-            toggleMenu={toggleMenu}
-            menuAnimating={menuAnimating}
-            animateMenu={animateMenu}
-          />
         </Container>
-        <Footer />
       </Root>
+      <Footer />
+      <Navigation
+        menuOpen={menuOpen}
+        toggleMenu={toggleMenu}
+        menuAnimating={menuAnimating}
+        animateMenu={animateMenu}
+      />
     </>
   )
 };
@@ -111,11 +112,14 @@ const mainVariants = {
 
 // Styled components
 const Root = styled.div`
-  background-color: red;
+  background-color: var(--background-color);
+  position: relative;
   text-rendering: optimizeLegibility;
+  z-index: 1;
 `;
 
 const Container = styled.div`
+  margin: auto;
   max-width: var(--max-width);
   width: 100%;
 `;

@@ -119,10 +119,10 @@ const fillVariants = {
 
 // Styled components
 const Wrap = styled.div`
-  bottom: 0;
   display: flex;
+  height: 100%;
   left: 0;
-  position: fixed;
+  position: absolute;
   right: 0;
   //transition: visibility 0s .6s;
   top: 0;

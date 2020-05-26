@@ -23,7 +23,7 @@ export default function Index() {
     >
       <Hero>
         <span>Christopher Hugentobler 姚思陶</span>
-        <h1><uppercase>A walking, talking venn diagram.</uppercase></h1>
+        <h1>A walking, talking venn diagram.</h1>
         <p>This is something amazing his is something amazinghis is something amazinghis is something amazinghis is something amazinghis is something amazinghis is something amazing</p>
       </Hero>
       <section>
@@ -56,6 +56,9 @@ export default function Index() {
 
 // Styled components
 const Hero = styled.section`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   max-width: 480px;
-  min-height: 60vh;
+  min-height: 80vh;
 `;

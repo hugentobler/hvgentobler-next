@@ -34,11 +34,11 @@ const lineVariants = {
 const Wrap = styled.div`
   background-color: var(--background-color);
   font-size: 0;
-  height: 100vh;
+  height: 100%;
   left: 0;
   right: 0;
   top: 0;
-  position: sticky;
+  position: absolute;
   z-index: 0;
 `;
 
