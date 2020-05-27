@@ -71,7 +71,7 @@ export default function Layout(props) {
     <>
       <Head>
         <Favicon />
-        <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
+        <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=5.0" />
         <title>{title}</title>
         <meta name="description" content={description} />
         <meta property="og:title" content={title} />
