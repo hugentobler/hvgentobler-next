@@ -16,6 +16,7 @@ import Footer from '../components/Footer';
 import SetProperty from '../components/CustomCssProperties';
 
 // Dynamic import
+
 // Client side javascript, we don't want server side rendering
 // const Browser = dynamic(
 //   () => import('../components/Browser'),
