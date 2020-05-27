@@ -1,18 +1,18 @@
 /**
-  25TH BIRTHDAY
-  pages/25th.js
+ * 25TH BIRTHDAY
+ * pages/25th.js
 */
 
 /**
-  MODULES
-*/
+ * MODULES
+ */
 /* Components */
 import Layout from '../components/Layout';
 import Image from '../components/Image';
 
 /**
-  FRONTMATTER
-  Pass on to layout as props.
+ * FRONTMATTER
+ * Pass on to layout as props.
 */
 const frontmatter = {
   title: 'Christopher\'s 25th Birthday Party 🎂',
@@ -21,8 +21,8 @@ const frontmatter = {
 };
 
 /**
-  DEFAULT EXPORT
-*/
+ * DEFAULT EXPORT
+ */
 export default function TwentyFifth() {
   return (
     <Layout {...frontmatter}>
@@ -70,8 +70,8 @@ export default function TwentyFifth() {
         <Image
           alt="Christopher pointing up and smiling!"
           src="/images/25th/main.jpg"
-          height="1599"
-          width="1200"
+          h="1599"
+          w="1200"
           loading="lazy"
         />
         <h2>

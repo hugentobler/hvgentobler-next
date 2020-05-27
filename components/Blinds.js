@@ -1,46 +1,98 @@
-// components/Blinds.js
+/**
+ * BLINDS
+ * components/Blinds.js
+ * The vertical blinds / curtains.
+ */
 
-// Modules
+/**
+ * MODULES
+ */
 import { useEffect } from 'react';
+import PropTypes from 'prop-types';
 import { motion, useAnimation } from 'framer-motion';
 import styled from 'styled-components';
 
-const Blinds = props => {
-  // Consume menuOpen from parent.
-  const {menuOpen, animateMenu} = props;
+/**
+ * ANIMATIONS
+ */
+const blindVariants = {
+  hidden: {
+    opacity: 0,
+    transition: {
+      duration: 0,
+    },
+  },
+  visible: {
+    opacity: 1,
+    transition: {
+      duration: 0,
+    },
+  },
+};
+
+const fillVariants = {
+  hidden: {
+    width: '0%',
+  },
+  open: {
+    width: '100%',
+    transition: {
+      duration: 0.4,
+      ease: [0.45, 0.05, 0.55, 0.95],
+    },
+  },
+  close: {
+    width: '0%',
+    transition: {
+      duration: 0.4,
+      ease: [0.45, 0.05, 0.55, 0.95],
+    },
+  },
+  exit: {
+    width: ['0%', '100%', '0%'],
+    transition: {
+      duration: 0.4,
+      ease: [0.45, 0.05, 0.55, 0.95],
+      times: [0, 0.5, 1],
+    },
+  },
+};
+
+/**
+ * DEFAULT EXPORT
+ */
+export default function Blinds(props) {
+  const { menuOpen, animateMenu } = props;
 
   const fillControls = useAnimation();
   const blindControls = useAnimation();
 
-  if (menuOpen) {
-    blindControls.start('visible').then(() => {
-      fillControls.start('open');
-    })
-  } else {
-    fillControls.start('close').then(() => {
-      blindControls.start('hidden');
-    })
-  }
+  useEffect(() => {
+    if (menuOpen) {
+      blindControls.start('visible').then(() => {
+        fillControls.start('open');
+      });
+    } else {
+      fillControls.start('close').then(() => {
+        blindControls.start('hidden');
+      });
+    }
+  }, [menuOpen]);
 
-  // For Motion - one of the blinds will notify that animation has ended.
+  /* One of the blinds will notify Motion when animation is ended. */
   const onComplete = () => {
     animateMenu(false);
-  }
+  };
 
   return (
     <Wrap
       menuOpen={menuOpen}
     >
-      <Side>
-        {/*<Fill
-          animate='hidden'
-          exit='exit'
-          variants={fillVariants}
-        />*/}
-      </Side>
+      <Side />
       <Inner>
-        {[...Array(5)].map((e, i) =>
-          <Blind key={i}
+        {[...Array(5)].map((e, i) => (
+          <Blind
+            key={i} // eslint-disable-line react/no-array-index-key
             animate={blindControls}
             variants={blindVariants}
           >
@@ -50,7 +102,7 @@ const Blinds = props => {
               variants={fillVariants}
             />
           </Blind>
-        )}
+        ))}
         <Blind
           animate={blindControls}
           variants={blindVariants}
@@ -62,62 +114,22 @@ const Blinds = props => {
           />
         </Blind>
       </Inner>
-      <Side>
-        {/*<Fill
-          animate='hidden'
-          exit='exit'
-          variants={fillVariants}
-        />*/}
-      </Side>
+      <Side />
     </Wrap>
-  )
+  );
+}
+
+/**
+ * PROPTYPES
+ */
+Blinds.propTypes = {
+  menuOpen: PropTypes.bool.isRequired,
+  animateMenu: PropTypes.func.isRequired,
 };
 
-// Animations
-const blindVariants = {
-  hidden: {
-    opacity: 0,
-    transition: {
-      duration: 0
-    }
-  },
-  visible: {
-    opacity: 1,
-    transition: {
-      duration: 0
-    }
-  }
-}
-
-const fillVariants = {
-  hidden: {
-    width: '0%'
-  },
-  open: {
-    width: '100%',
-    transition: {
-      duration: .4,
-      ease: [.45,.05,.55,.95]
-    }
-  },
-  close: {
-    width: '0%',
-    transition: {
-      duration: .4,
-      ease: [.45,.05,.55,.95]
-    }
-  },
-  exit: {
-    width: ['0%', '100%', '0%'],
-    transition: {
-      duration: .4,
-      ease: [.45,.05,.55,.95],
-      times: [0, 0.5, 1]
-    }
-  }
-}
-
-// Styled components
+/**
+ * STYLED COMPONENTS
+ */
 const Wrap = styled.div`
   display: flex;
   height: 100%;
@@ -127,8 +139,8 @@ const Wrap = styled.div`
   //transition: visibility 0s .6s;
   top: 0;
   //visibility: hidden;
-  transition-delay: ${props => props.menuOpen ? '0s' : '.4s'};
-  z-index: ${props => props.menuOpen ? '999' : '0'};
+  transition-delay: ${(props) => (props.menuOpen ? '0s' : '.4s')};
+  z-index: ${(props) => (props.menuOpen ? '999' : '0')};
 `;
 
 const Side = styled(motion.div)`
@@ -170,5 +182,3 @@ const Fill = styled(motion.div)`
   top: 0;
   width: 0%;
 `;
-
-export default Blinds;

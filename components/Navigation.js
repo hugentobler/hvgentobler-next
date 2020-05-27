@@ -1,29 +1,62 @@
-// components/Header.js
+/**
+ * NAVIGATION
+ * components/Navigation.js
+ * Hamburger menu and offscren site navigation.
+ */
 
-// Modules
-import { useRef } from 'react';
+/**
+ * MODULES
+ */
+import React, { useRef } from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
-import Link from '../components/Link';
+/* Components */
+import Link from './Link';
 
-const Navigation = props => {
-  // Consume menuOpen and toggleMenu from parent.
-  const {menuOpen, toggleMenu, menuAnimating, animateMenu} = props;
+/**
+ * ANIMATIONS
+ */
+const burgerVariants = {
+  on: {
+    fontSize: '45px',
+    rotate: '30deg',
+  },
+  off: {
+    fontSize: '32px',
+    rotate: '0deg',
+  },
+  hover: {
+    fontSize: '45px',
+    rotate: '30deg',
+    translateX: '-2px',
+    translateY: '-2px',
+  },
+};
 
-  // Ref for hamburger drag constraint.
+/**
+ * DEFAULT EXPORT
+ */
+export default function Navigation(props) {
+  const {
+    menuOpen, toggleMenu, menuAnimating, animateMenu,
+  } = props;
+
+  /* Constrain the draggable button on screen. */
   const constraintsRef = useRef(null);
 
   return (
     <>
       <Menu>
         <MenuInner>
-          <Hamburger name='menu'
+          <Hamburger
+            name="menu"
             className={
               (menuOpen ? 'open' : '')
             }
             onClick={() => {
-              toggleMenu(prevState => !prevState);
-              animateMenu(prevState => !prevState);
+              toggleMenu((prevState) => !prevState);
+              animateMenu((prevState) => !prevState);
             }}
             disabled={menuAnimating}
             drag
@@ -31,10 +64,11 @@ const Navigation = props => {
             initial={menuOpen ? 'on' : 'off'}
             animate={menuOpen ? 'on' : 'off'}
             variants={burgerVariants}
-            whileHover='hover'
-            whileTap='hover'
+            whileHover="hover"
+            whileTap="hover"
           >
-          🍔</Hamburger>
+            <span role="img" aria-label="Hamburger">🍔</span>
+          </Hamburger>
         </MenuInner>
       </Menu>
       <Nav
@@ -45,8 +79,13 @@ const Navigation = props => {
             menuOpen={menuOpen}
             toggleMenu={toggleMenu}
           >
-            <Link href='/'><a>Home ↩</a></Link>
-            <Link href='/25th'><a>25th Birthday 🍄</a></Link>
+            <Link href="/"><a>Home ↩</a></Link>
+            <Link href="/25th">
+              <a>
+                25th Birthday&nbsp;
+                <span role="img" aria-label="Mushroom">🍄</span>
+              </a>
+            </Link>
           </LinkParent>
         </NavInner>
       </Nav>
@@ -54,42 +93,38 @@ const Navigation = props => {
         ref={constraintsRef}
       />
     </>
-  )
-};
+  );
+}
 
-// components
-const LinkParent = props => (
-  React.Children.map(props.children, child => (
+/**
+ * COMPONENTS
+ */
+const LinkParent = (props) => (
+  React.Children.map(props.children, (child) => (
     <LinkWrap
       menuOpen={props.menuOpen}
     >
-      {React.cloneElement(child, { toggleMenu: props.toggleMenu })}
+      {child}
     </LinkWrap>
   ))
 );
 
-// Animations
-const burgerVariants = {
-  on: {
-    fontSize: '45px',
-    rotate: '30deg'
-  },
-  off: {
-    fontSize: '32px',
-    rotate: '0deg'
-  },
-  hover: {
-    fontSize: '45px',
-    rotate: '30deg',
-    translateX: '-2px',
-    translateY: '-2px'
-  }
-}
+/**
+ * PROPTYPES
+ */
+Navigation.propTypes = {
+  menuOpen: PropTypes.bool.isRequired,
+  toggleMenu: PropTypes.func.isRequired,
+  menuAnimating: PropTypes.bool.isRequired,
+  animateMenu: PropTypes.func.isRequired,
+};
 
-// Styled components
+/**
+ * STYLED COMPONENTS
+ */
 const theme = {
   forNotSmall: 'screen and (min-width: 30em)',
-  letterSpacing: '-0.05rem'
+  letterSpacing: '-0.05rem',
 };
 
 const Menu = styled.div`
@@ -140,13 +175,13 @@ const Hamburger = styled(motion.button)`
 
 const Nav = styled.nav`
   bottom: 8rem;
-  visibility: ${props => props.menuOpen ? 'visible' : 'hidden'};
+  visibility: ${(props) => (props.menuOpen ? 'visible' : 'hidden')};
   left: 0;
   overflow-y: scroll;
   position: fixed;
   right: 0;
   top: 0;
-  z-index: ${props => props.menuOpen ? '999' : '0'};
+  z-index: ${(props) => (props.menuOpen ? '999' : '0')};
 `;
 
 const NavInner = styled.div`
@@ -174,7 +209,7 @@ const NavInner = styled.div`
 
 const LinkWrap = styled.div`
   align-self: flex-start;
-  clip-path: ${props => props.menuOpen ? 'inset(0)' : 'inset(0 100% 0 0)'};
+  clip-path: ${(props) => (props.menuOpen ? 'inset(0)' : 'inset(0 100% 0 0)')};
   margin-bottom: var(--space-3);
   margin-left: var(--space-1);
   transition: clip-path .4s cubic-bezier(.45,.05,.55,.95) .2s;
@@ -192,6 +227,3 @@ const HamburgerRef = styled.div`
   top: 0;
   z-index: -1;
 `;
-
-
-export default Navigation;

@@ -1,16 +1,29 @@
-// components/Link.js
-// Custom link component wrapping next/link
+/**
+ * LINK
+ * components/Link.js
+ * Wrapped Next Link with my own logic.
+ * Link hover Motion animation.
+ * Active classname on active pages.
+ * {@link https://nextjs.org/docs/api-reference/next/link}
+ */
 
-// Modules
+/**
+ * MODULES
+ */
 import React from 'react';
+import PropTypes from 'prop-types';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 
-export default ({ href, toggleMenu, children }) => {
+/**
+ * DEFAULT EXPORT
+ */
+export default function MyLink(props) {
+  const { children, href } = props;
   const router = useRouter();
 
-  // Append class if this is active page.
+  /* Append active classname if this page is active. */
   let className = children.props.className || '';
   if (router.pathname === href) {
     className = `${className} active`;
@@ -22,8 +35,15 @@ export default ({ href, toggleMenu, children }) => {
     >
       <Link href={href}>
         {React.cloneElement(children, { className })}
-        {/*React.cloneElement(children, { className, onClick })*/}
       </Link>
     </motion.div>
   );
+}
+
+/**
+ * PROPTYPES
+ */
+MyLink.propTypes = {
+  children: PropTypes.element.isRequired,
+  href: PropTypes.string.isRequired,
 };

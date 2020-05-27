@@ -1,36 +1,52 @@
-// components/Background.js
+/**
+ * BACKGROUND
+ * components/Background.js
+ * The gray background and animated lines.
+ */
 
-// Modules
+/**
+ * MODULES
+ */
 import { motion } from 'framer-motion';
 import styled from 'styled-components';
 
-const Background = () => (
-  <Wrap>
-    <Inner>
-      {[...Array(6)].map((e, i) =>
-        <Line key={i}
-          custom={i}
-          animate='visible'
-          variants={lineVariants}
-        />
-      )}
-    </Inner>
-  </Wrap>
-);
-
-// Animations
+/**
+ * ANIMATIONS
+ */
 const lineVariants = {
-  visible: i => ({
+  visible: (i) => ({
     height: '100%',
     transition: {
-      delay: i*.2,
-      duration: .9,
-      ease: [.45,.05,.55,.95],
-    }
-  })
+      delay: i * 0.2,
+      duration: 0.9,
+      ease: [0.45, 0.05, 0.55, 0.95],
+    },
+  }),
+};
+
+/**
+ * DEFAULT EXPORT
+ */
+export default function Background() {
+  return (
+    <Wrap>
+      <Inner>
+        {[...Array(6)].map((e, i) => (
+          <Line
+            key={i} // eslint-disable-line react/no-array-index-key
+            custom={i}
+            animate="visible"
+            variants={lineVariants}
+          />
+        ))}
+      </Inner>
+    </Wrap>
+  );
 }
 
-// Styled components
+/**
+ * STYLED COMPONENTS
+ */
 const Wrap = styled.div`
   background-color: var(--background-color);
   font-size: 0;
@@ -66,5 +82,3 @@ const Line = styled(motion.div)`
   }
   &:last-child::after { content: none; }
 `;
-
-export default Background;

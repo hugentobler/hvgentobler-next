@@ -28,5 +28,6 @@ module.exports = {
     'max-len': 'off',
     'valid-jsdoc': 'off',
     'require-jsdoc': 'off',
+    'jsx-a11y/anchor-is-valid': 'off',
   },
 };

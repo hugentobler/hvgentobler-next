@@ -1,62 +1,85 @@
-// components/Layout.js
+/**
+ * LAYOUT
+ * components/Layout.js
+ * The primary layout.
+ */
 
-// Modules
-import { useState, useEffect } from 'react';
-import dynamic from 'next/dynamic';
-import { useRouter } from 'next/router';
-import Router from 'next/router';
+/**
+ * MODULES
+ */
+import React, { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
+import Router, { useRouter } from 'next/router';
+import Head from 'next/head';
 import { motion } from 'framer-motion';
 import styled from 'styled-components';
-import Head from 'next/head';
-import Favicon from '../components/Favicon';
-import Background from '../components/Background';
-import Blinds from '../components/Blinds';
-import Navigation from '../components/Navigation';
-import Footer from '../components/Footer';
-import SetProperty from '../components/CustomCssProperties';
+/* Components */
+import Favicon from './Favicon';
+import Background from './Background';
+import Blinds from './Blinds';
+import Navigation from './Navigation';
+import Footer from './Footer';
+import SetCSSProperty from './CustomCssProperties';
 
-// Dynamic import
+/**
+ * ANIMATIONS
+ */
+const mainVariants = {
+  hidden: {
+    opacity: 0,
+    transition: {
+      duration: 0.4,
+    },
+  },
+  visible: {
+    opacity: 1,
+    transition: {
+      delay: 0,
+      duration: 0.3,
+      ease: [0.45, 0.05, 0.55, 0.95],
+    },
+  },
+};
 
-// Client side javascript, we don't want server side rendering
-// const Browser = dynamic(
-//   () => import('../components/Browser'),
-//   { ssr: false }
-// );
-
-const Layout = props => {
-  // Get current path for frontmatter.
-  const router = useRouter();
-  // Get build environment from next config.
+/**
+ * DEFAULT EXPORT
+ */
+export default function Layout(props) {
+  const {
+    children, title, description, image,
+  } = props;
+  const { asPath } = useRouter();
   const isProd = process.env.IS_PROD;
 
-  // Declare state variable for toggling navigation menu
+  /* Menu state management. */
   const [menuOpen, toggleMenu] = useState(false);
   const [menuAnimating, animateMenu] = useState(false);
 
-  // Set page color when route change is complete.
   useEffect(() => {
-    const handleRouteChange = url => {
-      SetProperty(url);
-    }
-    Router.events.on('routeChangeComplete', handleRouteChange)
+    /* On subsequent route change, close menu and update css properties. */
+    const handleRouteChange = (url) => {
+      toggleMenu(false);
+      SetCSSProperty(url);
+    };
+    Router.events.on('routeChangeComplete', handleRouteChange);
     return () => {
-      Router.events.off('routeChangeComplete', handleRouteChange)
-    }
-  }, [])
+      Router.events.off('routeChangeComplete', handleRouteChange);
+    };
+  }, []);
 
   return (
     <>
       <Head>
         <Favicon />
         <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
-        <title>{props.title}</title>
-        <meta name="description" content={props.description} />
-        <meta property="og:title" content={props.title} />
-        <meta property="og:description" content={props.description} />
+        <title>{title}</title>
+        <meta name="description" content={description} />
+        <meta property="og:title" content={title} />
+        <meta property="og:description" content={description} />
         <meta property="og:type" content="website" />
         <meta property="og:site_name" content="Christopher Hugentobler" />
-        <meta property="og:url" content={`https://hvgentobler.com${router.asPath}`} />
-        <meta property="og:image" content={`https://hvgentobler.com${props.image}`} />
+        <meta property="og:url" content={`https://hvgentobler.com${asPath}`} />
+        <meta property="og:image" content={`https://hvgentobler.com${image}`} />
         {isProd ? <meta name="robots" content="index, follow" /> : <meta name="robots" content="noindex, nofollow" />}
       </Head>
       <Root>
@@ -67,17 +90,16 @@ const Layout = props => {
         />
         <Container>
           <motion.main
-            initial='hidden'
-            animate='visible'
+            initial="hidden"
+            animate="visible"
             variants={mainVariants}
           >
-            {React.Children.map(props.children, child => {
-              if (typeof child.type == 'object') {
-                // If child is a component, duplicate with additional props.
+            {React.Children.map(children, (child) => {
+              /* Pass additional components if child is a component. */
+              if (typeof child.type === 'object') {
                 return React.cloneElement(child, { menuOpen });
-              } else {
-                return child;
               }
+              return child;
             })}
           </motion.main>
         </Container>
@@ -90,28 +112,22 @@ const Layout = props => {
         animateMenu={animateMenu}
       />
     </>
-  )
-};
-
-// Animations Framer Motion
-const mainVariants = {
-  hidden: {
-    opacity: 0,
-    transition: {
-      duration: .4
-    }
-  },
-  visible: {
-    opacity: 1,
-    transition: {
-      delay: 0,
-      duration: .3,
-      ease: [.45,.05,.55,.95],
-    }
-  }
+  );
 }
 
-// Styled components
+/**
+ * PROPTYPES
+ */
+Layout.propTypes = {
+  children: PropTypes.node.isRequired,
+  title: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
+  image: PropTypes.string.isRequired,
+};
+
+/**
+ * STYLED COMPONENTS
+ */
 const Root = styled.div`
   background-color: var(--background-color);
   position: relative;
@@ -124,5 +140,3 @@ const Container = styled.div`
   max-width: var(--max-width);
   width: 100%;
 `;
-
-export default Layout;

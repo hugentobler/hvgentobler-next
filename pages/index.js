@@ -1,20 +1,20 @@
 /**
-  HOMEPAGE
-  pages/index.js
-*/
+ * HOMEPAGE
+ * pages/index.js
+ */
 
 /**
-  MODULES
-*/
+ * MODULES
+ */
 // import dynamic from 'next/dynamic';
 import styled from 'styled-components';
 /* Components */
 import Layout from '../components/Layout';
 
 /**
-  FRONTMATTER
-  Pass on to layout as props.
-*/
+ * FRONTMATTER
+ * Pass on to layout as props.
+ */
 const frontmatter = {
   title: 'Christopher Hugentobler',
   description: 'This is the description.',
@@ -22,8 +22,8 @@ const frontmatter = {
 };
 
 /**
-  DEFAULT EXPORT
-*/
+ * DEFAULT EXPORT
+ */
 export default function Index() {
   /* Dynamic imports */
   // const Animation1 = dynamic(
@@ -77,8 +77,8 @@ export default function Index() {
 }
 
 /**
-  STYLED COMPONENTS
-*/
+ * STYLED COMPONENTS
+ */
 const Hero = styled.section`
   display: flex;
   flex-direction: column;

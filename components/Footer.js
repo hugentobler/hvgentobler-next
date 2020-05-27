@@ -1,43 +1,46 @@
-// components/Footer.js
+/**
+ * FOOTER
+ * components/Footer.js
+ */
 
-// Modules
+/**
+* MODULES
+*/
 import styled from 'styled-components';
 
 /**
-  DEFAULT EXPORT
-*/
-export default function Footer() {
-  return (
-    <Root>
-      <Container>
-        <Inner>
-          <Social>
-            <h6><a href="https://github.com/hugentobler/hvgentobler-next" target="_blank" rel="noreferrer">source</a></h6>
-            <h6><Insta href="https://instagram.com/globehunter" target="_blank" rel="noreferrer">instagram</Insta></h6>
-            <h6><a href="https://linkedin.com/in/hugentobler/" target="_blank" rel="noreferrer">linkedin</a></h6>
-          </Social>
-          <p>
-            Typeset in&nbsp;
-            <a href="https://klim.co.nz/collections/soehne/" target="_blank" rel="noreferrer">Söhne</a>
-            .
-          </p>
-          <p>
-            Built with&nbsp;
-            <a href="https://nextjs.org/" target="_blank" rel="noreferrer">Next</a>
-            &nbsp;and served with&nbsp;
-            <a href="https://zeit.co/" target="_blank" rel="noreferrer">ZEIT Now</a>
-            .
-          </p>
-          <p>© Christopher Hugentobler 2020</p>
-        </Inner>
-      </Container>
-    </Root>
-  );
-}
+ * DEFAULT EXPORT
+ */
+export default () => (
+  <Root>
+    <Container>
+      <Inner>
+        <Social>
+          <h6><a href="https://github.com/hugentobler/hvgentobler-next" target="_blank" rel="noreferrer">source</a></h6>
+          <h6><Insta href="https://instagram.com/globehunter" target="_blank" rel="noreferrer">instagram</Insta></h6>
+          <h6><a href="https://linkedin.com/in/hugentobler/" target="_blank" rel="noreferrer">linkedin</a></h6>
+        </Social>
+        <p>
+          Typeset in&nbsp;
+          <a href="https://klim.co.nz/collections/soehne/" target="_blank" rel="noreferrer">Söhne</a>
+          .
+        </p>
+        <p>
+          Built with&nbsp;
+          <a href="https://nextjs.org/" target="_blank" rel="noreferrer">Next</a>
+          &nbsp;and served with&nbsp;
+          <a href="https://zeit.co/" target="_blank" rel="noreferrer">ZEIT Now</a>
+          .
+        </p>
+        <p>© Christopher Hugentobler 2020</p>
+      </Inner>
+    </Container>
+  </Root>
+);
 
 /**
-  STYLED COMPONENTS
-*/
+ * STYLED COMPONENTS
+ */
 const Root = styled.footer`
   background-color: #f9f8f1;
   bottom: 0;

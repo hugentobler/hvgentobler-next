@@ -1,5 +1,11 @@
-// _mixins.scss
+/**
+ * STYLE MIXINS
+ * styles/_mixins.scss
+ */
 
+/**
+ * MEDIA QUERIES
+ */
 @mixin for-not-small {
   @media screen and (min-width: 30em) { @content; }
 }

@@ -1,51 +1,81 @@
-// pages/_app.js
+/**
+ * CUSTOM APP
+ * pages/_app.js
+ * {@link https://nextjs.org/docs/advanced-features/custom-app}
+*/
 
-// Modules
+/**
+ * MODULES
+ */
 import App from 'next/app';
+/* Components */
 import { Provider } from '../components/UserContext';
-import SetProperty from '../components/CustomCssProperties';
+import SetCSSProperty from '../components/CustomCssProperties';
 
-// Global styles
+/**
+ * GLOBAL STYLES
+ */
 import '../styles/reset.scss';
 import '../styles/fonts.scss';
-import '../styles/body.scss';
+import '../styles/global.scss';
 
+/**
+ * DEFAULT EXPORT
+ */
 export default class MyApp extends App {
-  state = {
-    history: [], // Store page history.
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      history: [],
+    };
+  }
 
-  componentDidMount = () => {
-    // Save initial path to history.
-    const { asPath } = this.props.router;
-    this.setState(prevState => ({ history: [...prevState.history, asPath] }));
-    // Set css properties on load.
-    SetProperty(this.props.router.pathname);
-  };
+  componentDidMount() {
+    /* Save this page's path to state. */
+    const { asPath, pathname } = this.props.router;
+    this.setState(
+      (prevState) => ({ history: [...prevState.history, asPath] }),
+    );
+    /* Set custom css property on load. */
+    SetCSSProperty(pathname);
+  }
 
-  componentDidUpdate = () => {
+  componentDidUpdate() {
+    /* Save subsequent page path changes that user visits to state. */
     const { history } = this.state;
     const { asPath } = this.props.router;
-    // If current path doesn't equal latest item in history, let's save the change.
     if (history[history.length - 1] !== asPath) {
-      this.setState(prevState => ({ history: [...prevState.history, asPath] }));
+      /* Not recommended to setState in componentDidUpdate, but alas it's conditional so won't loop. */
+      // eslint-disable-next-line react/no-did-update-set-state
+      this.setState(
+        (prevState) => ({ history: [...prevState.history, asPath] }),
+      );
     }
-  };
+  }
 
   render() {
     const { Component, pageProps, router } = this.props;
 
     return (
+      /* Provide context to whole app. */
       <Provider value={{
         state: this.state,
-      }}>
-        <Component {...pageProps} key={router.route} />
+      }}
+      >
+        <Component
+          {...pageProps}
+          key={router.route}
+        />
       </Provider>
-    )
-  };
+    );
+  }
 }
 
+/**
+ * APP METRICS
+ * {@link https://nextjs.org/docs/advanced-features/measuring-performance}
+ */
 export function reportWebVitals(metric) {
   // These metrics can be sent to any analytics service
-  console.log(metric);
+  console.log(metric); // eslint-disable-line
 }

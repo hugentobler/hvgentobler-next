@@ -1,8 +1,17 @@
-// styles/body.scss
+/**
+ * GLOBAL STYLES
+ * styles/global.scss
+ */
 
+/**
+ * IMPORTS
+ */
 @import 'variables';
 @import 'mixins';
 
+/**
+ * TAG STYLES
+ */
 body {
   color: var(--text-color);
   font-family: Soehne, Helvetica, Arial, sans-serif;

@@ -1,9 +1,15 @@
-// _variables.scss
+/**
+ * STYLE MIXINS
+ * styles/_variables.scss
+ */
 
+/**
+ * ROOT STYLES
+ */
 :root {
   font-size: 16px;
 
-  // Colors
+  /* REFERENCE COLORS */
   --baby-blue: #bdd6e6;
   --black: #151515;
   --classic-blue: #0F4C81;
@@ -11,11 +17,11 @@
   --transparent: transparent;
   --yellow: #f6eb61;
 
-  // Styling
+  /* DEFAULT COLORS */
   --background-color: var(--white);
   --text-color: var(--black);
 
-  // Spacing
+  /* SPACING */
   --space-0: 0rem;
   --space-1: 0.5rem;
   --space-2: 1.0rem;
@@ -24,6 +30,6 @@
   --space-5: 2.5rem;
   --space-6: 3.0rem;
 
-  // Width
+  /* WIDTHS */
   --max-width: 999px;
 }

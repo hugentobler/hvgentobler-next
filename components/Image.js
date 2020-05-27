@@ -1,66 +1,87 @@
-// components/Image.js
-// Responsive images and lazy loading.
+/**
+ * IMAGE
+ * components/Image.js
+ * Animate in responsive image when visible.
+ * Lazy load image if available in browser.
+ * Generate reponsive srcset.
+ */
 
-// Modules
+/**
+ * MODULES
+ */
 import React from 'react';
+import PropTypes from 'prop-types';
 import { useIntersection } from 'react-use';
 import styled from 'styled-components';
 import { motion, useAnimation } from 'framer-motion';
 
-const Image = props => {
-  // Intersection observer for Image.
+
+/**
+ * DEFAULT EXPORT
+ */
+export default function Image(props) {
+  const {
+    alt, src, h, w, loading,
+  } = props;
+
+  /* Browser intersection observer for Image. */
   const intersectionRef = React.useRef(null);
   const intersection = useIntersection(intersectionRef, {
     root: null,
     rootMargin: '0px',
-    threshold: 0.5 // Start observing when half of the target is visible
+    threshold: 0.5, // Observe when half the target is visible.
   });
 
-  // Animate in image when visible.
-  let imgControls = useAnimation();
-  if (intersection && intersection.intersectionRatio > .5) {
+  /* Animate in image based on intersection observer. */
+  const imgControls = useAnimation();
+  if (intersection && intersection.intersectionRatio > 0.5) {
     imgControls.start({
       opacity: 1,
       rotateZ: 0,
       transition: {
         duration: 1,
-        ease: [.45,.05,.55,.95]
-      }
+        ease: [0.45, 0.05, 0.55, 0.95],
+      },
     });
   }
 
-  // Get children props.
-  let p = props,
-    src = p.src,
-    h = p.height,
-    w = p.width,
-    alt = p.alt,
-    loading = p.loading;
-
-  // Declare responsive sources.
-  let pathAndName = src.substring(0, src.lastIndexOf('.')),
-    fileExtension = src.substring(src.lastIndexOf('.')),
-    src1200 = pathAndName + '-1200' + fileExtension,
-    src640 = pathAndName + '-640' + fileExtension;
+  /* Set source paths for srcSet */
+  const pathAndName = src.substring(0, src.lastIndexOf('.'));
+  const fileExtension = src.substring(src.lastIndexOf('.'));
+  const src1200 = `${pathAndName}-1200${fileExtension}`;
+  const src640 = `${pathAndName}-640${fileExtension}`;
 
   return (
-    // Wrap uses intrinsic aspect ratio to prevent page jittering when image loads.
+    /* Image resides in wrap with intrinsic aspect ratio. This prevents page height jittering when image loads. */
     <Wrap h={h} w={w} ref={intersectionRef}>
       <Img
         srcSet={`${src640} 640w, ${src1200} 1200w`}
-        sizes='(max-width: 640px) 640px, 1200px'
+        sizes="(max-width: 640px) 640px, 1200px"
         loading={loading && 'lazy'}
         alt={alt}
-        initial={{opacity: 0, rotateZ: '-2deg'}}
+        initial={{ opacity: 0, rotateZ: '-2deg' }}
         animate={imgControls}
       />
     </Wrap>
   );
+}
+
+/**
+ * PROPTYPES
+ */
+Image.propTypes = {
+  alt: PropTypes.string.isRequired,
+  src: PropTypes.string.isRequired,
+  h: PropTypes.string.isRequired,
+  w: PropTypes.string.isRequired,
+  loading: PropTypes.string.isRequired,
 };
 
-// Styled components
+/**
+ * STYLED COMPONENTS
+ */
 const Wrap = styled.div`
-  padding-bottom: ${props => `calc(${props.h} / ${props.w} * 100%)`};
+  padding-bottom: ${(props) => `calc(${props.h} / ${props.w} * 100%)`};
   position: relative;
 `;
 
@@ -71,5 +92,3 @@ const Img = styled(motion.img)`
   position: absolute;
   width: 100%;
 `;
-
-export default Image;
