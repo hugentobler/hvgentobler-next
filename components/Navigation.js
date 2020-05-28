@@ -86,6 +86,9 @@ export default function Navigation(props) {
                 <span role="img" aria-label="Mushroom">🍄</span>
               </a>
             </Link>
+            <Link href="/2020/vanilla-webflow-form">
+              <a>Vanilla Webflow Form</a>
+            </Link>
           </LinkParent>
         </NavInner>
       </Nav>
