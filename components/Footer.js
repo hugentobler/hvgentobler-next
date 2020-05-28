@@ -42,7 +42,7 @@ export default () => (
  * STYLED COMPONENTS
  */
 const Root = styled.footer`
-  background-color: #f9f8f1;
+  background-color: var(--sand);
   bottom: 0;
   left: 0;
   position: sticky;

@@ -16,7 +16,7 @@ import Layout from '../components/Layout';
  * Pass on to layout as props.
  */
 const frontmatter = {
-  title: 'Christopher Hugentobler',
+  title: 'Christopher Hugentobler - Where I inspect the elements.',
   description: 'This is the description.',
   image: '/',
 };

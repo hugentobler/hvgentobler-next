@@ -18,6 +18,8 @@ import SetCSSProperty from '../components/CustomCssProperties';
 import '../styles/reset.scss';
 import '../styles/fonts.scss';
 import '../styles/global.scss';
+/* Prism */
+import '../node_modules/prismjs/themes/prism-solarizedlight.css';
 
 /**
  * DEFAULT EXPORT

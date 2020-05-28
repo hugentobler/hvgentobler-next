@@ -82,7 +82,7 @@ const Line = styled(motion.div)`
     content: '';
     right: 0;
     top: 0;
-    opacity: .25;
+    opacity: 0.1;
     position: absolute;
   }
   &:last-child::after { content: none; }
