@@ -14,8 +14,11 @@ import styled from 'styled-components';
  * ANIMATIONS
  */
 const lineVariants = {
+  initial: {
+    scaleY: 0,
+  },
   visible: (i) => ({
-    height: '100%',
+    scaleY: 1,
     transition: {
       delay: i * 0.2,
       duration: 0.9,
@@ -35,6 +38,7 @@ export default function Background() {
           <Line
             key={i} // eslint-disable-line react/no-array-index-key
             custom={i}
+            initial="initial"
             animate="visible"
             variants={lineVariants}
           />
@@ -69,8 +73,9 @@ const Inner = styled.div`
 
 const Line = styled(motion.div)`
   flex-grow: 1;
-  height: 0;
+  height: 100%;
   position: relative;
+  transform-origin: top;
   &::after {
     border-right: 1px solid var(--text-color);
     bottom: 0;

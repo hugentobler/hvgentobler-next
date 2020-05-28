@@ -32,24 +32,24 @@ const blindVariants = {
 
 const fillVariants = {
   hidden: {
-    width: '0%',
+    scaleX: 0,
   },
   open: {
-    width: '100%',
+    scaleX: 1,
     transition: {
       duration: 0.4,
       ease: [0.45, 0.05, 0.55, 0.95],
     },
   },
   close: {
-    width: '0%',
+    scaleX: 0,
     transition: {
       duration: 0.4,
       ease: [0.45, 0.05, 0.55, 0.95],
     },
   },
   exit: {
-    width: ['0%', '100%', '0%'],
+    scaleX: [0, 1, 0],
     transition: {
       duration: 0.4,
       ease: [0.45, 0.05, 0.55, 0.95],
@@ -100,6 +100,7 @@ export default function Blinds(props) {
               animate={fillControls}
               exit={{ opacity: 0 }}
               variants={fillVariants}
+              menuOpen={menuOpen}
             />
           </Blind>
         ))}
@@ -111,6 +112,7 @@ export default function Blinds(props) {
             animate={fillControls}
             variants={fillVariants}
             onAnimationComplete={onComplete}
+            menuOpen={menuOpen}
           />
         </Blind>
       </Inner>
@@ -180,5 +182,6 @@ const Fill = styled(motion.div)`
   position: absolute;
   //right: 0;
   top: 0;
-  width: 0%;
+  transform-origin: ${(props) => (props.menuOpen ? 'left' : 'right')};
+  width: 100%;
 `;
