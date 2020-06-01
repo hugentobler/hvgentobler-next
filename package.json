@@ -14,7 +14,7 @@
   "dependencies": {
     "@zeit/next-sass": "^1.0.1",
     "framer-motion": "^1.11.0",
-    "next": "^9.4.1",
+    "next": "^9.4.4",
     "node-sass": "^4.14.1",
     "prismjs": "^1.20.0",
     "prop-types": "^15.7.2",
@@ -22,7 +22,7 @@
     "react-dom": "^16.13.1",
     "react-use": "^14.3.0",
     "strip-ansi": "^6.0.0",
-    "styled-components": "^5.1.0",
+    "styled-components": "^5.1.1",
     "three": "^0.116.1"
   },
   "devDependencies": {

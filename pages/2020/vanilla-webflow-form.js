@@ -19,6 +19,7 @@ const frontmatter = {
   title: ' ',
   description: ' ',
   image: ' ',
+  colour: 'default',
 };
 
 export default function Page() {
@@ -29,6 +30,9 @@ export default function Page() {
         <h1>
           Second-guessing the modern web
         </h1>
+        <lede>
+          Most websites today are built like commercial products by professionals and marketers, optimised to draw the largest audience, generate engagement and 'convert'. But there is also a smaller, less-visible web designed by regular people to simply to share their interests and hobbies with the world. A web that is unpolished, often quirky but often also fun, creative and interesting.
+        </lede>
         <p>
           Yes, you can hook up a Webflow lead gen form to a back-end of your choice easily.
         </p>
@@ -54,9 +58,7 @@ export default function Page() {
             Styling bloat - by leveraging existing Webflow features and styling.
           </li>
         </ol>
-        <h2>
-          Managing form data and validity
-        </h2>
+        c
         <wrap>
           <p>
             Let's save the user inputs in one object - <em>data</em>.
@@ -98,6 +100,14 @@ export default function Page() {
           })
           `}</Pre>
         </wrap>
+        <p>
+          We'll need a reference to our Dom elements - one form and several inputs.
+        </p>
+        <p>The submit button is an input of type <em>submit</em>, so filtering it from <em>inputs</em> leaves us with <em>fields</em>.
+        </p>
+        <h2>
+          Managing form data and validity
+        </h2>
         <p>
           We'll need a reference to our Dom elements - one form and several inputs.
         </p>

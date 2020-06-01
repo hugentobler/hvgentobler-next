@@ -46,7 +46,7 @@ const mainVariants = {
  */
 export default function Layout(props) {
   const {
-    children, title, description, image,
+    children, title, description, image, colour,
   } = props;
   const { asPath } = useRouter();
   const isProd = process.env.IS_PROD;
@@ -56,6 +56,8 @@ export default function Layout(props) {
   const [menuAnimating, animateMenu] = useState(false);
 
   useEffect(() => {
+    /* Update css properties. */
+    SetCSSProperty(colour);
     /* On subsequent route change, close menu and update css properties. */
     const handleRouteChange = (url) => {
       toggleMenu(false);
@@ -123,6 +125,11 @@ Layout.propTypes = {
   title: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
   image: PropTypes.string.isRequired,
+  colour: PropTypes.string,
+};
+
+Layout.defaultProps = {
+  colour: 'default',
 };
 
 /**

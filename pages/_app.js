@@ -10,7 +10,6 @@
 import App from 'next/app';
 /* Components */
 import { Provider } from '../components/UserContext';
-import SetCSSProperty from '../components/CustomCssProperties';
 
 /**
  * GLOBAL STYLES
@@ -34,12 +33,10 @@ export default class MyApp extends App {
 
   componentDidMount() {
     /* Save this page's path to state. */
-    const { asPath, pathname } = this.props.router;
+    const { asPath } = this.props.router;
     this.setState(
       (prevState) => ({ history: [...prevState.history, asPath] }),
     );
-    /* Set custom css property on load. */
-    SetCSSProperty(pathname);
   }
 
   componentDidUpdate() {

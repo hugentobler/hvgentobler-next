@@ -8,23 +8,24 @@
 /**
 * DEFAULT EXPORT
 */
-export default (pathname) => {
-  /* Check type. */
-  if (typeof pathname !== 'string') console.warn('Expected pathname as string.');
+export default (colour) => {
+  /* Typecheck. */
+  if (typeof colour !== 'string') console.warn('Expected pathname as string.');
 
   /* Pages and custom styles. */
   const pageStyles = {
-    '/': ['--black', '--white'],
-    '/25th': ['--classic-blue', '--yellow'],
+    default: ['--white', '--black'],
+    night: ['--black', '--white'],
+    blue: ['--classic-blue', '--yellow'],
   };
 
   /* Is there a custom style for active page? */
-  const updateProperties = pageStyles[pathname];
+  const updateProperties = pageStyles[colour];
 
   /* Update the custom css if above is yes. */
   if (updateProperties) {
-    document.documentElement.style.setProperty('--background-color', `var(${pageStyles[pathname][0]})`);
-    document.documentElement.style.setProperty('--text-color', `var(${pageStyles[pathname][1]})`);
+    document.documentElement.style.setProperty('--background-color', `var(${pageStyles[colour][0]})`);
+    document.documentElement.style.setProperty('--text-color', `var(${pageStyles[colour][1]})`);
   }
 
   return null;

@@ -19,6 +19,7 @@ const frontmatter = {
   title: 'Christopher Hugentobler - Where I inspect the elements.',
   description: 'This is the description.',
   image: '/',
+  colour: 'night',
 };
 
 /**
