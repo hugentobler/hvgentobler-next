@@ -18,20 +18,20 @@ export default function Post(props) {
   const { children } = props;
 
   const Content = () => (
-    React.Children.map(children, (e) => {
-      if (e.type === 'wrap') {
-        const c = React.Children.toArray(e.props.children);
+    React.Children.map(children, (child) => {
+      if (child.type === 'wrap') {
+        const left = React.Children.toArray(child.props.children);
         /* he last element is floated to the RHS. */
-        const right = c.pop();
+        const right = left.pop();
         return (
           <Wrap>
-            <Left>{c}</Left>
+            <Left>{left}</Left>
             <Right>{right}</Right>
           </Wrap>
         );
       }
-      if (e.type === 'lede') return <Lede>{e.props.children}</Lede>;
-      return e;
+      if (child.type === 'lede') return <Lede>{child.props.children}</Lede>;
+      return child;
     })
   );
 
@@ -55,7 +55,7 @@ Post.propTypes = {
  * STYLED COMPONENTS
  */
 const theme = {
-  contentWidth: '640px',
+  contentWidth: '600px',
   forNotSmall: 'screen and (min-width: 999px)',
 };
 
@@ -76,7 +76,7 @@ const Wrap = styled.div`
 const Left = styled.div`
   @media ${theme.forNotSmall} {
     flex-shrink: 0;
-    width: 80%;
+    width: 100%;
   }
 `;
 
@@ -92,4 +92,5 @@ const Right = styled.div`
 
 const Lede = styled.p`
   font-size: 1.2rem;
+  line-height: 1.6rem;
 `;

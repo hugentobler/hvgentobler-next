@@ -58,7 +58,6 @@ export default function Page() {
             Styling bloat - by leveraging existing Webflow features and styling.
           </li>
         </ol>
-        c
         <wrap>
           <p>
             Let's save the user inputs in one object - <em>data</em>.
@@ -67,9 +66,9 @@ export default function Page() {
             And the validity of each input in another - <em>valid</em>. Later <em>valid</em> will also help us infer form validity and completeness.
           </p>
           <Pre>{`
-              let data = {},
-                valid = {}
-            `}</Pre>
+            let data = {},
+              valid = {}
+          `}</Pre>
         </wrap>
         <wrap>
           <p>
@@ -82,22 +81,22 @@ export default function Page() {
             In practice, that means replacing <Code>data.name = 'Christopher'</Code> with <Code>dataChange.name = 'Christopher'</Code>.
           </p>
           <Pre>{`
-          const dataChange = new Proxy(data, {
-            set: (target, key, value) => {
-              key = key.toLowerCase(); value = value.toLowerCase()
-              // console.log(\`\${key} set to \${value}\`)
-              target[key] = value
-              return true
-            }
-          })
+            const dataChange = new Proxy(data, {
+              set: (target, key, value) => {
+                key = key.toLowerCase(); value = value.toLowerCase()
+                // console.log(\`\${key} set to \${value}\`)
+                target[key] = value
+                return true
+              }
+            })
 
-          const validChange = new Proxy(valid, {
-            set: (target, key, value) => {
-              // console.log(\`\${key} set to \${value}\`)
-              target[key] = value
-              return true
-            }
-          })
+            const validChange = new Proxy(valid, {
+              set: (target, key, value) => {
+                // console.log(\`\${key} set to \${value}\`)
+                target[key] = value
+                return true
+              }
+            })
           `}</Pre>
         </wrap>
         <p>

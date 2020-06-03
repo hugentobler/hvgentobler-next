@@ -2,12 +2,13 @@
   "presets": ["next/babel"],
   "plugins": [
     ["styled-components", {
-      "ssr": true, "displayName": true
+      "ssr": true,
+      "displayName": true,
+      "fileName": false
     }],
     ["prismjs", {
-      "languages": ["javascript", "css", "markup"],
+      "languages": ["javascript"],
       "plugins": ["normalize-whitespace"],
-      "theme": "twilight",
       "css": false
     }]
   ]

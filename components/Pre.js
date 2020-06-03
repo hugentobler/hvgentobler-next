@@ -3,12 +3,13 @@
  * components/Pre.js
  * Highlight code.
  * {@link https://prismjs.com/}
+ * {@link https://betterstack.dev/blog/code-highlighting-in-react-using-prismjs/}
  */
 
 /**
  * MODULES
  */
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 import Prism from 'prismjs';
 import styled from 'styled-components';
@@ -17,15 +18,22 @@ import styled from 'styled-components';
  * DEFAULT EXPORT
  */
 export default function Pre(props) {
-  const { children } = props;
+  const { children: code } = props;
+  const codeEl = useRef(null);
+
   useEffect(() => {
-    Prism.highlightAll();
+    if (codeEl && codeEl.current) {
+      Prism.highlightElement(codeEl.current);
+    }
   });
 
   return (
     <Pree>
-      <code className="language-javascript">
-        {children}
+      <code
+        ref={codeEl}
+        className="language-javascript"
+      >
+        {code}
       </code>
     </Pree>
   );
