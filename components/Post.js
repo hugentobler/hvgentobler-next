@@ -36,9 +36,11 @@ export default function Post(props) {
   );
 
   return (
-    <Section>
-      <Content />
-    </Section>
+    <section>
+      <Article>
+        <Content />
+      </Article>
+    </section>
   );
 }
 
@@ -57,8 +59,12 @@ const theme = {
   forNotSmall: 'screen and (min-width: 999px)',
 };
 
-const Section = styled.section`
+const Article = styled.article`
   max-width: ${theme.contentWidth};
+  padding: 0 var(--space-2);
+  @media ${theme.forNotSmall} {
+    padding: 0;
+  }
 `;
 
 const Wrap = styled.div`
