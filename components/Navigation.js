@@ -47,7 +47,10 @@ export default function Navigation(props) {
 
   return (
     <>
-      <Menu>
+      <Menu
+        initial={{opacity: 0}}
+        animate={{opacity: 1}}
+      >
         <MenuInner>
           <Hamburger
             name="menu"
@@ -130,7 +133,7 @@ const theme = {
   letterSpacing: '-0.05rem',
 };
 
-const Menu = styled.div`
+const Menu = styled(motion.div)`
   bottom: var(--space-4);
   left: 0;
   right: 0;

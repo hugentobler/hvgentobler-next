@@ -22,26 +22,6 @@ import Footer from './Footer';
 import SetCSSProperty from './CustomCssProperties';
 
 /**
- * ANIMATIONS
- */
-const mainVariants = {
-  hidden: {
-    opacity: 0,
-    transition: {
-      duration: 0.4,
-    },
-  },
-  visible: {
-    opacity: 1,
-    transition: {
-      delay: 0,
-      duration: 0.3,
-      ease: [0.45, 0.05, 0.55, 0.95],
-    },
-  },
-};
-
-/**
  * DEFAULT EXPORT
  */
 export default function Layout(props) {
@@ -91,11 +71,7 @@ export default function Layout(props) {
           animateMenu={animateMenu}
         />
         <Container>
-          <motion.main
-            initial="hidden"
-            animate="visible"
-            variants={mainVariants}
-          >
+          <main>
             {React.Children.map(children, (child) => {
               /* Pass additional components if child is a component. */
               if (typeof child.type === 'object') {
@@ -103,7 +79,7 @@ export default function Layout(props) {
               }
               return child;
             })}
-          </motion.main>
+          </main>
         </Container>
       </Root>
       <Footer />
