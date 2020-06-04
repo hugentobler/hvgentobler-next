@@ -9,7 +9,6 @@
 /**
  * MODULES
  */
-import React from 'react';
 import PropTypes from 'prop-types';
 import { useIntersection } from 'react-use';
 import styled from 'styled-components';
@@ -36,10 +35,9 @@ export default function Image(props) {
   const imgControls = useAnimation();
   if (intersection && intersection.intersectionRatio > 0.5) {
     imgControls.start({
-      opacity: 1,
-      rotateZ: 0,
+      scale: 1,
       transition: {
-        duration: 1,
+        duration: 0.5,
         ease: [0.45, 0.05, 0.55, 0.95],
       },
     });
@@ -59,7 +57,7 @@ export default function Image(props) {
         sizes="(max-width: 640px) 640px, 1200px"
         loading={loading && 'lazy'}
         alt={alt}
-        initial={{ opacity: 0, rotateZ: '-2deg' }}
+        initial={{ scale: 0.95 }}
         animate={imgControls}
       />
     </Wrap>

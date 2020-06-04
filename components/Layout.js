@@ -7,19 +7,34 @@
 /**
  * MODULES
  */
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import Router, { useRouter } from 'next/router';
+import { useRouter } from 'next/router';
 import Head from 'next/head';
-import { motion } from 'framer-motion';
+import dynamic from 'next/dynamic';
 import styled from 'styled-components';
 /* Components */
 import Favicon from './Favicon';
-import Background from './Background';
-import Blinds from './Blinds';
-import Navigation from './Navigation';
 import Footer from './Footer';
 import SetCSSProperty from './CustomCssProperties';
+
+/**
+ * DYNAMIC IMPORT NO SSR
+ */
+const Background = dynamic(
+  () => import('./Background'),
+  { ssr: false },
+);
+
+const Blinds = dynamic(
+  () => import('./Blinds'),
+  { ssr: false },
+);
+
+const Navigation = dynamic(
+  () => import('./Navigation'),
+  { ssr: false },
+);
 
 /**
  * DEFAULT EXPORT
@@ -28,12 +43,14 @@ export default function Layout(props) {
   const {
     children, title, description, image, colour,
   } = props;
+  const router = useRouter();
   const { asPath } = useRouter();
   const isProd = process.env.IS_PROD;
 
   /* Menu state management. */
   const [menuOpen, toggleMenu] = useState(false);
   const [menuAnimating, animateMenu] = useState(false);
+
 
   useEffect(() => {
     /* Update css properties. */
@@ -43,9 +60,9 @@ export default function Layout(props) {
       toggleMenu(false);
       SetCSSProperty(url);
     };
-    Router.events.on('routeChangeComplete', handleRouteChange);
+    router.events.on('routeChangeComplete', handleRouteChange);
     return () => {
-      Router.events.off('routeChangeComplete', handleRouteChange);
+      router.events.off('routeChangeComplete', handleRouteChange);
     };
   }, []);
 
