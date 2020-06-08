@@ -19,22 +19,32 @@ import styled from 'styled-components';
  */
 export default function Pre(props) {
   const { children: code } = props;
-  const codeEl = useRef(null);
+  // const codeEl = useRef(null);
 
-  useEffect(() => {
-    if (codeEl && codeEl.current) {
-      Prism.highlightElement(codeEl.current);
-    }
+  // useEffect(() => {
+  //   if (codeEl && codeEl.current) {
+  //     Prism.highlightElement(codeEl.current);
+  //   }
+  // });
+  Prism.manual = true;
+  const highlighedCode = () => ({
+    __html: Prism.highlight(code, Prism.languages.javascript, 'javascript'),
   });
 
   return (
-    <Pree>
+    <Pree
+      className="language-javascript"
+    >
       <code
+        className="language-javascript"
+        dangerouslySetInnerHTML={highlighedCode()}
+      />
+      {/* <code
         ref={codeEl}
         className="language-javascript"
-      >
+        >
         {code}
-      </code>
+      </code> */}
     </Pree>
   );
 }

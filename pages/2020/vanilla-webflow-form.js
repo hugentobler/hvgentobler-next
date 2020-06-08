@@ -78,7 +78,7 @@ export default function Page() {
             Setting key/values directly makes debugging and logging changes difficult. Instead, we'll setup <em><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy" target="_blank" rel="noreferrer">Proxies</a></em> with set <em>traps</em> to manage state.
           </p>
           <p>
-            In practice, that means replacing <Code>data.name = 'Christopher'</Code> with <Code>dataChange.name = 'Christopher'</Code>.
+            {/* In practice, that means replacing <Code>data.name = 'Christopher'</Code> with <Code>dataChange.name = 'Christopher'</Code>. */}
           </p>
           <Pre>{`
             const dataChange = new Proxy(data, {
