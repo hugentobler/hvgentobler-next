@@ -15,20 +15,20 @@
   "author": "Christopher Hugentobler",
   "license": "ISC",
   "dependencies": {
-    "@next/bundle-analyzer": "^9.4.4",
     "@zeit/next-sass": "^1.0.1",
     "cross-env": "^7.0.2",
     "framer-motion": "^1.11.0",
+    "highlight.js": "^10.0.3",
     "next": "^9.4.4",
     "node-sass": "^4.14.1",
-    "prismjs": "^1.20.0",
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-use": "^14.3.0",
     "strip-ansi": "^6.0.0",
     "styled-components": "^5.1.1",
-    "three": "^0.116.1"
+    "three": "^0.116.1",
+    "webpack-bundle-analyzer": "^3.8.0"
   },
   "devDependencies": {
     "babel-plugin-prismjs": "^2.0.1",

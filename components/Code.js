@@ -11,7 +11,6 @@
  */
 import { useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
-import Prism from 'prismjs';
 
 /**
  * DEFAULT EXPORT
@@ -19,12 +18,6 @@ import Prism from 'prismjs';
 export default function Code(props) {
   const { children: code } = props;
   const codeEl = useRef(null);
-
-  useEffect(() => {
-    if (codeEl && codeEl.current) {
-      Prism.highlightElement(codeEl.current);
-    }
-  });
 
   return (
     <code

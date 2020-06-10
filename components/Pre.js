@@ -2,50 +2,37 @@
  * PRE
  * components/Pre.js
  * Highlight code.
- * {@link https://prismjs.com/}
- * {@link https://betterstack.dev/blog/code-highlighting-in-react-using-prismjs/}
+ * {@link https://www.npmjs.com/package/highlight.js}
  */
 
 /**
  * MODULES
  */
-import { useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
-import Prism from 'prismjs';
-import styled from 'styled-components';
+import hljs from 'highlight.js/lib/core';
+import javascript from 'highlight.js/lib/languages/javascript';
 
 /**
  * DEFAULT EXPORT
  */
 export default function Pre(props) {
   const { children: code } = props;
-  // const codeEl = useRef(null);
 
-  // useEffect(() => {
-  //   if (codeEl && codeEl.current) {
-  //     Prism.highlightElement(codeEl.current);
-  //   }
-  // });
-  Prism.manual = true;
-  const highlighedCode = () => ({
-    __html: Prism.highlight(code, Prism.languages.javascript, 'javascript'),
+  hljs.registerLanguage('javascript', javascript);
+  const highlight = hljs.highlight('javascript', code);
+  // console.log(highlight.value)
+  // console.log(hljs.fixMarkup(highlight.value))
+  const formattedCode = () => ({
+    __html: hljs.fixMarkup(highlight.value),
   });
 
   return (
-    <Pree
-      className="language-javascript"
-    >
+    <pre>
       <code
-        className="language-javascript"
-        dangerouslySetInnerHTML={highlighedCode()}
+        className="hljs"
+        dangerouslySetInnerHTML={formattedCode()}
       />
-      {/* <code
-        ref={codeEl}
-        className="language-javascript"
-        >
-        {code}
-      </code> */}
-    </Pree>
+    </pre>
   );
 }
 
@@ -55,10 +42,3 @@ export default function Pre(props) {
 Pre.propTypes = {
   children: PropTypes.string.isRequired,
 };
-
-/**
- * STYLED COMPONENTS
- */
-const Pree = styled.pre`
-  margin: var(--space-4) 0 !important;
-`;

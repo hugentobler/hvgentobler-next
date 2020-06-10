@@ -17,8 +17,8 @@ import { Provider } from '../components/UserContext';
 import '../styles/reset.scss';
 import '../styles/fonts.scss';
 import '../styles/global.scss';
-/* Prism */
-import '../node_modules/prismjs/themes/prism-solarizedlight.css';
+/* Highlight.js */
+import '../node_modules/highlight.js/scss/solarized-light.scss';
 
 /**
  * DEFAULT EXPORT

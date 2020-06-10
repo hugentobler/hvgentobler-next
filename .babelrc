@@ -5,11 +5,6 @@
       "ssr": true,
       "displayName": true,
       "fileName": false
-    }],
-    ["prismjs", {
-      "languages": ["javascript"],
-      "plugins": ["normalize-whitespace"],
-      "css": false
     }]
   ]
 }
