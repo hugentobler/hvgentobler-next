@@ -76,5 +76,5 @@ export default class MyApp extends App {
  */
 export function reportWebVitals(metric) {
   // These metrics can be sent to any analytics service
-  console.log(metric); // eslint-disable-line
+  // console.log(metric); // eslint-disable-line
 }

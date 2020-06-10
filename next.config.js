@@ -23,9 +23,7 @@ module.exports = (phase) => {
     }) => {
       /* Prevent webpack from bundling unnecessary modules into client bundle. */
       if (!isServer) {
-        config.plugins.push(
-          // new webpack.IgnorePlugin(/highlight.js/),
-        );
+        config.plugins.push(new webpack.IgnorePlugin(/highlight.js/));
       }
       /* Use Bundle Analyzer in analysis mode. */
       if (ANALYZE) {
