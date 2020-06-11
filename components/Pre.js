@@ -20,8 +20,7 @@ export default function Pre(props) {
 
   hljs.registerLanguage('javascript', javascript);
   const highlight = hljs.highlight('javascript', code);
-  // console.log(highlight.value)
-  // console.log(hljs.fixMarkup(highlight.value))
+
   const formattedCode = () => ({
     __html: hljs.fixMarkup(highlight.value),
   });

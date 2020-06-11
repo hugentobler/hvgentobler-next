@@ -19,22 +19,13 @@ import Footer from './Footer';
 import SetCSSProperty from './CustomCssProperties';
 
 /**
- * DYNAMIC IMPORT NO SSR
+ * DYNAMIC IMPORTS
  */
-const Background = dynamic(
-  () => import('./Background'),
-  { ssr: false },
-);
+const Background = dynamic(() => import('./Background'));
 
-const Blinds = dynamic(
-  () => import('./Blinds'),
-  { ssr: false },
-);
+const Blinds = dynamic(() => import('./Blinds'));
 
-const Navigation = dynamic(
-  () => import('./Navigation'),
-  { ssr: false },
-);
+const Navigation = dynamic(() => import('./Navigation'));
 
 /**
  * DEFAULT EXPORT
@@ -79,7 +70,10 @@ export default function Layout(props) {
         <meta property="og:site_name" content="Christopher Hugentobler" />
         <meta property="og:url" content={`https://inspectelement.co${asPath}`} />
         <meta property="og:image" content={`https://inspectelement.co${image}`} />
+        {/* Prevent robots scraping dev / staging sites */}
         {isProd ? <meta name="robots" content="index, follow" /> : <meta name="robots" content="noindex, nofollow" />}
+        {/* Preload primary font */}
+        <link rel="preload" href="/fonts/soehne-test-buch.woff" as="font" type="font/woff" crossOrigin="anonymous" />
       </Head>
       <Root>
         <Background />
