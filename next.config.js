@@ -1,5 +1,6 @@
-/* Bundle analyzer */
+/* Modules */
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
+const withMDX = require('@next/mdx');
 
 const { ANALYZE } = process.env;
 
@@ -11,7 +12,7 @@ const {
 
 /* Phases */
 // https://nextjs.org/docs/#custom-configuration
-module.exports = (phase) => {
+module.exports = withMDX((phase) => {
   // Environment variables
   // https://nextjs.org/docs/api-reference/next.config.js/environment-variables
   const isDev = phase === PHASE_DEVELOPMENT_SERVER;
@@ -44,4 +45,4 @@ module.exports = (phase) => {
       })(),
     },
   };
-};
+});
