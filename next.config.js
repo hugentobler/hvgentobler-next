@@ -1,6 +1,5 @@
 /* Modules */
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
-const withMDX = require('@next/mdx');
 
 const { ANALYZE } = process.env;
 
@@ -12,7 +11,7 @@ const {
 
 /* Phases */
 // https://nextjs.org/docs/#custom-configuration
-module.exports = withMDX((phase) => {
+module.exports = (phase) => {
   // Environment variables
   // https://nextjs.org/docs/api-reference/next.config.js/environment-variables
   const isDev = phase === PHASE_DEVELOPMENT_SERVER;
@@ -20,8 +19,21 @@ module.exports = withMDX((phase) => {
 
   return {
     webpack: (config, {
-      buildId, dev, isServer, defaultLoaders, webpack
+      buildId, dev, isServer, defaultLoaders, webpack,
     }) => {
+      /* Loaders */
+      config.module.rules.push({
+        test: /\.(md|mdx)$/,
+        use: [
+          defaultLoaders.babel,
+          {
+            loader: '@mdx-js/loader',
+            options: {
+              pageExtensions: ['js', 'jsx', 'md', 'mdx'],
+            },
+          },
+        ],
+      });
       /* Prevent webpack from bundling unnecessary modules into client bundle. */
       if (!isServer) {
         config.plugins.push(new webpack.IgnorePlugin(/\/__tests__\//));
@@ -45,4 +57,4 @@ module.exports = withMDX((phase) => {
       })(),
     },
   };
-});
+};
