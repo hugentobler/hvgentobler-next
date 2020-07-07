@@ -55,6 +55,13 @@ h6 {
   text-transform: uppercase;
 }
 
+::selection {
+  background: yellow;
+}
+::-moz-selection {
+  background: yellow;
+}
+
 p, li {
   font-size: 1em;
   font-weight: 400;

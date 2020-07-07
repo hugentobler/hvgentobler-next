@@ -9,7 +9,7 @@
 // import dynamic from 'next/dynamic';
 import styled from 'styled-components';
 /* Components */
-import Layout from '../components/Layout';
+import Layout from '../layouts/main';
 
 /**
  * FRONTMATTER

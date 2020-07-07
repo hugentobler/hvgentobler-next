@@ -8,8 +8,10 @@
  * MODULES
  */
 import App from 'next/app';
+import { MDXProvider } from '@mdx-js/react';
 /* Components */
 import { Provider } from '../components/UserContext';
+import MDXComponents from '../components/MDXComponents';
 
 /**
  * GLOBAL STYLES
@@ -17,8 +19,7 @@ import { Provider } from '../components/UserContext';
 import '../styles/reset.scss';
 import '../styles/fonts.scss';
 import '../styles/global.scss';
-/* Highlight.js */
-import '../node_modules/highlight.js/scss/solarized-light.scss';
+import '../styles/prism-duotone-light.css';
 
 /**
  * DEFAULT EXPORT
@@ -61,10 +62,14 @@ export default class MyApp extends App {
         state: this.state,
       }}
       >
-        <Component
-          {...pageProps}
-          key={router.route}
-        />
+        <MDXProvider
+          components={MDXComponents}
+        >
+          <Component
+            {...pageProps}
+            key={router.route}
+          />
+        </MDXProvider>
       </Provider>
     );
   }

@@ -7,7 +7,7 @@
  * MODULES
  */
 /* Components */
-import Layout from '../components/Layout';
+import Layout from '../layouts/main';
 import Image from '../components/Image';
 
 /**

@@ -1,5 +1,7 @@
 /* Modules */
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
+const WithMdxEnhanced = require('next-mdx-enhanced');
+const MdxPrism = require('mdx-prism');
 
 const { ANALYZE } = process.env;
 
@@ -17,23 +19,15 @@ module.exports = (phase) => {
   const isDev = phase === PHASE_DEVELOPMENT_SERVER;
   const isProd = phase === PHASE_PRODUCTION_BUILD && process.env.STAGING !== '1';
 
-  return {
+  return WithMdxEnhanced({
+    layoutPath: 'layouts',
+    defaultLayout: true,
+    fileExtensions: ['mdx'],
+    rehypePlugins: [MdxPrism],
+  })({
     webpack: (config, {
       buildId, dev, isServer, defaultLoaders, webpack,
     }) => {
-      /* Loaders */
-      config.module.rules.push({
-        test: /\.(md|mdx)$/,
-        use: [
-          defaultLoaders.babel,
-          {
-            loader: '@mdx-js/loader',
-            options: {
-              pageExtensions: ['js', 'jsx', 'md', 'mdx'],
-            },
-          },
-        ],
-      });
       /* Prevent webpack from bundling unnecessary modules into client bundle. */
       if (!isServer) {
         config.plugins.push(new webpack.IgnorePlugin(/\/__tests__\//));
@@ -56,5 +50,5 @@ module.exports = (phase) => {
         return false;
       })(),
     },
-  };
+  });
 };

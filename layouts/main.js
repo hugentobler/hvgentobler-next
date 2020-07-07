@@ -1,6 +1,6 @@
 /**
  * LAYOUT
- * components/Layout.js
+ * layouts/main.js
  * The primary layout.
  */
 
@@ -14,18 +14,18 @@ import Head from 'next/head';
 import dynamic from 'next/dynamic';
 import styled from 'styled-components';
 /* Components */
-import Favicon from './Favicon';
-import Footer from './Footer';
-import SetCSSProperty from './CustomCssProperties';
+import Favicon from '../components/Favicon';
+import Footer from '../components/Footer';
+import SetCSSProperty from '../components/CustomCssProperties';
 
 /**
  * DYNAMIC IMPORTS
  */
-const Background = dynamic(() => import('./Background'));
+const Background = dynamic(() => import('../components/Background'));
 
-const Blinds = dynamic(() => import('./Blinds'));
+const Blinds = dynamic(() => import('../components/Blinds'));
 
-const Navigation = dynamic(() => import('./Navigation'));
+const Navigation = dynamic(() => import('../components/Navigation'));
 
 /**
  * DEFAULT EXPORT
