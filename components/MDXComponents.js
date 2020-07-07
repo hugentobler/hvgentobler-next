@@ -30,13 +30,14 @@ const Code = styled.code`
 const Wrap = styled.div`
   @media ${theme.forNotSmall} {
     display: flex;
+    margin: var(--space-2) 0;
   }
 `;
 
 const Left = styled.div`
   @media ${theme.forNotSmall} {
     flex-shrink: 0;
-    width: 100%;
+    width: 80%;
   }
 `;
 

@@ -42,7 +42,6 @@ export default function Layout(props) {
   const [menuOpen, toggleMenu] = useState(false);
   const [menuAnimating, animateMenu] = useState(false);
 
-
   useEffect(() => {
     /* Update css properties. */
     SetCSSProperty(colour);
