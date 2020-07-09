@@ -13,7 +13,7 @@
 import PropTypes from 'prop-types';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
-import { motion } from 'framer-motion';
+// import { motion } from 'framer-motion';
 
 /**
  * DEFAULT EXPORT
@@ -29,13 +29,18 @@ export default function MyLink(props) {
   }
 
   return (
-    <motion.div
-      whileHover={{ translateY: '-1px' }}
-    >
+    <>
       <Link href={href}>
         {React.cloneElement(children, { className })}
       </Link>
-    </motion.div>
+      {/* <motion.div
+        whileHover={{ translateY: '-1px' }}
+        >
+        <Link href={href}>
+        {React.cloneElement(children, { className })}
+        </Link>
+      </motion.div> */}
+    </>
   );
 }
 

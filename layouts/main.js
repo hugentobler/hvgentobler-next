@@ -15,6 +15,7 @@ import dynamic from 'next/dynamic';
 import styled from 'styled-components';
 /* Components */
 import Favicon from '../components/Favicon';
+import Menu from '../components/TopMenu';
 import Footer from '../components/Footer';
 import SetCSSProperty from '../components/CustomCssProperties';
 
@@ -23,9 +24,9 @@ import SetCSSProperty from '../components/CustomCssProperties';
  */
 const Background = dynamic(() => import('../components/Background'));
 
-const Blinds = dynamic(() => import('../components/Blinds'));
+// const Blinds = dynamic(() => import('../components/Blinds'));
 
-const Navigation = dynamic(() => import('../components/Navigation'));
+// const Navigation = dynamic(() => import('../components/Navigation'));
 
 /**
  * DEFAULT EXPORT
@@ -76,11 +77,12 @@ export default function Layout(props) {
       </Head>
       <Root>
         <Background />
-        <Blinds
+        {/* <Blinds
           menuOpen={menuOpen}
           animateMenu={animateMenu}
-        />
+        /> */}
         <Container>
+          <Menu />
           <main>
             {React.Children.map(children, (child) => {
               /* Pass additional components if child is a component. */
@@ -93,12 +95,12 @@ export default function Layout(props) {
         </Container>
       </Root>
       <Footer />
-      <Navigation
+      {/* <Navigation
         menuOpen={menuOpen}
         toggleMenu={toggleMenu}
         menuAnimating={menuAnimating}
         animateMenu={animateMenu}
-      />
+      /> */}
     </>
   );
 }

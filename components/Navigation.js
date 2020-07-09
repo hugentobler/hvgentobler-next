@@ -48,8 +48,8 @@ export default function Navigation(props) {
   return (
     <>
       <Menu
-        initial={{opacity: 0}}
-        animate={{opacity: 1}}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
       >
         <MenuInner>
           <Hamburger

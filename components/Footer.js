@@ -16,9 +16,9 @@ export default () => (
     <Container>
       <Inner>
         <Social>
-          <h6><a href="https://github.com/hugentobler/hvgentobler-next" target="_blank" rel="noreferrer">source</a></h6>
-          <h6><Insta href="https://instagram.com/globehunter" target="_blank" rel="noreferrer">instagram</Insta></h6>
-          <h6><a href="https://linkedin.com/in/hugentobler/" target="_blank" rel="noreferrer">linkedin</a></h6>
+          <a href="https://github.com/hugentobler/hvgentobler-next" target="_blank" rel="noreferrer">source</a>
+          <Insta href="https://instagram.com/globehunter" target="_blank" rel="noreferrer">instagram</Insta>
+          <a href="https://linkedin.com/in/hugentobler/" target="_blank" rel="noreferrer">linkedin</a>
         </Social>
         <p>
           Typeset in&nbsp;
@@ -60,7 +60,7 @@ const Inner = styled.div`
   color: lightgray;
   display: flex;
   flex-direction: column;
-  padding: var(--space-6) var(--space-1);
+  padding: var(--space-6) var(--space-2);
   p {
     transition: all 120ms ease-in-out;
     &:hover {
@@ -76,6 +76,10 @@ const Social = styled.div`
     border: none;
     color: gray;
     margin-right: var(--space-3);
+    font-size: 0.7em;
+    font-weight: 400;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
     &:hover {
       color: darkgray;
     }

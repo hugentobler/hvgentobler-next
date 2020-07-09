@@ -17,6 +17,14 @@ const theme = {
   forNotSmall: 'screen and (min-width: 999px)',
 };
 
+const H1 = styled.h1`
+  opacity: .6;
+`;
+
+const H2 = styled.h2`
+  opacity: .6;
+`;
+
 const Lede = styled.p`
   font-size: 1.2rem;
   line-height: 1.6rem;
@@ -85,7 +93,8 @@ const CustomLink = (props) => {
  * DEFAULT EXPORT
  */
 const MDXComponents = {
-  h1: (props) => <h1 style={{ color: 'gray' }} {...props} />,
+  h1: H1,
+  h2: H2,
   h4: Lede,
   inlineCode: Code,
   Columns,

@@ -37,8 +37,5 @@ const Article = styled.article`
   display: flex;
   flex-direction: column;
   max-width: ${theme.contentWidth};
-  padding: 0 var(--space-2);
-  @media ${theme.forNotSmall} {
-    padding: 0;
-  }
+  padding: var(--space-6) 0;
 `;
