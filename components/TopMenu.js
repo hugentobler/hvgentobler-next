@@ -62,11 +62,13 @@ const Container = styled.div`
 const Inner = styled.div`
   display: flex;
   flex-direction: row-reverse;
+  height: 0;
   justify-content: flex-start;
   padding: 0 var(--space-2);
   a {
     font-size: 1em;
     font-weight: 400;
+    flex-shrink: 0;
     height: 1em;
     line-height: 95%;
     margin-left: var(--space-3);

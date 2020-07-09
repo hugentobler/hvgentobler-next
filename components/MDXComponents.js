@@ -6,6 +6,7 @@
 /**
  * MODULES
  */
+import PropTypes from 'prop-types';
 import NextLink from 'next/link';
 import styled from 'styled-components';
 
@@ -75,18 +76,18 @@ const Columns = (props) => {
 };
 
 const CustomLink = (props) => {
-  const {children, href} = props;
+  const { children, href } = props;
   const isInternalLink = href && (href.startsWith('/') || href.startsWith('#'));
   if (isInternalLink) {
     return (
       <NextLink href={href}>
         <a>{children}</a>
       </NextLink>
-    )
+    );
   }
   return (
     <a href={href} target="_blank" rel="noreferrer">{children}</a>
-  )
+  );
 };
 
 /**
@@ -102,3 +103,17 @@ const MDXComponents = {
 };
 
 export default MDXComponents;
+
+/**
+ * PROPTYPES
+ */
+CustomLink.propTypes = {
+  children: PropTypes.string.isRequired,
+  href: PropTypes.string.isRequired,
+};
+
+Columns.propTypes = {
+  children: PropTypes.arrayOf(
+    PropTypes.element.isRequired,
+  ).isRequired,
+};
