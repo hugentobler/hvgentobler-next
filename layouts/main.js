@@ -127,11 +127,13 @@ const Root = styled.div`
   background-color: var(--background-color);
   position: relative;
   text-rendering: optimizeLegibility;
-  z-index: 1;
+  z-index: 10;
 `;
 
 const Container = styled.div`
   margin: auto;
   max-width: var(--max-width);
+  position: relative;
   width: 100%;
+  z-index: 100;
 `;
