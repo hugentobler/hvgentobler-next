@@ -14,9 +14,9 @@ import Link from './Link';
 /**
  * DEFAULT EXPORT
  */
-export default function TopMenu(props) {
+export default function TopMenu() {
   return (
-    <Root>
+    <Root onScroll={hide}>
       <Container>
         <Inner>
           <Link href="/">

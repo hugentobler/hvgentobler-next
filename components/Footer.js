@@ -39,8 +39,8 @@ export default () => (
 );
 
 /**
- * STYLED COMPONENTS
- */
+* STYLED COMPONENTS
+*/
 const Root = styled.footer`
   background-color: var(--sand);
   bottom: 0;
@@ -84,7 +84,6 @@ const Social = styled.div`
       color: darkgray;
     }
   }
-
 `;
 
 const Insta = styled.a`

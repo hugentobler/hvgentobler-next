@@ -9,6 +9,7 @@
 /**
  * MODULES
  */
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 /* Components */
 import Layout from './main';
@@ -18,7 +19,7 @@ import Layout from './main';
  */
 
 const BlogFrontmatter = (props) => {
-  const {author, publishedAt} = props;
+  const { author, publishedAt } = props;
   return (
     <Wrap>
       <Half>
@@ -100,3 +101,11 @@ const Frontmatter = styled.span`
   margin: 0 var(--space-1);
   text-transform: uppercase;
 `;
+
+/**
+ * PROPTYPES
+ */
+BlogFrontmatter.propTypes = {
+  author: PropTypes.string.isRequired,
+  publishedAt: PropTypes.string.isRequired,
+};
