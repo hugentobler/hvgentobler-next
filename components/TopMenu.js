@@ -16,7 +16,7 @@ import Link from './Link';
  */
 export default function TopMenu() {
   return (
-    <Root onScroll={hide}>
+    <Root>
       <Container>
         <Inner>
           <Link href="/">

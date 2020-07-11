@@ -1,7 +1,8 @@
 /* Modules */
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
-const WithMdxEnhanced = require('next-mdx-enhanced');
-const MdxPrism = require('mdx-prism');
+const withMdxEnhanced = require('next-mdx-enhanced');
+const mdxPrism = require('mdx-prism');
+const readingTime = require('reading-time');
 
 const { ANALYZE } = process.env;
 
@@ -19,11 +20,16 @@ module.exports = (phase) => {
   const isDev = phase === PHASE_DEVELOPMENT_SERVER;
   const isProd = phase === PHASE_PRODUCTION_BUILD && process.env.STAGING !== '1';
 
-  return WithMdxEnhanced({
+  return withMdxEnhanced({
     layoutPath: 'layouts',
     defaultLayout: true,
     fileExtensions: ['mdx'],
-    rehypePlugins: [MdxPrism],
+    rehypePlugins: [mdxPrism],
+    extendFrontMatter: {
+      process: (mdxContent) => ({
+        readingTime: readingTime(mdxContent),
+      }),
+    },
   })({
     webpack: (config, {
       buildId, dev, isServer, defaultLoaders, webpack,

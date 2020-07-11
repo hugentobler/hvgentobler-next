@@ -19,7 +19,7 @@ import Layout from './main';
  */
 
 const BlogFrontmatter = (props) => {
-  const { author, publishedAt } = props;
+  const { author, publishedAt, readingTime } = props;
   return (
     <Wrap>
       <Half>
@@ -27,7 +27,7 @@ const BlogFrontmatter = (props) => {
         <Frontmatter>{publishedAt}</Frontmatter>
       </Half>
       <Half>
-        <Frontmatter>5 min read</Frontmatter>
+        <Frontmatter>{readingTime.text}</Frontmatter>
       </Half>
     </Wrap>
   );
@@ -108,4 +108,7 @@ const Frontmatter = styled.span`
 BlogFrontmatter.propTypes = {
   author: PropTypes.string.isRequired,
   publishedAt: PropTypes.string.isRequired,
+  readingTime: PropTypes.shape({
+    text: PropTypes.string.isRequired,
+  }).isRequired,
 };
