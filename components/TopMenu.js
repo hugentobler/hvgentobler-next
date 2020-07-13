@@ -22,7 +22,7 @@ export default function TopMenu() {
           <Link href="/">
             <a>Home</a>
           </Link>
-          <Link href="/25th">
+          <Link href="/about">
             <a>About</a>
           </Link>
           <Link href="/2020/vanilla-webflow-form">
