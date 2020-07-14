@@ -11,16 +11,15 @@
  */
 import PropTypes from 'prop-types';
 import { useIntersection } from 'react-use';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { motion, useAnimation } from 'framer-motion';
-
 
 /**
  * DEFAULT EXPORT
  */
 export default function Image(props) {
   const {
-    alt, src, h, w, loading,
+    alt, src, h, w, lazy, aspect,
   } = props;
 
   /* Browser intersection observer for Image. */
@@ -35,7 +34,7 @@ export default function Image(props) {
   const imgControls = useAnimation();
   if (intersection && intersection.intersectionRatio > 0.5) {
     imgControls.start({
-      scale: 1,
+      opacity: 1,
       transition: {
         duration: 0.5,
         ease: [0.45, 0.05, 0.55, 0.95],
@@ -51,14 +50,15 @@ export default function Image(props) {
 
   return (
     /* Image resides in wrap with intrinsic aspect ratio. This prevents page height jittering when image loads. */
-    <Wrap h={h} w={w} ref={intersectionRef}>
+    <Wrap h={h} w={w} aspect={aspect} ref={intersectionRef}>
       <Img
         srcSet={`${src640} 640w, ${src1200} 1200w`}
         sizes="(max-width: 640px) 640px, 1200px"
-        loading={loading && 'lazy'}
+        loading={lazy && 'lazy'}
         alt={alt}
-        initial={{ scale: 0.95 }}
+        initial={{ opacity: 0 }}
         animate={imgControls}
+        aspect={aspect}
       />
     </Wrap>
   );
@@ -67,26 +67,42 @@ export default function Image(props) {
 /**
  * PROPTYPES
  */
+Image.defaultProps = {
+  lazy: true, // By default image loads lazily.
+  aspect: false, // By default image will not retain aspect ratio.
+};
+
 Image.propTypes = {
   alt: PropTypes.string.isRequired,
   src: PropTypes.string.isRequired,
   h: PropTypes.string.isRequired,
   w: PropTypes.string.isRequired,
-  loading: PropTypes.string.isRequired,
+  lazy: PropTypes.bool,
+  aspect: PropTypes.bool,
 };
 
 /**
  * STYLED COMPONENTS
  */
 const Wrap = styled.div`
-  padding-bottom: ${(props) => `calc(${props.h} / ${props.w} * 100%)`};
-  position: relative;
+  ${(props) => (props.aspect ? css`
+    height: unset !important;
+    padding-bottom: calc(${props.h} / ${props.w} * 100%);
+    position: relative;
+  ` : css`
+    height: 100%;
+  `)}
 `;
 
 const Img = styled(motion.img)`
-  //height: 100%;
-  left: 0;
-  top: 0;
-  position: absolute;
-  width: 100%;
+  ${(props) => (props.aspect ? css`
+    left: 0;
+    top: 0;
+    position: absolute;
+    width: 100%;
+  ` : css`
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+  `)}
 `;

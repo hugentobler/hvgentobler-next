@@ -73,7 +73,7 @@ export default function TwentyFifth() {
           src="/images/25th/main.jpg"
           h="1599"
           w="1200"
-          loading="lazy"
+          aspect
         />
         <h2>
           See you soon!

@@ -9,6 +9,7 @@
 import styled from 'styled-components';
 /* Components */
 import Layout from '../layouts/main';
+import Image from '../components/Image';
 
 /**
  * FRONTMATTER
@@ -28,12 +29,14 @@ export default function About() {
     <Layout {...frontmatter}>
       <ImageHero>
         <Wrap>
-          <img
-            src="/images/about/portrait.jpeg"
-            alt=""
+          <Image
+            alt="Christopher pointing up and smiling!"
+            src="/images/25th/main.jpg"
+            h="1599"
+            w="1200"
           />
           <Filter>
-            <p>Explorer</p>
+            <p>Avid Explorer</p>
           </Filter>
         </Wrap>
       </ImageHero>
@@ -71,11 +74,7 @@ const Wrap = styled.div`
   max-width: 360px;
   padding: var(--space-1);
   position: relative;
-  img {
-    object-fit: cover;
-    height: 100%;
-    width: 100%;
-  }
+  width: 100%;
   @media ${theme.forNotSmall} {
     max-height: 600px;
     max-width: 480px;
