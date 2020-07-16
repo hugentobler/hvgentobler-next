@@ -51,7 +51,7 @@ const Root = styled.div`
   flex-direction: column;
   @media ${theme.forNotSmall} {
     align-items: center;
-    flex-direction: row;
+    flex-direction: row-reverse;
     height: 100vh;
     min-height: 40em;
   }
@@ -67,7 +67,7 @@ const ImageWrap = styled.div`
   width: 100%;
   @media ${theme.forNotSmall} {
     margin-left: unset;
-    margin-right: unset;
+    margin-right: var(--space-6);
     max-width: 400px;
   }
 `;

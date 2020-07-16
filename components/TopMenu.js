@@ -22,9 +22,14 @@ export default function TopMenu() {
           <Link href="/">
             <a>Home</a>
           </Link>
-          <Link href="/about">
-            <a>About</a>
-          </Link>
+          <LinkGroup>
+            <Link href="/about">
+              <a>About</a>
+            </Link>
+            <div>
+              <a href="#résumé">Résumé</a>
+            </div>
+          </LinkGroup>
           <Link href="/2020/vanilla-webflow-form">
             <a>Writing</a>
           </Link>
@@ -49,7 +54,8 @@ const Root = styled.div`
   position: fixed;
   z-index: 9999;
   @media ${theme.forNotSmall} {
-    top: calc(var(--space-6) * 3);
+    right: calc(-1 * var(--space-4));
+    top: calc(var(--space-6) * 2);
   }
 `;
 
@@ -83,5 +89,30 @@ const Inner = styled.div`
       margin-bottom: var(--space-2);
       margin-left: 0;
     }
+  }
+`;
+
+const LinkGroup = styled.div`
+  margin-bottom: var(--space-2);
+  position: relative;
+  & > a {
+    margin-bottom: 0;
+  }
+  & > div {
+    display: none;
+    top: 1.5em;
+    position: absolute;
+    @media ${theme.forNotSmall} {
+      top: unset;
+      position: relative;
+    }
+    a {
+      border: none;
+      font-size: 80%;
+      margin-bottom: 0;
+    }
+  }
+  a.active + div {
+    display: block;
   }
 `;

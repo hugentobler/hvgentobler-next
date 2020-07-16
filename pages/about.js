@@ -46,6 +46,41 @@ export default function About() {
       >
         <h3>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</h3>
       </ImageHero>
+      <section id="résumé">
+        <Columns>
+          <div>
+            <h2>Skills</h2>
+          </div>
+          <div>
+            <h2>Projects</h2>
+          </div>
+          <div>
+            <h2>Networks</h2>
+          </div>
+        </Columns>
+      </section>
     </Layout>
   );
 }
+
+/**
+* STYLED COMPONENTS
+*/
+const theme = {
+  contentWidth: '600px',
+  forNotSmall: 'screen and (min-width: 999px)',
+};
+
+const Columns = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  & > div {
+    max-width: ${theme.contentWidth};
+    width: 100%;
+  }
+  @media ${theme.forNotSmall} {
+    & > div {
+      width: 33%;
+    }
+  }
+`;
