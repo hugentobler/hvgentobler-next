@@ -8,7 +8,7 @@
  */
 /* Components */
 import Layout from '../layouts/main';
-import Image from '../components/Image';
+import Image from '../components/ui/Image';
 
 /**
  * FRONTMATTER
