@@ -9,7 +9,7 @@
 import styled from 'styled-components';
 /* Components */
 import Layout from '../layouts/main';
-import Image from '../components/Image';
+import ImageHero from '../components/ui/ImageHero';
 
 /**
  * FRONTMATTER
@@ -19,6 +19,7 @@ const frontmatter = {
   title: 'About',
   description: ' ',
   image: ' ',
+  colour: 'night',
 };
 
 /**
@@ -27,69 +28,24 @@ const frontmatter = {
 export default function About() {
   return (
     <Layout {...frontmatter}>
-      <ImageHero>
-        <Wrap>
-          <Image
-            alt="Christopher pointing up and smiling!"
-            src="/images/25th/main.jpg"
-            h="1599"
-            w="1200"
-          />
-          <Filter>
-            <p>Avid Explorer</p>
-          </Filter>
-        </Wrap>
+      <ImageHero
+        alt="Christopher pointing up and smiling!"
+        src="/images/25th/main.jpg"
+        h="1599"
+        w="1200"
+        caption="Avid Explorer"
+      >
+        <h3>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</h3>
+      </ImageHero>
+      <ImageHero
+        alt="Christopher pointing up and smiling!"
+        src="/images/25th/main.jpg"
+        h="1599"
+        w="1200"
+        caption="Avid Explorer"
+      >
+        <h3>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</h3>
       </ImageHero>
     </Layout>
   );
 }
-
-/**
- * STYLED COMPONENTS
- */
-const theme = {
-  contentWidth: '600px',
-  forNotSmall: 'screen and (min-width: 999px)',
-};
-
-const ImageHero = styled.div`
-  align-items: center;
-  display: flex;
-  height: 100vH;
-  min-height: 480px;
-  ${'' /* height: calc(100vH - var(--space-2)); */}
-  ${'' /* margin-right: calc(-1 * var(--space-2)); */}
-  @media ${theme.forNotSmall} {
-    margin-left: calc(-1 * var(--space-2));
-    min-height: 720px;
-  }
-
-`;
-
-const Wrap = styled.div`
-  background-color: white;
-  box-sizing: border-box;
-  height: 100%;
-  max-height: 480px;
-  max-width: 360px;
-  padding: var(--space-1);
-  position: relative;
-  width: 100%;
-  @media ${theme.forNotSmall} {
-    max-height: 600px;
-    max-width: 480px;
-  }
-`;
-
-const Filter = styled.div`
-  align-items: center;
-  background-color: rgba(28, 28, 28, 0.33);
-  bottom: var(--space-1);
-  color: var(--background-color);
-  display: flex;
-  justify-content: center;
-  left: var(--space-1);
-  top: var(--space-1);
-  position: absolute;
-  right: var(--space-1);
-`;
