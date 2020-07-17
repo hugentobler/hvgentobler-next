@@ -9,6 +9,7 @@
 /**
  * MODULES
  */
+import Head from 'next/head';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 /* Components */
@@ -33,6 +34,27 @@ const BlogFrontmatter = (props) => {
   );
 };
 
+const StructuredData = (props) => {
+  const { author, publishedAt, H1 } = props;
+  const headline = H1[0].props.children;
+  const json = {
+    '@context': 'http://schema.org',
+    '@type': 'Article',
+    headline,
+    author: {
+      '@type': 'Person',
+      name: author,
+    },
+    datePublished: publishedAt,
+  };
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(json) }}
+    />
+  );
+};
+
 /**
  * DEFAULT EXPORT
  */
@@ -44,16 +66,21 @@ export default function Page(frontmatter) {
     // const h1Index = children.findIndex(e => e.props.mdxType == 'h1');
     // const newChildren = React.Children.toArray(children).splice(h1Index + 1, 0, "hello");
     return (
-      <Layout {...frontmatter}>
-        <section>
-          <Article>
-            {H1}
-            {/* Insert frontmatter here without breaking mdx */}
-            <BlogFrontmatter {...frontmatter} />
-            {Content}
-          </Article>
-        </section>
-      </Layout>
+      <>
+        <Head>
+          <StructuredData {...frontmatter} H1={H1} />
+        </Head>
+        <Layout {...frontmatter}>
+          <section>
+            <Article>
+              {H1}
+              {/* Insert frontmatter here without breaking mdx */}
+              <BlogFrontmatter {...frontmatter} />
+              {Content}
+            </Article>
+          </section>
+        </Layout>
+      </>
     );
   };
 }
@@ -111,4 +138,10 @@ BlogFrontmatter.propTypes = {
   readingTime: PropTypes.shape({
     text: PropTypes.string.isRequired,
   }).isRequired,
+};
+
+StructuredData.propTypes = {
+  author: PropTypes.string.isRequired,
+  publishedAt: PropTypes.string.isRequired,
+  H1: PropTypes.arrayOf(PropTypes.node.isRequired).isRequired,
 };
