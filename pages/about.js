@@ -83,10 +83,13 @@ export default function About() {
             <h2>Skills</h2>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
             <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            <p>Native fluency in English, Mandarin and Cantonese. Basic conversational French.</p>
           </Skills>
           <Networks>
             <h2>Networks</h2>
+            <h3>Growth Lever</h3>
             <h3>University of Hong Kong</h3>
+            <h3>AIESEC</h3>
           </Networks>
         </Grid>
       </section>
