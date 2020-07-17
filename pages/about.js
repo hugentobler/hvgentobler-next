@@ -139,22 +139,6 @@ const Networks = styled.div`
   }
 `;
 
-const Columns = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  & > div {
-    box-sizing: border-box;
-    max-width: ${theme.contentWidth};
-    width: 100%;
-  }
-  @media ${theme.forNotSmall} {
-    & > div {
-      padding-right: var(--space-6);
-      width: 50%;
-    }
-  }
-`;
-
 const Date = styled.span`
   display: block;
   font-size: 0.7em;
