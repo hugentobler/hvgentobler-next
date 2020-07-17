@@ -35,7 +35,6 @@
     "webpack-bundle-analyzer": "^3.8.0"
   },
   "devDependencies": {
-    "babel-plugin-prismjs": "^2.0.1",
     "babel-plugin-styled-components": "^1.10.7",
     "eslint": "^6.8.0",
     "eslint-config-airbnb": "^18.2.0",

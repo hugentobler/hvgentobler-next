@@ -35,7 +35,7 @@ const BlogFrontmatter = (props) => {
 };
 
 const StructuredData = (props) => {
-  const { author, publishedAt, H1 } = props;
+  const { author, publishedAt, image, H1 } = props;
   const headline = H1[0].props.children;
   const json = {
     '@context': 'http://schema.org',
@@ -46,6 +46,7 @@ const StructuredData = (props) => {
       name: author,
     },
     datePublished: publishedAt,
+    image: `https://inspectelement.co${image}`,
   };
   return (
     <script
