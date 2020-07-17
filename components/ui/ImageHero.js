@@ -51,7 +51,7 @@ const Root = styled.div`
   flex-direction: column;
   @media ${theme.forNotSmall} {
     align-items: center;
-    flex-direction: row-reverse;
+    flex-direction: row;
     height: 100vh;
     min-height: 40em;
   }
@@ -79,7 +79,6 @@ const TextWrap = styled.div`
   max-width: ${theme.contentWidth};
   padding-bottom: var(--space-6);
   padding-right: var(--space-6);
-  padding-top: var(--space-6);
   @media ${theme.forNotSmall} {
     padding-left: var(--space-6);
   }

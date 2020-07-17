@@ -32,7 +32,12 @@ export default () => (
           <a href="https://zeit.co/" target="_blank" rel="noreferrer">ZEIT Now</a>
           .
         </p>
-        <p>© Christopher Hugentobler 2020</p>
+        <p>
+          © Christopher Hugentobler 2020. This work is licensed under a
+          {' '}
+          <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>
+          .
+        </p>
       </Inner>
     </Container>
   </Root>

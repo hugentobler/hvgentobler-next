@@ -49,6 +49,7 @@ h3 {
   font-size: 1.5em;
   font-weight: 300;
   line-height: 1.2em;
+  margin-top: var(--space-4);
 }
 h4 { font-size: 1.25em; }
 h5 { font-size: 1em; }
@@ -123,6 +124,10 @@ sup {
 
 em {
   font-style: italic;
+}
+
+b {
+  font-weight: 600;
 }
 
 code {

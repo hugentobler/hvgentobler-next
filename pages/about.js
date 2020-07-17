@@ -16,7 +16,7 @@ import ImageHero from '../components/ui/ImageHero';
  * Pass on to layout as props.
 */
 const frontmatter = {
-  title: 'About',
+  title: 'About ~ Christopher Hugentobler',
   description: ' ',
   image: ' ',
   colour: 'night',
@@ -47,17 +47,48 @@ export default function About() {
         <h3>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</h3>
       </ImageHero>
       <section id="résumé">
-        <Columns>
-          <div>
-            <h2>Skills</h2>
-          </div>
-          <div>
+        <Grid>
+          <Projects>
             <h2>Projects</h2>
-          </div>
-          <div>
+            <h3>
+              <b>Bowtie</b>
+              {' '}
+              - Life & Medical Insurtech
+            </h3>
+            <Date>Mar 2020 - present</Date>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+            <h3>
+              <b>Snapask</b>
+              {' '}
+              - College & Career Edutech
+            </h3>
+            <Date>Feb 2016 - present</Date>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+            <h3>
+              <b>Pedder</b>
+              {' '}
+              - Mobile Apps
+            </h3>
+            <Date>Feb 2016 - present</Date>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+            <h3>
+              <b>24 Hour Race</b>
+              {' '}
+              - Advocacy & Community
+            </h3>
+            <Date>Feb 2016 - present</Date>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+          </Projects>
+          <Skills>
+            <h2>Skills</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+            <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+          </Skills>
+          <Networks>
             <h2>Networks</h2>
-          </div>
-        </Columns>
+            <h3>University of Hong Kong</h3>
+          </Networks>
+        </Grid>
       </section>
     </Layout>
   );
@@ -71,16 +102,64 @@ const theme = {
   forNotSmall: 'screen and (min-width: 999px)',
 };
 
+const Grid = styled.div`
+  align-items: start;
+  display: grid;
+  grid-template-columns: 50% 50%;
+  grid-template-rows: auto 1fr;
+  & > div {
+    max-width: ${theme.contentWidth};
+    padding-right: var(--space-6);
+  }
+`;
+
+const Projects = styled.div`
+  grid-column: 1 / span 2;
+  grid-row: 2 / 2;
+  @media screen and (min-width: 720px) {
+    grid-column: 1 / 1;
+    grid-row: 1 / span 2;
+  }
+`;
+
+const Skills = styled.div`
+  grid-column: 1 / span 2;
+  grid-row: 1 / 1;
+  @media screen and (min-width: 720px) {
+    grid-column: 2 / 2;
+  }
+`;
+
+const Networks = styled.div`
+  grid-column: 1 / span 2;
+  grid-row: 3 / 3;
+  @media screen and (min-width: 720px) {
+    grid-column: 2 / 2;
+    grid-row: 2 / 2;
+  }
+`;
+
 const Columns = styled.div`
   display: flex;
   flex-wrap: wrap;
   & > div {
+    box-sizing: border-box;
     max-width: ${theme.contentWidth};
     width: 100%;
   }
   @media ${theme.forNotSmall} {
     & > div {
-      width: 33%;
+      padding-right: var(--space-6);
+      width: 50%;
     }
   }
+`;
+
+const Date = styled.span`
+  display: block;
+  font-size: 0.7em;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  margin-top: var(--space-1);
+  text-transform: uppercase;
 `;
