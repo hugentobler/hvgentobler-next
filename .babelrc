@@ -5,6 +5,7 @@
       "ssr": true,
       "displayName": false,
       "fileName": false
-    }]
+    }],
+    ["import-glob-array"]
   ]
 }

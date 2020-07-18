@@ -101,7 +101,6 @@ const Article = styled.article`
   display: flex;
   flex-direction: column;
   max-width: ${theme.contentWidth};
-  padding: var(--space-6) 0;
 `;
 
 const Wrap = styled.div`

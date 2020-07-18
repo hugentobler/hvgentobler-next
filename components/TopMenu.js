@@ -30,8 +30,11 @@ export default function TopMenu() {
               <a href="#résumé">Résumé</a>
             </div>
           </LinkGroup>
-          <Link href="/2020/vanilla-webflow-form">
+          <Link href="/blog">
             <a>Writing</a>
+          </Link>
+          <Link href="/2020/vanilla-webflow-form">
+            <a>25th</a>
           </Link>
         </Inner>
       </Container>
