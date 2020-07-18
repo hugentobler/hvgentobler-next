@@ -9,6 +9,8 @@
 import PropTypes from 'prop-types';
 import NextLink from 'next/link';
 import styled from 'styled-components';
+/* Components */
+import Image from './ui/Image';
 
 /**
  * STYLED COMPONENTS
@@ -103,6 +105,7 @@ const MDXComponents = {
   inlineCode: Code,
   Columns,
   a: CustomLink,
+  Image,
 };
 
 export default MDXComponents;

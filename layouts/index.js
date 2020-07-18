@@ -104,10 +104,10 @@ const Article = styled.article`
 `;
 
 const Wrap = styled.div`
-  color: gray;
   display: flex;
   flex-direction: column;
   margin-bottom: var(--space-6);
+  opacity: .6;
   @media ${theme.forNotSmall} {
     flex-direction: row;
   }
