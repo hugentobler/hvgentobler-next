@@ -19,16 +19,19 @@ const theme = {
 };
 
 const H1 = styled.h1`
-  opacity: .6;
+  ${'' /* color: gray; */}
 `;
 
 const H2 = styled.h2`
-  opacity: .6;
+  ${'' /* color: gray; */}
 `;
 
 const Lede = styled.p`
-  font-size: 1.2rem;
-  line-height: 1.6rem;
+  color: gray;
+  font-size: 1.4rem;
+  font-weight: 300;
+  line-height: 1.4;
+  margin-top: var(--space-4);
 `;
 
 const Code = styled.code`

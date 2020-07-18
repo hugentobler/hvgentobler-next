@@ -26,16 +26,19 @@ const BlogFrontmatter = (props) => {
       <Half>
         <Frontmatter>{author}</Frontmatter>
         <Frontmatter>{publishedAt}</Frontmatter>
+        <Frontmatter>{readingTime.text}</Frontmatter>
       </Half>
       <Half>
-        <Frontmatter>{readingTime.text}</Frontmatter>
+        {/* <Frontmatter>{readingTime.text}</Frontmatter> */}
       </Half>
     </Wrap>
   );
 };
 
 const StructuredData = (props) => {
-  const { author, publishedAt, image, H1 } = props;
+  const {
+    author, publishedAt, image, H1,
+  } = props;
   const headline = H1[0].props.children;
   const json = {
     '@context': 'http://schema.org',
@@ -102,10 +105,10 @@ const Article = styled.article`
 `;
 
 const Wrap = styled.div`
-  color: lightgray;
+  color: gray;
   display: flex;
   flex-direction: column;
-  margin-bottom: var(--space-4);
+  margin-bottom: var(--space-6);
   @media ${theme.forNotSmall} {
     flex-direction: row;
   }
@@ -144,5 +147,6 @@ BlogFrontmatter.propTypes = {
 StructuredData.propTypes = {
   author: PropTypes.string.isRequired,
   publishedAt: PropTypes.string.isRequired,
+  image: PropTypes.string.isRequired,
   H1: PropTypes.arrayOf(PropTypes.node.isRequired).isRequired,
 };

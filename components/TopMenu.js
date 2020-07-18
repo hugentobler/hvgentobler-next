@@ -55,7 +55,7 @@ const Root = styled.div`
   z-index: 9999;
   @media ${theme.forNotSmall} {
     right: calc(-1 * var(--space-4));
-    top: calc(var(--space-6) * 2);
+    top: calc(var(--space-6) * 3);
   }
 `;
 

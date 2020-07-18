@@ -32,6 +32,7 @@ export default () => (
           <a href="https://zeit.co/" target="_blank" rel="noreferrer">ZEIT Now</a>
           .
         </p>
+        <p>No cookies here.</p>
         <p>
           © Christopher Hugentobler 2020. This work is licensed under a
           {' '}

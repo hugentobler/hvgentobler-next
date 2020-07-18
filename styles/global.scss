@@ -32,8 +32,9 @@ section:last-child {
 }
 
 h1 {
-  font-size: 3em;
+  font-size: 3.6em;
   font-weight: 600;
+  letter-spacing: -1px;
   margin-top: var(--space-6);
   margin-bottom: var(--space-2);
 }
@@ -98,7 +99,7 @@ a, a:active, a:visited {
   border-bottom: 1.5px dotted;
   box-sizing: border-box;
   color: inherit;
-  display: inline-block;
+  display: inline;
   line-height: 95%;
   text-decoration: none;
   transition: all 120ms ease-in-out;
