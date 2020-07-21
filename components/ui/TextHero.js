@@ -33,10 +33,6 @@ TextHero.propTypes = {
 /**
  * STYLED COMPONENTS
  */
-const theme = {
-  contentWidth: '600px',
-  forNotSmall: 'screen and (min-width: 999px)',
-};
 
 const Root = styled.div`
   display: grid;
@@ -53,6 +49,11 @@ const Main = styled.div`
   grid-column: 1 / 13;
   grid-row: 2 / 2;
   h1 {
+    font-size: 2.4rem;
+    font-weight: 300;
     margin: 0;
+    @media ${(props) => props.theme.forNotSmall} {
+      font-size: 4.6vw;
+    }
   }
 `;

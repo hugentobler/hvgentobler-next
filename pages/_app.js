@@ -9,6 +9,7 @@
  */
 import App from 'next/app';
 import { MDXProvider } from '@mdx-js/react';
+import { ThemeProvider } from 'styled-components';
 /* Components */
 import { Provider } from '../components/UserContext';
 import MDXComponents from '../components/MDXComponents';
@@ -16,6 +17,7 @@ import MDXComponents from '../components/MDXComponents';
 /**
  * GLOBAL STYLES
  */
+import theme from '../styles/theme';
 import '../styles/reset.scss';
 import '../styles/fonts.scss';
 import '../styles/global.scss';
@@ -62,14 +64,18 @@ export default class MyApp extends App {
         state: this.state,
       }}
       >
-        <MDXProvider
-          components={MDXComponents}
+        <ThemeProvider
+          theme={theme}
         >
-          <Component
-            {...pageProps}
-            key={router.route}
-          />
-        </MDXProvider>
+          <MDXProvider
+            components={MDXComponents}
+          >
+            <Component
+              {...pageProps}
+              key={router.route}
+            />
+          </MDXProvider>
+        </ThemeProvider>
       </Provider>
     );
   }
