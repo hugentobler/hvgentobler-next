@@ -17,7 +17,7 @@ import NavBar from '../components/ui/NavBar';
  * Pass on to layout as props.
  */
 const frontmatter = {
-  title: 'Christopher Hugentobler - Where I inspect the elements.',
+  title: 'Inspect Element ~ Product and Growth Collective',
   description: 'This is the description.',
   image: '/',
   colour: 'night',

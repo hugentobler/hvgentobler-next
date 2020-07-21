@@ -13,9 +13,12 @@ import styled from 'styled-components';
  * DEFAULT EXPORT
  */
 export default function TextHero(props) {
-  const { children } = props;
+  const { children, caption } = props;
   return (
     <Grid>
+      {
+        caption && <p>{caption}</p>
+      }
       <p>Inspect Element</p>
       <p>
         <em>Product</em>
@@ -35,6 +38,11 @@ export default function TextHero(props) {
  */
 TextHero.propTypes = {
   children: PropTypes.node.isRequired,
+  caption: PropTypes.string,
+};
+
+TextHero.defaultProps = {
+  caption: '',
 };
 
 /**
@@ -44,7 +52,7 @@ const Grid = styled.div`
   display: grid;
   gap: var(--space-1) var(--space-1);
   grid-template-columns: repeat(13, 1fr);
-  grid-template-rows: min-content min-content min-content;
+  grid-template-rows: min-content;
   padding: var(--space-2) var(--space-2) 0;
   position: relative;
   width: 100%;
@@ -67,6 +75,9 @@ const Grid = styled.div`
       }
       &:nth-child(2) {
         grid-column: 4 / 6;
+      }
+      &:nth-child(3) {
+        grid-column: 7 / 9;
       }
     }
   }

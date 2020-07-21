@@ -106,11 +106,6 @@ const Grid = styled.div`
   gap: var(--space-1) var(--space-1);
   grid-template-columns: repeat(13, 1fr);
   grid-template-rows: auto 1fr;
-  h2, h3 {
-    span {
-      opacity: .5;
-    }
-  }
 `;
 
 const Projects = styled.div`
@@ -155,5 +150,4 @@ const Date = styled.span`
   letter-spacing: 0.1em;
   margin-top: var(--space-1);
   text-transform: uppercase;
-  opacity: .5;
 `;

@@ -15,7 +15,6 @@ import dynamic from 'next/dynamic';
 import styled from 'styled-components';
 /* Components */
 import Favicon from '../components/Favicon';
-// import Menu from '../components/TopMenu';
 import Footer from '../components/Footer';
 import SetCSSProperty from '../components/CustomCssProperties';
 
@@ -83,7 +82,7 @@ export default function Layout(props) {
         /> */}
         <main>
           {React.Children.map(children, (child) => {
-            /* Pass additional components if child is a component. */
+            /* Pass additional props if child is a component. */
             if (typeof child.type === 'object') {
               return React.cloneElement(child, { menuOpen });
             }

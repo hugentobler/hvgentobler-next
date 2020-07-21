@@ -14,6 +14,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 /* Components */
 import Layout from './main';
+import NavBar from '../components/ui/NavBar';
 
 /**
  * CUSTOM COMPONENTS
@@ -67,14 +68,13 @@ export default function Page(frontmatter) {
     const { children } = props;
     const H1 = children.filter((e) => e.props.mdxType === 'h1');
     const Content = children.filter((e) => e.props.mdxType !== 'h1');
-    // const h1Index = children.findIndex(e => e.props.mdxType == 'h1');
-    // const newChildren = React.Children.toArray(children).splice(h1Index + 1, 0, "hello");
     return (
       <>
         <Head>
           <StructuredData {...frontmatter} H1={H1} />
         </Head>
         <Layout {...frontmatter}>
+          <NavBar />
           <section>
             <Article>
               {H1}
@@ -107,7 +107,6 @@ const Wrap = styled.div`
   display: flex;
   flex-direction: column;
   margin-bottom: var(--space-6);
-  opacity: .6;
   @media ${theme.forNotSmall} {
     flex-direction: row;
   }
