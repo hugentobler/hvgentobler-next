@@ -90,6 +90,7 @@ export default function About() {
             <h3>Growth Lever</h3>
             <h3>University of Hong Kong</h3>
             <h3>AIESEC</h3>
+            <h3>United World Colleges</h3>
           </Networks>
         </Grid>
       </section>

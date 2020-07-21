@@ -34,7 +34,7 @@ export default function TopMenu() {
             <a>Writing</a>
           </Link>
           <Link href="/2020/vanilla-webflow-form">
-            <a>25th</a>
+            <a>Reading</a>
           </Link>
         </Inner>
       </Container>
