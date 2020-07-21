@@ -17,6 +17,7 @@ import styled from 'styled-components';
 import Favicon from '../components/Favicon';
 import Footer from '../components/Footer';
 import SetCSSProperty from '../components/CustomCssProperties';
+import SetVerticalHeight from '../components/SetVerticalHeight';
 
 /**
  * DYNAMIC IMPORTS
@@ -45,6 +46,8 @@ export default function Layout(props) {
   useEffect(() => {
     /* Update css properties. */
     SetCSSProperty(colour);
+    /* Set vertical height. */
+    SetVerticalHeight();
     /* On subsequent route change, close menu and update css properties. */
     const handleRouteChange = (url) => {
       toggleMenu(false);

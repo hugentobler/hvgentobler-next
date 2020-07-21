@@ -82,12 +82,14 @@ const Grid = styled.div`
 
 const Wrap = styled.div`
   height: 80vh;
+  height: calc(var(--vh, 1vh) * 80);
   justify-self: end;
   grid-column-start: 1;
   grid-column-end: span 13;
   grid-row: 1 / span 3;
   @media ${(props) => props.theme.forNotSmall} {
     height: 100vh;
+    height: calc(var(--vh, 1vh) * 100);
     grid-column-start: span 8;
     grid-column-end: 14;
   }
