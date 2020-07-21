@@ -24,14 +24,9 @@ const BlogFrontmatter = (props) => {
   const { author, publishedAt, readingTime } = props;
   return (
     <Wrap>
-      <Half>
-        <Frontmatter>{author}</Frontmatter>
-        <Frontmatter>{publishedAt}</Frontmatter>
-        <Frontmatter>{readingTime.text}</Frontmatter>
-      </Half>
-      <Half>
-        {/* <Frontmatter>{readingTime.text}</Frontmatter> */}
-      </Half>
+      <Frontmatter>{author}</Frontmatter>
+      <Frontmatter>{publishedAt}</Frontmatter>
+      <Frontmatter>{readingTime.text}</Frontmatter>
     </Wrap>
   );
 };
@@ -76,12 +71,14 @@ export default function Page(frontmatter) {
         <Layout {...frontmatter}>
           <NavBar />
           <section>
-            <Article>
+            <Grid>
               {H1}
               {/* Insert frontmatter here without breaking mdx */}
               <BlogFrontmatter {...frontmatter} />
-              {Content}
-            </Article>
+              <Article>
+                {Content}
+              </Article>
+            </Grid>
           </section>
         </Layout>
       </>
@@ -92,43 +89,59 @@ export default function Page(frontmatter) {
 /**
  * STYLED COMPONENTS
  */
-const theme = {
-  contentWidth: '600px',
-  forNotSmall: 'screen and (min-width: 999px)',
-};
-
-const Article = styled.article`
-  display: flex;
-  flex-direction: column;
-  max-width: ${theme.contentWidth};
-`;
-
-const Wrap = styled.div`
-  display: flex;
-  flex-direction: column;
-  margin-bottom: var(--space-6);
-  @media ${theme.forNotSmall} {
-    flex-direction: row;
+const Grid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(13, 1fr);
+  gap: var(--space-6) var(--space-1);
+  h1 {
+    grid-column: 1 / 13;
+    margin-bottom: var(--space-6);
+    @media ${(props) => props.theme.forMiddle} {
+      grid-column: 1 / 11;
+    }
+    @media ${(props) => props.theme.forNotSmall} {
+      grid-column: 1 / 9;
+    }
   }
-`;
-
-const Half = styled.div`
-  flex-grow: 1;
-  margin-left: calc(-1 * var(--space-1));
-  &:last-of-type{
-    @media ${theme.forNotSmall} {
-      margin-right: calc(-1 * var(--space-1));
-      text-align: right;
+  article {
+    grid-column: 1 / 9;
+  }
+  div {
+    grid-column: 1 / 13;
+    grid-row: 2 / 2;
+    @media ${(props) => props.theme.forMiddle} {
+      grid-column: 1 / 11;
+    }
+    @media ${(props) => props.theme.forNotSmall} {
+      grid-column: 10 / 13;
     }
   }
 `;
 
-const Frontmatter = styled.span`
-  font-size: 0.7em;
-  font-weight: 400;
-  letter-spacing: 0.1em;
-  margin: 0 var(--space-1);
-  text-transform: uppercase;
+const Article = styled.article`
+  display: flex;
+  flex-direction: column;
+`;
+
+const Wrap = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: var(--space-2);
+  @media ${(props) => props.theme.forNotSmall} {
+    flex-direction: column;
+  }
+`;
+
+const Frontmatter = styled.p`
+  color: var(--dark-gray);
+  font-size: 1.2rem;
+  font-weight: 300;
+  line-height: 1.3;
+  margin: 0;
+  @media ${(props) => props.theme.forNotSmall} {
+    font-size: 1vw;
+  }
 `;
 
 /**

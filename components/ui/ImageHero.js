@@ -81,8 +81,8 @@ const Grid = styled.div`
 `;
 
 const Wrap = styled.div`
-  height: 80vh;
-  height: calc(var(--vh, 1vh) * 80);
+  height: 90vh;
+  height: calc(var(--vh, 1vh) * 90);
   justify-self: end;
   grid-column-start: 1;
   grid-column-end: span 13;

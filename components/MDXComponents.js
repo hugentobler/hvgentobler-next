@@ -29,11 +29,10 @@ const H2 = styled.h2`
 `;
 
 const Lede = styled.p`
-  color: gray;
+  color: var(--dark-gray);
   font-size: 1.4rem;
   font-weight: 300;
   line-height: 1.4;
-  margin-top: var(--space-4);
 `;
 
 const Code = styled.code`
@@ -49,10 +48,7 @@ const Wrap = styled.div`
 `;
 
 const Left = styled.div`
-  @media ${theme.forNotSmall} {
-    flex-shrink: 0;
-    width: 80%;
-  }
+  
 `;
 
 const Right = styled.div`

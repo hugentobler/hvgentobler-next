@@ -59,6 +59,7 @@ const Grid = styled.div`
   @media ${(props) => props.theme.forNotSmall} {
     grid-template-rows: min-content auto;
     height: 100vh;
+    height: calc(var(--vh, 1vh) * 100);
     padding-bottom: var(--space-2);
   }
   p {
