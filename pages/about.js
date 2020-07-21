@@ -10,6 +10,7 @@ import styled from 'styled-components';
 /* Components */
 import Layout from '../layouts/main';
 import ImageHero from '../components/ui/ImageHero';
+import NavBar from '../components/ui/NavBar';
 
 /**
  * FRONTMATTER
@@ -30,70 +31,69 @@ export default function About() {
     <Layout {...frontmatter}>
       <ImageHero
         alt="Christopher pointing up and smiling!"
-        src="/images/25th/main.jpg"
+        src="/images/about/christopher/pink.jpg"
         h="1599"
         w="1200"
-        caption="Avid Explorer"
-      >
-        <h3>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</h3>
-      </ImageHero>
-      <ImageHero
-        alt="Christopher pointing up and smiling!"
-        src="/images/25th/main.jpg"
-        h="1599"
-        w="1200"
-        caption="Avid Explorer"
-      >
-        <h3>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</h3>
-      </ImageHero>
-      <section id="résumé">
+        captions={[
+          'Christopher Hugentobler',
+          'Walking Talking Venn Diagram',
+        ]}
+      />
+      <NavBar />
+      <section>
+        <h1>Curiosity pushed him throughout his entire career and it’s still at the core of his work ethic.</h1>
         <Grid>
           <Projects>
-            <h2>Projects</h2>
+            <h2><span>Projects</span></h2>
             <h3>
-              <b>Bowtie</b>
-              {' '}
-              - Life & Medical Insurtech
+              Bowtie
+              <span> ~ Life & Medical Insurtech</span>
             </h3>
             <Date>Mar 2020 - present</Date>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
             <h3>
-              <b>Snapask</b>
-              {' '}
-              - College & Career Edutech
+              Snapask
+              <span> - College & Career Edutech</span>
             </h3>
             <Date>Feb 2016 - present</Date>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
             <h3>
-              <b>Pedder</b>
-              {' '}
-              - Mobile Apps
+              Pedder
+              <span> - Mobile Apps</span>
             </h3>
             <Date>Feb 2016 - present</Date>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
             <h3>
-              <b>24 Hour Race</b>
-              {' '}
-              - Advocacy & Community
+              24 Hour Race
+              <span> - Advocacy & Community</span>
             </h3>
             <Date>Feb 2016 - present</Date>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
           </Projects>
           <Skills>
-            <h2>Skills</h2>
+            <h2><span>Skills</span></h2>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
             <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
             <p>Native fluency in English, Mandarin and Cantonese. Basic conversational French.</p>
           </Skills>
           <Networks>
-            <h2>Networks</h2>
-            <h3>Growth Lever</h3>
-            <h3>University of Hong Kong</h3>
-            <h3>AIESEC</h3>
-            <h3>United World Colleges</h3>
+            <h2><span>Networks</span></h2>
+            <p>Growth Lever</p>
+            <p>University of Hong Kong</p>
+            <p>AIESEC</p>
+            <p>United World Colleges</p>
           </Networks>
         </Grid>
       </section>
+      <ImageHero
+        alt="Christopher pointing up and smiling!"
+        src="/images/about/christopher/green.jpg"
+        h="1599"
+        w="1200"
+        captions={[
+          'Outdoors Adventure Addict',
+        ]}
+      />
     </Layout>
   );
 }
@@ -101,45 +101,50 @@ export default function About() {
 /**
 * STYLED COMPONENTS
 */
-const theme = {
-  contentWidth: '600px',
-  forNotSmall: 'screen and (min-width: 999px)',
-};
-
 const Grid = styled.div`
-  align-items: start;
   display: grid;
-  grid-template-columns: 50% 50%;
+  gap: var(--space-1) var(--space-1);
+  grid-template-columns: repeat(13, 1fr);
   grid-template-rows: auto 1fr;
-  & > div {
-    max-width: ${theme.contentWidth};
-    padding-right: var(--space-6);
+  h2, h3 {
+    span {
+      opacity: .5;
+    }
   }
 `;
 
 const Projects = styled.div`
-  grid-column: 1 / span 2;
+  grid-column: 1 / span 13;
   grid-row: 2 / 2;
-  @media screen and (min-width: 720px) {
-    grid-column: 1 / 1;
+  @media ${(props) => props.theme.forMiddle} {
+    grid-column: 1 / span 6;
     grid-row: 1 / span 2;
+  }
+  @media ${(props) => props.theme.forNotSmall} {
+    grid-column: 1 / span 5;
   }
 `;
 
 const Skills = styled.div`
-  grid-column: 1 / span 2;
+  grid-column: 1 / span 13;
   grid-row: 1 / 1;
-  @media screen and (min-width: 720px) {
-    grid-column: 2 / 2;
+  @media ${(props) => props.theme.forMiddle} {
+    grid-column: 8 / span 6;
+  }
+  @media ${(props) => props.theme.forNotSmall} {
+    grid-column: 7 / span 5;
   }
 `;
 
 const Networks = styled.div`
-  grid-column: 1 / span 2;
+  grid-column: 1 / span 13;
   grid-row: 3 / 3;
-  @media screen and (min-width: 720px) {
-    grid-column: 2 / 2;
+  @media ${(props) => props.theme.forMiddle} {
+    grid-column: 8 / span 6;
     grid-row: 2 / 2;
+  }
+  @media ${(props) => props.theme.forNotSmall} {
+    grid-column: 7 / span 5;
   }
 `;
 
@@ -150,4 +155,5 @@ const Date = styled.span`
   letter-spacing: 0.1em;
   margin-top: var(--space-1);
   text-transform: uppercase;
+  opacity: .5;
 `;

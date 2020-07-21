@@ -14,19 +14,18 @@ import Image from './Image';
  * DEFAULT EXPORT
  */
 export default function ImageHero(props) {
-  const { children, caption, ...imageProps } = props;
+  const { captions, ...imageProps } = props;
   return (
-    <Root>
-      <ImageWrap>
+    <Grid>
+      <Wrap>
         <Image {...imageProps} />
-        <Caption>
-          <p>{caption}</p>
-        </Caption>
-      </ImageWrap>
-      <TextWrap>
-        {children}
-      </TextWrap>
-    </Root>
+      </Wrap>
+      {
+        captions.map((e) => (
+          <p key={e}>{e}</p>
+        ))
+      }
+    </Grid>
   );
 }
 
@@ -34,64 +33,62 @@ export default function ImageHero(props) {
  * PROPTYPES
  */
 ImageHero.propTypes = {
-  children: PropTypes.node.isRequired,
-  caption: PropTypes.string.isRequired,
+  captions: PropTypes.arrayOf(PropTypes.string),
+};
+
+ImageHero.defaultProps = {
+  captions: [' ', ' '],
 };
 
 /**
  * STYLED COMPONENTS
  */
-const theme = {
-  contentWidth: '600px',
-  forNotSmall: 'screen and (min-width: 999px)',
-};
+const Grid = styled.div`
+  background-color: var(--sand);
+  display: grid;
+  gap: var(--space-1) var(--space-1);
+  grid-template-columns: repeat(13, 1fr);
+  grid-template-rows: min-content;
+  p {
+    color: var(--dark-gray);
+    font-size: 1.2rem;
+    font-weight: 300;
+    grid-column: 1 / 13;
+    line-height: 1.3;
+    margin: 0;
+    padding-left: var(--space-2);
+    &:nth-of-type(1) {
+      grid-row: 1 / 1;
+      padding-top: var(--space-2);
+    }
+    &:nth-of-type(2) {
+      grid-row: 2 / 2;
+    }
+    @media ${(props) => props.theme.forNotSmall} {
+      font-size: 1vw;
+      grid-row: 1 / 1;
+      &:nth-of-type(1) {
+        grid-column: 1 / 3;
+      }
+      &:nth-of-type(2) {
+        grid-column: 4 / 6;
+        grid-row: 1 / 1;
+        padding-left: 0;
+        padding-top: var(--space-2);
+      }
+    }
+  }
+`;
 
-const Root = styled.div`
-  display: flex;
-  flex-direction: column;
-  @media ${theme.forNotSmall} {
-    align-items: center;
-    flex-direction: row;
+const Wrap = styled.div`
+  height: 80vh;
+  justify-self: end;
+  grid-column-start: 1;
+  grid-column-end: span 13;
+  grid-row: 1 / span 3;
+  @media ${(props) => props.theme.forNotSmall} {
     height: 100vh;
-    min-height: 40em;
+    grid-column-start: span 8;
+    grid-column-end: 14;
   }
-`;
-
-const ImageWrap = styled.div`
-  flex-shrink: 0;
-  margin-left: calc(-1 * var(--space-2));
-  margin-right: calc(-1 * var(--space-2));
-  max-width: 480px;
-  height: 36em;
-  position: relative;
-  width: 100%;
-  @media ${theme.forNotSmall} {
-    margin-left: unset;
-    margin-right: var(--space-6);
-    max-width: 400px;
-  }
-`;
-
-const TextWrap = styled.div`
-  align-items: center;
-  display: flex;
-  min-height: 24em;
-  max-width: ${theme.contentWidth};
-  padding-bottom: var(--space-6);
-  padding-right: var(--space-6);
-  @media ${theme.forNotSmall} {
-    padding-left: var(--space-6);
-  }
-`;
-
-const Caption = styled.div`
-  align-items: center;
-  background-color: rgba(28, 28, 28, 0.33);
-  bottom: 0;
-  display: flex;
-  justify-content: center;
-  left: 0;
-  top: 0;
-  position: absolute;
-  right: 0;
 `;

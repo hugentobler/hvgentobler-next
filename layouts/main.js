@@ -15,9 +15,7 @@ import dynamic from 'next/dynamic';
 import styled from 'styled-components';
 /* Components */
 import Favicon from '../components/Favicon';
-import Menu from '../components/TopMenu';
-import NavBar from '../components/ui/NavBar';
-import TextHero from '../components/ui/TextHero';
+// import Menu from '../components/TopMenu';
 import Footer from '../components/Footer';
 import SetCSSProperty from '../components/CustomCssProperties';
 
@@ -78,27 +76,20 @@ export default function Layout(props) {
         <link rel="preload" href="/fonts/soehne-test-buch.woff" as="font" type="font/woff" crossOrigin="anonymous" />
       </Head>
       <Root>
-        <Background />
-        <TextHero>
-          <h1>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</h1>
-        </TextHero>
-        <NavBar />
+        {/* <Background /> */}
         {/* <Blinds
           menuOpen={menuOpen}
           animateMenu={animateMenu}
         /> */}
-        <Container>
-          {/* <Menu /> */}
-          <main>
-            {React.Children.map(children, (child) => {
-              /* Pass additional components if child is a component. */
-              if (typeof child.type === 'object') {
-                return React.cloneElement(child, { menuOpen });
-              }
-              return child;
-            })}
-          </main>
-        </Container>
+        <main>
+          {React.Children.map(children, (child) => {
+            /* Pass additional components if child is a component. */
+            if (typeof child.type === 'object') {
+              return React.cloneElement(child, { menuOpen });
+            }
+            return child;
+          })}
+        </main>
       </Root>
       <Footer />
       {/* <Navigation
@@ -134,12 +125,4 @@ const Root = styled.div`
   position: relative;
   text-rendering: optimizeLegibility;
   z-index: 10;
-`;
-
-const Container = styled.div`
-  margin: auto;
-  max-width: var(--max-width);
-  position: relative;
-  width: 100%;
-  z-index: 100;
 `;

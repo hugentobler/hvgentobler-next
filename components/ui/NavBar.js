@@ -70,18 +70,12 @@ export default function NavBar() {
 /**
  * STYLED COMPONENTS
  */
-const theme = {
-  forNotSmall: 'screen and (min-width: 999px)',
-  letterSpacing: '-0.05rem',
-};
 
-const Root = styled.div`
+const Root = styled.nav`
   bottom: auto;
-  display: flex;
-  justify-content: flex-end;
   left: auto;
   top: 0;
-  padding: var(--space-1) var(--space-1) 0;
+  padding: var(--space-2);
   position: sticky;
   right: 0;
   z-index: 9999;
@@ -90,25 +84,33 @@ const Root = styled.div`
 const Grid = styled.div`
   display: grid;
   grid-column-gap: var(--space-1);
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: repeat(13, 1fr);
   width: 100%;
 `;
 
 const NavLink = styled.div`
-  &:nth-last-child(1) {
-    grid-column: 13 / 13;
-  }
-  &:nth-last-child(2) {
-    grid-column: 12 / 12;
-  }
-  &:nth-last-child(3) {
-    grid-column: 11 / 11;
-  }
-  &:nth-last-child(4) {
-    grid-column: 10 / 10;
+  grid-column-end: span 3;
+  @media ${(props) => props.theme.forNotSmall} {
+    grid-column-end: span 1;
+    &:nth-last-child(1) {
+      grid-column-start: 13;
+    }
+    &:nth-last-child(2) {
+      grid-column-start: 12;
+    }
+    &:nth-last-child(3) {
+      grid-column-start: 11;
+    }
+    &:nth-last-child(4) {
+      grid-column-start: 10;
+    }
   }
   a {
     border: none;
-    font-size: .8rem;
+    font-size: 1.2rem;
+    font-weight: 300;
+    @media ${(props) => props.theme.forNotSmall} {
+      font-size: 1vw;
+    }
   }
 `;
