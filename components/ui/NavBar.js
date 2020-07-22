@@ -59,7 +59,7 @@ export default function NavBar() {
         <CustomLink href="/blog">
           <a>Writing</a>
         </CustomLink>
-        <CustomLink href="/2020/vanilla-webflow-form">
+        <CustomLink href="/bookshelf">
           <a>Reading</a>
         </CustomLink>
       </Grid>

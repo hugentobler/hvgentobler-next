@@ -20,8 +20,6 @@ And you can do it without:
 1. Dependency bloat - no more Vue or Jquery.
 2. Styling bloat - by leveraging existing Webflow features and styling.
 
-<Columns>
-
 Let's save the user inputs in one object - _data_.
 
 And the validity of each input in another - _valid_. Later _valid_ will also help us infer form validity and completeness.
@@ -30,10 +28,6 @@ And the validity of each input in another - _valid_. Later _valid_ will also hel
 let data = {},
   valid = {}
 ```
-
-</Columns>
-
-<Columns>
 
 When users interact with our form, we will want to update our objects _data_ and _valid_.
 
@@ -59,11 +53,18 @@ const validChange = new Proxy(valid, {
   }
 })
 ```
-</Columns>
 
 We'll need a reference to our Dom elements - one form and several inputs.
 
 The submit button is an input of type _submit_, so filtering it from _inputs_ leaves us with _fields_.
+
+<Image
+  alt="Christopher pointing up and smiling!"
+  src="/images/25th/main.jpg"
+  h="1599"
+  w="1200"
+  aspect
+/>
 
 ## Managing form data and validity
 

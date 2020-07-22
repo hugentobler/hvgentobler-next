@@ -94,26 +94,32 @@ const Grid = styled.div`
   grid-template-columns: repeat(13, 1fr);
   gap: var(--space-6) var(--space-1);
   h1 {
-    grid-column: 1 / 13;
+    grid-column: 1 / span 13;
     margin-bottom: var(--space-6);
     @media ${(props) => props.theme.forMiddle} {
-      grid-column: 1 / 11;
+      grid-column: 1 / span 11;
     }
     @media ${(props) => props.theme.forNotSmall} {
-      grid-column: 1 / 9;
+      grid-column: 1 / span 8;
     }
   }
   article {
-    grid-column: 1 / 9;
-  }
-  div {
-    grid-column: 1 / 13;
-    grid-row: 2 / 2;
+    grid-column: 1 / span 13;
     @media ${(props) => props.theme.forMiddle} {
-      grid-column: 1 / 11;
+      grid-column: 1 / span 11;
     }
     @media ${(props) => props.theme.forNotSmall} {
-      grid-column: 10 / 13;
+      grid-column: 1 / span 8;
+    }
+  }
+  div {
+    grid-column: 1 / span 13;
+    grid-row: 2 / 2;
+    @media ${(props) => props.theme.forMiddle} {
+      grid-column: 1 / span 11;
+    }
+    @media ${(props) => props.theme.forNotSmall} {
+      grid-column: 10 / span 3;
     }
   }
 `;
@@ -121,20 +127,26 @@ const Grid = styled.div`
 const Article = styled.article`
   display: flex;
   flex-direction: column;
+  width: 100%;
 `;
 
 const Wrap = styled.div`
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   justify-content: space-between;
-  margin-top: var(--space-2);
+  margin-top: var(--space-1);
   @media ${(props) => props.theme.forNotSmall} {
     flex-direction: column;
+    justify-content: flex-start;
+    p {
+      margin-bottom: var(--space-1);
+    }
   }
 `;
 
 const Frontmatter = styled.p`
-  color: var(--dark-gray);
+  color: var(--text-color);
   font-size: 1.2rem;
   font-weight: 300;
   line-height: 1.3;

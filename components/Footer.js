@@ -93,6 +93,7 @@ const Grid = styled.div`
     font-size: 1.2rem;
     font-weight: 300;
     line-height: 1.3;
+    margin-bottom: var(--space-1);
     @media ${(props) => props.theme.forNotSmall} {
       font-size: 1vw;
     }
