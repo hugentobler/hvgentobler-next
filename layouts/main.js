@@ -76,6 +76,8 @@ export default function Layout(props) {
         {isProd ? <meta name="robots" content="index, follow" /> : <meta name="robots" content="noindex, nofollow" />}
         {/* Preload primary font */}
         <link rel="preload" href="/fonts/soehne-test-buch.woff" as="font" type="font/woff" crossOrigin="anonymous" />
+        {/* Plausible analytics */}
+        {process.browser && <script async defer data-domain="inspectelement.co" src="https://plausible.io/js/plausible.js" />}
       </Head>
       <Root>
         {/* <Background /> */}
