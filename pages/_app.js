@@ -10,6 +10,7 @@
 import App from 'next/app';
 import { MDXProvider } from '@mdx-js/react';
 import { ThemeProvider } from 'styled-components';
+import dynamic from 'next/dynamic';
 /* Components */
 import { Provider } from '../components/UserContext';
 import MDXComponents from '../components/MDXComponents';
@@ -57,6 +58,11 @@ export default class MyApp extends App {
 
   render() {
     const { Component, pageProps, router } = this.props;
+    /* Non SSR Head to load async scripts. */
+    const NonSSRHead = dynamic(
+      () => import('next/head'),
+      { ssr: false },
+    );
 
     return (
       /* Provide context to whole app. */
@@ -76,6 +82,9 @@ export default class MyApp extends App {
             />
           </MDXProvider>
         </ThemeProvider>
+        <NonSSRHead>
+          <script async defer data-domain="inspectelement.co" src="https://plausible.io/js/plausible.js" />
+        </NonSSRHead>
       </Provider>
     );
   }
