@@ -91,7 +91,7 @@
 
 @font-face {
   font-family: 'Soehne';
-  font-display: fallback;
+  font-display: swap;
   src: url('/fonts/soehne-test-buch.woff') format('woff');
   font-weight: 400;
   font-style: normal;
@@ -99,7 +99,7 @@
 
 @font-face {
   font-family: 'Soehne';
-  font-display: fallback;
+  font-display: swap;
   src: url('/fonts/soehne-test-buch-kursiv.woff') format('woff');
   font-weight: 400;
   font-style: italic;
@@ -123,7 +123,7 @@
 
 @font-face {
   font-family: 'Soehne';
-  font-display: fallback;
+  font-display: swap;
   src: url('/fonts/soehne-test-halbfett.woff') format('woff');
   font-weight: 600;
   font-style: normal;

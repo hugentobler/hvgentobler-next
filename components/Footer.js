@@ -13,78 +13,109 @@ import styled from 'styled-components';
  */
 export default () => (
   <Root>
-    <Container>
-      <Inner>
-        <Social>
-          <h6><a href="https://github.com/hugentobler/hvgentobler-next" target="_blank" rel="noreferrer">source</a></h6>
-          <h6><Insta href="https://instagram.com/globehunter" target="_blank" rel="noreferrer">instagram</Insta></h6>
-          <h6><a href="https://linkedin.com/in/hugentobler/" target="_blank" rel="noreferrer">linkedin</a></h6>
-        </Social>
-        <p>
-          Typeset in&nbsp;
-          <a href="https://klim.co.nz/collections/soehne/" target="_blank" rel="noreferrer">Söhne</a>
-          .
-        </p>
-        <p>
-          Built with&nbsp;
-          <a href="https://nextjs.org/" target="_blank" rel="noreferrer">Next</a>
-          &nbsp;and served with&nbsp;
-          <a href="https://zeit.co/" target="_blank" rel="noreferrer">ZEIT Now</a>
-          .
-        </p>
-        <p>© Christopher Hugentobler 2020</p>
-      </Inner>
-    </Container>
+    <Grid>
+      <Heading>
+        We can build something cool together.
+      </Heading>
+      <Links>
+        <a href="mailto:hugentobler@hey.com" target="_blank" rel="noreferrer">Contact</a>
+        <a href="https://linkedin.com/in/hugentobler/" target="_blank" rel="noreferrer">LinkedIn</a>
+        <a href="https://instagram.com/globehunter" target="_blank" rel="noreferrer">Instagram</a>
+        <a href="https://github.com/hugentobler/hvgentobler-next" target="_blank" rel="noreferrer">Source</a>
+      </Links>
+      <p>Inspect Element</p>
+      <p>Product and Growth Collective</p>
+      <p>
+        No cookies, built w/&nbsp;
+        <a href="https://nextjs.org/" target="_blank" rel="noreferrer">Next.js</a>
+        , served w/&nbsp;
+        <a href="https://zeit.co/" target="_blank" rel="noreferrer">ZEIT</a>
+      </p>
+      <p>
+        © 2020 Licensed under&nbsp;
+        <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>
+      </p>
+    </Grid>
   </Root>
 );
 
 /**
- * STYLED COMPONENTS
- */
+* STYLED COMPONENTS
+*/
 const Root = styled.footer`
   background-color: var(--sand);
   bottom: 0;
   left: 0;
+  padding: var(--space-2) var(--space-2);
   position: sticky;
   z-index: 0;
 `;
 
-const Container = styled.div`
-  margin: 0 auto;
-  max-width: var(--max-width);
-  padding: var(--space-6) 0;
-  width: 100%;
-`;
-
-const Inner = styled.div`
-  color: lightgray;
-  display: flex;
-  flex-direction: column;
-  padding: var(--space-6) var(--space-1);
+const Grid = styled.div`
+  color: var(--dark-gray);
+  display: grid;
+  gap: var(--space-1) var(--space-1);
+  grid-template-columns: repeat(13, 1fr);
+  grid-template-rows: min-content min-content;
   p {
-    transition: all 120ms ease-in-out;
-    &:hover {
-      color: gray;
+    font-size: 1.2rem;
+    font-weight: 300;
+    grid-column: 1 / 13;
+    line-height: 1.3;
+    margin: 0;
+    &:nth-of-type(1) {
+      grid-row: 3 / span 1;
+    }
+    @media ${(props) => props.theme.forNotSmall} {
+      font-size: 1vw;
+      grid-row: 3 / span 1;
+      &:nth-of-type(1) {
+        grid-column: 1 / span 3;
+      }
+      &:nth-of-type(2) {
+        grid-column: 4 / span 3;
+      }
+      &:nth-of-type(3) {
+        grid-column: 7 / span 3;
+      }
+      &:nth-of-type(4) {
+        grid-column: 10 / span 3;
+      }
     }
   }
-`;
-
-const Social = styled.div`
-  display: flex;
-  margin-bottom: var(--space-4);
+  em {
+    color: var(--black);
+    font-style: normal;
+  }
   a {
     border: none;
-    color: gray;
-    margin-right: var(--space-3);
-    &:hover {
-      color: darkgray;
+    color: var(--black);
+    font-size: 1.2rem;
+    font-weight: 300;
+    line-height: 1.3;
+    margin-bottom: var(--space-1);
+    @media ${(props) => props.theme.forNotSmall} {
+      font-size: 1vw;
     }
   }
-
 `;
 
-const Insta = styled.a`
-  // background: linear-gradient(to right, #F58529, #FEDA77, #DD2A7B, #8134AF, #515BD4);
-  //-webkit-background-clip: text;
-  //-webkit-text-fill-color: transparent;
+const Heading = styled.h1`
+  grid-column-end: span 13;
+  margin-top: calc(var(--space-6) * 3);
+  @media ${(props) => props.theme.forNotSmall} {
+    grid-column-end: span 8;
+  }
+`;
+
+const Links = styled.div`
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  grid-column: 7 / span 4;
+  grid-row: 2 / 2;
+  margin-bottom: calc(var(--space-6) * 3);
+  @media ${(props) => props.theme.forNotSmall} {
+    grid-column: 10 / span 3;
+  }
 `;

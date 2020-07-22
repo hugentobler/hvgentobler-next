@@ -48,8 +48,8 @@ export default function Navigation(props) {
   return (
     <>
       <Menu
-        initial={{opacity: 0}}
-        animate={{opacity: 1}}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
       >
         <MenuInner>
           <Hamburger
@@ -203,7 +203,6 @@ const NavInner = styled.div`
     border-bottom-width: 2px;
     color: var(--background-color);
     font-size: 2.25rem;
-    font-weight: 300;
     letter-spacing: ${theme.letterSpacing};
     line-height: 1.25;
     text-decoration: none;

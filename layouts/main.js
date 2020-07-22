@@ -1,6 +1,6 @@
 /**
  * LAYOUT
- * components/Layout.js
+ * layouts/main.js
  * The primary layout.
  */
 
@@ -14,27 +14,19 @@ import Head from 'next/head';
 import dynamic from 'next/dynamic';
 import styled from 'styled-components';
 /* Components */
-import Favicon from './Favicon';
-import Footer from './Footer';
-import SetCSSProperty from './CustomCssProperties';
+import Favicon from '../components/Favicon';
+import Footer from '../components/Footer';
+import SetCSSProperty from '../components/CustomCssProperties';
+import SetVerticalHeight from '../components/SetVerticalHeight';
 
 /**
- * DYNAMIC IMPORT NO SSR
+ * DYNAMIC IMPORTS
  */
-const Background = dynamic(
-  () => import('./Background'),
-  { ssr: false },
-);
+const Background = dynamic(() => import('../components/Background'));
 
-const Blinds = dynamic(
-  () => import('./Blinds'),
-  { ssr: false },
-);
+// const Blinds = dynamic(() => import('../components/Blinds'));
 
-const Navigation = dynamic(
-  () => import('./Navigation'),
-  { ssr: false },
-);
+// const Navigation = dynamic(() => import('../components/Navigation'));
 
 /**
  * DEFAULT EXPORT
@@ -51,10 +43,11 @@ export default function Layout(props) {
   const [menuOpen, toggleMenu] = useState(false);
   const [menuAnimating, animateMenu] = useState(false);
 
-
   useEffect(() => {
     /* Update css properties. */
     SetCSSProperty(colour);
+    /* Set vertical height. */
+    SetVerticalHeight();
     /* On subsequent route change, close menu and update css properties. */
     const handleRouteChange = (url) => {
       toggleMenu(false);
@@ -77,35 +70,36 @@ export default function Layout(props) {
         <meta property="og:description" content={description} />
         <meta property="og:type" content="website" />
         <meta property="og:site_name" content="Christopher Hugentobler" />
-        <meta property="og:url" content={`https://hvgentobler.com${asPath}`} />
-        <meta property="og:image" content={`https://hvgentobler.com${image}`} />
+        <meta property="og:url" content={`https://inspectelement.co${asPath}`} />
+        <meta property="og:image" content={`https://inspectelement.co${image}`} />
+        {/* Prevent robots scraping dev / staging sites */}
         {isProd ? <meta name="robots" content="index, follow" /> : <meta name="robots" content="noindex, nofollow" />}
+        {/* Preload primary font */}
+        <link rel="preload" href="/fonts/soehne-test-buch.woff" as="font" type="font/woff" crossOrigin="anonymous" />
       </Head>
       <Root>
-        <Background />
-        <Blinds
+        {/* <Background /> */}
+        {/* <Blinds
           menuOpen={menuOpen}
           animateMenu={animateMenu}
-        />
-        <Container>
-          <main>
-            {React.Children.map(children, (child) => {
-              /* Pass additional components if child is a component. */
-              if (typeof child.type === 'object') {
-                return React.cloneElement(child, { menuOpen });
-              }
-              return child;
-            })}
-          </main>
-        </Container>
+        /> */}
+        <main>
+          {React.Children.map(children, (child) => {
+            /* Pass additional props if child is a component. */
+            if (typeof child.type === 'object') {
+              return React.cloneElement(child, { menuOpen });
+            }
+            return child;
+          })}
+        </main>
       </Root>
       <Footer />
-      <Navigation
+      {/* <Navigation
         menuOpen={menuOpen}
         toggleMenu={toggleMenu}
         menuAnimating={menuAnimating}
         animateMenu={animateMenu}
-      />
+      /> */}
     </>
   );
 }
@@ -132,11 +126,5 @@ const Root = styled.div`
   background-color: var(--background-color);
   position: relative;
   text-rendering: optimizeLegibility;
-  z-index: 1;
-`;
-
-const Container = styled.div`
-  margin: auto;
-  max-width: var(--max-width);
-  width: 100%;
+  z-index: 10;
 `;

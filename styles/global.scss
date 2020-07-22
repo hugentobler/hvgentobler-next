@@ -12,6 +12,10 @@
 /**
  * TAG STYLES
  */
+* {
+  box-sizing: border-box;
+}
+
 body {
   color: var(--text-color);
   font-family: Soehne, Helvetica, Arial, sans-serif;
@@ -20,13 +24,10 @@ body {
 main {
   height: 100%;
   min-height: 100vh;
-  padding: 0 var(--space-1);
-  position: relative;
-  z-index: 1;
 }
 
 section {
-  padding: var(--space-6) 0;
+  padding: calc(var(--space-6) * 2) var(--space-2);
 }
 
 section:last-child {
@@ -34,18 +35,32 @@ section:last-child {
 }
 
 h1 {
-  font-size: 3em;
-  font-weight: 700;
-  margin: var(--space-6) 0;
+  font-size: 2.4rem;
+  font-weight: 300;
+  letter-spacing: -1px;
+  line-height: 1.1;
+  margin-top: var(--space-6);
+  margin-bottom: var(--space-2);
+  @media screen and (min-width: 999px) {
+    font-size: 4.6vw;
+  }
 }
+
 h2 {
-  font-size: 2.25em;
-  font-weight: 400;
-  letter-spacing: -0.05em;
-  line-height: 1;
-  margin: var(--space-5) 0;
+  font-size: 2em;
+  font-weight: 300;
+  letter-spacing: -1px;
+  line-height: 1.1;
+  margin-top: var(--space-6);
+  margin-bottom: var(--space-2);
 }
-h3 { font-size: 1.5em; }
+h3 {
+  font-size: 1.4em;
+  font-weight: 300;
+  line-height: 1.1;
+  margin-top: var(--space-6);
+  margin-bottom: var(--space-4);
+}
 h4 { font-size: 1.25em; }
 h5 { font-size: 1em; }
 h6 {
@@ -53,6 +68,13 @@ h6 {
   font-weight: 400;
   letter-spacing: 0.1em;
   text-transform: uppercase;
+}
+
+::selection {
+  background: yellow;
+}
+::-moz-selection {
+  background: yellow;
 }
 
 p, li {
@@ -63,12 +85,14 @@ p, li {
 }
 
 p {
-  margin: var(--space-3) 0;
+  margin-top: var(--space-1);
+  margin-bottom: var(--space-3);
 }
 
 ol, ul {
   list-style-position: outside;
-  margin: var(--space-2) 0;
+  margin-top: var(--space-2);
+  margin-bottom: var(--space-4);
   padding-left: var(--space-4);
 }
 
@@ -81,16 +105,21 @@ li {
 }
 
 a, a:active, a:visited {
-  border-bottom: 2px dotted;
+  border-bottom: 1.5px dotted;
+  box-sizing: border-box;
   color: inherit;
-  display: inline-block;
+  display: inline;
   line-height: 95%;
   text-decoration: none;
   transition: all 120ms ease-in-out;
 }
 
-a:hover {
-  transform: translateY(-1px);
+a:hover, a:focus, a:visited, a.active {
+  opacity: .5;
+}
+
+span {
+  opacity: .6;
 }
 
 sub,
@@ -111,8 +140,8 @@ em {
   font-style: italic;
 }
 
-pre {
-  margin: var(--space-4) 0 !important;
+b {
+  font-weight: 600;
 }
 
 code {

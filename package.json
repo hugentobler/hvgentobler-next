@@ -15,29 +15,35 @@
   "author": "Christopher Hugentobler",
   "license": "ISC",
   "dependencies": {
+    "@mdx-js/loader": "^1.6.13",
+    "@mdx-js/react": "^1.6.13",
     "@zeit/next-sass": "^1.0.1",
     "cross-env": "^7.0.2",
-    "framer-motion": "^1.11.0",
-    "highlight.js": "^10.0.3",
+    "framer-motion": "^2.1.0",
+    "mdx-prism": "^0.3.1",
     "next": "^9.4.4",
+    "next-mdx-enhanced": "^3.0.0",
     "node-sass": "^4.14.1",
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-use": "^14.3.0",
+    "reading-time": "^1.2.0",
     "strip-ansi": "^6.0.0",
     "styled-components": "^5.1.1",
     "three": "^0.116.1",
     "webpack-bundle-analyzer": "^3.8.0"
   },
   "devDependencies": {
-    "babel-plugin-prismjs": "^2.0.1",
+    "babel-plugin-import-glob-array": "^0.2.0",
     "babel-plugin-styled-components": "^1.10.7",
     "eslint": "^6.8.0",
-    "eslint-config-airbnb": "^18.1.0",
-    "eslint-plugin-import": "^2.21.1",
-    "eslint-plugin-jsx-a11y": "^6.2.3",
-    "eslint-plugin-react": "^7.20.0",
-    "eslint-plugin-react-hooks": "^2.5.1"
+    "eslint-config-airbnb": "^18.2.0",
+    "eslint-plugin-import": "^2.22.0",
+    "eslint-plugin-jsx-a11y": "^6.3.1",
+    "eslint-plugin-mdx": "^1.7.1",
+    "eslint-plugin-react": "^7.20.3",
+    "eslint-plugin-react-hooks": "^2.5.1",
+    "rehype": "^11.0.0"
   }
 }
