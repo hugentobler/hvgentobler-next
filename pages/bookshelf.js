@@ -100,7 +100,7 @@ const Grid = styled.div`
     @media ${(props) => props.theme.forNotSmall} {
       font-size: 1vw;
       &:nth-of-type(odd) {
-        grid-column: 5 / span 4;
+        grid-column: 4 / span 4;
       }
       &:nth-of-type(even) {
         grid-column: 10 / span 3;
