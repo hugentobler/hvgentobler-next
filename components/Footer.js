@@ -18,10 +18,10 @@ export default () => (
         We can build something cool together.
       </Heading>
       <Links>
-        <a href="mailto:hugentobler@hey.com" target="_blank" rel="noreferrer">Contact</a>
-        <a href="https://linkedin.com/in/hugentobler/" target="_blank" rel="noreferrer">LinkedIn</a>
-        <a href="https://instagram.com/globehunter" target="_blank" rel="noreferrer">Instagram</a>
-        <a href="https://github.com/hugentobler/hvgentobler-next" target="_blank" rel="noreferrer">Source</a>
+        <a href="mailto:hugentobler@hey.com" target="_blank" rel="noreferrer">Contact Us</a>
+        {/* <a href="https://linkedin.com/in/hugentobler/" target="_blank" rel="noreferrer">LinkedIn</a>
+        <a href="https://instagram.com/globehunter" target="_blank" rel="noreferrer">Instagram</a> */}
+        <a href="https://github.com/hugentobler/hvgentobler-next" target="_blank" rel="noreferrer">Site Source</a>
       </Links>
       <p>Inspect Element</p>
       <p>Product and Growth Collective</p>

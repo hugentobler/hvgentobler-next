@@ -91,8 +91,8 @@ const Grid = styled.div`
 const Main = styled.div`
   align-self: end;
   margin-top: 6rem;
-  grid-column: 1 / 13;
+  grid-column: 1 / 14;
   h1 {
-    margin: 0;
+    margin-top: 0;
   }
 `;

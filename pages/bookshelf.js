@@ -9,7 +9,6 @@
 import styled from 'styled-components';
 /* Components */
 import Layout from '../layouts/main';
-import ImageHero from '../components/ui/ImageHero';
 import NavBar from '../components/ui/NavBar';
 
 /**
@@ -107,49 +106,4 @@ const Grid = styled.div`
       }
     }
   }
-`;
-
-
-const Projects = styled.div`
-  grid-column: 1 / span 13;
-  grid-row: 2 / 2;
-  @media ${(props) => props.theme.forMiddle} {
-    grid-column: 1 / span 6;
-    grid-row: 1 / span 2;
-  }
-  @media ${(props) => props.theme.forNotSmall} {
-    grid-column: 1 / span 5;
-  }
-`;
-
-const Skills = styled.div`
-  grid-column: 1 / span 13;
-  grid-row: 1 / 1;
-  @media ${(props) => props.theme.forMiddle} {
-    grid-column: 8 / span 6;
-  }
-  @media ${(props) => props.theme.forNotSmall} {
-    grid-column: 7 / span 5;
-  }
-`;
-
-const Networks = styled.div`
-  grid-column: 1 / span 13;
-  grid-row: 3 / 3;
-  @media ${(props) => props.theme.forMiddle} {
-    grid-column: 8 / span 6;
-    grid-row: 2 / 2;
-  }
-  @media ${(props) => props.theme.forNotSmall} {
-    grid-column: 7 / span 5;
-  }
-`;
-
-const Date = styled.span`
-  display: block;
-  font-size: 0.7em;
-  font-weight: 400;
-  letter-spacing: 0.1em;
-  margin-top: var(--space-1);
-  text-transform: uppercase;
 `;

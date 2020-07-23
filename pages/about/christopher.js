@@ -8,9 +8,9 @@
  */
 import styled from 'styled-components';
 /* Components */
-import Layout from '../layouts/main';
-import ImageHero from '../components/ui/ImageHero';
-import NavBar from '../components/ui/NavBar';
+import Layout from '../../layouts/main';
+import ImageHero from '../../components/ui/ImageHero';
+import NavBar from '../../components/ui/NavBar';
 
 /**
  * FRONTMATTER
