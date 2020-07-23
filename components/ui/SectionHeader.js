@@ -46,13 +46,4 @@ const Grid = styled.div`
       grid-column: 4 / span 6;
     }
   }
-  p {
-    font-size: 1.2rem;
-    font-weight: 300;
-    grid-column: 4 / 14;
-    line-height: 1.3;
-    @media ${(props) => props.theme.forNotSmall} {
-      font-size: 1vw;
-    }
-  }
 `;

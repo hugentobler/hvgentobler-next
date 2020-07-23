@@ -51,11 +51,7 @@ const Grid = styled.div`
   grid-template-rows: min-content;
   p {
     color: var(--dark-gray);
-    font-size: 1.2rem;
-    font-weight: 300;
     grid-column: 1 / 13;
-    line-height: 1.3;
-    margin: 0;
     padding-left: var(--space-2);
     &:nth-of-type(1) {
       grid-row: 1 / 1;
@@ -65,7 +61,6 @@ const Grid = styled.div`
       grid-row: 2 / 2;
     }
     @media ${(props) => props.theme.forNotSmall} {
-      font-size: 1vw;
       grid-row: 1 / 1;
       &:nth-of-type(1) {
         grid-column: 1 / 3;

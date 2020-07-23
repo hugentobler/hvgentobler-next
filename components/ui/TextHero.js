@@ -64,13 +64,8 @@ const Grid = styled.div`
   }
   p {
     color: var(--gray);
-    font-size: 1.2rem;
-    font-weight: 300;
     grid-column: 1 / 13;
-    line-height: 1.3;
-    margin: 0;
     @media ${(props) => props.theme.forNotSmall} {
-      font-size: 1vw;
       &:nth-child(1) {
         grid-column: 1 / 3;
       }

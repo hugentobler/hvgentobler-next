@@ -12,6 +12,7 @@ import Layout from '../layouts/main';
 import TextHero from '../components/ui/TextHero';
 import NavBar from '../components/ui/NavBar';
 import SectionHeader from '../components/ui/SectionHeader';
+import Table from '../components/ui/Table';
 
 /**
  * FRONTMATTER
@@ -39,43 +40,36 @@ export default function Index() {
           <h1><span>Inspect Element is a product and growth collective.</span></h1>
           <h2>We work with early and growth stage teams to build and monetize modern digital experiences.</h2>
         </SectionHeader>
-        <CompanyGrid>
-          <CompanyGridTitle>
-            <p><span>Select Work</span></p>
-          </CompanyGridTitle>
-          <Caption>We work with early and growth stage teams to build and monetize modern digital experiences. We work with early and growth stage teams to build and monetize modern digital experiences.</Caption>
+        <Table caption="Select Work">
+          <p>We work with early and growth stage teams to build and monetize modern digital experiences. We work with early and growth stage teams to build and monetize modern digital experiences.</p>
           <Logo>
             <img
               alt="Bowtie"
               src="/images/home/bowtie.png"
-              w="100"
             />
           </Logo>
-          <Caption>We work with early and growth stage teams to build and monetize modern digital experiences. We work with early and growth stage teams to build and monetize modern digital experiences.</Caption>
+          <p>We work with early and growth stage teams to build and monetize modern digital experiences. We work with early and growth stage teams to build and monetize modern digital experiences.</p>
           <Logo>
             <img
               alt="Gogovan"
               src="/images/home/gogovan.png"
-              w="100"
             />
           </Logo>
-          <Caption>We work with early and growth stage teams to build and monetize modern digital experiences. We work with early and growth stage teams to build and monetize modern digital experiences.</Caption>
+          <p>We work with early and growth stage teams to build and monetize modern digital experiences. We work with early and growth stage teams to build and monetize modern digital experiences.</p>
           <Logo>
             <img
               alt="Klook"
               src="/images/home/klook.png"
-              w="100"
             />
           </Logo>
-          <Caption>We work with early and growth stage teams to build and monetize modern digital experiences. We work with early and growth stage teams to build and monetize modern digital experiences.</Caption>
+          <p>We work with early and growth stage teams to build and monetize modern digital experiences. We work with early and growth stage teams to build and monetize modern digital experiences.</p>
           <Logo>
             <img
               alt="Snapask"
               src="/images/home/snapask.png"
-              w="100"
             />
           </Logo>
-        </CompanyGrid>
+        </Table>
       </section>
       <section>
         <Grid>
@@ -100,14 +94,7 @@ export default function Index() {
         </Grid>
       </section>
       <section>
-        <CompanyGrid>
-          <Dates />
-          <h1><span>As Featured In</span></h1>
-          <Dates />
-          <p>Techcrunch</p>
-          <p>CNN</p>
-          <p>SCMP</p>
-        </CompanyGrid>
+
       </section>
     </Layout>
   );
@@ -116,44 +103,11 @@ export default function Index() {
 /**
  * STYLED COMPONENTS
  */
-const CompanyGrid = styled.div`
- display: grid;
- grid-template-columns: repeat(13, 1fr);
- gap: var(--space-6) var(--space-1);
- span {
-   grid-column: 1 / 3;
- }
- h1 {
-   a {
-     border: none;
-   }
-   grid-column: 4 / 13;
-   margin: 0;
-   @media ${(props) => props.theme.forMiddle} {
-     grid-column: 4 / 11;
-   }
-   @media ${(props) => props.theme.forNotSmall} {
-     grid-column: 4 / 10;
-   }
- }
- p {
-   font-size: 1.2rem;
-   font-weight: 300;
-   line-height: 1.3;
-   margin: 0;
-   @media ${(props) => props.theme.forNotSmall} {
-     font-size: 1vw;
-  }
- }
-`;
-
-const CompanyGridTitle = styled.div`
-  grid-column: 10 / 14;
-`;
-
 const Logo = styled.div`
-  align-self: center;
-  grid-column: 10 / 14;
+  align-self: start;
+  @media ${(props) => props.theme.forNotSmall} {
+    align-self: center;
+  }
   height: 32px;
   width: 100px;
   img {
@@ -163,25 +117,6 @@ const Logo = styled.div`
     width: 100%;
     height: 100%;
   }
-`;
-
-const Caption = styled.p`
-  grid-column: 4 / span 4;
-`;
-
-const Dates = styled.span`
- align-self: top;
- justify-self: center;
- display: block;
- font-size: 0.7em;
- font-weight: 400;
- letter-spacing: 0.1em;
- margin-top: var(--space-1);
- text-transform: uppercase;
- img {
-   max-height: 40px;
-   max-width: 120px;
- }
 `;
 
 const Grid = styled.div`
