@@ -15,8 +15,9 @@ import styled from 'styled-components';
 /* Components */
 import Favicon from '../components/Favicon';
 import Footer from '../components/Footer';
-import SetCSSProperty from '../components/CustomCssProperties';
-import SetVerticalHeight from '../components/SetVerticalHeight';
+import SetCSSProperty from '../components/dom/CustomCssProperties';
+import SetVerticalHeight from '../components/dom/SetVerticalHeight';
+import LogConsole from '../components/dom/LogConsole';
 
 /**
  * DEFAULT EXPORT
@@ -38,6 +39,8 @@ export default function Layout(props) {
     SetCSSProperty(colour);
     /* Set vertical height. */
     SetVerticalHeight();
+    /* Log console. */
+    if (isProd) LogConsole();
     /* On subsequent route change, close menu and update css properties. */
     const handleRouteChange = (url) => {
       toggleMenu(false);

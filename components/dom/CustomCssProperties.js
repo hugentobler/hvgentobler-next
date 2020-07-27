@@ -1,6 +1,6 @@
 /**
  * CUSTOM CSS PROPERTIES
- * components/CustomCssProperties.js
+ * components/dom/CustomCssProperties.js
  * If page has special styles defined here,
  * the default styles in _variables.scss will be reset.
  */

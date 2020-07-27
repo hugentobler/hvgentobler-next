@@ -25,7 +25,6 @@ export default function Table(props) {
         </>
       )}
       {children}
-
     </Grid>
   );
 }

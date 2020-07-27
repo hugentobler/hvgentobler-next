@@ -1,6 +1,6 @@
 /**
  * SET VERTICAL HEIGHT
- * components/SetVerticalHeight.js
+ * components/dom/SetVerticalHeight.js
  * Fixing vh related jank when mobile scrollbar appears or hides
  */
 
