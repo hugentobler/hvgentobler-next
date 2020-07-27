@@ -65,6 +65,7 @@ const Grid = styled.div`
   p {
     color: var(--gray);
     grid-column: 1 / 13;
+    margin: 0;
     @media ${(props) => props.theme.forNotSmall} {
       &:nth-child(1) {
         grid-column: 1 / 3;
@@ -87,7 +88,4 @@ const Main = styled.div`
   align-self: end;
   margin-top: 6rem;
   grid-column: 1 / 14;
-  h1 {
-    margin-top: 0;
-  }
 `;

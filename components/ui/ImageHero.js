@@ -53,6 +53,7 @@ const Grid = styled.div`
     color: var(--dark-gray);
     grid-column: 1 / 13;
     padding-left: var(--space-2);
+    margin: 0;
     &:nth-of-type(1) {
       grid-row: 1 / 1;
       padding-top: var(--space-2);

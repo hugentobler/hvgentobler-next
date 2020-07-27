@@ -37,38 +37,54 @@ export default function Index() {
       <NavBar />
       <section>
         <SectionHeader>
-          <h1><span>Inspect Element is a product and growth collective.</span></h1>
-          <h2>We work with early and growth stage teams to build and monetize modern digital experiences.</h2>
+          <h1>Inspect Element is a product and growth collective.</h1>
+          <p>We work with early and growth stage teams to build and monetize modern digital experiences.</p>
         </SectionHeader>
-        <Table caption="Select Work">
-          <p>We work with early and growth stage teams to build and monetize modern digital experiences. We work with early and growth stage teams to build and monetize modern digital experiences.</p>
+      </section>
+      <section>
+        <Table caption="Select Works">
           <Logo>
-            <img
-              alt="Bowtie"
-              src="/images/home/bowtie.png"
-            />
+            <h1>Bowtie</h1>
+            <LogoWrap>
+              <img
+                alt="Bowtie"
+                src="/images/home/bowtie.png"
+              />
+            </LogoWrap>
           </Logo>
           <p>We work with early and growth stage teams to build and monetize modern digital experiences. We work with early and growth stage teams to build and monetize modern digital experiences.</p>
           <Logo>
-            <img
-              alt="Gogovan"
-              src="/images/home/gogovan.png"
-            />
+            <h1>Gogovan</h1>
+            <LogoWrap>
+              <img
+                alt="Gogovan"
+                src="/images/home/gogovan.png"
+              />
+            </LogoWrap>
           </Logo>
           <p>We work with early and growth stage teams to build and monetize modern digital experiences. We work with early and growth stage teams to build and monetize modern digital experiences.</p>
           <Logo>
-            <img
-              alt="Klook"
-              src="/images/home/klook.png"
-            />
+            <h1>Klook</h1>
+            <LogoWrap
+              style={{ height: '16px' }}
+            >
+              <img
+                alt="Klook"
+                src="/images/home/klook.png"
+              />
+            </LogoWrap>
           </Logo>
           <p>We work with early and growth stage teams to build and monetize modern digital experiences. We work with early and growth stage teams to build and monetize modern digital experiences.</p>
           <Logo>
-            <img
-              alt="Snapask"
-              src="/images/home/snapask.png"
-            />
+            <h1>Snapask</h1>
+            <LogoWrap>
+              <img
+                alt="Snapask"
+                src="/images/home/snapask.png"
+              />
+            </LogoWrap>
           </Logo>
+          <p>We work with early and growth stage teams to build and monetize modern digital experiences. We work with early and growth stage teams to build and monetize modern digital experiences.</p>
         </Table>
       </section>
       <section>
@@ -104,19 +120,28 @@ export default function Index() {
  * STYLED COMPONENTS
  */
 const Logo = styled.div`
-  align-self: start;
-  @media ${(props) => props.theme.forNotSmall} {
-    align-self: center;
-  }
-  height: 32px;
-  width: 100px;
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  column-gap: var(--space-1);
   img {
     object-fit: contain;
-    object-position: 0% 0%;
+    object-position: 0% 50%;
     opacity: .6;
     width: 100%;
     height: 100%;
   }
+  h1 {
+    grid-column: 1 / span 6;
+    line-height: 1;
+    margin: 0;
+  }
+`;
+
+const LogoWrap = styled.div`
+  align-self: center;
+  height: 24px;
+  grid-column: 7 / 11;
+  width: 72px;
 `;
 
 const Grid = styled.div`

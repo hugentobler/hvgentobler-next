@@ -112,7 +112,7 @@ const Links = styled.div`
   align-items: flex-start;
   display: flex;
   flex-direction: column;
-  grid-column: 7 / span 4;
+  grid-column: 7 / 14;
   grid-row: 2 / 2;
   margin-bottom: calc(var(--space-6) * 3);
   @media ${(props) => props.theme.forNotSmall} {

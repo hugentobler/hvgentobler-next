@@ -38,12 +38,21 @@ const Grid = styled.div`
   grid-template-rows: min-content;
   h1, h2 {
     grid-column: 1 / 14;
-    margin-top: 0;
     @media ${(props) => props.theme.forMiddle} {
       grid-column: 4 / span 8;
     }
     @media ${(props) => props.theme.forNotSmall} {
-      grid-column: 4 / span 6;
+      grid-column: 4 / span 8;
+    }
+  }
+  p {
+    grid-column: 4 / 14;
+    @media ${(props) => props.theme.forMiddle} {
+      grid-column: 1 / span 8;
+    }
+    @media ${(props) => props.theme.forNotSmall} {
+      grid-column: 10 / 13;
+      grid-row: 2 / 2;
     }
   }
 `;
