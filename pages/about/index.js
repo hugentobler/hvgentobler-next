@@ -14,6 +14,7 @@ import NavBar from '../../components/ui/NavBar';
 import SectionHeader from '../../components/ui/SectionHeader';
 import TableList from '../../components/ui/TableList';
 import SectionCta from '../../components/ui/SectionCta';
+import ThreeColumns from '../../components/ui/ThreeColumns';
 
 /**
  * FRONTMATTER
@@ -38,7 +39,7 @@ export default function About() {
       <NavBar />
       <section>
         <SectionHeader>
-          <h1>Work with one of us, or bring the whole collective.</h1>
+          <h1>Work with one of us, or access the whole collective.</h1>
           <div>
             <p>
               We are a multi-disciplinary collective of digital product and growth experts. Every one of us a practising operator.
@@ -46,13 +47,13 @@ export default function About() {
           </div>
         </SectionHeader>
       </section>
-      <SectionCta color="--lavender">
+      <SectionCta href="/about/christopher" color="--lavender">
         <div>
           <Location><span>Taipei</span></Location>
           <h1>Christopher Hugentobler</h1>
         </div>
       </SectionCta>
-      <SectionCta>
+      <SectionCta href="/about/vincent" color="--classic-blue">
         <div>
           <Location><span>Hong Kong</span></Location>
           <h1>Vincent So</h1>
@@ -75,19 +76,92 @@ export default function About() {
         </SectionHeader>
       </section>
       <section>
+        <ThreeColumns caption="Select Proficiencies">
+          <div>
+            <h2>
+              Product
+              <br />
+              Management
+            </h2>
+            <ul>
+              <li>
+                Product management skills
+              </li>
+              <li>
+                Product management skills
+              </li>
+              <li>
+                Product management skills
+              </li>
+              <li>
+                Product management skills
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h2>
+              Growth
+              <br />
+              Marketing
+            </h2>
+            <ul>
+              <li>
+                Growth marketing skills
+              </li>
+              <li>
+                Growth marketing skills
+              </li>
+              <li>
+                Growth marketing skills
+              </li>
+              <li>
+                Growth marketing skills
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h2>
+              Monetization,
+              <br />
+              Localization
+            </h2>
+            <ul>
+              <li>
+                Monetization and localization skills
+              </li>
+              <li>
+                Monetization and localization skills
+              </li>
+              <li>
+                Monetization and localization skills
+              </li>
+              <li>
+                Monetization and localization skills
+              </li>
+            </ul>
+          </div>
+        </ThreeColumns>
+      </section>
+      <section>
         <TableList>
+          <blockquote><h2>They are an absolute pleasure to work with. Professional, responsive, sharp. Achieved results in record time.</h2></blockquote>
           <p>
-            They are an absolute pleasure to work with. Professional, responsive, sharp. Achieved results in record time.
+            Gogovan CEO
+            <br />
+            <span>Tom Tsang</span>
           </p>
-          <p><span>Tom Tsang <br/>Gogovan CEO</span></p>
+          <blockquote><h2>They are an absolute pleasure to work with. Professional, responsive, sharp. Achieved results in record time.</h2></blockquote>
           <p>
-            They are an absolute pleasure to work with. Professional, responsive, sharp. Achieved results in record time.
+            Gogovan CEO
+            <br />
+            <span>Tom Tsang</span>
           </p>
-          <p><span>Tom Tsang <br/>Gogovan CEO</span></p>
+          <blockquote><h2>They are an absolute pleasure to work with. Professional, responsive, sharp. Achieved results in record time.</h2></blockquote>
           <p>
-            They are an absolute pleasure to work with. Professional, responsive, sharp. Achieved results in record time.
+            Gogovan CEO
+            <br />
+            <span>Tom Tsang</span>
           </p>
-          <p><span>Tom Tsang <br/>Gogovan CEO</span></p>
         </TableList>
       </section>
     </Layout>

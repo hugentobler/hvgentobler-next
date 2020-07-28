@@ -104,7 +104,7 @@ export default function Index() {
           <p>We work with early and growth stage teams to build and monetize modern digital experiences. We work with early and growth stage teams to build and monetize modern digital experiences.</p>
         </TableList>
       </section>
-      <SectionCta>
+      <SectionCta href="/about">
         <h1>Meet our people</h1>
       </SectionCta>
       <section>

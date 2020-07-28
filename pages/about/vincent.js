@@ -20,7 +20,7 @@ import ThreeColumns from '../../components/ui/ThreeColumns';
  * Pass on to layout as props.
 */
 const frontmatter = {
-  title: 'Christopher Hugentobler',
+  title: 'Vincent So',
   description: ' ',
   image: ' ',
   colour: 'night',
@@ -33,20 +33,20 @@ export default function About() {
   return (
     <Layout {...frontmatter}>
       <ImageHero
-        alt="Christopher smiling and holding a camera."
-        src="/images/about/christopher/pink.jpg"
+        alt=""
+        src=""
         h="1599"
         w="1200"
         captions={[
-          'Christopher Hugentobler',
-          'Walking Talking Venn Diagram',
+          'Vincent So',
+          'First product manager at Klook',
         ]}
       />
       <NavBar />
       <section>
         <SectionHeader>
           <h1>
-            A walking, talking venn diagram.
+            First product manager at Klook.
           </h1>
           <div>
             <p>
@@ -75,7 +75,7 @@ export default function About() {
           <p>Ingrid</p>
           <blockquote><h2>Sharp and critical; empathetic and team-oriented; visionary and audacious.</h2></blockquote>
           <p>Michelle</p>
-          <blockquote><h2>在颱風眼裡面工作的人。</h2></blockquote>
+          <blockquote><h2>在颱風眼裡面的人。</h2></blockquote>
           <p>Dustin</p>
         </TableList>
       </section>
@@ -84,28 +84,22 @@ export default function About() {
           <div>
             <h2><span>Projects</span></h2>
             <h3>
-              Bowtie
-              <span> ~ Life & Medical Insurtech</span>
+              Klook
+              <span> ~ Traveltech</span>
             </h3>
-            <p><span>Mar 2020 - present</span></p>
+            <p><span>Jun 2016 - Jul 2020</span></p>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
             <h3>
-              Snapask
-              <span> - College & Career Edutech</span>
+              Gogovan
+              <span> - Mobility & Logistics</span>
             </h3>
-            <p><span>Feb 2016 - present</span></p>
+            <p><span>Jul 2015 - Jun 2016</span></p>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
             <h3>
-              Pedder
-              <span> - Mobile Apps</span>
+              OneSky
+              <span> - Software I18N</span>
             </h3>
-            <p><span>Feb 2016 - present</span></p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-            <h3>
-              24 Hour Race
-              <span> - Advocacy & Community</span>
-            </h3>
-            <p><span>Feb 2016 - present</span></p>
+            <p><span>Sep 2014 - Jun 2015</span></p>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
           </div>
           <div>
@@ -125,12 +119,12 @@ export default function About() {
         </ThreeColumns>
       </section>
       <ImageHero
-        alt="Christopher pointing up and smiling!"
-        src="/images/about/christopher/green.jpg"
+        alt=""
+        src=""
         h="1599"
         w="1200"
         captions={[
-          'Outdoors Adventure Addict',
+          'Dog lover',
         ]}
       />
     </Layout>

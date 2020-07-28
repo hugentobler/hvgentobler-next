@@ -1,6 +1,6 @@
 /**
- * TableList
- * components/ui/TableList.js
+ * ThreeColumns
+ * components/ui/ThreeColumns.js
 */
 
 /**
@@ -12,7 +12,7 @@ import styled from 'styled-components';
 /**
  * DEFAULT EXPORT
  */
-export default function TableList(props) {
+export default function ThreeColumns(props) {
   const { children, caption } = props;
   return (
     <Grid>
@@ -21,7 +21,6 @@ export default function TableList(props) {
           <Caption>
             <span>{caption}</span>
           </Caption>
-          <p />
         </>
       )}
       {children}
@@ -32,12 +31,12 @@ export default function TableList(props) {
 /**
  * PROPTYPES
  */
-TableList.propTypes = {
+ThreeColumns.propTypes = {
   children: PropTypes.node.isRequired,
   caption: PropTypes.string,
 };
 
-TableList.defaultProps = {
+ThreeColumns.defaultProps = {
   caption: '',
 };
 
@@ -48,25 +47,32 @@ const Grid = styled.div`
   display: grid;
   grid-template-columns: repeat(13, 1fr);
   gap: var(--space-6) var(--space-1);
-  > :nth-child(odd) {
-    grid-column: 4 / 14;
-  }
-  > :nth-child(even) {
-    grid-column: 1 / span 13;
+  > div {
+    grid-column: 4 / 13;
   }
   @media ${(props) => props.theme.forMiddle} {
-    > :nth-child(odd) {
-      grid-column: 4 / 13;
+    > div {
+      grid-column-end: span 4;
     }
-    > :nth-child(even) {
-      grid-column: 1 / span 8;
+    > div:nth-of-type(1) {
+      grid-column-start: 4;
+    }
+    > div:nth-of-type(2) {
+      grid-column-start: 10;
+    }
+    > div:nth-of-type(3) {
+      grid-column-start: 4;
     }
   }
   @media ${(props) => props.theme.forNotSmall} {
-    > :nth-child(odd) {
+    > div:nth-of-type(1) {
+      grid-column-start: 2;
     }
-    > :nth-child(even) {
-      grid-column: 10 / 13;
+    > div:nth-of-type(2) {
+      grid-column-start: 6;
+    }
+    > div:nth-of-type(3) {
+      grid-column-start: 10;
     }
   }
 `;

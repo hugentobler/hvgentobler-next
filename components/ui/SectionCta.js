@@ -14,11 +14,11 @@ import Link from 'next/link';
  * DEFAULT EXPORT
  */
 export default function SectionCta(props) {
-  const { children, color } = props;
+  const { children, href, color } = props;
   return (
     <Section>
       <Background color={color} />
-      <Link href="/about">
+      <Link href={href}>
         <a>
           <Grid>
             {children}
@@ -37,6 +37,7 @@ export default function SectionCta(props) {
  */
 SectionCta.propTypes = {
   children: PropTypes.node.isRequired,
+  href: PropTypes.string.isRequired,
   color: PropTypes.string,
 };
 
