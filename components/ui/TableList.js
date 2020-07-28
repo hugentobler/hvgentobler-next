@@ -1,6 +1,6 @@
 /**
- * Table
- * components/ui/Table.js
+ * TableList
+ * components/ui/TableList.js
 */
 
 /**
@@ -12,7 +12,7 @@ import styled from 'styled-components';
 /**
  * DEFAULT EXPORT
  */
-export default function Table(props) {
+export default function TableList(props) {
   const { children, caption } = props;
   return (
     <Grid>
@@ -32,12 +32,12 @@ export default function Table(props) {
 /**
  * PROPTYPES
  */
-Table.propTypes = {
+TableList.propTypes = {
   children: PropTypes.node.isRequired,
   caption: PropTypes.string,
 };
 
-Table.defaultProps = {
+TableList.defaultProps = {
   caption: '',
 };
 
@@ -57,6 +57,7 @@ const Grid = styled.div`
   }
   @media ${(props) => props.theme.forMiddle} {
     > :nth-child(odd) {
+      grid-column: 4 / 13;
     }
     > :nth-child(even) {
       grid-column: 1 / span 8;

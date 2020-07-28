@@ -36,7 +36,7 @@ const Grid = styled.div`
   gap: var(--space-1) var(--space-1);
   grid-template-columns: repeat(13, 1fr);
   grid-template-rows: min-content;
-  h1, h2 {
+  > :nth-child(1) {
     grid-column: 1 / 14;
     @media ${(props) => props.theme.forMiddle} {
       grid-column: 4 / span 8;
@@ -45,7 +45,7 @@ const Grid = styled.div`
       grid-column: 4 / span 8;
     }
   }
-  p {
+  > :nth-child(2) {
     grid-column: 4 / 14;
     @media ${(props) => props.theme.forMiddle} {
       grid-column: 1 / span 8;
