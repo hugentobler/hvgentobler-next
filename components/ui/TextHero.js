@@ -88,4 +88,9 @@ const Main = styled.div`
   align-self: end;
   margin-top: 6rem;
   grid-column: 1 / 14;
+  h1 {
+    @media ${(props) => props.theme.forNotSmall} {
+      margin-bottom: var(--space-1);
+    }
+  }
 `;

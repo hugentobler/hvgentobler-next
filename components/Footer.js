@@ -15,7 +15,7 @@ export default () => (
   <Root>
     <Grid>
       <Heading>
-        We can build something cool together.
+        Unbox the product growth black box.
       </Heading>
       <Links>
         <a href="mailto:hugentobler@hey.com" target="_blank" rel="noreferrer">Contact Us</a>

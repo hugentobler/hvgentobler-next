@@ -21,7 +21,7 @@ export default function Table(props) {
           <Caption>
             <span>{caption}</span>
           </Caption>
-          <p/>
+          <p />
         </>
       )}
       {children}

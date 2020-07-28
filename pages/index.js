@@ -88,6 +88,34 @@ export default function Index() {
         </Table>
       </section>
       <section>
+        <Table caption="Recognition">
+          <blockquote><h2>The pandemic has been an opportunity for the entire learning sector. It has accelerated the adoption of online learning. Especially parents and educators have really warmed to it.</h2></blockquote>
+          <Logo>
+            <p>CNN&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2020-06-13<br />Inventing Tomorrow: From Classroom to <q>Class Zoom</q></p>
+          </Logo>
+          <blockquote><h2>You&apos;ve obviously got first-mover advantage in terms of this digital license, but many of the incumbents are investing in digital. The big sell now is the convenience and the speed. We have an advantage because of direct relationship with the customer.</h2></blockquote>
+          <Logo>
+            <p>Bloomberg TV&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2020-06-02<br/>H.K. Online Insurer Bowtie Sees <q>Very Positive</q> Outlook, CEO Says</p>
+          </Logo>
+          <blockquote><h2>Klook, which offers its services in nine languages and 41 currencies, processed $1 billion in bookings last year. In mature markets such as Hong Kong and Singapore they have <q>healthy cash flow</q>, while in newer markets they are focused on investing to expand the user base.</h2></blockquote>
+          <Logo>
+            <p>The Information&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2019-10-10<br/>SoftBank-Backed Tourism App Klook Eyes Expansion in Europe</p>
+          </Logo>
+          <blockquote><h3>Snapask, an on-demand tutoring app, announced today that it has raised $35 million in Series B funding. Earmarked for the startup’s expansion in Southeast Asia, the round was led by Asia Partners and Intervest.</h3></blockquote>
+          <Logo>
+            <p>TechCrunch&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2020-02-26</p>
+          </Logo>
+          <blockquote><h3>Hong Kong logistics company GoGoVan has agreed to a merger with 58 Suyun, the freight business of mainland Chinese online classifieds giant 58 Home, creating the city’s first start-up worth more than US$1 billion.</h3></blockquote>
+          <Logo>
+            <p>SCMP&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2017-08-28</p>
+          </Logo>
+          <blockquote><h3>The non-profit Running To Stop The Traffik is putting on this race, entirely run by high school students. When you get a cramp and can&apos;t go on anymore, just think about what the victims are going through, and then keep on going for them.</h3></blockquote>
+          <Logo>
+            <p>CNN&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2016-12-02</p>
+          </Logo>
+        </Table>
+      </section>
+      <section>
         <Grid>
           <p>
             They are an absolute pleasure to work with. Professional, responsive, sharp. Achieved results in record time.
@@ -134,6 +162,9 @@ const Logo = styled.div`
     grid-column: 1 / span 6;
     line-height: 1;
     margin: 0;
+  }
+  p {
+    grid-column: 1 / 11;
   }
 `;
 
