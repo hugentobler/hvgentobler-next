@@ -105,7 +105,7 @@ export default function Index() {
         </TableList>
       </section>
       <SectionCta>
-        Meet our people
+        <h1>Meet our people</h1>
       </SectionCta>
       <section>
         <TableList caption="Recognition">

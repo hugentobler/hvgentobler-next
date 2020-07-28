@@ -14,16 +14,14 @@ import Link from 'next/link';
  * DEFAULT EXPORT
  */
 export default function SectionCta(props) {
-  const { children } = props;
+  const { children, color } = props;
   return (
     <Section>
-      <Background />
+      <Background color={color} />
       <Link href="/about">
         <a>
           <Grid>
-            <h1>
-              {children}
-            </h1>
+            {children}
             <svg aria-hidden="true" focusable="false" data-icon="arrow-right" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
               <path fill="currentColor" d="M216.464 36.465l-7.071 7.07c-4.686 4.686-4.686 12.284 0 16.971L387.887 239H12c-6.627 0-12 5.373-12 12v10c0 6.627 5.373 12 12 12h375.887L209.393 451.494c-4.686 4.686-4.686 12.284 0 16.971l7.071 7.07c4.686 4.686 12.284 4.686 16.97 0l211.051-211.05c4.686-4.686 4.686-12.284 0-16.971L233.434 36.465c-4.686-4.687-12.284-4.687-16.97 0z" />
             </svg>
@@ -39,6 +37,11 @@ export default function SectionCta(props) {
  */
 SectionCta.propTypes = {
   children: PropTypes.node.isRequired,
+  color: PropTypes.string,
+};
+
+SectionCta.defaultProps = {
+  color: '--salmon',
 };
 
 /**
@@ -50,7 +53,7 @@ const Section = styled.section`
 `;
 
 const Background = styled.div`
-  background-color: var(--salmon);
+  background-color: var(${(props) => props.color});
   bottom: var(--space-1);
   left: var(--space-1);
   right: var(--space-1);
@@ -74,6 +77,9 @@ const Grid = styled.div`
     max-height: 2.4rem;
   }
   @media ${(props) => props.theme.forMiddle} {
+    & > :nth-child(1) {
+      grid-column: 4 / 10;
+    }
     & > svg {
       grid-column: 10 / span 1;
     }
