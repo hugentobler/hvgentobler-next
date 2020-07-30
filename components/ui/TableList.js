@@ -13,15 +13,21 @@ import styled from 'styled-components';
  * DEFAULT EXPORT
  */
 export default function TableList(props) {
-  const { children, caption } = props;
+  const { children, caption, subtitle } = props;
   return (
     <Grid>
       {caption && (
         <>
           <Caption>
-            <span>{caption}</span>
+            <span>
+              {caption}
+              &nbsp;&nbsp;
+              <sup style={{ 'font-size': '50%' }}>↓</sup>
+            </span>
           </Caption>
-          <p />
+          <p>
+            {subtitle}
+          </p>
         </>
       )}
       {children}
@@ -35,10 +41,12 @@ export default function TableList(props) {
 TableList.propTypes = {
   children: PropTypes.node.isRequired,
   caption: PropTypes.string,
+  subtitle: PropTypes.string,
 };
 
 TableList.defaultProps = {
   caption: '',
+  subtitle: '',
 };
 
 /**

@@ -39,7 +39,7 @@ export default function About() {
       <NavBar />
       <section>
         <SectionHeader>
-          <h1>Work with one of us, or access the whole collective.</h1>
+          <h1>Work with one of us. Access expertise from the whole collaborative.</h1>
           <div>
             <p>
               We are a multi-disciplinary collective of digital product and growth experts. Every one of us a practising operator.

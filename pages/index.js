@@ -14,6 +14,7 @@ import NavBar from '../components/ui/NavBar';
 import SectionHeader from '../components/ui/SectionHeader';
 import TableList from '../components/ui/TableList';
 import SectionCta from '../components/ui/SectionCta';
+import ThreeColumns from '../components/ui/ThreeColumns';
 
 /**
  * FRONTMATTER
@@ -33,33 +34,58 @@ export default function Index() {
   return (
     <Layout {...frontmatter}>
       <TextHero>
-        <h1>Your customers, delighted. Your competitors, disrupted. Your milestones, achieved.</h1>
+        <h1>Exceed your goals. Delight your customers. Outpace your competitors.</h1>
       </TextHero>
       <NavBar />
       <section>
         <SectionHeader>
-          <h1>Inspect Element is a product and growth collective.</h1>
+          <h1>Human centered and data driven, we deliver sustainable product growth.</h1>
           <div>
-            <p>We work with early and growth stage teams to build and monetize modern digital experiences.</p>
+            <p>Let's talk about your toughest product and growth strategy questions.</p>
             <ul>
               <li>
-                MVP definition and go-to-market
+                Define your MVP and go-to-market strategy.
               </li>
               <li>
-                Conversion funnel optimization and A/B testing
+                A/B test and optimize your conversion funnel.
               </li>
               <li>
-                Cross-border monetization and localization
+                Engage your users and retain your customers.
               </li>
               <li>
-                Building product growth teams and workflows
+                Monetize your following locally and abroad.
+              </li>
+              <li>
+                Build your product growth team and workflows.
               </li>
             </ul>
           </div>
         </SectionHeader>
       </section>
       <section>
-        <TableList caption="Select Works">
+        <ThreeColumns caption="Countdown to rocket ship growth">
+          <div>
+            <h2><span>3&nbsp;&nbsp;</span>Our team</h2>
+            <p>We are a team of product, analytics, and growth people that have helped scale companies like Stitch Fix, Thumbtack, Facebook, and LinkedIn.</p>
+          </div>
+          <div>
+            <h2><span>2&nbsp;&nbsp;</span> Our toolkit</h2>
+            <p>We approach a question from all angles. We will talk to customers, mine the data, build models and dashboards, and partner with the team to run experiments.</p>
+          </div>
+          <div>
+            <h2><span>1&nbsp;&nbsp;</span> Your success</h2>
+            <p>We're not done until your team has a mental model of the problem and the path forward. We will constantly pressure test and debate ideas with team along the way.</p>
+          </div>
+        </ThreeColumns>
+      </section>
+      <SectionCta href="/about">
+        <div>
+          <h1>Meet our people</h1>
+          <p>We are a multi-disciplinary collective of digital product and growth experts.</p>
+        </div>
+      </SectionCta>
+      <section>
+        <TableList caption="You're in great company" subtitle="We partner with exceptional early and growth stage tech companies. With us, they built and monetized modern digital experiences.">
           <Logo>
             <h1>Bowtie</h1>
             <LogoWrap>
@@ -69,7 +95,7 @@ export default function Index() {
               />
             </LogoWrap>
           </Logo>
-          <p>We work with early and growth stage teams to build and monetize modern digital experiences. We work with early and growth stage teams to build and monetize modern digital experiences.</p>
+          <p>They were seeing significant growth in search traffic from users concerned about their loved one's health. They wanted to introduce solutions to these users in more relevant ways.</p>
           <Logo>
             <h1>Gogovan</h1>
             <LogoWrap>
@@ -101,14 +127,17 @@ export default function Index() {
               />
             </LogoWrap>
           </Logo>
-          <p>We work with early and growth stage teams to build and monetize modern digital experiences. We work with early and growth stage teams to build and monetize modern digital experiences.</p>
+          <p>They started with a product offering that was fundamentally seasonal. To improve user stickiness, new services were bundled together into a subscription product that users found more valuable all year round.</p>
         </TableList>
       </section>
-      <SectionCta href="/about">
-        <h1>Meet our people</h1>
+      <SectionCta href="/about" color="--classic-blue">
+        <div>
+          <h1>Schedule your call</h1>
+          <p>Even if you don't know where your bottlenecks are, we should still talk.</p>
+        </div>
       </SectionCta>
       <section>
-        <TableList caption="Recognition">
+        <TableList caption="Don't take our word for it">
           <blockquote><h2>The pandemic has been an opportunity for the entire learning sector. It has accelerated the adoption of online learning. Especially parents and educators have really warmed to it.</h2></blockquote>
           <Logo>
             <p>
@@ -174,7 +203,6 @@ export default function Index() {
           </Logo>
         </TableList>
       </section>
-
     </Layout>
   );
 }

@@ -19,7 +19,11 @@ export default function ThreeColumns(props) {
       {caption && (
         <>
           <Caption>
-            <span>{caption}</span>
+            <span>
+              {caption}
+              &nbsp;&nbsp;
+              <sup style={{ 'font-size': '50%' }}>↓</sup>
+            </span>
           </Caption>
         </>
       )}
@@ -65,6 +69,9 @@ const Grid = styled.div`
     }
   }
   @media ${(props) => props.theme.forNotSmall} {
+    > div {
+      padding-right: var(--space-6);
+    }
     > div:nth-of-type(1) {
       grid-column-start: 2;
     }

@@ -24,7 +24,7 @@ export default () => (
         <a href="https://github.com/hugentobler/hvgentobler-next" target="_blank" rel="noreferrer">Site Source</a>
       </Links>
       <p>Inspect Element</p>
-      <p>Product and Growth Collective</p>
+      <p>Product and Growth Collaborative</p>
       <p>
         No cookies, built w/&nbsp;
         <a href="https://nextjs.org/" target="_blank" rel="noreferrer">Next.js</a>

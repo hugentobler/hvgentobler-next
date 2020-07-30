@@ -20,11 +20,11 @@ export default function TextHero(props) {
         caption && <p>{caption}</p>
       }
       <p>Inspect Element</p>
-      <p>
+      <p style={{ 'white-space': 'nowrap' }}>
         <em>Product</em>
         &nbsp;and&nbsp;
         <em>Growth</em>
-        &nbsp;Collective
+        &nbsp;strategy for tech companies
       </p>
       <Main>
         {children}
@@ -48,7 +48,7 @@ TextHero.defaultProps = {
 /**
  * STYLED COMPONENTS
  */
-const Grid = styled.div`
+const Grid = styled.section`
   display: grid;
   gap: var(--space-1) var(--space-1);
   grid-template-columns: repeat(13, 1fr);

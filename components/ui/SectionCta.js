@@ -82,6 +82,9 @@ const Grid = styled.div`
     max-height: 2.4rem;
     width: 100%;
   }
+  h1 {
+    ${'' /* margin: 0; */}
+  }
   @media ${(props) => props.theme.forMiddle} {
     & > :nth-child(1) {
       grid-column: 4 / 10;
