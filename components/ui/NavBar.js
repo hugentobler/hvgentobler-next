@@ -51,7 +51,7 @@ export default function NavBar() {
     <Root>
       <Grid>
         <CustomLink href="/">
-          <a>Home</a>
+          <a>Work</a>
         </CustomLink>
         <CustomLink href="/about">
           <a>About</a>

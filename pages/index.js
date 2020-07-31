@@ -53,7 +53,7 @@ export default function Index() {
                 Engage your users and retain your customers.
               </li>
               <li>
-                Monetize your following locally and abroad.
+                Monetize your audiences locally and abroad.
               </li>
               <li>
                 Build your product growth team and workflows.
@@ -65,15 +65,24 @@ export default function Index() {
       <section>
         <ThreeColumns caption="Countdown to rocket ship growth">
           <div>
-            <h2><span>Ø3&nbsp;&nbsp;</span>Our team</h2>
+            <h2>
+              <span>Ø3&nbsp;&nbsp;</span>
+              Our team
+            </h2>
             <p>We are a team of product, analytics, and growth people that have helped scale companies like Stitch Fix, Thumbtack, Facebook, and LinkedIn.</p>
           </div>
           <div>
-            <h2><span>Ø2&nbsp;&nbsp;</span> Our toolkit</h2>
+            <h2>
+              <span>Ø2&nbsp;&nbsp;</span>
+              Our toolkit
+            </h2>
             <p>We approach a question from all angles. We will talk to customers, mine the data, build models and dashboards, and partner with the team to run experiments.</p>
           </div>
           <div>
-            <h2><span>Ø1&nbsp;&nbsp;</span> Your success</h2>
+            <h2>
+              <span>Ø1&nbsp;&nbsp;</span>
+              Your success
+            </h2>
             <p>We're not done until your team has a mental model of the problem and the path forward. We will constantly pressure test and debate ideas with team along the way.</p>
           </div>
         </ThreeColumns>
@@ -81,7 +90,7 @@ export default function Index() {
       <SectionCta href="/about">
         <div>
           <h1>Meet our people</h1>
-          <p>We are a multi-disciplinary collective of digital product and growth experts.</p>
+          <p>We are a multi-disciplinary collaborative of digital product and growth experts.</p>
         </div>
       </SectionCta>
       <section>
