@@ -7,20 +7,21 @@
  * MODULES
  */
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 
 /**
  * DEFAULT EXPORT
  */
 export default function TextHero(props) {
   const { children, caption } = props;
+
   return (
     <Grid>
       {
         caption && <p>{caption}</p>
       }
       <p>Inspect Element</p>
-      <p style={{ 'white-space': 'nowrap' }}>
+      <p style={{ whiteSpace: 'nowrap' }}>
         <em>Product</em>
         &nbsp;and&nbsp;
         <em>Growth</em>
@@ -48,7 +49,13 @@ TextHero.defaultProps = {
 /**
  * STYLED COMPONENTS
  */
+const slideIn = keyframes`
+ from { transform: translateY(-60px); opacity: 0 }
+ to { transform: translateY(0); opacity: 1 }
+`;
+
 const Grid = styled.section`
+  transition: opacity 5s;
   display: grid;
   gap: var(--space-1) var(--space-1);
   grid-template-columns: repeat(13, 1fr);
@@ -63,6 +70,7 @@ const Grid = styled.section`
     padding-bottom: var(--space-2);
   }
   p {
+    animation: ${slideIn} .3s;
     color: var(--gray);
     grid-column: 1 / 13;
     margin: 0;
@@ -86,8 +94,11 @@ const Grid = styled.section`
 
 const Main = styled.div`
   align-self: end;
-  margin-top: 6rem;
+  margin: calc(var(--space-6) * 3) 0;
   grid-column: 1 / 14;
+  @media ${(props) => props.theme.forNotSmall} {
+    margin-bottom: 0;
+  }
   h1 {
     @media ${(props) => props.theme.forNotSmall} {
       margin-bottom: var(--space-1);

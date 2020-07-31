@@ -21,7 +21,7 @@ import ThreeColumns from '../components/ui/ThreeColumns';
  * Pass on to layout as props.
  */
 const frontmatter = {
-  title: 'Inspect Element ~ Product and Growth Collective',
+  title: 'Inspect Element - Product and Growth strategy for tech companies',
   description: 'We work with early and growth stage teams to build and monetize modern digital experiences.',
   image: '/',
   colour: 'night',
@@ -65,15 +65,15 @@ export default function Index() {
       <section>
         <ThreeColumns caption="Countdown to rocket ship growth">
           <div>
-            <h2><span>3&nbsp;&nbsp;</span>Our team</h2>
+            <h2><span>Ø3&nbsp;&nbsp;</span>Our team</h2>
             <p>We are a team of product, analytics, and growth people that have helped scale companies like Stitch Fix, Thumbtack, Facebook, and LinkedIn.</p>
           </div>
           <div>
-            <h2><span>2&nbsp;&nbsp;</span> Our toolkit</h2>
+            <h2><span>Ø2&nbsp;&nbsp;</span> Our toolkit</h2>
             <p>We approach a question from all angles. We will talk to customers, mine the data, build models and dashboards, and partner with the team to run experiments.</p>
           </div>
           <div>
-            <h2><span>1&nbsp;&nbsp;</span> Your success</h2>
+            <h2><span>Ø1&nbsp;&nbsp;</span> Your success</h2>
             <p>We're not done until your team has a mental model of the problem and the path forward. We will constantly pressure test and debate ideas with team along the way.</p>
           </div>
         </ThreeColumns>

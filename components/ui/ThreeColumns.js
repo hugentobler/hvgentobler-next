@@ -22,7 +22,7 @@ export default function ThreeColumns(props) {
             <span>
               {caption}
               &nbsp;&nbsp;
-              <sup style={{ 'font-size': '50%' }}>↓</sup>
+              <sup style={{ fontSize: '50%' }}>↓</sup>
             </span>
           </Caption>
         </>
