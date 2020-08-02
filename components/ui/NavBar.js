@@ -28,7 +28,7 @@ const CustomLink = (props) => {
 
   return (
     <NavLink>
-      <Link href={href}>
+      <Link href={href} scroll={false}>
         {React.cloneElement(children, { className })}
       </Link>
     </NavLink>

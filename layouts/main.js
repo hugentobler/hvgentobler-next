@@ -12,6 +12,12 @@ import PropTypes from 'prop-types';
 import { useRouter } from 'next/router';
 import Head from 'next/head';
 import styled from 'styled-components';
+import {
+  m as motion,
+  MotionConfig,
+  AnimationFeature,
+  ExitFeature,
+} from 'framer-motion';
 /* Components */
 import Favicon from '../components/Favicon';
 import Footer from '../components/Footer';
@@ -75,18 +81,27 @@ export default function Layout(props) {
       <Root>
         {/* <Background /> */}
         {/* <Blinds
-          menuOpen={menuOpen}
-          animateMenu={animateMenu}
+            menuOpen={menuOpen}
+            animateMenu={animateMenu}
         /> */}
-        <main>
-          {React.Children.map(children, (child) => {
-            /* Pass additional props if child is a component. */
-            if (typeof child.type === 'object') {
-              return React.cloneElement(child, { menuOpen });
-            }
-            return child;
-          })}
-        </main>
+        <MotionConfig
+          features={[AnimationFeature, ExitFeature]}
+        >
+          <motion.main
+            initial="exit"
+            animate="enter"
+            exit="exit"
+            variants={pageVariants}
+          >
+            {React.Children.map(children, (child) => {
+              /* Pass additional props if child is a component. */
+              if (typeof child.type === 'object') {
+                return React.cloneElement(child, { menuOpen });
+              }
+              return child;
+            })}
+          </motion.main>
+        </MotionConfig>
       </Root>
       <Footer />
       {/* <Navigation
@@ -112,6 +127,19 @@ Layout.propTypes = {
 
 Layout.defaultProps = {
   colour: 'default',
+};
+
+/**
+ * ANIMATIONS
+ */
+const transition = {
+  duration: 1,
+  ease: 'easeInOut',
+};
+
+const pageVariants = {
+  exit: { opacity: 0, transition },
+  enter: { opacity: 1, transition },
 };
 
 /**

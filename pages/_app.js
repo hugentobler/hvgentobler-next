@@ -10,6 +10,7 @@
 import App from 'next/app';
 import { MDXProvider } from '@mdx-js/react';
 import { ThemeProvider } from 'styled-components';
+import { AnimatePresence } from 'framer-motion';
 /* Components */
 import { Provider } from '../components/UserContext';
 import MDXComponents from '../components/MDXComponents';
@@ -58,6 +59,11 @@ export default class MyApp extends App {
   render() {
     const { Component, pageProps, router } = this.props;
 
+    const onExitComplete = () => {
+      /* Disabled scroll prop in next links so exit animations don't jank. */
+      window.scrollTo(0, 0);
+    };
+
     return (
       /* Provide context to whole app. */
       <Provider value={{
@@ -70,10 +76,15 @@ export default class MyApp extends App {
           <MDXProvider
             components={MDXComponents}
           >
-            <Component
-              {...pageProps}
-              key={router.route}
-            />
+            <AnimatePresence
+              exitBeforeEnter
+              onExitComplete={onExitComplete}
+            >
+              <Component
+                {...pageProps}
+                key={router.route}
+              />
+            </AnimatePresence>
           </MDXProvider>
         </ThemeProvider>
       </Provider>
