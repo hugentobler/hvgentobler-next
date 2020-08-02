@@ -7,7 +7,6 @@
 /**
  * MODULES
  */
-import { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { useRouter } from 'next/router';
 import Head from 'next/head';
@@ -26,6 +25,25 @@ import SetVerticalHeight from '../components/dom/SetVerticalHeight';
 import LogConsole from '../components/dom/LogConsole';
 
 /**
+ * ANIMATIONS
+ */
+const variants = {
+  exit: {
+    opacity: 0,
+    transition: {
+      duration: 0.15,
+      ease: 'easeOut',
+    },
+  },
+  enter: {
+    opacity: 1,
+    transition: {
+      duration: 0,
+    },
+  },
+};
+
+/**
  * DEFAULT EXPORT
  */
 export default function Layout(props) {
@@ -37,10 +55,10 @@ export default function Layout(props) {
   const isProd = process.env.IS_PROD;
 
   /* Menu state management. */
-  const [menuOpen, toggleMenu] = useState(false);
-  const [menuAnimating, animateMenu] = useState(false);
+  // const [menuOpen, toggleMenu] = useState(false);
+  // const [menuAnimating, animateMenu] = useState(false);
 
-  useEffect(() => {
+  React.useEffect(() => {
     /* Update css properties. */
     SetCSSProperty(colour);
     /* Set vertical height. */
@@ -49,7 +67,7 @@ export default function Layout(props) {
     if (isProd) LogConsole();
     /* On subsequent route change, close menu and update css properties. */
     const handleRouteChange = (url) => {
-      toggleMenu(false);
+      // toggleMenu(false);
       SetCSSProperty(url);
     };
     router.events.on('routeChangeComplete', handleRouteChange);
@@ -91,15 +109,16 @@ export default function Layout(props) {
             initial="exit"
             animate="enter"
             exit="exit"
-            variants={pageVariants}
+            variants={variants}
           >
-            {React.Children.map(children, (child) => {
-              /* Pass additional props if child is a component. */
+            {children}
+            {/* {React.Children.map(children, (child) => {
+              Pass additional props if child is a component.
               if (typeof child.type === 'object') {
                 return React.cloneElement(child, { menuOpen });
               }
               return child;
-            })}
+            })} */}
           </motion.main>
         </MotionConfig>
       </Root>
@@ -130,24 +149,12 @@ Layout.defaultProps = {
 };
 
 /**
- * ANIMATIONS
- */
-const transition = {
-  duration: 1,
-  ease: 'easeInOut',
-};
-
-const pageVariants = {
-  exit: { opacity: 0, transition },
-  enter: { opacity: 1, transition },
-};
-
-/**
  * STYLED COMPONENTS
  */
 const Root = styled.div`
   background-color: var(--background-color);
   position: relative;
   text-rendering: optimizeLegibility;
+  overflow: hidden;
   z-index: 10;
 `;

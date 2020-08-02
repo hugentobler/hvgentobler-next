@@ -7,6 +7,7 @@
  * MODULES
  */
 import styled from 'styled-components';
+import { m as motion } from 'framer-motion';
 /* Components */
 import Layout from '../layouts/main';
 import TextHero from '../components/ui/TextHero';
@@ -21,7 +22,7 @@ import ThreeColumns from '../components/ui/ThreeColumns';
  * Pass on to layout as props.
  */
 const frontmatter = {
-  title: 'Inspect Element - Product and Growth strategy for tech companies',
+  title: 'Inspect Element - Product and growth strategy for tech companies',
   description: 'We work with early and growth stage teams to build and monetize modern digital experiences.',
   image: '/',
   colour: 'night',

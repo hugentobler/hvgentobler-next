@@ -7,7 +7,40 @@
  * MODULES
  */
 import PropTypes from 'prop-types';
-import styled, { keyframes } from 'styled-components';
+import styled from 'styled-components';
+import { m as motion } from 'framer-motion';
+
+/**
+ * ANIMATIONS
+ */
+const fade = {
+  opacity: 0,
+};
+
+const slide = {
+  y: '-50%',
+};
+
+const variants = {
+  fadeIn: {
+    opacity: 1,
+    transition: {
+      delay: 0.6,
+      duration: 0.15,
+      ease: 'easeIn',
+    },
+  },
+  slideDown: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      damping: 300,
+      delay: 0.1,
+      duration: 0.3,
+      type: 'spring',
+    },
+  },
+};
 
 /**
  * DEFAULT EXPORT
@@ -18,17 +51,41 @@ export default function TextHero(props) {
   return (
     <Grid>
       {
-        caption && <p>{caption}</p>
+        caption && (
+          <motion.p
+            initial={fade}
+            animate="fadeIn"
+            variants={variants}
+          >
+            {caption}
+          </motion.p>
+        )
       }
-      <p>Inspect Element</p>
-      <p style={{ whiteSpace: 'nowrap' }}>
-        <em>Product</em>
-        &nbsp;and&nbsp;
-        <em>Growth</em>
-        &nbsp;strategy for tech companies
-      </p>
+      <motion.p
+        initial={fade}
+        animate="fadeIn"
+        variants={variants}
+      >
+        <span>Inspect Element</span>
+      </motion.p>
+      <motion.p
+        initial={fade}
+        animate="fadeIn"
+        variants={variants}
+        style={{ whiteSpace: 'nowrap' }}
+      >
+        <span>
+          Product and growth strategy for tech companies
+        </span>
+      </motion.p>
       <Main>
-        {children}
+        <motion.div
+          initial={{ ...fade, ...slide }}
+          animate="slideDown"
+          variants={variants}
+        >
+          {children}
+        </motion.div>
       </Main>
     </Grid>
   );
@@ -49,13 +106,8 @@ TextHero.defaultProps = {
 /**
  * STYLED COMPONENTS
  */
-const slideIn = keyframes`
- from { transform: translateY(-60px); opacity: 0 }
- to { transform: translateY(0); opacity: 1 }
-`;
-
 const Grid = styled.section`
-  transition: opacity 5s;
+  color: var(--text-color);
   display: grid;
   gap: var(--space-1) var(--space-1);
   grid-template-columns: repeat(13, 1fr);
@@ -70,8 +122,6 @@ const Grid = styled.section`
     padding-bottom: var(--space-2);
   }
   p {
-    animation: ${slideIn} .3s;
-    color: var(--gray);
     grid-column: 1 / 13;
     margin: 0;
     @media ${(props) => props.theme.forNotSmall} {
@@ -85,10 +135,6 @@ const Grid = styled.section`
         grid-column: 7 / 9;
       }
     }
-  }
-  em {
-    color: lightgray;
-    font-style: normal;
   }
 `;
 

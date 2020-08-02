@@ -27,13 +27,10 @@ main {
 }
 
 section {
-  padding: calc(var(--space-6) * 3) var(--space-2) calc(var(--space-6) * 2);
-  @media screen and (min-width: 999px) {
-    padding: calc(var(--space-6) * 2) var(--space-2) calc(var(--space-6) * 1);
- }
- &:nth-of-type(even) {
-   background-color: rgba(255,255,255,0.05);
- }
+  padding: calc(var(--space-6) * 3) var(--space-2);
+  &:nth-of-type(even) {
+    background-color: rgba(255,255,255,0.05);
+  }
 }
 
 h1 {

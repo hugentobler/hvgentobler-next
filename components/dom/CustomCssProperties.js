@@ -16,7 +16,8 @@ export default (colour) => {
   const pageStyles = {
     default: ['--white', '--black'],
     night: ['--black', '--white'],
-    blue: ['--classic-blue', '--yellow'],
+    blue: ['--classic-blue', '--white'],
+    salmon: ['--salmon', '--white'],
   };
 
   /* Is there a custom style for active page? */

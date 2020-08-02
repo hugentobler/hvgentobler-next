@@ -24,7 +24,7 @@ const frontmatter = {
   title: 'About Inspect Element',
   description: ' ',
   image: ' ',
-  colour: 'night',
+  colour: 'blue',
 };
 
 /**
@@ -53,7 +53,7 @@ export default function About() {
           <h1>Christopher Hugentobler</h1>
         </div>
       </SectionCta>
-      <SectionCta href="/about/vincent" color="--classic-blue">
+      <SectionCta href="/about/vincent" color="--salmon">
         <div>
           <Location><span>Hong Kong</span></Location>
           <h1>Vincent So</h1>

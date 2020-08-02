@@ -11,6 +11,7 @@ import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
+import { m as motion } from 'framer-motion';
 /* Components */
 
 /**
@@ -44,32 +45,56 @@ CustomLink.propTypes = {
 };
 
 /**
+ * ANIMATIONS
+ */
+const fade = {
+  opacity: 0,
+};
+
+const variants = {
+  fadeIn: {
+    opacity: 1,
+    transition: {
+      delay: 0.6,
+      duration: 0.15,
+      ease: 'easeIn',
+    },
+  },
+};
+
+/**
  * DEFAULT EXPORT
  */
 export default function NavBar() {
   return (
     <Root>
-      <Grid>
-        <CustomLink href="/">
-          <a>Work</a>
-        </CustomLink>
-        <CustomLink href="/about">
-          <a>About</a>
-        </CustomLink>
-        <CustomLink href="/blog">
-          <a>Writing</a>
-        </CustomLink>
-        <CustomLink href="/bookshelf">
-          <a>Reading</a>
-        </CustomLink>
-      </Grid>
+      <motion.div
+        initial={fade}
+        animate="fadeIn"
+        variants={variants}
+      >
+        <Grid>
+          <CustomLink href="/">
+            <a>Work</a>
+          </CustomLink>
+          <CustomLink href="/about">
+            <a>About</a>
+          </CustomLink>
+          <CustomLink href="/blog">
+            <a>Writing</a>
+          </CustomLink>
+          <CustomLink href="/bookshelf">
+            <a>Reading</a>
+          </CustomLink>
+        </Grid>
+      </motion.div>
     </Root>
   );
 }
 
 /**
- * STYLED COMPONENTS
- */
+* STYLED COMPONENTS
+*/
 
 const Root = styled.nav`
   bottom: auto;
