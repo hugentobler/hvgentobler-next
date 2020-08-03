@@ -7,6 +7,9 @@
  * MODULES
  */
 import styled from 'styled-components';
+import { m as motion } from 'framer-motion';
+import { useInView } from 'react-intersection-observer';
+import Link from 'next/link';
 /* Components */
 import Layout from '../../layouts/main';
 import TextHero from '../../components/ui/TextHero';
@@ -16,6 +19,7 @@ import TableList from '../../components/ui/TableList';
 import SectionCta from '../../components/ui/SectionCta';
 import ThreeColumns from '../../components/ui/ThreeColumns';
 import Image from '../../components/ui/Image';
+import { fadeInParent, fadeInChild } from '../../components/ui/Animations';
 
 /**
  * FRONTMATTER
@@ -29,57 +33,67 @@ const frontmatter = {
 };
 
 const people = [
-  { name: 'Christopher Hugentobler', location: 'Taipei' },
-  { name: 'Vincent So', location: 'Hong Kong' },
+  { path: '/about/christopher', name: 'Christopher Hugentobler', location: 'Taipei' },
+  { path: '/about/vincent', name: 'Vincent So', location: 'Hong Kong' },
+  { path: '/about/patrick', name: 'Patrick Yip', location: 'Singapore' },
 ];
 
 /**
  * DEFAULT EXPORT
  */
 export default function About() {
+  /* Intersection observer and animations */
+  const [ref, inView] = useInView({
+    threshold: 0.5,
+    triggerOnce: true,
+  });
+
   return (
     <Layout {...frontmatter}>
       <TextHero caption="About">
         We build digital experiences that people want, then distribute them where people are.
       </TextHero>
       <NavBar />
-      <section>
-        <Portraits>
-          {people.map((e) => (
-            <div>
-              <Image
-                alt="portrait"
-                src="/images/about/portrait.png"
-                h="1200"
-                w="1200"
-                lazy
-                aspect
-              />
-              <h2>{e.name}</h2>
-            </div>
-          ))}
-        </Portraits>
+      <section ref={ref}>
         <SectionHeader>
-          <h1>Work with one of us. Access expertise from the whole collaborative.</h1>
+          <h1>Meet the extension of your in-house team.</h1>
           <div>
             <p>
-              We are a multi-disciplinary collective of digital product and growth experts. Every one of us a practising operator.
+              We are a multi-disciplinary collective of digital product and growth experts. We are all practising leaders and operators.
             </p>
           </div>
         </SectionHeader>
+        <Portraits
+          initial="hidden"
+          animate={inView ? 'visible' : ''}
+          variants={fadeInParent}
+        >
+          {people.map((e) => (
+            <motion.div
+              variants={fadeInChild}
+            >
+              <Link href={e.path}>
+                <a>
+                  <PortraitWrap>
+                    <Image
+                      alt="portrait"
+                      src="/images/about/portrait.png"
+                      h="1200"
+                      w="1200"
+                      lazy
+                      aspect
+                    />
+                  </PortraitWrap>
+                  <PortraitText>
+                    <h3>{e.name}</h3>
+                    <p><span>{e.location}</span></p>
+                  </PortraitText>
+                </a>
+              </Link>
+            </motion.div>
+          ))}
+        </Portraits>
       </section>
-      <SectionCta href="/about/christopher" color="--lavender">
-        <div>
-          <Location><span>Taipei</span></Location>
-          <h1>Christopher Hugentobler</h1>
-        </div>
-      </SectionCta>
-      <SectionCta href="/about/vincent" color="--salmon">
-        <div>
-          <Location><span>Hong Kong</span></Location>
-          <h1>Vincent So</h1>
-        </div>
-      </SectionCta>
       <section>
         <SectionHeader>
           <h1>Led by human nature, driven by data.</h1>
@@ -199,11 +213,61 @@ const Location = styled.p`
   position: absolute;
 `;
 
-const Portraits = styled.div`
+const Portraits = styled(motion.div)`
   display: grid;
-  gap: var(--space-2);
   grid-template-columns: repeat(13, 1fr);
+  grid-auto-flow: dense;
   > div {
-    grid-column-end: span 6;
+    grid-column: 4 / 13;
+    padding: var(--space-2) var(--space-1);
+    &:hover {
+      background: rgba(255, 255, 255, 0.05);
+    }
+  }
+  a {
+    border: none;
+    display: block;
+    &:hover {
+      opacity: 1;
+    }
+  }
+  @media ${(props) => props.theme.forMiddle} {
+    > div {
+      grid-column-end: span 5;
+    }
+    > div:nth-child(n) {
+      grid-column-start: -6;
+    }
+    > div:nth-child(2n) {
+      grid-column-start: -11;
+    }
+  }
+  @media ${(props) => props.theme.forNotSmall} {
+    > div {
+      grid-column-end: span 4;
+    }
+    > div:nth-child(n+1) {
+      grid-column-start: -5;
+    }
+    > div:nth-child(3n-1) {
+      grid-column-start: -9;
+    }
+    > div:nth-child(3n) {
+      grid-column-start: -13;
+    }
+  }
+`;
+
+const PortraitWrap = styled.div`
+  margin-left: auto;
+  width: 80%;
+`;
+
+const PortraitText = styled.div`
+  h3 {
+    margin-bottom: var(--space-1);
+  }
+  p {
+    margin: 0;
   }
 `;
