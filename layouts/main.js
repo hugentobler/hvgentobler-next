@@ -155,6 +155,5 @@ const Root = styled.div`
   background-color: var(--background-color);
   position: relative;
   text-rendering: optimizeLegibility;
-  overflow: hidden;
   z-index: 10;
 `;

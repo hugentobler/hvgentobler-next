@@ -7,7 +7,6 @@
  * MODULES
  */
 import styled from 'styled-components';
-import { m as motion } from 'framer-motion';
 /* Components */
 import Layout from '../layouts/main';
 import TextHero from '../components/ui/TextHero';
@@ -42,7 +41,7 @@ export default function Index() {
         <SectionHeader>
           <h1>Human centered and data driven, we deliver sustainable product growth.</h1>
           <div>
-            <p>Let's talk about your toughest product and growth strategy questions.</p>
+            <p>Together we will confront your toughest product and growth strategy questions.</p>
             <ul>
               <li>
                 Define your MVP and go-to-market strategy.
@@ -70,21 +69,21 @@ export default function Index() {
               <span>Ø3&nbsp;&nbsp;</span>
               Our team
             </h2>
-            <p>We are a team of product, analytics, and growth people that have helped scale companies like Stitch Fix, Thumbtack, Facebook, and LinkedIn.</p>
+            <p>We are a team of product and growth people that have helped build and scale companies like Klook, Gogovan, Snapask and Bowtie. We are all practising leaders and operators.</p>
           </div>
           <div>
             <h2>
               <span>Ø2&nbsp;&nbsp;</span>
               Our toolkit
             </h2>
-            <p>We approach a question from all angles. We will talk to customers, mine the data, build models and dashboards, and partner with the team to run experiments.</p>
+            <p>We first speak to customers and mine the data. Starting from first principles, we build uncomplicated hypotheses, and partner with your team to build and experiment.</p>
           </div>
           <div>
             <h2>
               <span>Ø1&nbsp;&nbsp;</span>
               Your success
             </h2>
-            <p>We're not done until your team has a mental model of the problem and the path forward. We will constantly pressure test and debate ideas with team along the way.</p>
+            <p>We seek long term relationships with our partners, so we don't stop until your team has the mental models to clear a path forward. We're an extension of your in-house team.</p>
           </div>
         </ThreeColumns>
       </section>

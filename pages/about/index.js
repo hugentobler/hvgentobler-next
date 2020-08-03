@@ -15,6 +15,7 @@ import SectionHeader from '../../components/ui/SectionHeader';
 import TableList from '../../components/ui/TableList';
 import SectionCta from '../../components/ui/SectionCta';
 import ThreeColumns from '../../components/ui/ThreeColumns';
+import Image from '../../components/ui/Image';
 
 /**
  * FRONTMATTER
@@ -27,6 +28,11 @@ const frontmatter = {
   colour: 'blue',
 };
 
+const people = [
+  { name: 'Christopher Hugentobler', location: 'Taipei' },
+  { name: 'Vincent So', location: 'Hong Kong' },
+];
+
 /**
  * DEFAULT EXPORT
  */
@@ -38,6 +44,21 @@ export default function About() {
       </TextHero>
       <NavBar />
       <section>
+        <Portraits>
+          {people.map((e) => (
+            <div>
+              <Image
+                alt="portrait"
+                src="/images/about/portrait.png"
+                h="1200"
+                w="1200"
+                lazy
+                aspect
+              />
+              <h2>{e.name}</h2>
+            </div>
+          ))}
+        </Portraits>
         <SectionHeader>
           <h1>Work with one of us. Access expertise from the whole collaborative.</h1>
           <div>
@@ -176,4 +197,13 @@ const Location = styled.p`
   bottom: 0;
   margin-bottom: var(--space-2);
   position: absolute;
+`;
+
+const Portraits = styled.div`
+  display: grid;
+  gap: var(--space-2);
+  grid-template-columns: repeat(13, 1fr);
+  > div {
+    grid-column-end: span 6;
+  }
 `;

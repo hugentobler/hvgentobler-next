@@ -82,7 +82,7 @@ const Grid = styled.div`
   > :nth-child(2) {
     grid-column: 4 / 14;
     @media ${(props) => props.theme.forMiddle} {
-      grid-column: 1 / span 8;
+      grid-column: 7 / 14;
     }
     @media ${(props) => props.theme.forNotSmall} {
       grid-column: 10 / 13;

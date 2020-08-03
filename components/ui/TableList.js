@@ -67,7 +67,7 @@ const Grid = styled.div`
       grid-column: 4 / 13;
     }
     > :nth-child(even) {
-      grid-column: 1 / span 8;
+      grid-column: 7 / 14;
     }
   }
   @media ${(props) => props.theme.forNotSmall} {
