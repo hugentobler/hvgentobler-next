@@ -59,7 +59,7 @@ export default function Blog() {
       <TextHero
         caption="Blog"
       >
-        <h1>Writing about things that keep us up at night, and other topics.</h1>
+        Writing about things that keep us up at night, and other topics.
       </TextHero>
       <NavBar />
       <section>
