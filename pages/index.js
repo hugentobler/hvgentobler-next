@@ -35,7 +35,7 @@ export default function Index() {
   return (
     <Layout {...frontmatter}>
       <TextHero>
-        <h1>Exceed your goals. Delight your customers. Outpace your competitors.</h1>
+        Exceed your goals. Delight your customers. Outpace your competitors.
       </TextHero>
       <NavBar />
       <section>

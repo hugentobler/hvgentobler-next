@@ -34,7 +34,7 @@ export default function About() {
   return (
     <Layout {...frontmatter}>
       <TextHero caption="About">
-        <h1>We build digital experiences that people want, then distribute them where people are.</h1>
+        We build digital experiences that people want, then distribute them where people are.
       </TextHero>
       <NavBar />
       <section>

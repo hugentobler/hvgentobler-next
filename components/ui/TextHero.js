@@ -9,37 +9,35 @@
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { m as motion } from 'framer-motion';
+/* Components */
+import { fadeIn } from './Animations';
 
 /**
  * ANIMATIONS
  */
-const fade = {
-  opacity: 0,
-};
-
-const slide = {
-  y: '-50%',
-};
-
-const variants = {
-  fadeIn: {
+const heading = {
+  visible: {
     opacity: 1,
     transition: {
-      delay: 0.6,
-      duration: 0.15,
-      ease: 'easeIn',
+      easing: 'easeOut',
+      staggerChildren: 0.02,
+      when: 'beforeChildren',
     },
   },
-  slideDown: {
+  hidden: { opacity: 0 },
+};
+
+const word = {
+  visible: {
     opacity: 1,
     y: 0,
     transition: {
       damping: 300,
-      delay: 0.1,
-      duration: 0.3,
+      duration: 0.15,
       type: 'spring',
     },
   },
+  hidden: { opacity: 0, y: '100%' },
 };
 
 /**
@@ -48,30 +46,43 @@ const variants = {
 export default function TextHero(props) {
   const { children, caption } = props;
 
+  /* Animate heading words. */
+  const text = children.split(' ');
+  const words = text.map((e) => (
+    <>
+      <motion.span
+        variants={word}
+      >
+        {e}
+        &nbsp;
+      </motion.span>
+    </>
+  ));
+
   return (
     <Grid>
       {
         caption && (
           <motion.p
-            initial={fade}
-            animate="fadeIn"
-            variants={variants}
+            initial="hidden"
+            animate="visible"
+            variants={fadeIn}
           >
             {caption}
           </motion.p>
         )
       }
       <motion.p
-        initial={fade}
-        animate="fadeIn"
-        variants={variants}
+        initial="hidden"
+        animate="visible"
+        variants={fadeIn}
       >
         <span>Inspect Element</span>
       </motion.p>
       <motion.p
-        initial={fade}
-        animate="fadeIn"
-        variants={variants}
+        initial="hidden"
+        animate="visible"
+        variants={fadeIn}
         style={{ whiteSpace: 'nowrap' }}
       >
         <span>
@@ -79,13 +90,15 @@ export default function TextHero(props) {
         </span>
       </motion.p>
       <Main>
-        <motion.div
-          initial={{ ...fade, ...slide }}
-          animate="slideDown"
-          variants={variants}
+        <motion.h1
+          initial="hidden"
+          animate="visible"
+          variants={heading}
         >
-          {children}
-        </motion.div>
+          {words.map((e, i) => (
+            React.cloneElement(e, { key: `${e.props.children}-${i}` })
+          ))}
+        </motion.h1>
       </Main>
     </Grid>
   );
@@ -95,7 +108,7 @@ export default function TextHero(props) {
  * PROPTYPES
  */
 TextHero.propTypes = {
-  children: PropTypes.node.isRequired,
+  children: PropTypes.string.isRequired,
   caption: PropTypes.string,
 };
 
@@ -146,6 +159,10 @@ const Main = styled.div`
     margin-bottom: 0;
   }
   h1 {
+    span {
+      display: inline-block;
+      opacity: 1;
+    }
     @media ${(props) => props.theme.forNotSmall} {
       margin-bottom: var(--space-1);
     }

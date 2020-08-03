@@ -13,6 +13,7 @@ import { useRouter } from 'next/router';
 import Link from 'next/link';
 import { m as motion } from 'framer-motion';
 /* Components */
+import { fadeIn } from './Animations';
 
 /**
  * CUSTOM COMPONENTS
@@ -45,33 +46,15 @@ CustomLink.propTypes = {
 };
 
 /**
- * ANIMATIONS
- */
-const fade = {
-  opacity: 0,
-};
-
-const variants = {
-  fadeIn: {
-    opacity: 1,
-    transition: {
-      delay: 0.6,
-      duration: 0.15,
-      ease: 'easeIn',
-    },
-  },
-};
-
-/**
  * DEFAULT EXPORT
  */
 export default function NavBar() {
   return (
     <Root>
       <motion.div
-        initial={fade}
-        animate="fadeIn"
-        variants={variants}
+        initial="hidden"
+        animate="visible"
+        variants={fadeIn}
       >
         <Grid>
           <CustomLink href="/">
