@@ -8,63 +8,44 @@
  */
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { useIntersection } from 'react-use';
-import { m as motion, useAnimation } from 'framer-motion';
+import { useInView } from 'react-intersection-observer';
+import { m as motion } from 'framer-motion';
+/* Components */
+import Split from '../utils/Split';
+import { fadeIn, headerParent } from './Animations';
 
 /**
  * DEFAULT EXPORT
  */
 export default function SectionHeader(props) {
+  const { children } = props;
+
   /* Intersection observer and animations */
-  const intersectionRef = React.useRef(null);
-  const intersection = useIntersection(intersectionRef, {
-    root: null,
-    rootMargin: '0px',
-    threshold: 0.3, // Observe when 0.3 of target is visible.
+  const [ref, inView] = useInView({
+    threshold: 0.66,
+    triggerOnce: true,
   });
 
-  const controls = useAnimation();
-  const variants = {
-    slideIn: {
-      opacity: 1,
-      y: '0%',
-      transition: {
-        duration: 0.3,
-        easing: 'easeOut',
-      },
-    },
-  };
-
-  const slide = {
-    opacity: 0,
-    y: '50%',
-  };
-
-  if (intersection && intersection.intersectionRatio > 0.1) {
-    controls.start('slideIn');
-  }
-
-  if (intersection && !intersection.isIntersecting) {
-    controls.set(slide);
-  }
-
-  const { children } = props;
   return (
-    <Grid>
+    <Grid ref={ref}>
       {React.Children.map(children, (child) => {
         if (child.type === 'h1') {
+          const text = child.props.children;
           return (
-            <div>
-              {React.cloneElement(child)}
-            </div>
+            <motion.h1
+              initial="hidden"
+              animate={inView ? 'visible' : ''}
+              variants={headerParent}
+            >
+              {Split(text)}
+            </motion.h1>
           );
         }
         return (
           <motion.div
-            initial={slide}
-            animate={controls}
-            variants={variants}
-            ref={intersectionRef}
+            initial="hidden"
+            animate={inView ? 'visible' : ''}
+            variants={fadeIn}
           >
             {React.cloneElement(child)}
           </motion.div>
@@ -106,6 +87,11 @@ const Grid = styled.div`
     @media ${(props) => props.theme.forNotSmall} {
       grid-column: 10 / 13;
       grid-row: 2 / 2;
+    }
+  }
+  h1 {
+    span {
+      display: inline-block;
     }
   }
 `;

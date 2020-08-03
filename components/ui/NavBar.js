@@ -13,7 +13,7 @@ import { useRouter } from 'next/router';
 import Link from 'next/link';
 import { m as motion } from 'framer-motion';
 /* Components */
-import { fadeIn } from './Animations';
+import { fadeInDelay } from './Animations';
 
 /**
  * CUSTOM COMPONENTS
@@ -54,7 +54,7 @@ export default function NavBar() {
       <motion.div
         initial="hidden"
         animate="visible"
-        variants={fadeIn}
+        variants={fadeInDelay}
       >
         <Grid>
           <CustomLink href="/">

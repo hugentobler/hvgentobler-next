@@ -10,54 +10,14 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { m as motion } from 'framer-motion';
 /* Components */
-import { fadeIn } from './Animations';
-
-/**
- * ANIMATIONS
- */
-const heading = {
-  visible: {
-    opacity: 1,
-    transition: {
-      easing: 'easeOut',
-      staggerChildren: 0.02,
-      when: 'beforeChildren',
-    },
-  },
-  hidden: { opacity: 0 },
-};
-
-const word = {
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      damping: 300,
-      duration: 0.15,
-      type: 'spring',
-    },
-  },
-  hidden: { opacity: 0, y: '100%' },
-};
+import Split from '../utils/Split';
+import { fadeInDelay, headerParent } from './Animations';
 
 /**
  * DEFAULT EXPORT
  */
 export default function TextHero(props) {
   const { children, caption } = props;
-
-  /* Animate heading words. */
-  const text = children.split(' ');
-  const words = text.map((e) => (
-    <>
-      <motion.span
-        variants={word}
-      >
-        {e}
-        &nbsp;
-      </motion.span>
-    </>
-  ));
 
   return (
     <Grid>
@@ -66,7 +26,7 @@ export default function TextHero(props) {
           <motion.p
             initial="hidden"
             animate="visible"
-            variants={fadeIn}
+            variants={fadeInDelay}
           >
             {caption}
           </motion.p>
@@ -75,14 +35,14 @@ export default function TextHero(props) {
       <motion.p
         initial="hidden"
         animate="visible"
-        variants={fadeIn}
+        variants={fadeInDelay}
       >
         <span>Inspect Element</span>
       </motion.p>
       <motion.p
         initial="hidden"
         animate="visible"
-        variants={fadeIn}
+        variants={fadeInDelay}
         style={{ whiteSpace: 'nowrap' }}
       >
         <span>
@@ -93,11 +53,9 @@ export default function TextHero(props) {
         <motion.h1
           initial="hidden"
           animate="visible"
-          variants={heading}
+          variants={headerParent}
         >
-          {words.map((e, i) => (
-            React.cloneElement(e, { key: `${e.props.children}-${i}` })
-          ))}
+          {Split(children)}
         </motion.h1>
       </Main>
     </Grid>

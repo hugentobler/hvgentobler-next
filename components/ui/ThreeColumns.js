@@ -8,16 +8,29 @@
  */
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import { m as motion } from 'framer-motion';
+import { useInView } from 'react-intersection-observer';
+/* Components */
+import { fadeInParent, fadeInChild } from './Animations';
 
 /**
  * DEFAULT EXPORT
  */
 export default function ThreeColumns(props) {
   const { children, caption } = props;
+
+  /* Intersection observer and animations */
+  const [ref, inView] = useInView({
+    threshold: 0.66,
+    triggerOnce: true,
+  });
+
   return (
-    <Grid>
+    <div
+      ref={ref}
+    >
       {caption && (
-        <>
+        <Grid>
           <Caption>
             <span>
               {caption}
@@ -25,10 +38,22 @@ export default function ThreeColumns(props) {
               <sup style={{ fontSize: '50%' }}>↓</sup>
             </span>
           </Caption>
-        </>
+        </Grid>
       )}
-      {children}
-    </Grid>
+      <Grid
+        initial="hidden"
+        animate={inView ? 'visible' : ''}
+        variants={fadeInParent}
+      >
+        {React.Children.map(children, (child) => (
+          <motion.div
+            variants={fadeInChild}
+          >
+            {React.cloneElement(child)}
+          </motion.div>
+        ))}
+      </Grid>
+    </div>
   );
 }
 
@@ -47,7 +72,7 @@ ThreeColumns.defaultProps = {
 /**
  * STYLED COMPONENTS
  */
-const Grid = styled.div`
+const Grid = styled(motion.div)`
   display: grid;
   grid-template-columns: repeat(13, 1fr);
   gap: var(--space-6) var(--space-1);

@@ -10,9 +10,11 @@
  * MODULES
  */
 import PropTypes from 'prop-types';
-import { useIntersection } from 'react-use';
 import styled, { css } from 'styled-components';
-import { motion, useAnimation } from 'framer-motion';
+import { m as motion } from 'framer-motion';
+import { useInView } from 'react-intersection-observer';
+/* Components */
+import { fadeIn } from './Animations';
 
 /**
  * DEFAULT EXPORT
@@ -23,24 +25,10 @@ export default function Image(props) {
   } = props;
 
   /* Browser intersection observer for Image. */
-  const intersectionRef = React.useRef(null);
-  const intersection = useIntersection(intersectionRef, {
-    root: null,
-    rootMargin: '0px',
-    threshold: 0.5, // Observe when half the target is visible.
+  const [ref, inView] = useInView({
+    threshold: 0.5,
+    triggerOnce: true,
   });
-
-  /* Animate in image based on intersection observer. */
-  const imgControls = useAnimation();
-  if (intersection && intersection.intersectionRatio > 0.5) {
-    imgControls.start({
-      opacity: 1,
-      transition: {
-        duration: 0.5,
-        ease: [0.45, 0.05, 0.55, 0.95],
-      },
-    });
-  }
 
   /* Set source paths for srcSet */
   const pathAndName = src.substring(0, src.lastIndexOf('.'));
@@ -50,15 +38,16 @@ export default function Image(props) {
 
   return (
     /* Image resides in wrap with intrinsic aspect ratio. This prevents page height jittering when image loads. */
-    <Wrap h={h} w={w} aspect={aspect} ref={intersectionRef}>
+    <Wrap h={h} w={w} aspect={aspect} ref={ref}>
       <Img
         srcSet={`${src640} 640w, ${src1200} 1200w`}
         sizes="(max-width: 640px) 640px, 1200px"
         loading={lazy && 'lazy'}
         alt={alt}
-        initial={{ opacity: 0 }}
-        animate={imgControls}
         aspect={aspect}
+        initial="hidden"
+        animate={inView ? 'visible' : ''}
+        variants={fadeIn}
       />
     </Wrap>
   );
