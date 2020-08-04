@@ -95,6 +95,10 @@ TableList.defaultProps = {
   subtitle: '',
 };
 
+ObserveIntersectionChild.propTypes = {
+  children: PropTypes.node.isRequired,
+};
+
 /**
  * STYLED COMPONENTS
  */

@@ -8,7 +8,10 @@
  */
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import { m as motion } from 'framer-motion';
 import Image from './Image';
+/* Components */
+import { fadeInDelay } from './Animations';
 
 /**
  * DEFAULT EXPORT
@@ -22,7 +25,14 @@ export default function ImageHero(props) {
       </Wrap>
       {
         captions.map((e) => (
-          <p key={e}>{e}</p>
+          <motion.p
+            key={e}
+            initial="hidden"
+            animate="visible"
+            variants={fadeInDelay}
+          >
+            {e}
+          </motion.p>
         ))
       }
     </Grid>
@@ -62,6 +72,7 @@ const Grid = styled.div`
       grid-row: 2 / 2;
     }
     @media ${(props) => props.theme.forNotSmall} {
+      white-space: nowrap;
       grid-row: 1 / 1;
       &:nth-of-type(1) {
         grid-column: 1 / 3;
@@ -77,16 +88,15 @@ const Grid = styled.div`
 `;
 
 const Wrap = styled.div`
-  height: 90vh;
-  height: calc(var(--vh, 1vh) * 90);
+  height: 100vh;
+  height: calc(var(--vh, 1vh) * 100);
   justify-self: end;
   grid-column-start: 1;
   grid-column-end: span 13;
-  grid-row: 1 / span 3;
+  grid-row: 4 / 5;
   @media ${(props) => props.theme.forNotSmall} {
-    height: 100vh;
-    height: calc(var(--vh, 1vh) * 100);
     grid-column-start: span 8;
     grid-column-end: 14;
+    grid-row: 1 / span 3;
   }
 `;

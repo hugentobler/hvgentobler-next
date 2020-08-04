@@ -114,12 +114,13 @@ const Grid = styled.section`
 
 const Main = styled.div`
   align-self: end;
-  margin: calc(var(--space-6) * 3) 0;
+  margin-top: calc(var(--space-6) * 3);
   grid-column: 1 / 14;
   @media ${(props) => props.theme.forNotSmall} {
     margin-bottom: 0;
   }
   h1 {
+    margin-bottom: var(--space-6);
     span {
       display: inline-block;
       opacity: 1;

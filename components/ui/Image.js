@@ -26,7 +26,7 @@ export default function Image(props) {
 
   /* Browser intersection observer for Image. */
   const [ref, inView] = useInView({
-    threshold: 0.5,
+    threshold: 0.3,
     triggerOnce: true,
   });
 

@@ -11,6 +11,7 @@ import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
+import { useInView } from 'react-intersection-observer';
 import { m as motion } from 'framer-motion';
 /* Components */
 import { fadeInDelay } from './Animations';
@@ -49,12 +50,18 @@ CustomLink.propTypes = {
  * DEFAULT EXPORT
  */
 export default function NavBar() {
+  const [ref, inView] = useInView({
+    threshold: 1,
+    triggerOnce: true,
+  });
+
   return (
     <Root>
       <motion.div
         initial="hidden"
-        animate="visible"
+        animate={inView ? 'visible' : ''}
         variants={fadeInDelay}
+        ref={ref}
       >
         <Grid>
           <CustomLink href="/">

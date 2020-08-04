@@ -33,20 +33,20 @@ export default function About() {
   return (
     <Layout {...frontmatter}>
       <ImageHero
-        alt="Christopher smiling and holding a camera."
-        src="/images/about/christopher/pink.jpg"
-        h="1599"
+        alt="Christopher smiling at a table."
+        src="/images/about/christopher/gray.jpg"
+        h="1799"
         w="1200"
         captions={[
           'Christopher Hugentobler',
-          'Walking Talking Venn Diagram',
+          'A walking talking venn diagram',
         ]}
       />
       <NavBar />
       <section>
         <SectionHeader>
           <h1>
-            A walking, talking venn diagram.
+            Christopher is a walking, talking venn diagram.
           </h1>
           <div>
             <p>
@@ -72,11 +72,20 @@ export default function About() {
       <section>
         <TableList>
           <blockquote><h2>An intuitive leader with integrity. Work with him to effect great change.</h2></blockquote>
-          <p>Ingrid</p>
+          <p>
+            Direct report&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <span>Ingrid</span>
+          </p>
           <blockquote><h2>Sharp and critical; empathetic and team-oriented; visionary and audacious.</h2></blockquote>
-          <p>Michelle</p>
+          <p>
+            Direct report&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <span>Michelle</span>
+          </p>
           <blockquote><h2>在颱風眼裡面工作的人。</h2></blockquote>
-          <p>Dustin</p>
+          <p>
+            First impression&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <span>Dustin</span>
+          </p>
         </TableList>
       </section>
       <section>
@@ -125,12 +134,12 @@ export default function About() {
         </ThreeColumns>
       </section>
       <ImageHero
-        alt="Christopher pointing up and smiling!"
-        src="/images/about/christopher/green.jpg"
+        alt="Christopher smiling on a rooftop."
+        src="/images/about/christopher/pink.jpg"
         h="1599"
         w="1200"
         captions={[
-          'Outdoors Adventure Addict',
+          'An adventure addict',
         ]}
       />
     </Layout>
