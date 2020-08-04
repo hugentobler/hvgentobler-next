@@ -8,12 +8,44 @@
  */
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import { useInView } from 'react-intersection-observer';
+import { m as motion } from 'framer-motion';
+import { fadeIn } from './Animations';
+
+/**
+ * OBSERVE CHILDREN INTERSECTION
+ */
+const ObserveIntersectionChild = (props) => {
+  const { children } = props;
+
+  const [ref, inView] = useInView({
+    threshold: 1,
+    triggerOnce: true,
+  });
+
+  return (
+    <motion.div
+      initial="hidden"
+      animate={inView ? 'visible' : ''}
+      variants={fadeIn}
+      ref={ref}
+    >
+      {children}
+    </motion.div>
+  );
+};
 
 /**
  * DEFAULT EXPORT
  */
 export default function TableList(props) {
   const { children, caption, subtitle } = props;
+
+  const [subtitleRef, subtitleInView] = useInView({
+    threshold: 1,
+    triggerOnce: true,
+  });
+
   return (
     <Grid>
       {caption && (
@@ -25,12 +57,26 @@ export default function TableList(props) {
               <sup style={{ fontSize: '50%' }}>↓</sup>
             </span>
           </Caption>
-          <p>
+          <motion.p
+            ref={subtitleRef}
+            initial="hidden"
+            animate={subtitleInView ? 'visible' : ''}
+            variants={fadeIn}
+          >
             {subtitle}
-          </p>
+          </motion.p>
         </>
       )}
-      {children}
+      {React.Children.map(children, (child, i) => {
+        if (i % 2) {
+          return (
+            <ObserveIntersectionChild>
+              {child}
+            </ObserveIntersectionChild>
+          );
+        }
+        return child;
+      })}
     </Grid>
   );
 }

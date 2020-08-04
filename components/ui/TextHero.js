@@ -43,7 +43,7 @@ export default function TextHero(props) {
         initial="hidden"
         animate="visible"
         variants={fadeInDelay}
-        style={{ whiteSpace: 'nowrap' }}
+        className="no-wrap"
       >
         <span>
           Product and growth strategy for tech companies
@@ -96,6 +96,9 @@ const Grid = styled.section`
     grid-column: 1 / 13;
     margin: 0;
     @media ${(props) => props.theme.forNotSmall} {
+      &.no-wrap {
+        white-space: nowrap;
+      }
       &:nth-child(1) {
         grid-column: 1 / 3;
       }

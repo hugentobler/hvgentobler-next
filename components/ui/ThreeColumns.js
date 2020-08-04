@@ -26,9 +26,7 @@ export default function ThreeColumns(props) {
   });
 
   return (
-    <div
-      ref={ref}
-    >
+    <>
       {caption && (
         <Grid>
           <Caption>
@@ -45,15 +43,16 @@ export default function ThreeColumns(props) {
         animate={inView ? 'visible' : ''}
         variants={fadeInParent}
       >
-        {React.Children.map(children, (child) => (
+        {React.Children.map(children, (child, i) => (
           <motion.div
             variants={fadeInChild}
+            ref={i === 0 ? ref : undefined}
           >
             {React.cloneElement(child)}
           </motion.div>
         ))}
       </Grid>
-    </div>
+    </>
   );
 }
 
@@ -77,7 +76,7 @@ const Grid = styled(motion.div)`
   grid-template-columns: repeat(13, 1fr);
   gap: var(--space-6) var(--space-1);
   > div {
-    grid-column: 4 / 13;
+    grid-column: 4 / 14;
   }
   @media ${(props) => props.theme.forMiddle} {
     > div {

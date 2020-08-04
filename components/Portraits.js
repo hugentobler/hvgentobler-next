@@ -26,7 +26,7 @@ const people = [
 export default function Portraits() {
   /* Intersection observer and animations */
   const [ref, inView] = useInView({
-    threshold: 0.5,
+    threshold: 1,
     triggerOnce: true,
   });
 
@@ -35,12 +35,12 @@ export default function Portraits() {
       initial="hidden"
       animate={inView ? 'visible' : ''}
       variants={fadeInParent}
-      ref={ref}
     >
-      {people.map((e) => (
+      {people.map((e, i) => (
         <motion.div
           key={e.name}
           variants={fadeInChild}
+          ref={i === 0 ? ref : undefined}
         >
           <Link href={e.path}>
             <a>

@@ -21,21 +21,26 @@ export default function SectionHeader(props) {
   const { children } = props;
 
   /* Intersection observer and animations */
-  const [ref, inView] = useInView({
-    threshold: 0.66,
+  const [headerRef, headerInView] = useInView({
+    threshold: 0.5,
+    triggerOnce: true,
+  });
+  const [childRef, childInView] = useInView({
+    threshold: 1,
     triggerOnce: true,
   });
 
   return (
-    <Grid ref={ref}>
+    <Grid>
       {React.Children.map(children, (child) => {
         if (child.type === 'h1') {
           const text = child.props.children;
           return (
             <motion.h1
               initial="hidden"
-              animate={inView ? 'visible' : ''}
+              animate={headerInView ? 'visible' : ''}
               variants={headerParent}
+              ref={headerRef}
             >
               {Split(text)}
             </motion.h1>
@@ -44,8 +49,9 @@ export default function SectionHeader(props) {
         return (
           <motion.div
             initial="hidden"
-            animate={inView ? 'visible' : ''}
+            animate={childInView ? 'visible' : ''}
             variants={fadeIn}
+            ref={childRef}
           >
             {React.cloneElement(child)}
           </motion.div>
