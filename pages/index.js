@@ -139,7 +139,7 @@ export default function Index() {
           <p>They started with a product offering that was fundamentally seasonal. To improve user stickiness, new services were bundled together into a subscription product that users found more valuable all year round.</p>
         </TableList>
       </section>
-      <SectionCta href="/about" color="--classic-blue">
+      <SectionCta href="/contact" color="--classic-blue">
         <div>
           <h1>Schedule your call</h1>
           <p>Even if you don't know where your bottlenecks are, we should still talk.</p>

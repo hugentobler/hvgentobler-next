@@ -50,87 +50,94 @@ export default function About() {
       </section>
       <section>
         <SectionHeader>
-          <h1>Led by human nature, driven by data.</h1>
-          <div>
-            <p>
-              We specialise in common sense.
-            </p>
-            <p>
-              We think in first principles.
-            </p>
-            <p>
-              We test uncomplicated hypotheses.
-            </p>
-          </div>
+          <h1>We're led by human nature, driven by data.</h1>
+          <div />
         </SectionHeader>
+        <ThreeColumns>
+          <div>
+            <h3>We specialize in common sense.</h3>
+            <p><span>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</span></p>
+          </div>
+          <div>
+            <h3>We start from first principles.</h3>
+            <p><span>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</span></p>
+          </div>
+          <div>
+            <h3>We build uncomplicated hypotheses.</h3>
+            <p><span>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</span></p>
+          </div>
+        </ThreeColumns>
       </section>
       <section>
-        <ThreeColumns caption="Select Proficiencies">
+        <ThreeColumns caption="Add our expertise to your toolbox">
           <div>
             <h2>
-              Product
-              <br />
-              Management
+              <span>Ø1&nbsp;&nbsp;</span>
+              Product Management
             </h2>
             <ul>
               <li>
-                Product management skills
+                Develop software with empowered product teams.
               </li>
               <li>
-                Product management skills
+                Discover product opportunities and test MVPs.
               </li>
               <li>
-                Product management skills
+                Audit your product UX with data and user feedback.
               </li>
               <li>
-                Product management skills
+                Invest in features for conversion, retention and personalization.
               </li>
             </ul>
           </div>
           <div>
             <h2>
-              Growth
-              <br />
-              Marketing
+              <span>Ø2&nbsp;&nbsp;</span>
+              Growth Marketing
             </h2>
             <ul>
               <li>
-                Growth marketing skills
+                Measure and analyze data to model growth.
               </li>
               <li>
-                Growth marketing skills
+                Setup tooling and workflows to quickly experiment.
               </li>
               <li>
-                Growth marketing skills
+                Nurture growth loops, optimize conversion funnels.
               </li>
               <li>
-                Growth marketing skills
+                Orchestrate organic and paid marketing plans.
+              </li>
+              <li>
+                Engage and retain users on time and in context.
               </li>
             </ul>
           </div>
           <div>
             <h2>
-              Monetization,
-              <br />
-              Localization
+              <span>Ø3&nbsp;&nbsp;</span>
+              Monetization & Localization
             </h2>
             <ul>
               <li>
-                Monetization and localization skills
+                Anaylze and model users' willingness to pay.
               </li>
               <li>
-                Monetization and localization skills
+                Setup recurring revenue strategies and pricing.
               </li>
               <li>
-                Monetization and localization skills
-              </li>
-              <li>
-                Monetization and localization skills
+                Model best practices to acquire international customers.
               </li>
             </ul>
           </div>
         </ThreeColumns>
       </section>
+      <SectionCta href="/contact" color="--black">
+        <div>
+          <h1>Schedule your call</h1>
+          <p>Even if you don't know where your bottlenecks are, we should still talk.</p>
+        </div>
+      </SectionCta>
       <section>
         <TableList>
           <blockquote><h2>They are an absolute pleasure to work with. Professional, responsive, sharp. Achieved results in record time.</h2></blockquote>
