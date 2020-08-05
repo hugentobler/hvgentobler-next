@@ -33,7 +33,10 @@ export default function SectionCta(props) {
   return (
     <Section>
       <Background color={color} />
-      <Link href={href}>
+      <Link
+        href={href}
+        scroll={false}
+      >
         <a>
           <Grid>
             {children}

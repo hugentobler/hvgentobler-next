@@ -14,6 +14,7 @@ import NavBar from '../../components/ui/NavBar';
 import SectionHeader from '../../components/ui/SectionHeader';
 import TableList from '../../components/ui/TableList';
 import ThreeColumns from '../../components/ui/ThreeColumns';
+import SectionCta from '../../components/ui/SectionCta';
 
 /**
  * FRONTMATTER
@@ -88,6 +89,12 @@ export default function About() {
           </p>
         </TableList>
       </section>
+      <SectionCta href="/contact" color="--classic-blue">
+        <div>
+          <h1>Work with Christopher</h1>
+          <p>It doesn't hurt to ask.</p>
+        </div>
+      </SectionCta>
       <section>
         <ThreeColumns>
           <div>

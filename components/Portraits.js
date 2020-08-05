@@ -42,7 +42,10 @@ export default function Portraits() {
           variants={fadeInChild}
           ref={i === 0 ? ref : undefined}
         >
-          <Link href={e.path}>
+          <Link
+            href={e.path}
+            scroll={false}
+          >
             <a>
               <ImageWrap>
                 <Image

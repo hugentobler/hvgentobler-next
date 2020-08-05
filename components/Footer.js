@@ -7,6 +7,7 @@
 * MODULES
 */
 import styled from 'styled-components';
+import Link from 'next/link';
 
 /**
  * DEFAULT EXPORT
@@ -18,7 +19,12 @@ export default () => (
         Unbox the product growth black box.
       </Heading>
       <Links>
-        <a href="mailto:hugentobler@hey.com" target="_blank" rel="noreferrer">Contact Us</a>
+        <Link
+          href="/contact"
+          scroll={false}
+        >
+          <a>Contact Us</a>
+        </Link>
         {/* <a href="https://linkedin.com/in/hugentobler/" target="_blank" rel="noreferrer">LinkedIn</a>
         <a href="https://instagram.com/globehunter" target="_blank" rel="noreferrer">Instagram</a> */}
         <a href="https://github.com/hugentobler/hvgentobler-next" target="_blank" rel="noreferrer">Site Source</a>
