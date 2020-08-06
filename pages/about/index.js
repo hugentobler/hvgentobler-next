@@ -42,7 +42,7 @@ export default function About() {
           <h1>Meet the extension of your in-house team.</h1>
           <div>
             <p>
-              We are a multi-disciplinary collective of digital product and growth experts. We are all practising leaders and operators.
+              We are a multi-disciplinary collaborative of digital product and growth experts. We are all practising leaders and operators.
             </p>
           </div>
         </SectionHeader>
@@ -132,7 +132,7 @@ export default function About() {
           </div>
         </ThreeColumns>
       </section>
-      <SectionCta href="/contact" color="--black">
+      <SectionCta href="/contact" color="--golden-rod-yellow">
         <div>
           <h1>Schedule your call</h1>
           <p>Even if you don't know where your bottlenecks are, we should still talk.</p>

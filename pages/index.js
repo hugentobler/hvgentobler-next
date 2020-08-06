@@ -44,19 +44,24 @@ export default function Index() {
             <p>Together we will confront your toughest product and growth strategy questions.</p>
             <ul>
               <li>
-                Define your MVP and go-to-market strategy.
+                What features go in your MVP?
+                <span> How to launch it and acquire early users?</span>
               </li>
               <li>
-                A/B test and optimize your conversion funnel.
+                Where are you losing leads?
+                <span> How to A/B test fixes to your conversion funnel?</span>
               </li>
               <li>
-                Engage your users and retain your customers.
+                Why are your customers churning?
+                <span> How to engage and retain users across channels?</span>
               </li>
               <li>
-                Monetize your audiences locally and abroad.
+                How to monetize at scale?
+                <span> How to find your customers abroad?</span>
               </li>
               <li>
-                Build your product growth team and workflows.
+                Who will you hire?
+                <span> How to build your product growth team and workflows?</span>
               </li>
             </ul>
           </div>
@@ -87,7 +92,7 @@ export default function Index() {
           </div>
         </ThreeColumns>
       </section>
-      <SectionCta href="/about">
+      <SectionCta href="/about" color="--classic-blue">
         <div>
           <h1>Meet our people</h1>
           <p>We are a multi-disciplinary collaborative of digital product and growth experts.</p>
@@ -139,7 +144,7 @@ export default function Index() {
           <p>They started with a product offering that was fundamentally seasonal. To improve user stickiness, new services were bundled together into a subscription product that users found more valuable all year round.</p>
         </TableList>
       </section>
-      <SectionCta href="/contact" color="--classic-blue">
+      <SectionCta href="/contact" color="--golden-rod-yellow">
         <div>
           <h1>Schedule your call</h1>
           <p>Even if you don't know where your bottlenecks are, we should still talk.</p>

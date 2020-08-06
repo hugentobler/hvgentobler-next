@@ -15,6 +15,29 @@ import Split from '../utils/Split';
 import { fadeIn, headerParent } from './Animations';
 
 /**
+ * OBSERVE CHILDREN INTERSECTION
+ */
+const ObserveIntersectionChild = (props) => {
+  const { children } = props;
+
+  const [ref, inView] = useInView({
+    threshold: 1,
+    triggerOnce: true,
+  });
+
+  return (
+    <motion.div
+      initial="hidden"
+      animate={inView ? 'visible' : ''}
+      variants={fadeIn}
+      ref={ref}
+    >
+      {children}
+    </motion.div>
+  );
+};
+
+/**
  * DEFAULT EXPORT
  */
 export default function SectionHeader(props) {
@@ -23,10 +46,6 @@ export default function SectionHeader(props) {
   /* Intersection observer and animations */
   const [headerRef, headerInView] = useInView({
     threshold: 0.5,
-    triggerOnce: true,
-  });
-  const [childRef, childInView] = useInView({
-    threshold: 1,
     triggerOnce: true,
   });
 
@@ -46,15 +65,15 @@ export default function SectionHeader(props) {
             </motion.h1>
           );
         }
+        const divChildren = child.props.children;
         return (
-          <motion.div
-            initial="hidden"
-            animate={childInView ? 'visible' : ''}
-            variants={fadeIn}
-            ref={childRef}
-          >
-            {React.cloneElement(child)}
-          </motion.div>
+          <div>
+            {React.Children.map(divChildren, (divChildrenChild) => (
+              <ObserveIntersectionChild>
+                {divChildrenChild}
+              </ObserveIntersectionChild>
+            ))}
+          </div>
         );
       })}
     </Grid>
@@ -65,6 +84,10 @@ export default function SectionHeader(props) {
  * PROPTYPES
  */
 SectionHeader.propTypes = {
+  children: PropTypes.node.isRequired,
+};
+
+ObserveIntersectionChild.propTypes = {
   children: PropTypes.node.isRequired,
 };
 

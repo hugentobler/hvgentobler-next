@@ -71,10 +71,18 @@ export default function NavBar() {
             <a>About</a>
           </CustomLink>
           <CustomLink href="/blog">
-            <a>Writing</a>
+            <a>Blog</a>
           </CustomLink>
-          <CustomLink href="/bookshelf">
+          {/* <CustomLink href="/bookshelf">
             <a>Reading</a>
+          </CustomLink> */}
+          <CustomLink href="/blog">
+            <a
+              className="button"
+              style={{ paddingBottom: '4px' }}
+            >
+              Collab
+            </a>
           </CustomLink>
         </Grid>
       </motion.div>
@@ -124,8 +132,15 @@ const NavLink = styled.div`
     border: none;
     font-size: 1.2rem;
     font-weight: 300;
+    line-height: 1;
     @media ${(props) => props.theme.forNotSmall} {
       font-size: 1vw;
+    }
+    &.button {
+      border: 1px solid var(--text-color);
+      border-radius: 6px;
+      margin-left: -6px;
+      padding: 6px;
     }
   }
 `;

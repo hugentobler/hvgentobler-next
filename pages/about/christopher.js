@@ -21,7 +21,7 @@ import SectionCta from '../../components/ui/SectionCta';
  * Pass on to layout as props.
 */
 const frontmatter = {
-  title: 'Christopher Hugentobler',
+  title: 'Christopher Hugentobler - Product and growth strategy for tech companies',
   description: ' ',
   image: ' ',
   colour: 'night',
@@ -39,7 +39,7 @@ export default function About() {
         h="1799"
         w="1200"
         captions={[
-          'Christopher Hugentobler',
+          'Christopher Hugentobler 姚思陶',
           'A walking talking venn diagram',
         ]}
       />
@@ -47,12 +47,15 @@ export default function About() {
       <section>
         <SectionHeader>
           <h1>
-            Christopher is a walking, talking venn diagram.
+            Builder of friendly humanist software products.
           </h1>
           <div>
             <p>
-              Curiosity pushed him throughout his entire career and it’s still at the core of his work ethic.
+              Christopher grew up surrounded by an attention to detail. His father an
             </p>
+            <p>Born in Taipei, Christopher moved to Xi'an, then Kota Kinabalu, grew up in Macao and Guangzhou, and came of age in Hong Kong.</p>
+            <p>In high school, he pressed </p>
+            <p>My goal is to make movies in space, but first I will build awesome software products.</p>
             <ul>
               <li>
                 MVP definition and go-to-market
@@ -74,12 +77,12 @@ export default function About() {
         <TableList>
           <blockquote><h2>An intuitive leader with integrity. Work with him to effect great change.</h2></blockquote>
           <p>
-            Direct report&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            Teammate&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <span>Ingrid</span>
           </p>
           <blockquote><h2>Sharp and critical; empathetic and team-oriented; visionary and audacious.</h2></blockquote>
           <p>
-            Direct report&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            Teammate&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <span>Michelle</span>
           </p>
           <blockquote><h2>在颱風眼裡面工作的人。</h2></blockquote>
@@ -146,7 +149,7 @@ export default function About() {
         h="1599"
         w="1200"
         captions={[
-          'An adventure addict',
+          'Christopher is an adventure addict. He loves science fiction, exploring the outdoors, great food and surfing.',
         ]}
       />
     </Layout>
