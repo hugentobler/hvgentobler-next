@@ -51,46 +51,74 @@ export default function About() {
           </h1>
           <div>
             <p>
-              Christopher grew up surrounded by an attention to detail. His father an
+              Christopher grew up in an environment that celebrated curiosity and hospitality. One day he'll make movies in space. But first he's making software products.
             </p>
             <p>Born in Taipei, Christopher moved to Xi'an, then Kota Kinabalu, grew up in Macao and Guangzhou, and came of age in Hong Kong.</p>
-            <p>In high school, he pressed </p>
-            <p>My goal is to make movies in space, but first I will build awesome software products.</p>
-            <ul>
-              <li>
-                MVP definition and go-to-market
-              </li>
-              <li>
-                Conversion funnel optimization and A/B testing
-              </li>
-              <li>
-                Cross-border monetization and localization
-              </li>
-              <li>
-                Building product growth teams and workflows
-              </li>
-            </ul>
+            <p>In high school, he clicked 'Inspect Element' for the first time after promising to complete an event website in one month. He delivered.</p>
           </div>
         </SectionHeader>
       </section>
       <section>
-        <TableList>
-          <blockquote><h2>An intuitive leader with integrity. Work with him to effect great change.</h2></blockquote>
-          <p>
-            Teammate&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <span>Ingrid</span>
-          </p>
-          <blockquote><h2>Sharp and critical; empathetic and team-oriented; visionary and audacious.</h2></blockquote>
-          <p>
-            Teammate&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <span>Michelle</span>
-          </p>
-          <blockquote><h2>在颱風眼裡面工作的人。</h2></blockquote>
-          <p>
-            First impression&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <span>Dustin</span>
-          </p>
-        </TableList>
+        <ThreeColumns>
+          <div>
+            <h2>Highlights</h2>
+            <p>As 1st employee at Snapask reporting to the CEO, Christopher setup and led initial product, design, growth and b2b teams. He launched 3 products, managing their P&L, and led several cross-functional, cross-border teams.</p>
+            <p>His work at 24 Hour Race resulted in millions of dollars donated to charities fighting human trafficking. Christopher spent several years working in youth leadership development. His goal was to inspire and empower more youth action.</p>
+            <p>Christopher is regularly invited to speak on topics related to startups, product development and growth marketing. He is fluent in English, Mandarin and Cantonese.</p>
+          </div>
+          <div>
+            <h2>Expertise</h2>
+            <ul>
+              <li>
+                Prioritize your product opportunities backlog based on user feedback, business goals, your product vision and the competitive landscape.
+              </li>
+              <li>
+                Optimize your conversion funnel by accessing your audience's emotions (heart), while speaking clearly to their logic (brain).
+              </li>
+              <li>
+                Define and orchestrate your omni-channel marketing mix across the whole product funnel / user experience.
+              </li>
+              <li>
+                Recruit and operate your own effective and empowered product growht teams.
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h2>Experience</h2>
+            <p>
+              CRO Consultant
+              <br />
+              Bowtie
+              <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Life & Medical Insurtech</span>
+              <br />
+              <span>Mar 2020</span>
+            </p>
+            <p>
+              Product Lead / Growth Lead / Misc.
+              <br />
+              Snapask
+              <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;College & Career Edutech</span>
+              <br />
+              <span>Feb 2016 ~ Sep 2020</span>
+            </p>
+            <p>
+              Co-founder
+              <br />
+              Pedder
+              <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;App & Web Agency</span>
+              <br />
+              <span>Jun 2014 ~ Jan 2016</span>
+            </p>
+            <p>
+              Co-founder
+              <br />
+              24 Hour Race
+              <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Advocacy & Community</span>
+              <br />
+              <span>Jan 2014 ~ May 2015</span>
+            </p>
+          </div>
+        </ThreeColumns>
       </section>
       <SectionCta href="/contact" color="--classic-blue">
         <div>
@@ -99,49 +127,23 @@ export default function About() {
         </div>
       </SectionCta>
       <section>
-        <ThreeColumns>
-          <div>
-            <h2><span>Projects</span></h2>
-            <h3>
-              Bowtie
-              <span> ~ Life & Medical Insurtech</span>
-            </h3>
-            <p><span>Mar 2020 - present</span></p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-            <h3>
-              Snapask
-              <span> - College & Career Edutech</span>
-            </h3>
-            <p><span>Feb 2016 - present</span></p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-            <h3>
-              Pedder
-              <span> - Mobile Apps</span>
-            </h3>
-            <p><span>Feb 2016 - present</span></p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-            <h3>
-              24 Hour Race
-              <span> - Advocacy & Community</span>
-            </h3>
-            <p><span>Feb 2016 - present</span></p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-          </div>
-          <div>
-            <h2><span>Networks</span></h2>
-            <ul>
-              <li>
-                University of Hong Kong
-              </li>
-              <li>
-                AIESEC
-              </li>
-              <li>
-                United World Colleges
-              </li>
-            </ul>
-          </div>
-        </ThreeColumns>
+        <TableList>
+          <blockquote><h2>An intuitive leader with integrity. Work with him to effect great change.</h2></blockquote>
+          <p>
+            Teammate&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <span>Ingrid</span>
+          </p>
+          <blockquote><h2>在颱風眼裡面工作的人。</h2></blockquote>
+          <p>
+            First impression&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <span>Dustin</span>
+          </p>
+          <blockquote><h2>Sharp and critical; empathetic and team-oriented; visionary and audacious.</h2></blockquote>
+          <p>
+            Teammate&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <span>Michelle</span>
+          </p>
+        </TableList>
       </section>
       <ImageHero
         alt="Christopher smiling on a rooftop."
