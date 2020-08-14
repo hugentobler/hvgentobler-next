@@ -6,7 +6,6 @@
 /**
  * MODULES
  */
-import styled from 'styled-components';
 /* Components */
 import Layout from '../../layouts/main';
 import ImageHero from '../../components/ui/ImageHero';
@@ -79,7 +78,7 @@ export default function About() {
                 Define and orchestrate your omni-channel marketing mix across the whole product funnel / user experience.
               </li>
               <li>
-                Recruit and operate your own effective and empowered product growht teams.
+                Recruit and operate your own effective and empowered product growth teams.
               </li>
             </ul>
           </div>
@@ -157,7 +156,3 @@ export default function About() {
     </Layout>
   );
 }
-
-/**
-* STYLED COMPONENTS
-*/
