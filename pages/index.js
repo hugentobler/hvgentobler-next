@@ -34,73 +34,30 @@ export default function Index() {
   return (
     <Layout {...frontmatter}>
       <TextHero>
-        What does life look like, if everyone has everything?
+        What does life look like, if everyone has everything? Where does tech beget happiness?
       </TextHero>
       <NavBar />
       <section>
         <SectionHeader>
-          <h1>If I didn't build software, I'd probably produce films.</h1>
+          <h1>If I wasn't building software, maybe I'd make movies.</h1>
           <div>
-            <p>One day I'll make movies in space. If I'm lucky, I'll do these things too.</p>
+            <p>One day I'll make movies in space. Here's some stuff I'll try along the way.</p>
             <ul>
               <li>
-                Build software for 100M happy users
+                Build software for 100M happy humans.
               </li>
               <li>
-                Open a bakery / pâtisserie for mum
+                Open a bakery / pâtisserie run by Mum.
               </li>
               <li>
-                Own a surf retreat by a point break
+                Own a surf retreat by a world-class point break.
+              </li>
+              <li>
+                Summit K2.
               </li>
             </ul>
           </div>
         </SectionHeader>
-      </section>
-      <section>
-        <TableList caption="Some stuff we worked on" subtitle="I've been lucky to work with great people to do great stuff.">
-          <Logo>
-            <h1>Bowtie</h1>
-            <LogoWrap>
-              <img
-                alt="Bowtie"
-                src="/images/home/bowtie.png"
-              />
-            </LogoWrap>
-          </Logo>
-          <p>They were seeing significant growth in search traffic from users concerned about their loved one's health. They wanted to introduce solutions to these users in more relevant ways.</p>
-          <Logo>
-            <h1>Gogovan</h1>
-            <LogoWrap>
-              <img
-                alt="Gogovan"
-                src="/images/home/gogovan.png"
-              />
-            </LogoWrap>
-          </Logo>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-          <Logo>
-            <h1>Klook</h1>
-            <LogoWrap
-              style={{ height: '16px' }}
-            >
-              <img
-                alt="Klook"
-                src="/images/home/klook.png"
-              />
-            </LogoWrap>
-          </Logo>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-          <Logo>
-            <h1>Snapask</h1>
-            <LogoWrap>
-              <img
-                alt="Snapask"
-                src="/images/home/snapask.png"
-              />
-            </LogoWrap>
-          </Logo>
-          <p>They started with a product offering that was fundamentally seasonal. To improve user stickiness, new services were bundled together into a subscription product that users found more valuable all year round.</p>
-        </TableList>
       </section>
       <SectionCta href="/blog" color="--golden-rod-yellow">
         <div>
@@ -109,38 +66,17 @@ export default function Index() {
         </div>
       </SectionCta>
       <section>
-        <ThreeColumns caption="Countdown to rocket ship growth">
-          <div>
-            <h2>
-              <span>Ø3&nbsp;&nbsp;</span>
-              Our team
-            </h2>
-            <p>We are a team of product and growth people that have helped build and scale companies like Klook, Gogovan, Snapask and Bowtie. We are all practising leaders and operators.</p>
-          </div>
-          <div>
-            <h2>
-              <span>Ø2&nbsp;&nbsp;</span>
-              Our toolkit
-            </h2>
-            <p>We first speak to customers and mine the data. Starting from first principles, we build uncomplicated hypotheses, and partner with your team to build and experiment.</p>
-          </div>
-          <div>
-            <h2>
-              <span>Ø1&nbsp;&nbsp;</span>
-              Your success
-            </h2>
-            <p>We seek long term relationships with our partners, so we don't stop until your team has the mental models to clear a path forward. We're an extension of your in-house team.</p>
-          </div>
-        </ThreeColumns>
-      </section>
-      <SectionCta href="/about" color="--classic-blue">
-        <div>
-          <h1>Meet our people</h1>
-          <p>We are a multi-disciplinary collaborative of digital product and growth experts.</p>
-        </div>
-      </SectionCta>
-      <section>
-        <TableList caption="You're in great company" subtitle="We partner with exceptional early and growth stage tech companies. With us, they built and monetized modern digital experiences.">
+        <TableList caption="Some stuff involving me" subtitle="Kudos to the people who bet on and collaborated with me.">
+          <Logo>
+            <h1>Inspect Element</h1>
+            <LogoWrap>
+              <img
+                alt="Inspect Element"
+                src="/images/home/bowtie.png"
+              />
+            </LogoWrap>
+          </Logo>
+          <p>We partnered up to unbox the product black box for exciting early-stage tech companies. We started a product growth consulting collective.</p>
           <Logo>
             <h1>Bowtie</h1>
             <LogoWrap>
@@ -150,29 +86,7 @@ export default function Index() {
               />
             </LogoWrap>
           </Logo>
-          <p>They were seeing significant growth in search traffic from users concerned about their loved one's health. They wanted to introduce solutions to these users in more relevant ways.</p>
-          <Logo>
-            <h1>Gogovan</h1>
-            <LogoWrap>
-              <img
-                alt="Gogovan"
-                src="/images/home/gogovan.png"
-              />
-            </LogoWrap>
-          </Logo>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-          <Logo>
-            <h1>Klook</h1>
-            <LogoWrap
-              style={{ height: '16px' }}
-            >
-              <img
-                alt="Klook"
-                src="/images/home/klook.png"
-              />
-            </LogoWrap>
-          </Logo>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+          <p>They saw growth in search traffic from users worried about their loved one's health. We worked on introducing health solutions to users in more relevant ways.</p>
           <Logo>
             <h1>Snapask</h1>
             <LogoWrap>
@@ -182,78 +96,65 @@ export default function Index() {
               />
             </LogoWrap>
           </Logo>
-          <p>They started with a product offering that was fundamentally seasonal. To improve user stickiness, new services were bundled together into a subscription product that users found more valuable all year round.</p>
+          <p>They wanted to build a world-class online learning platform for high school students. We grew to company from Hong Kong to ten countries.</p>
+          <Logo>
+            <h1>24 Hour Race</h1>
+            <LogoWrap>
+              <img
+                alt="24 Hour Race"
+                src="/images/home/snapask.png"
+              />
+            </LogoWrap>
+          </Logo>
+          <p>They wanted to build a grassroots youth movement into a legitimate intenational charity. We achieved that, expanded overseas, launched a corporate product, and more.</p>
         </TableList>
       </section>
-      <SectionCta href="/contact" color="--golden-rod-yellow">
+      <SectionCta href="/about" color="--classic-blue">
         <div>
-          <h1>Schedule your call</h1>
-          <p>Even if you don't know where your bottlenecks are, we should still talk.</p>
+          <h1>Prefer reading a résumé?</h1>
+          <p>For work, I build friendly humanist software products.</p>
         </div>
       </SectionCta>
       <section>
-        <TableList caption="Don't take our word for it">
-          <blockquote><h2>The pandemic has been an opportunity for the entire learning sector. It has accelerated the adoption of online learning. Especially parents and educators have really warmed to it.</h2></blockquote>
+        <TableList caption="Don't take my word for it">
+          <blockquote><h3>Christopher always goes beyond the scope of his role to bring positive impact to teams he's working with. He does not confine himself to management. He is detail-oriented, a disciplined learner and is never afraid to get his hands dirty in a challenging situation with his teammates.</h3></blockquote>
           <Logo>
             <p>
-              CNN&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-              <span>2020-06-13</span>
-              <br />
-              <span>
-                Inventing Tomorrow: From Classroom to&nbsp;
-                <q>Class Zoom</q>
-              </span>
-            </p>
-          </Logo>
-          <blockquote><h2>You&apos;ve obviously got first-mover advantage in terms of this digital license, but many of the incumbents are investing in digital. The big sell now is the convenience and the speed. We have an advantage because of direct relationship with the customer.</h2></blockquote>
-          <Logo>
-            <p>
-              Bloomberg TV&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-              <span>2020-06-02</span>
-              <br />
-              <span>
-                H.K. Online Insurer Bowtie Sees&nbsp;
-                <q>Very Positive</q>
-                &nbsp;Outlook, CEO Says
-              </span>
+              Sharlene&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <span>Google PM</span>
             </p>
           </Logo>
           <blockquote>
             <h2>
-              Klook, which offers its services in nine languages and 41 currencies, processed $1 billion in bookings last year. In mature markets such as Hong Kong and Singapore they have&nbsp;
-              <q>healthy cash flow</q>
-              , while in newer markets they are focused on investing to expand the user base.
+              An intuitive leader with integrity. Work with him to effect great change.
             </h2>
           </blockquote>
           <Logo>
             <p>
-              The Information&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-              <span>2019-10-10</span>
-              <br />
-              <span>
-                SoftBank-Backed Tourism App Klook Eyes Expansion in Europe
-              </span>
+              Ingrid&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <span>Teammate</span>
             </p>
           </Logo>
-          <blockquote><h3>Snapask, an on-demand tutoring app, announced today that it has raised $35 million in Series B funding. Earmarked for the startup’s expansion in Southeast Asia, the round was led by Asia Partners and Intervest.</h3></blockquote>
+          <blockquote><h3>When looking to scale the 24 Hour Race to become the global movement it is today - the first person I brought on the team was Chris. Of all the people I know, he is the most frank, honest and possesses incredible focus. He considers problems with great diligence and through multiple perspectives to help teams arrive at the best strategic decisions.</h3></blockquote>
           <Logo>
             <p>
-              TechCrunch&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-              <span>2020-02-26</span>
+              C Schrader&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <span>Tech Founder / Harvard Dropout</span>
             </p>
           </Logo>
-          <blockquote><h3>Hong Kong logistics company GoGoVan has agreed to a merger with 58 Suyun, the freight business of mainland Chinese online classifieds giant 58 Home, creating the city’s first start-up worth more than US$1 billion.</h3></blockquote>
+
+          <blockquote><h2>Sharp and critical; empathetic and team-oriented; visionary and audacious.</h2></blockquote>
           <Logo>
             <p>
-              SCMP&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-              <span>2017-08-28</span>
+              Michelle&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <span>Teammate</span>
             </p>
           </Logo>
-          <blockquote><h3>The non-profit Running To Stop The Traffik is putting on this race, entirely run by high school students. When you get a cramp and can&apos;t go on anymore, just think about what the victims are going through, and then keep on going for them.</h3></blockquote>
+          <blockquote><h2>在颱風眼裡面工作的人。</h2></blockquote>
           <Logo>
             <p>
-              CNN&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-              <span>2016-12-02</span>
+              Dustin&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <span>First Impression</span>
             </p>
           </Logo>
         </TableList>
