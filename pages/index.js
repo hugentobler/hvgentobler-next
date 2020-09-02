@@ -21,7 +21,7 @@ import ThreeColumns from '../components/ui/ThreeColumns';
  * Pass on to layout as props.
  */
 const frontmatter = {
-  title: 'Inspect Element - Product and growth strategy for tech companies',
+  title: 'Christopher Hugentobler',
   description: 'We work with early and growth stage teams to build and monetize modern digital experiences.',
   image: '/',
   colour: 'night',
@@ -34,39 +34,80 @@ export default function Index() {
   return (
     <Layout {...frontmatter}>
       <TextHero>
-        Exceed your goals. Delight your customers. Outpace your competitors.
+        What does life look like, if everyone has everything?
       </TextHero>
       <NavBar />
       <section>
         <SectionHeader>
-          <h1>Human centered and data driven, we deliver sustainable product growth.</h1>
+          <h1>If I didn't build software, I'd probably produce films.</h1>
           <div>
-            <p>Together we will confront your toughest product and growth strategy questions.</p>
+            <p>One day I'll make movies in space. If I'm lucky, I'll do these things too.</p>
             <ul>
               <li>
-                What features go in your MVP?
-                <span> How to launch it and acquire early users?</span>
+                Build software for 100M happy users
               </li>
               <li>
-                Where are you losing leads?
-                <span> How to A/B test fixes to your conversion funnel?</span>
+                Open a bakery / pâtisserie for mum
               </li>
               <li>
-                Why are your customers churning?
-                <span> How to engage and retain users across channels?</span>
-              </li>
-              <li>
-                How to monetize at scale?
-                <span> How to find your customers abroad?</span>
-              </li>
-              <li>
-                Who will you hire?
-                <span> How to build your product growth team and workflows?</span>
+                Own a surf retreat by a point break
               </li>
             </ul>
           </div>
         </SectionHeader>
       </section>
+      <section>
+        <TableList caption="Some stuff we worked on" subtitle="I've been lucky to work with great people to do great stuff.">
+          <Logo>
+            <h1>Bowtie</h1>
+            <LogoWrap>
+              <img
+                alt="Bowtie"
+                src="/images/home/bowtie.png"
+              />
+            </LogoWrap>
+          </Logo>
+          <p>They were seeing significant growth in search traffic from users concerned about their loved one's health. They wanted to introduce solutions to these users in more relevant ways.</p>
+          <Logo>
+            <h1>Gogovan</h1>
+            <LogoWrap>
+              <img
+                alt="Gogovan"
+                src="/images/home/gogovan.png"
+              />
+            </LogoWrap>
+          </Logo>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+          <Logo>
+            <h1>Klook</h1>
+            <LogoWrap
+              style={{ height: '16px' }}
+            >
+              <img
+                alt="Klook"
+                src="/images/home/klook.png"
+              />
+            </LogoWrap>
+          </Logo>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+          <Logo>
+            <h1>Snapask</h1>
+            <LogoWrap>
+              <img
+                alt="Snapask"
+                src="/images/home/snapask.png"
+              />
+            </LogoWrap>
+          </Logo>
+          <p>They started with a product offering that was fundamentally seasonal. To improve user stickiness, new services were bundled together into a subscription product that users found more valuable all year round.</p>
+        </TableList>
+      </section>
+      <SectionCta href="/blog" color="--golden-rod-yellow">
+        <div>
+          <h1>What do surfing and software have in common?</h1>
+          <p>Sometimes I organize and write down my experiences and ideas. Hope you aren't easily bored.</p>
+        </div>
+      </SectionCta>
       <section>
         <ThreeColumns caption="Countdown to rocket ship growth">
           <div>

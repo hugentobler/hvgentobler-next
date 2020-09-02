@@ -37,7 +37,7 @@ export default function TextHero(props) {
         animate="visible"
         variants={fadeInDelay}
       >
-        <span>Inspect Element</span>
+        <span>Christopher Hugentobler</span>
       </motion.p>
       <motion.p
         initial="hidden"
@@ -46,7 +46,7 @@ export default function TextHero(props) {
         className="no-wrap"
       >
         <span>
-          Product and growth strategy for tech companies
+          Walking talking venn digram
         </span>
       </motion.p>
       <Main>

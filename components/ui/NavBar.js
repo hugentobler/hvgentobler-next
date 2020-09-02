@@ -65,25 +65,25 @@ export default function NavBar() {
       >
         <Grid>
           <CustomLink href="/">
-            <a>Work</a>
+            <a>Home</a>
           </CustomLink>
           <CustomLink href="/about">
             <a>About</a>
           </CustomLink>
           <CustomLink href="/blog">
-            <a>Blog</a>
+            <a>Writing</a>
           </CustomLink>
-          {/* <CustomLink href="/bookshelf">
+          <CustomLink href="/bookshelf">
             <a>Reading</a>
-          </CustomLink> */}
-          <CustomLink href="/blog">
+          </CustomLink>
+          {/* <CustomLink href="/blog">
             <a
               className="button"
               style={{ paddingBottom: '4px' }}
             >
               Collab
             </a>
-          </CustomLink>
+          </CustomLink> */}
         </Grid>
       </motion.div>
     </Root>

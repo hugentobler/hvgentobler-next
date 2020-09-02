@@ -16,21 +16,22 @@ export default () => (
   <Root>
     <Grid>
       <Heading>
-        Unbox the product growth black box.
+        This is the new world. And in this world, you can be whoever the f*ck you want. - M.M.
       </Heading>
       <Links>
-        <Link
+        {/* <Link
           href="/contact"
           scroll={false}
-        >
+          >
           <a>Contact Us</a>
-        </Link>
-        {/* <a href="https://linkedin.com/in/hugentobler/" target="_blank" rel="noreferrer">LinkedIn</a>
-        <a href="https://instagram.com/globehunter" target="_blank" rel="noreferrer">Instagram</a> */}
+        </Link> */}
+        <a href="mailto:hugentobler@hey.com" target="_blank" rel="noreferrer">Say Hey!</a>
+        <a href="https://linkedin.com/in/hugentobler/" target="_blank" rel="noreferrer">LinkedIn</a>
+        <a href="https://instagram.com/globehunter" target="_blank" rel="noreferrer">Instagram</a>
         <a href="https://github.com/hugentobler/hvgentobler-next" target="_blank" rel="noreferrer">Site Source</a>
       </Links>
-      <p>Inspect Element</p>
-      <p>Product and Growth Collaborative</p>
+      <p>Christopher Hugentobler</p>
+      <p>Walking talking venn diagram</p>
       <p>
         No cookies, built w/&nbsp;
         <a href="https://nextjs.org/" target="_blank" rel="noreferrer">Next.js</a>
