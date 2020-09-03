@@ -14,7 +14,6 @@ import NavBar from '../components/ui/NavBar';
 import SectionHeader from '../components/ui/SectionHeader';
 import TableList from '../components/ui/TableList';
 import SectionCta from '../components/ui/SectionCta';
-import ThreeColumns from '../components/ui/ThreeColumns';
 
 /**
  * FRONTMATTER
@@ -22,8 +21,8 @@ import ThreeColumns from '../components/ui/ThreeColumns';
  */
 const frontmatter = {
   title: 'Christopher Hugentobler',
-  description: 'We work with early and growth stage teams to build and monetize modern digital experiences.',
-  image: '/',
+  description: 'What does life look like if everyone has everything? When and how does tech beget happiness? One day I\'ll make movies in space. In the meantime, I make friendly humanist software products.',
+  image: '/images/home/og.jpg',
   colour: 'night',
 };
 
@@ -34,14 +33,14 @@ export default function Index() {
   return (
     <Layout {...frontmatter}>
       <TextHero>
-        What does life look like, if everyone has everything? Where does tech beget happiness?
+        What does life look like if everyone has everything? When and how does tech beget happiness?
       </TextHero>
       <NavBar />
       <section>
         <SectionHeader>
           <h1>If I wasn't building software, maybe I'd make movies.</h1>
           <div>
-            <p>One day I'll make movies in space. Here's some stuff I'll try along the way.</p>
+            <p>One day I'll make movies in space. In the meantime, here's a few things I plan to attempt.</p>
             <ul>
               <li>
                 Build software for 100M happy humans.
@@ -61,8 +60,8 @@ export default function Index() {
       </section>
       <SectionCta href="/blog" color="--golden-rod-yellow">
         <div>
-          <h1>What do surfing and software have in common?</h1>
-          <p>Sometimes I organize and write down my experiences and ideas. Hope you aren't easily bored.</p>
+          <h2>What do surfing and software have in common?</h2>
+          <p>I'm pretty stoked about both. <br/>Sometimes I write about stuff that has me excited. Take a look.</p>
         </div>
       </SectionCta>
       <section>
@@ -76,7 +75,7 @@ export default function Index() {
               />
             </LogoWrap>
           </Logo>
-          <p>We partnered up to unbox the product black box for exciting early-stage tech companies. We started a product growth consulting collective.</p>
+          <p>We formed a product growth consulting collective. We partnered up to unbox the product black box for exciting early-stage tech companies.</p>
           <Logo>
             <h1>Bowtie</h1>
             <LogoWrap>
@@ -99,10 +98,10 @@ export default function Index() {
           <p>They wanted to build a world-class online learning platform for high school students. We grew to company from Hong Kong to ten countries.</p>
           <Logo>
             <h1>24 Hour Race</h1>
-            <LogoWrap>
+            <LogoWrap style={{ height: '36px' }}>
               <img
                 alt="24 Hour Race"
-                src="/images/home/snapask.png"
+                src="/images/home/24hourrace.png"
               />
             </LogoWrap>
           </Logo>
@@ -111,8 +110,8 @@ export default function Index() {
       </section>
       <SectionCta href="/about" color="--classic-blue">
         <div>
-          <h1>Prefer reading a résumé?</h1>
-          <p>For work, I build friendly humanist software products.</p>
+          <h2>Prefer a résumé with tables and bullet points?</h2>
+          <p>For work, I build friendly humanist software products. Read more.</p>
         </div>
       </SectionCta>
       <section>

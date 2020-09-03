@@ -17,7 +17,8 @@ export default (colour) => {
     default: ['--white', '--black'],
     night: ['--black', '--white'],
     blue: ['--classic-blue', '--white'],
-    salmon: ['--salmon', '--white'],
+    makeup: ['--old-makeup-pink', '--classic-blue'],
+    green: ['--bold-green', '--white'],
   };
 
   /* Is there a custom style for active page? */

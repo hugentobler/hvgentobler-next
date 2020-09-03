@@ -88,13 +88,16 @@ const Grid = styled.div`
 `;
 
 const Wrap = styled.div`
-  height: 100vh;
-  height: calc(var(--vh, 1vh) * 100);
-  justify-self: end;
+  height: 70vh;
+  height: calc(var(--vh, 1vh) * 70);
   grid-column-start: 1;
   grid-column-end: span 13;
-  grid-row: 4 / 5;
+  grid-row: 5 / 5;
+  justify-self: end;
+  min-height: 400px;
   @media ${(props) => props.theme.forNotSmall} {
+    height: 100vh;
+    height: calc(var(--vh, 1vh) * 100);
     grid-column-start: span 8;
     grid-column-end: 14;
     grid-row: 1 / span 3;
