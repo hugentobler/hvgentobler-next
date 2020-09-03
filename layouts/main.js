@@ -7,26 +7,41 @@
 /**
  * MODULES
  */
-import { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { useRouter } from 'next/router';
 import Head from 'next/head';
-import dynamic from 'next/dynamic';
 import styled from 'styled-components';
+import {
+  m as motion,
+  MotionConfig,
+  AnimationFeature,
+  ExitFeature,
+} from 'framer-motion';
 /* Components */
 import Favicon from '../components/Favicon';
 import Footer from '../components/Footer';
-import SetCSSProperty from '../components/CustomCssProperties';
-import SetVerticalHeight from '../components/SetVerticalHeight';
+import SetCSSProperty from '../components/dom/CustomCssProperties';
+import SetVerticalHeight from '../components/dom/SetVerticalHeight';
+import LogConsole from '../components/dom/LogConsole';
 
 /**
- * DYNAMIC IMPORTS
+ * ANIMATIONS
  */
-const Background = dynamic(() => import('../components/Background'));
-
-// const Blinds = dynamic(() => import('../components/Blinds'));
-
-// const Navigation = dynamic(() => import('../components/Navigation'));
+const variants = {
+  exit: {
+    opacity: 0,
+    transition: {
+      duration: 0.15,
+      ease: 'easeOut',
+    },
+  },
+  enter: {
+    opacity: 1,
+    transition: {
+      duration: 0,
+    },
+  },
+};
 
 /**
  * DEFAULT EXPORT
@@ -40,17 +55,19 @@ export default function Layout(props) {
   const isProd = process.env.IS_PROD;
 
   /* Menu state management. */
-  const [menuOpen, toggleMenu] = useState(false);
-  const [menuAnimating, animateMenu] = useState(false);
+  // const [menuOpen, toggleMenu] = useState(false);
+  // const [menuAnimating, animateMenu] = useState(false);
 
-  useEffect(() => {
+  React.useEffect(() => {
     /* Update css properties. */
     SetCSSProperty(colour);
     /* Set vertical height. */
     SetVerticalHeight();
+    /* Log console. */
+    if (isProd) LogConsole();
     /* On subsequent route change, close menu and update css properties. */
     const handleRouteChange = (url) => {
-      toggleMenu(false);
+      // toggleMenu(false);
       SetCSSProperty(url);
     };
     router.events.on('routeChangeComplete', handleRouteChange);
@@ -69,7 +86,7 @@ export default function Layout(props) {
         <meta property="og:title" content={title} />
         <meta property="og:description" content={description} />
         <meta property="og:type" content="website" />
-        <meta property="og:site_name" content="Christopher Hugentobler" />
+        <meta property="og:site_name" content="Inspect Element" />
         <meta property="og:url" content={`https://inspectelement.co${asPath}`} />
         <meta property="og:image" content={`https://inspectelement.co${image}`} />
         {/* Prevent robots scraping dev / staging sites */}
@@ -82,18 +99,28 @@ export default function Layout(props) {
       <Root>
         {/* <Background /> */}
         {/* <Blinds
-          menuOpen={menuOpen}
-          animateMenu={animateMenu}
+            menuOpen={menuOpen}
+            animateMenu={animateMenu}
         /> */}
-        <main>
-          {React.Children.map(children, (child) => {
-            /* Pass additional props if child is a component. */
-            if (typeof child.type === 'object') {
-              return React.cloneElement(child, { menuOpen });
-            }
-            return child;
-          })}
-        </main>
+        <MotionConfig
+          features={[AnimationFeature, ExitFeature]}
+        >
+          <motion.main
+            initial="exit"
+            animate="enter"
+            exit="exit"
+            variants={variants}
+          >
+            {children}
+            {/* {React.Children.map(children, (child) => {
+              Pass additional props if child is a component.
+              if (typeof child.type === 'object') {
+                return React.cloneElement(child, { menuOpen });
+              }
+              return child;
+            })} */}
+          </motion.main>
+        </MotionConfig>
       </Root>
       <Footer />
       {/* <Navigation

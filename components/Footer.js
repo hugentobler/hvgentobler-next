@@ -7,6 +7,7 @@
 * MODULES
 */
 import styled from 'styled-components';
+import Link from 'next/link';
 
 /**
  * DEFAULT EXPORT
@@ -15,16 +16,22 @@ export default () => (
   <Root>
     <Grid>
       <Heading>
-        We can build something cool together.
+        This is the new world. And in this world, you can be whoever the f*ck you want. - M.M.
       </Heading>
       <Links>
-        <a href="mailto:hugentobler@hey.com" target="_blank" rel="noreferrer">Contact</a>
+        {/* <Link
+          href="/contact"
+          scroll={false}
+          >
+          <a>Contact Us</a>
+        </Link> */}
+        <a href="mailto:hugentobler@hey.com" target="_blank" rel="noreferrer">Say Hey!</a>
         <a href="https://linkedin.com/in/hugentobler/" target="_blank" rel="noreferrer">LinkedIn</a>
         <a href="https://instagram.com/globehunter" target="_blank" rel="noreferrer">Instagram</a>
-        <a href="https://github.com/hugentobler/hvgentobler-next" target="_blank" rel="noreferrer">Source</a>
+        <a href="https://github.com/hugentobler/hvgentobler-next" target="_blank" rel="noreferrer">Site Source</a>
       </Links>
-      <p>Inspect Element</p>
-      <p>Product and Growth Collective</p>
+      <p>Christopher Hugentobler</p>
+      <p>Walking talking venn diagram</p>
       <p>
         No cookies, built w/&nbsp;
         <a href="https://nextjs.org/" target="_blank" rel="noreferrer">Next.js</a>
@@ -112,7 +119,7 @@ const Links = styled.div`
   align-items: flex-start;
   display: flex;
   flex-direction: column;
-  grid-column: 7 / span 4;
+  grid-column: 7 / 14;
   grid-row: 2 / 2;
   margin-bottom: calc(var(--space-6) * 3);
   @media ${(props) => props.theme.forNotSmall} {

@@ -1,6 +1,6 @@
 /**
  * CUSTOM CSS PROPERTIES
- * components/CustomCssProperties.js
+ * components/dom/CustomCssProperties.js
  * If page has special styles defined here,
  * the default styles in _variables.scss will be reset.
  */
@@ -16,7 +16,9 @@ export default (colour) => {
   const pageStyles = {
     default: ['--white', '--black'],
     night: ['--black', '--white'],
-    blue: ['--classic-blue', '--yellow'],
+    blue: ['--classic-blue', '--white'],
+    makeup: ['--old-makeup-pink', '--classic-blue'],
+    green: ['--bold-green', '--white'],
   };
 
   /* Is there a custom style for active page? */

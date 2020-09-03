@@ -8,7 +8,10 @@
  */
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import { m as motion } from 'framer-motion';
 import Image from './Image';
+/* Components */
+import { fadeInDelay } from './Animations';
 
 /**
  * DEFAULT EXPORT
@@ -22,7 +25,14 @@ export default function ImageHero(props) {
       </Wrap>
       {
         captions.map((e) => (
-          <p key={e}>{e}</p>
+          <motion.p
+            key={e}
+            initial="hidden"
+            animate="visible"
+            variants={fadeInDelay}
+          >
+            {e}
+          </motion.p>
         ))
       }
     </Grid>
@@ -51,12 +61,9 @@ const Grid = styled.div`
   grid-template-rows: min-content;
   p {
     color: var(--dark-gray);
-    font-size: 1.2rem;
-    font-weight: 300;
     grid-column: 1 / 13;
-    line-height: 1.3;
-    margin: 0;
     padding-left: var(--space-2);
+    margin: 0;
     &:nth-of-type(1) {
       grid-row: 1 / 1;
       padding-top: var(--space-2);
@@ -65,7 +72,7 @@ const Grid = styled.div`
       grid-row: 2 / 2;
     }
     @media ${(props) => props.theme.forNotSmall} {
-      font-size: 1vw;
+      white-space: nowrap;
       grid-row: 1 / 1;
       &:nth-of-type(1) {
         grid-column: 1 / 3;
@@ -81,16 +88,18 @@ const Grid = styled.div`
 `;
 
 const Wrap = styled.div`
-  height: 90vh;
-  height: calc(var(--vh, 1vh) * 90);
-  justify-self: end;
+  height: 70vh;
+  height: calc(var(--vh, 1vh) * 70);
   grid-column-start: 1;
   grid-column-end: span 13;
-  grid-row: 1 / span 3;
+  grid-row: 5 / 5;
+  justify-self: end;
+  min-height: 400px;
   @media ${(props) => props.theme.forNotSmall} {
     height: 100vh;
     height: calc(var(--vh, 1vh) * 100);
     grid-column-start: span 8;
     grid-column-end: 14;
+    grid-row: 1 / span 3;
   }
 `;

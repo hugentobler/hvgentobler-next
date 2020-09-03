@@ -11,7 +11,10 @@ import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
+import { useInView } from 'react-intersection-observer';
+import { m as motion } from 'framer-motion';
 /* Components */
+import { fadeInDelay } from './Animations';
 
 /**
  * CUSTOM COMPONENTS
@@ -28,7 +31,7 @@ const CustomLink = (props) => {
 
   return (
     <NavLink>
-      <Link href={href}>
+      <Link href={href} scroll={false}>
         {React.cloneElement(children, { className })}
       </Link>
     </NavLink>
@@ -47,29 +50,49 @@ CustomLink.propTypes = {
  * DEFAULT EXPORT
  */
 export default function NavBar() {
+  const [ref, inView] = useInView({
+    threshold: 1,
+    triggerOnce: true,
+  });
+
   return (
     <Root>
-      <Grid>
-        <CustomLink href="/">
-          <a>Home</a>
-        </CustomLink>
-        <CustomLink href="/about">
-          <a>About</a>
-        </CustomLink>
-        <CustomLink href="/blog">
-          <a>Writing</a>
-        </CustomLink>
-        <CustomLink href="/bookshelf">
-          <a>Reading</a>
-        </CustomLink>
-      </Grid>
+      <motion.div
+        initial="hidden"
+        animate={inView ? 'visible' : ''}
+        variants={fadeInDelay}
+        ref={ref}
+      >
+        <Grid>
+          <CustomLink href="/">
+            <a>Home</a>
+          </CustomLink>
+          <CustomLink href="/about">
+            <a>About</a>
+          </CustomLink>
+          <CustomLink href="/blog">
+            <a>Writing</a>
+          </CustomLink>
+          <CustomLink href="/bookshelf">
+            <a>Reading</a>
+          </CustomLink>
+          {/* <CustomLink href="/blog">
+            <a
+              className="button"
+              style={{ paddingBottom: '4px' }}
+            >
+              Collab
+            </a>
+          </CustomLink> */}
+        </Grid>
+      </motion.div>
     </Root>
   );
 }
 
 /**
- * STYLED COMPONENTS
- */
+* STYLED COMPONENTS
+*/
 
 const Root = styled.nav`
   bottom: auto;
@@ -109,8 +132,15 @@ const NavLink = styled.div`
     border: none;
     font-size: 1.2rem;
     font-weight: 300;
+    line-height: 1;
     @media ${(props) => props.theme.forNotSmall} {
       font-size: 1vw;
+    }
+    &.button {
+      border: 1px solid var(--text-color);
+      border-radius: 6px;
+      margin-left: -6px;
+      padding: 6px;
     }
   }
 `;

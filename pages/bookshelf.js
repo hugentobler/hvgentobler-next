@@ -16,10 +16,10 @@ import NavBar from '../components/ui/NavBar';
  * Pass on to layout as props.
 */
 const frontmatter = {
-  title: 'Bookshelf ~ Inspect Element',
-  description: ' ',
-  image: ' ',
-  colour: 'night',
+  title: 'Bookshelf - Christopher Hugentobler',
+  description: 'Stuff I think you should read.',
+  image: '/images/home/og.jpg',
+  colour: 'makeup',
 };
 
 /**
@@ -29,9 +29,6 @@ export default function About() {
   return (
     <Layout {...frontmatter}>
       <NavBar />
-      <section>
-        <h1>Curiosity pushed him throughout his entire career and it’s still at the core of his work ethic.</h1>
-      </section>
       <section>
         <Grid>
           <p>&nbsp;</p>
@@ -43,6 +40,10 @@ export default function About() {
             <span> ~ Eating, Road-Tripping, and Risking It All with the Greatest Chef in the World</span>
           </p>
           <p><span>Jeff Gordinier</span></p>
+          <p>&nbsp;</p>
+          <p />
+          <p />
+          <p><span>History</span></p>
           <p>
             Valley of Genius
             <span> ~ The Uncensored History of Silicon Valley</span>
@@ -80,7 +81,7 @@ export default function About() {
 */
 const Grid = styled.div`
   display: grid;
-  gap: var(--space-1) var(--space-1);
+  gap: var(--space-2) var(--space-1);
   grid-template-columns: repeat(13, 1fr);
   p {
     font-size: 1.2rem;
