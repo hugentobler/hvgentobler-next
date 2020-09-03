@@ -61,7 +61,11 @@ export default function Index() {
       <SectionCta href="/blog" color="--golden-rod-yellow">
         <div>
           <h2>What do surfing and software have in common?</h2>
-          <p>I'm pretty stoked about both. <br/>Sometimes I write about stuff that has me excited. Take a look.</p>
+          <p>
+            I'm pretty stoked about both.
+            <br />
+            Sometimes I write about stuff that has me excited. Take a look.
+          </p>
         </div>
       </SectionCta>
       <section>
@@ -71,6 +75,7 @@ export default function Index() {
             <LogoWrap>
               <img
                 alt="Inspect Element"
+                loading="lazy"
                 src="/images/home/bowtie.png"
               />
             </LogoWrap>
@@ -81,6 +86,7 @@ export default function Index() {
             <LogoWrap>
               <img
                 alt="Bowtie"
+                loading="lazy"
                 src="/images/home/bowtie.png"
               />
             </LogoWrap>
@@ -91,6 +97,7 @@ export default function Index() {
             <LogoWrap>
               <img
                 alt="Snapask"
+                loading="lazy"
                 src="/images/home/snapask.png"
               />
             </LogoWrap>
@@ -101,6 +108,7 @@ export default function Index() {
             <LogoWrap style={{ height: '36px' }}>
               <img
                 alt="24 Hour Race"
+                loading="lazy"
                 src="/images/home/24hourrace.png"
               />
             </LogoWrap>
