@@ -57,6 +57,9 @@ const BlogPosts = () => (
         <span>
           {e.publishedAt}
           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          {e.readingTime.words}
+          &nbsp;words
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
           {e.geo}
         </span>
       </p>
@@ -72,7 +75,7 @@ export default function Blog() {
     <Layout {...frontmatter}>
       <NavBar />
       <section>
-        <TableList caption="My blog">
+        <TableList caption="Blog">
           <BlogPosts />
         </TableList>
       </section>
