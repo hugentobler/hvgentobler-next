@@ -66,6 +66,7 @@ export default function SectionHeader(props) {
           );
         }
         const divChildren = child.props.children;
+        console.log(divChildren)
         return (
           <div>
             {React.Children.map(divChildren, (divChildrenChild) => (

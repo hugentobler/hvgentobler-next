@@ -41,9 +41,9 @@ const BlogTitle = (props) => {
   return (
     <Link href={`/${slug}`}>
       <a style={{ border: 'none' }}>
-        <h2 style={{ margin: 0 }}>
+        <h1 style={{ margin: 0 }}>
           {title}
-        </h2>
+        </h1>
       </a>
     </Link>
   );

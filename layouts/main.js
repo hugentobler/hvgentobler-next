@@ -145,7 +145,7 @@ Layout.propTypes = {
 };
 
 Layout.defaultProps = {
-  colour: 'default',
+  colour: 'night',
 };
 
 /**
