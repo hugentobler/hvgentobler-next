@@ -43,9 +43,11 @@ export default function About() {
       <NavBar />
       <section>
         <SectionHeader>
-          <h1>
-            Builder of friendly humanist software products.
-          </h1>
+          <div>
+            <h1>
+              Builder of friendly humanist software products.
+            </h1>
+          </div>
           <div>
             <p>
               Christopher grew up in an environment that celebrated curiosity and hospitality. One day he'll make movies in space. But first he's making software products.

@@ -38,7 +38,9 @@ export default function Index() {
       <NavBar />
       <section>
         <SectionHeader>
-          <h1>If I wasn't building software, maybe I'd make movies.</h1>
+          <div>
+            <h1>If I wasn't building software, maybe I'd make movies.</h1>
+          </div>
           <div>
             <p>One day I'll make movies in space. In the meantime, here's a few things I plan to attempt.</p>
             <ul>
