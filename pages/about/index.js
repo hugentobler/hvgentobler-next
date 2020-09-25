@@ -28,6 +28,12 @@ const frontmatter = {
  * DEFAULT EXPORT
  */
 export default function About() {
+  React.useEffect(() => {
+    /* Fix object position of 2nd image */
+    const images = document.querySelectorAll('img');
+    images[1].style.objectPosition = 'center 10%';
+  });
+
   return (
     <Layout {...frontmatter}>
       <ImageHero
@@ -37,7 +43,7 @@ export default function About() {
         w="1200"
         captions={[
           'Christopher Hugentobler',
-          'Tech product and growth leader',
+          'Tech product growth leader',
         ]}
       />
       <NavBar />
@@ -50,9 +56,9 @@ export default function About() {
           </div>
           <div>
             <p>
-              Christopher grew up in an environment that celebrated curiosity and hospitality. One day he'll make movies in space. But first he's making software products.
+              Christopher grew up surrounded by curious people and great hospitality. He builds friendly software products.
             </p>
-            <p>Born in Taipei, Christopher moved to Xi'an, then Kota Kinabalu, grew up in Macao and Guangzhou, and came of age in Hong Kong.</p>
+            <p>Born in Taipei, Christopher moved to Xi'an, then Kota Kinabalu, then Macao and Guangzhou. He finished college in Hong Kong at 19 years old.</p>
             <p>In high school, he clicked 'Inspect Element' for the first time after promising to complete an event website in one month. He delivered.</p>
           </div>
         </SectionHeader>
@@ -62,7 +68,7 @@ export default function About() {
           <div>
             <h3>Highlights</h3>
             <p>As 1st employee at Snapask reporting to the CEO, Christopher setup and led initial product, design, growth and b2b teams. He launched 3 products, managing their P&L, and led several cross-functional, cross-border teams.</p>
-            <p>His work at 24 Hour Race resulted in millions of dollars donated to charities fighting human trafficking. Christopher spent several years working in youth leadership development. His goal was to inspire and empower more youth action.</p>
+            <p>Christopher's work at 24 Hour Race resulted in millions of dollars donated to charities fighting human trafficking across Asia. He spent several years working in youth leadership development. His goal was to inspire and empower more youth action.</p>
             <p>Christopher is regularly invited to speak on topics related to startups, product development and growth marketing. He is fluent in English, Mandarin and Cantonese.</p>
           </div>
           <div>
@@ -75,14 +81,17 @@ export default function About() {
                 Optimize your conversion funnel by accessing your audience's emotions (heart), while speaking clearly to their logic (brain).
               </li>
               <li>
-                Define and orchestrate your omni-channel marketing mix across the whole product funnel / user experience.
+                Define and orchestrate your user engagement strategy across multiple touchpoints, from start to end of your user funnel.
               </li>
               <li>
-                Recruit and operate your own effective and empowered product growth teams.
+                Recruit and operate your own empowered product growth teams.
               </li>
             </ul>
-            <h3>Speaker + Instructor</h3>
+            <h3>Speaker + Instructor + Mentor</h3>
             <p>
+              sofasoda
+              <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Taipei</span>
+              <br />
               Growth Marketing Academy
               <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Taipei</span>
               <br />
@@ -105,14 +114,6 @@ export default function About() {
               <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Consulting Collective</span>
               <br />
               <span>Summer 2020</span>
-            </p>
-            <p>
-              CRO Consultant
-              <br />
-              Bowtie
-              <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Life & Medical Insurtech</span>
-              <br />
-              <span>Mar 2020</span>
             </p>
             <p>
               Product Lead / Growth Lead / Misc.

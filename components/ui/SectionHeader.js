@@ -58,7 +58,7 @@ export default function SectionHeader(props) {
           return (
             <div>
               {React.Children.map(divChildren, (divChildrenChild) => {
-                if (divChildrenChild.type === 'h1') {
+                if (divChildrenChild && divChildrenChild.type === 'h1') {
                   return (
                     <motion.h1
                       initial="hidden"

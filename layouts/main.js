@@ -95,9 +95,9 @@ export default function Layout(props) {
         <meta property="og:title" content={title} />
         <meta property="og:description" content={description} />
         <meta property="og:type" content="website" />
-        <meta property="og:site_name" content="Inspect Element" />
-        <meta property="og:url" content={`https://inspectelement.co${asPath}`} />
-        <meta property="og:image" content={`https://inspectelement.co${image}`} />
+        <meta property="og:site_name" content="Christopher Hugentobler" />
+        <meta property="og:url" content={`https://hvgentobler.com${asPath}`} />
+        <meta property="og:image" content={`https://hvgentobler.com${image}`} />
         {/* Prevent robots scraping dev / staging sites */}
         {isProd ? <meta name="robots" content="index, follow" /> : <meta name="robots" content="noindex, nofollow" />}
         {/* Preload primary font */}

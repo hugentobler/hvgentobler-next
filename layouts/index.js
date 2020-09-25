@@ -34,7 +34,7 @@ const StructuredData = (props) => {
       name: author,
     },
     datePublished: publishedAt,
-    image: `https://inspectelement.co${image}`,
+    image: `https://hvgentobler.com${image}`,
   };
   return (
     <script
@@ -64,11 +64,11 @@ export default function Page(frontmatter) {
             <SectionHeader>
               <div>
                 <h1>{H1[0].props.children}</h1>
-                {Lede.length > 0
-                  && <h3><span>{Lede[0].props.children}</span></h3>}
+                {Lede[0] ? (
+                  <h3><span>{Lede[0].props.children}</span></h3>
+                ) : <div /> /* MDX enhanced doesn't like conditional rendering */}
               </div>
               <div>
-                {/* Insert frontmatter here without breaking mdx */}
                 <p>
                   {frontmatter.author}
                   <br />
