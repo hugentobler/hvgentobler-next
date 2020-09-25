@@ -28,11 +28,11 @@ const H2 = styled.h2`
   ${'' /* color: gray; */}
 `;
 
-const Lede = styled.p`
-  color: var(--dark-gray);
+const Lede = styled.h3`
+  ${'' /* color: var(--dark-gray);
   font-size: 1.4rem;
   font-weight: 300;
-  line-height: 1.4;
+  line-height: 1.4; */}
 `;
 
 const Code = styled.code`
@@ -48,7 +48,7 @@ const Wrap = styled.div`
 `;
 
 const Left = styled.div`
-  
+
 `;
 
 const Right = styled.div`
@@ -97,7 +97,7 @@ const CustomLink = (props) => {
 const MDXComponents = {
   h1: H1,
   h2: H2,
-  h4: Lede,
+  h3: Lede,
   inlineCode: Code,
   Columns,
   a: CustomLink,

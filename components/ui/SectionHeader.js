@@ -21,7 +21,7 @@ const ObserveIntersectionChild = (props) => {
   const { children } = props;
 
   const [ref, inView] = useInView({
-    threshold: 1,
+    threshold: 0.5,
     triggerOnce: true,
   });
 
@@ -51,21 +51,35 @@ export default function SectionHeader(props) {
 
   return (
     <Grid>
-      {React.Children.map(children, (child) => {
-        if (child.type === 'h1') {
-          const text = child.props.children;
+      {React.Children.map(children, (child, index) => {
+        const divChildren = child.props.children;
+        // First div
+        if (index === 0) {
           return (
-            <motion.h1
-              initial="hidden"
-              animate={headerInView ? 'visible' : ''}
-              variants={headerParent}
-              ref={headerRef}
-            >
-              {Split(text)}
-            </motion.h1>
+            <div>
+              {React.Children.map(divChildren, (divChildrenChild) => {
+                if (divChildrenChild && divChildrenChild.type === 'h1') {
+                  return (
+                    <motion.h1
+                      initial="hidden"
+                      animate={headerInView ? 'visible' : ''}
+                      variants={headerParent}
+                      ref={headerRef}
+                    >
+                      {Split(divChildrenChild.props.children)}
+                    </motion.h1>
+                  );
+                }
+                return (
+                  <ObserveIntersectionChild>
+                    {divChildrenChild}
+                  </ObserveIntersectionChild>
+                );
+              })}
+            </div>
           );
         }
-        const divChildren = child.props.children;
+        // Second / other divs
         return (
           <div>
             {React.Children.map(divChildren, (divChildrenChild) => (
@@ -100,7 +114,7 @@ const Grid = styled.div`
   grid-template-columns: repeat(13, 1fr);
   grid-template-rows: min-content;
   > :nth-child(1) {
-    grid-column: 1 / 14;
+    grid-column: 1 / span 13;
     @media ${(props) => props.theme.forMiddle} {
       grid-column: 4 / span 8;
     }

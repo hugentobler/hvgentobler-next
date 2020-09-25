@@ -41,9 +41,9 @@ const BlogTitle = (props) => {
   return (
     <Link href={`/${slug}`}>
       <a style={{ border: 'none' }}>
-        <h2 style={{ margin: 0 }}>
+        <h1 style={{ margin: 0 }}>
           {title}
-        </h2>
+        </h1>
       </a>
     </Link>
   );
@@ -56,6 +56,9 @@ const BlogPosts = () => (
       <p>
         <span>
           {e.publishedAt}
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          {e.readingTime.words}
+          &nbsp;words
           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
           {e.geo}
         </span>
@@ -72,7 +75,7 @@ export default function Blog() {
     <Layout {...frontmatter}>
       <NavBar />
       <section>
-        <TableList caption="My blog">
+        <TableList caption="Blog">
           <BlogPosts />
         </TableList>
       </section>

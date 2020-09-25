@@ -17,7 +17,7 @@ import NavBar from '../components/ui/NavBar';
 */
 const frontmatter = {
   title: 'Bookshelf - Christopher Hugentobler',
-  description: 'Stuff I think you should read.',
+  description: 'Stuff I read recently.',
   image: '/images/home/og.jpg',
   colour: 'makeup',
 };
@@ -34,12 +34,29 @@ export default function About() {
           <p>&nbsp;</p>
           <p />
           <p />
+          <p><span>Fiction</span></p>
+          <p>
+            Surface Detail
+            <span> (Culture Series)</span>
+          </p>
+          <p><span>Iain Banks</span></p>
+          <p>
+            Blindsight
+          </p>
+          <p><span>Peter Watts</span></p>
+          <p>&nbsp;</p>
+          <p />
+          <p />
           <p><span>People</span></p>
           <p>
             Hungry
             <span> ~ Eating, Road-Tripping, and Risking It All with the Greatest Chef in the World</span>
           </p>
           <p><span>Jeff Gordinier</span></p>
+          <p>
+            Kitchen Confidential
+          </p>
+          <p><span>Anthony Bourdain</span></p>
           <p>&nbsp;</p>
           <p />
           <p />
@@ -55,21 +72,19 @@ export default function About() {
           <p><span>Mental Models</span></p>
           <p>The Hard Thing About Hard Things</p>
           <p><span>Ben Horowitz</span></p>
-          <p>&nbsp;</p>
-          <p />
-          <p />
-          <p><span>Fiction</span></p>
-          <p>
-            Surface Detail
-            <span> (Culture Series)</span>
-          </p>
-          <p><span>Iain Banks</span></p>
+          <p>The Design of Everyday Things</p>
+          <p><span>Donald Norman</span></p>
           <p>&nbsp;</p>
           <p />
           <p />
           <p><span>Blogs</span></p>
           <p>Handbooks of Knowledge</p>
           <p><span>Julian Shapiro</span></p>
+          <p>
+            Divinations
+            <span> | Substack</span>
+          </p>
+          <p><span>Nathan Baschez</span></p>
         </Grid>
       </section>
     </Layout>

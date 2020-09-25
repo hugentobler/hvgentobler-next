@@ -14,7 +14,7 @@ export default (colour) => {
 
   /* Pages and custom styles. */
   const pageStyles = {
-    default: ['--white', '--black'],
+    white: ['--white', '--black'],
     night: ['--black', '--white'],
     blue: ['--classic-blue', '--white'],
     makeup: ['--old-makeup-pink', '--classic-blue'],

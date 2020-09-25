@@ -21,7 +21,7 @@ import SectionCta from '../components/ui/SectionCta';
  */
 const frontmatter = {
   title: 'Christopher Hugentobler',
-  description: 'What does life look like if everyone has everything? When and how does tech beget happiness? One day I\'ll make movies in space. In the meantime, I make friendly humanist software products.',
+  description: 'Walking talking venn diagram. One day I\'ll make movies in space. In the meantime, I make friendly humanist software products.',
   image: '/images/home/og.jpg',
   colour: 'night',
 };
@@ -33,14 +33,16 @@ export default function Index() {
   return (
     <Layout {...frontmatter}>
       <TextHero>
-        What does life look like if everyone has everything? When and how does tech beget happiness?
+        What does life look like if everyone has everything?  Does tech beget happiness?  What roles do we each perform?
       </TextHero>
       <NavBar />
       <section>
         <SectionHeader>
-          <h1>If I wasn't building software, maybe I'd make movies.</h1>
           <div>
-            <p>One day I'll make movies in space. In the meantime, here's a few things I plan to attempt.</p>
+            <h1>If I wasn't building software, maybe I'd make movies.</h1>
+          </div>
+          <div>
+            <p>One day I'll make movies in space. In the meantime, here's what I'm trying.</p>
             <ul>
               <li>
                 Build software for 100M happy humans.
@@ -60,11 +62,11 @@ export default function Index() {
       </section>
       <SectionCta href="/blog" color="--golden-rod-yellow">
         <div>
-          <h2>What do surfing and software have in common?</h2>
+          <h1>Sometimes I write stuff</h1>
           <p>
-            I'm pretty stoked about both.
+            Like about what surfing and software have in common, and other stuff that has me excited.
             <br />
-            Sometimes I write about stuff that has me excited. Take a look.
+            Don't judge.
           </p>
         </div>
       </SectionCta>
@@ -76,11 +78,15 @@ export default function Index() {
               <img
                 alt="Inspect Element"
                 loading="lazy"
-                src="/images/home/bowtie.png"
+                src="/images/home/inspectelement.png"
               />
             </LogoWrap>
           </Logo>
-          <p>We formed a product growth consulting collective. We partnered up to unbox the product black box for exciting early-stage tech companies.</p>
+          <p>
+            We formed a product growth consulting collective. We partnered up to unbox the product black box for exciting early-stage tech companies.
+            &nbsp;
+            <a href="https://inspectelement.co?ref=hvgentobler.com" target="_blank">Hire Us</a>
+          </p>
           <Logo>
             <h1>Bowtie</h1>
             <LogoWrap>
@@ -91,7 +97,7 @@ export default function Index() {
               />
             </LogoWrap>
           </Logo>
-          <p>They saw growth in search traffic from users worried about their loved one's health. We worked on introducing health solutions to users in more relevant ways.</p>
+          <p>They saw growth in search traffic from users looking for better protection. We worked on introducing health solutions to users in more relevant ways.</p>
           <Logo>
             <h1>Snapask</h1>
             <LogoWrap>
@@ -102,7 +108,7 @@ export default function Index() {
               />
             </LogoWrap>
           </Logo>
-          <p>They wanted to build a world-class online learning platform for high school students. We grew to company from Hong Kong to ten countries.</p>
+          <p>They wanted to build a world-class online learning platform for high school students. We grew the company from Hong Kong to ten countries.</p>
           <Logo>
             <h1>24 Hour Race</h1>
             <LogoWrap style={{ height: '36px' }}>
@@ -118,8 +124,12 @@ export default function Index() {
       </section>
       <SectionCta href="/about" color="--classic-blue">
         <div>
-          <h2>Prefer a résumé with tables and bullet points?</h2>
-          <p>For work, I build friendly humanist software products. Read more.</p>
+          <h1>Looking for a proper résumé?</h1>
+          <p>
+            For work, I build friendly humanist software products.
+            <br />
+            Read my experience in bullet points.
+          </p>
         </div>
       </SectionCta>
       <section>

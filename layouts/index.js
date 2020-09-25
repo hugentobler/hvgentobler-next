@@ -15,22 +15,11 @@ import styled from 'styled-components';
 /* Components */
 import Layout from './main';
 import NavBar from '../components/ui/NavBar';
+import SectionHeader from '../components/ui/SectionHeader';
 
 /**
  * CUSTOM COMPONENTS
  */
-
-const BlogFrontmatter = (props) => {
-  const { author, publishedAt, readingTime } = props;
-  return (
-    <Wrap>
-      <Frontmatter>{author}</Frontmatter>
-      <Frontmatter>{publishedAt}</Frontmatter>
-      <Frontmatter>{readingTime.text}</Frontmatter>
-    </Wrap>
-  );
-};
-
 const StructuredData = (props) => {
   const {
     author, publishedAt, image, H1,
@@ -45,7 +34,7 @@ const StructuredData = (props) => {
       name: author,
     },
     datePublished: publishedAt,
-    image: `https://inspectelement.co${image}`,
+    image: `https://hvgentobler.com${image}`,
   };
   return (
     <script
@@ -62,7 +51,8 @@ export default function Page(frontmatter) {
   return (props) => {
     const { children } = props;
     const H1 = children.filter((e) => e.props.mdxType === 'h1');
-    const Content = children.filter((e) => e.props.mdxType !== 'h1');
+    const Lede = children.filter((e) => e.props.mdxType === 'h3');
+    const Content = children.filter((e) => e.props.mdxType !== 'h1' && e.props.mdxType !== 'h3');
     return (
       <>
         <Head>
@@ -71,10 +61,29 @@ export default function Page(frontmatter) {
         <Layout {...frontmatter}>
           <NavBar />
           <section>
+            <SectionHeader>
+              <div>
+                <h1>{H1[0].props.children}</h1>
+                {Lede[0] ? (
+                  <h3><span>{Lede[0].props.children}</span></h3>
+                ) : <div /> /* MDX enhanced doesn't like conditional rendering */}
+              </div>
+              <div>
+                <p>
+                  {frontmatter.author}
+                  <br />
+                  {frontmatter.publishedAt}
+                  <br />
+                  {frontmatter.readingTime.words}
+                  &nbsp;words
+                  <br />
+                  {frontmatter.geo}
+                </p>
+              </div>
+            </SectionHeader>
+          </section>
+          <section>
             <Grid>
-              {H1}
-              {/* Insert frontmatter here without breaking mdx */}
-              <BlogFrontmatter {...frontmatter} />
               <Article>
                 {Content}
               </Article>
@@ -130,43 +139,9 @@ const Article = styled.article`
   width: 100%;
 `;
 
-const Wrap = styled.div`
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  margin-top: var(--space-1);
-  @media ${(props) => props.theme.forNotSmall} {
-    flex-direction: column;
-    justify-content: flex-start;
-    p {
-      margin-bottom: var(--space-1);
-    }
-  }
-`;
-
-const Frontmatter = styled.p`
-  color: var(--text-color);
-  font-size: 1.2rem;
-  font-weight: 300;
-  line-height: 1.3;
-  margin: 0;
-  @media ${(props) => props.theme.forNotSmall} {
-    font-size: 1vw;
-  }
-`;
-
 /**
  * PROPTYPES
  */
-BlogFrontmatter.propTypes = {
-  author: PropTypes.string.isRequired,
-  publishedAt: PropTypes.string.isRequired,
-  readingTime: PropTypes.shape({
-    text: PropTypes.string.isRequired,
-  }).isRequired,
-};
-
 StructuredData.propTypes = {
   author: PropTypes.string.isRequired,
   publishedAt: PropTypes.string.isRequired,

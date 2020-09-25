@@ -59,18 +59,10 @@ h2 {
 h3 {
   font-size: 1.4em;
   font-weight: 300;
-  letter-spacing: -.5px;
-  line-height: 1.1;
+  letter-spacing: -.25px;
+  line-height: 1.2;
   margin-top: var(--space-6);
   margin-bottom: var(--space-4);
-}
-h4 { font-size: 1.25em; }
-h5 { font-size: 1em; }
-h6 {
-  font-size: 0.7em;
-  font-weight: 400;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
 }
 
 ::selection {
