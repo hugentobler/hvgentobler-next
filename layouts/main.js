@@ -65,6 +65,15 @@ export default function Layout(props) {
     SetVerticalHeight();
     /* Log console. */
     if (isProd) LogConsole();
+    /* Plausible analytics */
+    if (process.browser && window.location.href.indexOf('now.sh') === -1) {
+      const s = document.createElement('script');
+      s.async = true;
+      s.defer = true;
+      s.src = 'https://plausible.io/js/plausible.js';
+      s.dataset.domain = 'hvgentobler.com';
+      document.head.appendChild(s);
+    }
     /* On subsequent route change, close menu and update css properties. */
     const handleRouteChange = (url) => {
       // toggleMenu(false);
@@ -93,8 +102,6 @@ export default function Layout(props) {
         {isProd ? <meta name="robots" content="index, follow" /> : <meta name="robots" content="noindex, nofollow" />}
         {/* Preload primary font */}
         <link rel="preload" href="/fonts/soehne-test-buch.woff" as="font" type="font/woff" crossOrigin="anonymous" />
-        {/* Plausible analytics */}
-        {process.browser && <script async defer data-domain="hvgentobler.com" src="https://plausible.io/js/plausible.js" />}
       </Head>
       <Root>
         {/* <Background /> */}
