@@ -60,7 +60,7 @@ export default function Page(frontmatter) {
         </Head>
         <Layout {...frontmatter}>
           <NavBar />
-          <section>
+          <TopSection>
             <SectionHeader>
               <div>
                 <h1>{H1[0].props.children}</h1>
@@ -81,14 +81,14 @@ export default function Page(frontmatter) {
                 </p>
               </div>
             </SectionHeader>
-          </section>
-          <section>
+          </TopSection>
+          <BottomSection>
             <Grid>
               <Article>
                 {Content}
               </Article>
             </Grid>
-          </section>
+          </BottomSection>
         </Layout>
       </>
     );
@@ -98,37 +98,30 @@ export default function Page(frontmatter) {
 /**
  * STYLED COMPONENTS
  */
+const TopSection = styled.section`
+  padding-top: 0;
+  padding-bottom: 0;
+  @media ${(props) => props.theme.forNotSmall} {
+    padding-top: var(--space-6);
+    padding-bottom: var(--space-6);
+  }
+`;
+
+const BottomSection = styled.section`
+  padding-top: 0;
+`;
+
 const Grid = styled.div`
   display: grid;
+  gap: var(--space-1) var(--space-1);
   grid-template-columns: repeat(13, 1fr);
-  gap: var(--space-6) var(--space-1);
-  h1 {
-    grid-column: 1 / span 13;
-    margin-bottom: var(--space-6);
-    @media ${(props) => props.theme.forMiddle} {
-      grid-column: 1 / span 11;
-    }
-    @media ${(props) => props.theme.forNotSmall} {
-      grid-column: 1 / span 8;
-    }
-  }
   article {
     grid-column: 1 / span 13;
     @media ${(props) => props.theme.forMiddle} {
-      grid-column: 1 / span 11;
+      grid-column: 4 / span 8;
     }
     @media ${(props) => props.theme.forNotSmall} {
-      grid-column: 1 / span 8;
-    }
-  }
-  div {
-    grid-column: 1 / span 13;
-    grid-row: 2 / 2;
-    @media ${(props) => props.theme.forMiddle} {
-      grid-column: 1 / span 11;
-    }
-    @media ${(props) => props.theme.forNotSmall} {
-      grid-column: 10 / span 3;
+      grid-column: 4 / span 8;
     }
   }
 `;
@@ -137,6 +130,14 @@ const Article = styled.article`
   display: flex;
   flex-direction: column;
   width: 100%;
+  ol, ul {
+    transform: none;
+    padding-left: var(--space-4);
+  }
+  p, li {
+    font-size: 1.2rem;
+    line-height: 1.3;
+  }
 `;
 
 /**
