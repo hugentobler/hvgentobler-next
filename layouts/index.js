@@ -127,8 +127,8 @@ const Grid = styled.div`
 `;
 
 const Article = styled.article`
-  display: flex;
-  flex-direction: column;
+  ${'' /* display: flex;
+  flex-direction: column; */}
   width: 100%;
   ol, ul {
     transform: none;
