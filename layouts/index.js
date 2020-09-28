@@ -69,7 +69,7 @@ export default function Page(frontmatter) {
                 ) : <div /> /* MDX enhanced doesn't like conditional rendering */}
               </div>
               <div>
-                <p>
+                <FrontMatter>
                   {frontmatter.author}
                   <br />
                   {frontmatter.publishedAt}
@@ -78,7 +78,7 @@ export default function Page(frontmatter) {
                   &nbsp;words
                   <br />
                   {frontmatter.geo}
-                </p>
+                </FrontMatter>
               </div>
             </SectionHeader>
           </TopSection>
@@ -108,7 +108,7 @@ const TopSection = styled.section`
 `;
 
 const BottomSection = styled.section`
-  padding-top: 0;
+  padding-top: var(--space-3);
 `;
 
 const Grid = styled.div`
@@ -137,6 +137,13 @@ const Article = styled.article`
   p, li {
     font-size: 1.2rem;
     line-height: 1.3;
+  }
+`;
+
+const FrontMatter = styled.p`
+  font-size: .8rem;
+  @media ${(props) => props.theme.forNotSmall} {
+    font-size: 1vw;
   }
 `;
 

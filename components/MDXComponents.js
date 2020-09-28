@@ -61,6 +61,15 @@ const Right = styled.div`
   }
 `;
 
+const Caption = styled.p`
+  font-size: .8rem !important;
+  margin-bottom: var(--space-1);
+  margin-top: var(--space-4);
+  @media ${theme.forNotSmall} {
+    font-size: 1vw;
+  }
+`;
+
 /**
  * CUSTOM COMPONENTS
  */
@@ -102,6 +111,7 @@ const MDXComponents = {
   Columns,
   a: CustomLink,
   Image,
+  Caption,
 };
 
 export default MDXComponents;
