@@ -90,7 +90,7 @@ export default function Page(frontmatter) {
               </Article>
             </Grid>
           </BottomSection>
-          <SectionCta href="/blog" color="--golden-rod-yellow">
+          <SectionCta href="https://eepurl.com/hePebj" color="--golden-rod-yellow">
             <div>
               <h1>Subscribe to my updates</h1>
               <p>
