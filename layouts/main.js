@@ -74,6 +74,13 @@ export default function Layout(props) {
       s.dataset.domain = 'hvgentobler.com';
       document.head.appendChild(s);
     }
+    /* Mailchimp */
+    if (process.browser) {
+      const s = document.createElement('script');
+      s.async = true;
+      s.src = 'https://chimpstatic.com/mcjs-connected/js/users/1b94574e0f82a6f60ff14b63f/250e7afe964c168419d89e359.js';
+      document.head.appendChild(s);
+    }
     /* On subsequent route change, close menu and update css properties. */
     const handleRouteChange = (url) => {
       // toggleMenu(false);

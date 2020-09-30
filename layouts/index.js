@@ -16,6 +16,7 @@ import styled from 'styled-components';
 import Layout from './main';
 import NavBar from '../components/ui/NavBar';
 import SectionHeader from '../components/ui/SectionHeader';
+import SectionCta from '../components/ui/SectionCta';
 
 /**
  * CUSTOM COMPONENTS
@@ -89,6 +90,14 @@ export default function Page(frontmatter) {
               </Article>
             </Grid>
           </BottomSection>
+          <SectionCta href="/blog" color="--golden-rod-yellow">
+            <div>
+              <h1>Subscribe to my updates</h1>
+              <p>
+                I'm quitting Facebook. Leave your email so we can stay in touch when I'm in town.
+              </p>
+            </div>
+          </SectionCta>
         </Layout>
       </>
     );
