@@ -70,6 +70,10 @@ const Caption = styled.p`
   }
 `;
 
+const ThematicBreak = styled.div`
+  margin-top: var(--space-4);
+`;
+
 /**
  * CUSTOM COMPONENTS
  */
@@ -112,6 +116,7 @@ const MDXComponents = {
   a: CustomLink,
   Image,
   Caption,
+  ThematicBreak: ThematicBreak,
 };
 
 export default MDXComponents;
