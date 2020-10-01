@@ -23,6 +23,7 @@ import Footer from '../components/Footer';
 import SetCSSProperty from '../components/dom/CustomCssProperties';
 import SetVerticalHeight from '../components/dom/SetVerticalHeight';
 import LogConsole from '../components/dom/LogConsole';
+import Marquee from '../components/ui/Marquee';
 
 /**
  * ANIMATIONS
@@ -104,6 +105,7 @@ export default function Layout(props) {
         <link rel="preload" href="/fonts/soehne-test-buch.woff" as="font" type="font/woff" crossOrigin="anonymous" />
       </Head>
       <Root>
+        <Marquee />
         {/* <Background /> */}
         {/* <Blinds
             menuOpen={menuOpen}
@@ -128,6 +130,7 @@ export default function Layout(props) {
             })} */}
           </motion.main>
         </MotionConfig>
+        <Marquee />
       </Root>
       <Footer />
       {/* <Navigation
