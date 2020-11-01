@@ -88,8 +88,8 @@ export default function Layout(props) {
 
   return (
     <>
+      <Favicon />
       <Head>
-        <Favicon />
         <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=5.0" />
         <title>{title}</title>
         <meta name="description" content={description} />

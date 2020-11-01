@@ -20,45 +20,9 @@ const theme = {
   forNotSmall: 'screen and (min-width: 999px)',
 };
 
-const H1 = styled.h1`
-  ${'' /* color: gray; */}
-`;
-
-const H2 = styled.h2`
-  ${'' /* color: gray; */}
-`;
-
-const Lede = styled.h3`
-  ${'' /* color: var(--dark-gray);
-  font-size: 1.4rem;
-  font-weight: 300;
-  line-height: 1.4; */}
-`;
-
 const Code = styled.code`
   background-color: var(--sand);
   padding: .5em;
-`;
-
-const Wrap = styled.div`
-  @media ${theme.forNotSmall} {
-    display: flex;
-    margin: var(--space-2) 0;
-  }
-`;
-
-const Left = styled.div`
-
-`;
-
-const Right = styled.div`
-  @media ${theme.forNotSmall} {
-    flex-shrink: 0;
-    margin-left: var(--space-4);
-    margin-bottom: calc(-1 * var(--space-1));
-    margin-top: calc(-1 * var(--space-1));
-    width: calc(var(--max-width) - 600px);
-  }
 `;
 
 const Caption = styled.p`
@@ -77,18 +41,6 @@ const ThematicBreak = styled.div`
 /**
  * CUSTOM COMPONENTS
  */
-const Columns = (props) => {
-  const { children } = props;
-  const left = React.Children.toArray(children);
-  const right = left.pop();
-  return (
-    <Wrap>
-      <Left>{left}</Left>
-      <Right>{right}</Right>
-    </Wrap>
-  );
-};
-
 const CustomLink = (props) => {
   const { children, href } = props;
   const isInternalLink = href && (href.startsWith('/') || href.startsWith('#'));
@@ -108,16 +60,19 @@ const CustomLink = (props) => {
  * DEFAULT EXPORT
  */
 const MDXComponents = {
-  h1: H1,
-  h2: H2,
-  h3: Lede,
-  inlineCode: Code,
-  Columns,
-  a: CustomLink,
-  Image,
   Caption,
-  ThematicBreak: ThematicBreak,
+  Image,
+  inlineCode: Code,
+  ThematicBreak,
 };
+
+// const MDXComponents = {
+//   inlineCode: (props) => <Code>{props}</Code>,
+//   a: CustomLink,
+//   Image,
+//   Caption: (props) => <Caption>{props}</Caption>,
+//   ThematicBreak: (props) => <ThematicBreak>{props}</ThematicBreak>,
+// };
 
 export default MDXComponents;
 
@@ -127,10 +82,4 @@ export default MDXComponents;
 CustomLink.propTypes = {
   children: PropTypes.string.isRequired,
   href: PropTypes.string.isRequired,
-};
-
-Columns.propTypes = {
-  children: PropTypes.arrayOf(
-    PropTypes.element.isRequired,
-  ).isRequired,
 };

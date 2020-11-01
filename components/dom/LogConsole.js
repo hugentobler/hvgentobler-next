@@ -7,7 +7,7 @@
 /**
 * DEFAULT EXPORT
 */
-export default () => {
+export default function LogConsole() {
   const styles1 = [
     'font-family: monospace',
     'font-size: 2em',
@@ -24,4 +24,4 @@ export default () => {
   console.log('%c- Maeve Millay', styles2);
 
   return null;
-};
+}

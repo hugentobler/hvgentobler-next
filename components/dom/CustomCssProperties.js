@@ -8,7 +8,7 @@
 /**
 * DEFAULT EXPORT
 */
-export default (colour) => {
+export default function CustomCssProperties(colour) {
   /* Typecheck. */
   if (typeof colour !== 'string') console.warn('Expected pathname as string.');
 
@@ -31,4 +31,4 @@ export default (colour) => {
   }
 
   return null;
-};
+}

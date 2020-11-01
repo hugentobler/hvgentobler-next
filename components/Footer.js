@@ -7,44 +7,45 @@
 * MODULES
 */
 import styled from 'styled-components';
-import Link from 'next/link';
 
 /**
  * DEFAULT EXPORT
  */
-export default () => (
-  <Root>
-    <Grid>
-      <Heading>
-        This is the new world. And in this world, you can be whoever the f*ck you want. - M.M.
-      </Heading>
-      <Links>
-        {/* <Link
-          href="/contact"
-          scroll={false}
-          >
-          <a>Contact Us</a>
-        </Link> */}
-        <a href="mailto:hugentobler@hey.com" target="_blank" rel="noreferrer">Say Hey!</a>
-        <a href="https://linkedin.com/in/hugentobler/" target="_blank" rel="noreferrer">LinkedIn</a>
-        <a href="https://instagram.com/globehunter" target="_blank" rel="noreferrer">Instagram</a>
-        <a href="https://github.com/hugentobler/hvgentobler-next" target="_blank" rel="noreferrer">Site Source</a>
-      </Links>
-      <p>Christopher Hugentobler</p>
-      <p>Walking talking venn diagram</p>
-      <p>
-        No cookies, built w/&nbsp;
-        <a href="https://nextjs.org/" target="_blank" rel="noreferrer">Next.js</a>
-        , served w/&nbsp;
-        <a href="https://zeit.co/" target="_blank" rel="noreferrer">ZEIT</a>
-      </p>
-      <p>
-        © 2020 Licensed under&nbsp;
-        <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>
-      </p>
-    </Grid>
-  </Root>
-);
+export default function Footer() {
+  return (
+    <Root>
+      <Grid>
+        <Heading>
+          This is the new world. And in this world, you can be whoever the f*ck you want. - M.M.
+        </Heading>
+        <Links>
+          {/* <Link
+            href="/contact"
+            scroll={false}
+            >
+            <a>Contact Us</a>
+          </Link> */}
+          <a href="mailto:hugentobler@hey.com" target="_blank" rel="noreferrer">Say Hey!</a>
+          <a href="https://linkedin.com/in/hugentobler/" target="_blank" rel="noreferrer">LinkedIn</a>
+          <a href="https://instagram.com/globehunter" target="_blank" rel="noreferrer">Instagram</a>
+          <a href="https://github.com/hugentobler/hvgentobler-next" target="_blank" rel="noreferrer">Site Source</a>
+        </Links>
+        <p>Christopher Hugentobler</p>
+        <p>Walking talking venn diagram</p>
+        <p>
+          No cookies, built w/&nbsp;
+          <a href="https://nextjs.org/" target="_blank" rel="noreferrer">Next.js</a>
+          , served w/&nbsp;
+          <a href="https://zeit.co/" target="_blank" rel="noreferrer">ZEIT</a>
+        </p>
+        <p>
+          © 2020 Licensed under&nbsp;
+          <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>
+        </p>
+      </Grid>
+    </Root>
+  );
+}
 
 /**
 * STYLED COMPONENTS

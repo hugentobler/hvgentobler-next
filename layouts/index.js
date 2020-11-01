@@ -38,70 +38,69 @@ const StructuredData = (props) => {
     image: `https://hvgentobler.com${image}`,
   };
   return (
-    <script
-      type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(json) }}
-    />
+    <Head>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(json) }}
+      />
+    </Head>
   );
 };
 
 /**
  * DEFAULT EXPORT
  */
-export default function Page(frontmatter) {
-  return (props) => {
-    const { children } = props;
-    const H1 = children.filter((e) => e.props.mdxType === 'h1');
-    const Lede = children.filter((e) => e.props.mdxType === 'h3');
-    const Content = children.filter((e) => e.props.mdxType !== 'h1' && e.props.mdxType !== 'h3');
-    return (
-      <>
-        <Head>
-          <StructuredData {...frontmatter} H1={H1} />
-        </Head>
-        <Layout {...frontmatter}>
-          <NavBar />
-          <TopSection>
-            <SectionHeader>
-              <div>
-                <h1>{H1[0].props.children}</h1>
-                {Lede[0] ? (
-                  <h3><span>{Lede[0].props.children}</span></h3>
-                ) : <div /> /* MDX enhanced doesn't like conditional rendering */}
-              </div>
-              <div>
-                <FrontMatter>
-                  {frontmatter.author}
-                  <br />
-                  {frontmatter.publishedAt}
-                  <br />
-                  {frontmatter.readingTime.words}
-                  &nbsp;words
-                  <br />
-                  {frontmatter.geo}
-                </FrontMatter>
-              </div>
-            </SectionHeader>
-          </TopSection>
-          <BottomSection>
-            <Grid>
-              <Article>
-                {Content}
-              </Article>
-            </Grid>
-          </BottomSection>
-          <SectionCta href="https://eepurl.com/hePebj" color="--golden-rod-yellow">
+export default function BlogPost(props) {
+  const { children, frontMatter } = props;
+  const H1 = children.filter((e) => e.props.mdxType === 'h1');
+  const Lede = children.filter((e) => e.props.mdxType === 'h3');
+  const Content = children.filter((e) => e.props.mdxType !== 'h1' && e.props.mdxType !== 'h3');
+
+  return (
+    <>
+      <StructuredData {...frontMatter} H1={H1} />
+      <Layout {...frontMatter}>
+        <NavBar />
+        <TopSection>
+          <SectionHeader>
             <div>
-              <h1>Subscribe to my updates</h1>
-              <p>
-                I'm quitting Facebook. Leave your email so we can stay in touch when I'm in town.
-              </p>
+              <h1>{H1[0].props.children}</h1>
+              {Lede[0] ? (
+                <h3><span>{Lede[0].props.children}</span></h3>
+              ) : <div /> /* MDX enhanced doesn't like conditional rendering */}
             </div>
-          </SectionCta>
-        </Layout>
-      </>
-    );
-  };
+            <div>
+              <FrontMatter>
+                {frontMatter.author}
+                <br />
+                {frontMatter.publishedAt}
+                <br />
+                {frontMatter.readingTime.words}
+                &nbsp;words
+                <br />
+                {frontMatter.geo}
+              </FrontMatter>
+            </div>
+          </SectionHeader>
+        </TopSection>
+        <BottomSection>
+          <Grid>
+            <Article>
+              {Content}
+            </Article>
+          </Grid>
+        </BottomSection>
+        <SectionCta href="https://eepurl.com/hePebj" color="--golden-rod-yellow">
+          <div>
+            <h1>Subscribe to my updates</h1>
+            <p>
+              I'm quitting Facebook. Leave your email so we can stay in touch when I'm in town.
+            </p>
+          </div>
+        </SectionCta>
+      </Layout>
+    </>
+  );
 }
 
 /**
@@ -164,4 +163,22 @@ StructuredData.propTypes = {
   publishedAt: PropTypes.string.isRequired,
   image: PropTypes.string.isRequired,
   H1: PropTypes.arrayOf(PropTypes.node.isRequired).isRequired,
+};
+
+BlogPost.propTypes = {
+  children: PropTypes.node.isRequired,
+  frontMatter: PropTypes.shape({
+    title: PropTypes.string.isRequired,
+    description: PropTypes.string.isRequired,
+    author: PropTypes.string.isRequired,
+    publishedAt: PropTypes.string.isRequired,
+    image: PropTypes.string.isRequired,
+    colour: PropTypes.string,
+  }),
+};
+
+BlogPost.defaultProps = {
+  frontMatter: {
+    colour: 'white',
+  },
 };
