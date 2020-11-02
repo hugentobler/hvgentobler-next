@@ -1,0 +1,14 @@
+{
+  "routes": [
+    {
+      "src": "/sofasoda",
+      "status": 301,
+      "dest": "https://www.sofasoda.com/mentorship/108-Christopher_Hugentobler"
+    },
+    {
+      "src": "/linkedin",
+      "status": 301,
+      "dest": "https://www.linkedin.com/in/hvgentobler"
+    }
+  ]
+}
