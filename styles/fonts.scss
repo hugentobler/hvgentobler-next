@@ -4,95 +4,17 @@
  */
 
 @font-face {
-  font-family: 'Neue Haas Grotesk';
-  font-display: fallback;
-  src: url('/fonts/NeueHaasGroteskText55Roman.woff2') format('woff2'),
-    url('/fonts/NeueHaasGroteskText55Roman.woff') format('woff');
-  font-weight: 400;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'Neue Haas Grotesk';
-  font-display: fallback;
-  src: url('/fonts/NeueHaasGroteskText56Italic.woff2') format('woff2'),
-    url('/fonts/NeueHaasGroteskText56Italic.woff') format('woff');
-  font-weight: 400;
-  font-style: italic;
-}
-
-@font-face {
-  font-family: 'Neue Haas Grotesk';
-  font-display: fallback;
-  src: url('/fonts/NeueHaasGroteskText65Medium.woff2') format('woff2'),
-    url('/fonts/NeueHaasGroteskText65Medium.woff') format('woff');
-  font-weight: 500;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'Neue Haas Grotesk';
-  font-display: fallback;
-  src: url('/fonts/NeueHaasGroteskText66MediumItalic.woff2') format('woff2'),
-    url('/fonts/NeueHaasGroteskText66MediumItalic.woff') format('woff');
-  font-weight: 500;
-  font-style: italic;
-}
-
-@font-face {
-  font-family: 'Neue Haas Grotesk';
-  font-display: fallback;
-  src: url('/fonts/NeueHaasGroteskText75Bold.woff2') format('woff2'),
-    url('/fonts/NeueHaasGroteskText75Bold.woff') format('woff');
-  font-weight: 700;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'Neue Haas Grotesk';
-  font-display: fallback;
-  src: url('/fonts/NeueHaasGroteskText76BoldItalic.woff2') format('woff2'),
-    url('/fonts/NeueHaasGroteskText76BoldItalic.woff') format('woff');
-  font-weight: 700;
-  font-style: italic;
-}
-
-@font-face {
   font-family: 'Soehne';
   font-display: fallback;
-  src: url('/fonts/soehne-test-extraleicht.woff') format('woff');
-  font-weight: 200;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'Soehne';
-  font-display: fallback;
-  src: url('/fonts/soehne-test-extraleicht-kursiv.woff') format('woff');
-  font-weight: 200;
-  font-style: italic;
-}
-
-@font-face {
-  font-family: 'Soehne';
-  font-display: fallback;
-  src: url('/fonts/soehne-test-leicht.woff') format('woff');
+  src: url('/fonts/soehne-web-leicht.woff') format('woff');
   font-weight: 300;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'Soehne';
-  font-display: fallback;
-  src: url('/fonts/soehne-test-leicht-kursiv.woff') format('woff');
-  font-weight: 300;
-  font-style: italic;
-}
-
-@font-face {
-  font-family: 'Soehne';
   font-display: swap;
-  src: url('/fonts/soehne-test-buch.woff') format('woff');
+  src: url('/fonts/soehne-web-buch.woff') format('woff');
   font-weight: 400;
   font-style: normal;
 }
@@ -100,7 +22,7 @@
 @font-face {
   font-family: 'Soehne';
   font-display: swap;
-  src: url('/fonts/soehne-test-buch-kursiv.woff') format('woff');
+  src: url('/fonts/soehne-web-buch-kursiv.woff') format('woff');
   font-weight: 400;
   font-style: italic;
 }
@@ -108,79 +30,7 @@
 @font-face {
   font-family: 'Soehne';
   font-display: fallback;
-  src: url('/fonts/soehne-test-kraftig.woff') format('woff');
+  src: url('/fonts/soehne-web-kraftig.woff') format('woff');
   font-weight: 500;
   font-style: normal;
-}
-
-@font-face {
-  font-family: 'Soehne';
-  font-display: fallback;
-  src: url('/fonts/soehne-test-kraftig-kursiv.woff') format('woff');
-  font-weight: 500;
-  font-style: italic;
-}
-
-@font-face {
-  font-family: 'Soehne';
-  font-display: swap;
-  src: url('/fonts/soehne-test-halbfett.woff') format('woff');
-  font-weight: 600;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'Soehne';
-  font-display: fallback;
-  src: url('/fonts/soehne-test-halbfett-kursiv.woff') format('woff');
-  font-weight: 600;
-  font-style: italic;
-}
-
-@font-face {
-  font-family: 'Soehne';
-  font-display: fallback;
-  src: url('/fonts/soehne-test-dreiviertelfett.woff') format('woff');
-  font-weight: 700;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'Soehne';
-  font-display: fallback;
-  src: url('/fonts/soehne-test-dreiviertelfett-kursiv.woff') format('woff');
-  font-weight: 700;
-  font-style: italic;
-}
-
-@font-face {
-  font-family: 'Soehne';
-  font-display: fallback;
-  src: url('/fonts/soehne-test-fett.woff') format('woff');
-  font-weight: 800;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'Soehne';
-  font-display: fallback;
-  src: url('/fonts/soehne-test-fett-kursiv.woff') format('woff');
-  font-weight: 800;
-  font-style: italic;
-}
-
-@font-face {
-  font-family: 'Soehne';
-  font-display: fallback;
-  src: url('/fonts/soehne-test-extrafett.woff') format('woff');
-  font-weight: 900;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'Soehne';
-  font-display: fallback;
-  src: url('/fonts/soehne-test-extrafett-kursiv.woff') format('woff');
-  font-weight: 900;
-  font-style: italic;
 }
