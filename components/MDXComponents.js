@@ -10,7 +10,7 @@ import PropTypes from 'prop-types';
 import NextLink from 'next/link';
 import styled from 'styled-components';
 /* Components */
-import Image from './ui/Image';
+import Img from './ui/Img';
 
 /**
  * STYLED COMPONENTS
@@ -61,18 +61,10 @@ const CustomLink = (props) => {
  */
 const MDXComponents = {
   Caption,
-  Image,
+  Img,
   inlineCode: Code,
   ThematicBreak,
 };
-
-// const MDXComponents = {
-//   inlineCode: (props) => <Code>{props}</Code>,
-//   a: CustomLink,
-//   Image,
-//   Caption: (props) => <Caption>{props}</Caption>,
-//   ThematicBreak: (props) => <ThematicBreak>{props}</ThematicBreak>,
-// };
 
 export default MDXComponents;
 

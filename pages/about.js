@@ -7,11 +7,11 @@
  * MODULES
  */
 /* Components */
-import Layout from '../../layouts/main';
-import ImageHero from '../../components/ui/ImageHero';
-import NavBar from '../../components/ui/NavBar';
-import SectionHeader from '../../components/ui/SectionHeader';
-import ThreeColumns from '../../components/ui/ThreeColumns';
+import Layout from '../layouts/main';
+import ImageHero from '../components/ui/ImageHero';
+import NavBar from '../components/ui/NavBar';
+import SectionHeader from '../components/ui/SectionHeader';
+import ThreeColumns from '../components/ui/ThreeColumns';
 
 /**
  * FRONTMATTER
