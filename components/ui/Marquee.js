@@ -11,19 +11,19 @@ import styled, { keyframes } from 'styled-components';
 /**
  * DEFAULT EXPORT
  */
+const updates = [
+  ["I'm back in Taipei based at WeWork / Nov 1", 'Stay in touch ⤴'],
+  ["I'm currently surfing round Taiwan living in my van / Oct 1", 'Stay in touch ⤴'],
+];
+
 export default function Marquee() {
   return (
     <Wrap>
       <a href="https://eepurl.com/hePebj" target="_blank">
         <Inner ariaHidden>
-          <p>I'm currently surfing round Taiwan living in my van.</p>
-          <p>Stay in touch ⤴</p>
-          <p>I'm currently surfing round Taiwan living in my van.</p>
-          <p>Stay in touch ⤴</p>
-          <p>I'm currently surfing round Taiwan living in my van.</p>
-          <p>Stay in touch ⤴</p>
-          <p>I'm currently surfing round Taiwan living in my van.</p>
-          <p>Stay in touch ⤴</p>
+          {[...Array(4)].map((e) => (
+            updates[0].map((e) => <p key={e}>{e}</p>)
+          ))}
         </Inner>
       </a>
     </Wrap>
