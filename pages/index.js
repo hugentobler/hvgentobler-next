@@ -33,7 +33,7 @@ export default function Index() {
   return (
     <Layout {...frontmatter}>
       <TextHero>
-        What does life look like if everyone has everything?  Does tech beget happiness?  What is your role in all of this?
+        What does life look like if everyone has everything?  Does tech beget happiness?  What's our place in all of this?
       </TextHero>
       <NavBar />
       <section>

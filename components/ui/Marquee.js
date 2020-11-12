@@ -12,8 +12,8 @@ import styled, { keyframes } from 'styled-components';
  * DEFAULT EXPORT
  */
 const updates = [
-  ["I'm back in Taipei based at WeWork / Nov 1", 'Stay in touch ⤴'],
-  ["I'm currently surfing round Taiwan living in my van / Oct 1", 'Stay in touch ⤴'],
+  ["Nov 1: I'm back in Taipei based at WeWork", 'Stay in touch ⤴'],
+  ["Oct 1: I'm currently surfing round Taiwan living in my van", 'Stay in touch ⤴'],
 ];
 
 export default function Marquee() {
