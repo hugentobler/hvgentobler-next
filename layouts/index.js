@@ -89,11 +89,6 @@ export default function BlogPost(props) {
             <Article>
               {Content}
             </Article>
-            <Disqus>
-              <DisqusEmbed
-                {...frontMatter}
-              />
-            </Disqus>
           </Grid>
         </BottomSection>
         <SectionCta href="https://eepurl.com/hePebj" color="--golden-rod-yellow">
@@ -104,6 +99,9 @@ export default function BlogPost(props) {
             </p>
           </div>
         </SectionCta>
+        <DisqusEmbed
+          {...frontMatter}
+        />
       </Layout>
     </>
   );
@@ -151,16 +149,6 @@ const Article = styled.article`
   p, li {
     font-size: 1.2rem;
     line-height: 1.3;
-  }
-`;
-
-const Disqus = styled.div`
-  grid-column: 1 / span 13;
-  @media ${(props) => props.theme.forMiddle} {
-    grid-column: 4 / span 8;
-  }
-  @media ${(props) => props.theme.forNotSmall} {
-    grid-column: 4 / span 8;
   }
 `;
 
