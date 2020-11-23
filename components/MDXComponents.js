@@ -11,6 +11,7 @@ import NextLink from 'next/link';
 import styled from 'styled-components';
 /* Components */
 import Img from './ui/Img';
+import ImgPair from './ui/ImgPair';
 
 /**
  * STYLED COMPONENTS
@@ -28,7 +29,7 @@ const Code = styled.code`
 const Caption = styled.p`
   font-size: .8rem !important;
   margin-bottom: var(--space-1);
-  margin-top: var(--space-4);
+  margin-top: var(--space-2);
   @media ${theme.forNotSmall} {
     font-size: 1vw;
   }
@@ -62,6 +63,7 @@ const CustomLink = (props) => {
 const MDXComponents = {
   Caption,
   Img,
+  ImgPair,
   inlineCode: Code,
   ThematicBreak,
 };

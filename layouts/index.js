@@ -93,7 +93,7 @@ export default function BlogPost(props) {
         </BottomSection>
         <SectionCta href="https://eepurl.com/hePebj" color="--golden-rod-yellow">
           <div>
-            <h1>Subscribe to my updates</h1>
+            <h1>Subscribe for more</h1>
             <p>
               I'm quitting Facebook. Leave your email so we can stay in touch when I'm in town.
             </p>

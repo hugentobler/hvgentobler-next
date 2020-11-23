@@ -88,8 +88,8 @@ const Grid = styled.section`
   width: 100%;
   @media ${(props) => props.theme.forNotSmall} {
     grid-template-rows: min-content auto;
-    height: 100vh;
-    height: calc(var(--vh, 1vh) * 100);
+    height: calc(100vh - 30px);
+    height: calc(var(--vh, 1vh) * 100 - 30px);
     padding-bottom: var(--space-2);
   }
   p {

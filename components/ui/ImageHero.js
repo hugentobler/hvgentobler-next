@@ -97,8 +97,8 @@ const Wrap = styled.div`
   max-height: 100%;
   min-height: 400px;
   @media ${(props) => props.theme.forNotSmall} {
-    height: 100vh;
-    height: calc(var(--vh, 1vh) * 100);
+    height: calc(100vh - 30px);
+    height: calc(var(--vh, 1vh) * 100 - 30px);
     grid-column-start: span 8;
     grid-column-end: 14;
     grid-row: 1 / span 3;
