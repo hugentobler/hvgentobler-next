@@ -56,7 +56,7 @@ export default function About() {
           </div>
           <div>
             <p>
-              Christopher grew up surrounded by curious people and great hospitality. He builds friendly software products.
+              Christopher grew up around curious people and great hospitality. He builds software products that are equally thoughtful and welcoming.
             </p>
             <p>Born in Taipei, Christopher moved to Xi'an, then Kota Kinabalu, then Macao and Guangzhou. He finished college in Hong Kong at 19 years old.</p>
             <p>In high school, he clicked 'Inspect Element' for the first time after promising to complete an event website in one month. He delivered.</p>
