@@ -12,7 +12,7 @@ import styled, { keyframes } from 'styled-components';
  * DEFAULT EXPORT
  */
 const updates = [
-  ["Jul 4: Staying in Mui Wo near the beach 🏄", 'Stay in touch ⤴'],
+  ["Jul 4: Staying in Mui Wo 🇭🇰 near the beach 🏄", 'Stay in touch ⤴'],
   ["Nov 1: I'm back in Taipei based at WeWork", 'Stay in touch ⤴'],
   ["Oct 1: I'm currently surfing round Taiwan living in my van", 'Stay in touch ⤴'],
 ];
