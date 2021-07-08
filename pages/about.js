@@ -108,12 +108,20 @@ export default function About() {
           <div>
             <h3>Work</h3>
             <p>
-              Partner
+              Partner / Startup Advisor
               <br />
               Inspect Element
-              <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Consulting Collective</span>
+              <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Venture Builder</span>
               <br />
-              <span>Summer 2020</span>
+              <span>Summer 2020 ~ Now</span>
+            </p>
+            <p>
+              Product Management & Design Lead
+              <br />
+              Bowtie
+              <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Health & Insurtech</span>
+              <br />
+              <span>Oct 2020 ~ Now</span>
             </p>
             <p>
               Product Lead / Growth Lead / Misc.
