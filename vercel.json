@@ -7,6 +7,10 @@
     {
       "source": "/linkedin",
       "destination": "https://www.linkedin.com/in/hugentobler"
+    },
+    {
+      "source": "/in",
+      "destination": "https://www.linkedin.com/in/hugentobler"
     }
   ]
 }
