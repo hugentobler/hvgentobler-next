@@ -1,5 +1,7 @@
 // .gitignore
 
+.DS_Store
+
 # next.js build output
 .next
 
