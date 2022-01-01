@@ -1,48 +1,29 @@
 {
   "name": "hvgentobler-next",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "version": "2.0.0",
   "scripts": {
-    "dev": "next",
+    "dev": "next dev",
     "build": "next build",
     "start": "next start",
+    "lint": "next lint",
     "analyze": "cross-env ANALYZE=true next build",
     "analyze:server": "cross-env BUNDLE_ANALYZE=server next build",
     "analyze:browser": "cross-env BUNDLE_ANALYZE=browser next build"
   },
-  "keywords": [],
   "author": "Christopher Hugentobler",
   "license": "ISC",
   "dependencies": {
-    "@mdx-js/loader": "^1.6.19",
-    "@mdx-js/react": "^1.6.19",
-    "cross-env": "^7.0.2",
-    "disqus-react": "^1.0.10",
-    "framer-motion": "^5.4.5",
-    "mdx-prism": "^0.3.1",
-    "next": "^12.0.7",
-    "prop-types": "^15.7.2",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
-    "react-intersection-observer": "^8.26.2",
-    "react-use": "^17.3.1",
-    "reading-time": "^1.2.0",
-    "strip-ansi": "^7.0.1",
-    "styled-components": "^5.1.1",
-    "three": "^0.135.0",
-    "webpack-bundle-analyzer": "^4.5.0"
+    "@mdx-js/loader": "^1.6.22",
+    "@next/mdx": "^12.0.7",
+    "next": "latest",
+    "next-compose-plugins": "^2.2.1",
+    "react": "17.0.2",
+    "react-dom": "17.0.2"
   },
   "devDependencies": {
-    "babel-plugin-import-glob-array": "^0.2.0",
-    "babel-plugin-styled-components": "^2.0.2",
-    "eslint": "^8.4.1",
-    "eslint-config-airbnb": "^19.0.2",
-    "eslint-plugin-import": "^2.22.0",
-    "eslint-plugin-jsx-a11y": "^6.3.1",
-    "eslint-plugin-mdx": "^1.7.1",
-    "eslint-plugin-react": "^7.20.3",
-    "eslint-plugin-react-hooks": "^4.3.0",
-    "rehype": "^12.0.0"
+    "@next/bundle-analyzer": "^12.0.7",
+    "cross-env": "^7.0.3",
+    "eslint": "8.5.0",
+    "eslint-config-next": "12.0.7"
   }
 }
