@@ -25,7 +25,7 @@ export default function Footer() {
             >
             <a>Contact Us</a>
           </Link> */}
-          <a href="mailto:hugentobler@hey.com" target="_blank" rel="noreferrer">Say Hey!</a>
+          <a href="mailto:hugentobler@proton.me" target="_blank" rel="noreferrer">Say Hey!</a>
           <a href="https://linkedin.com/in/hugentobler/" target="_blank" rel="noreferrer">LinkedIn</a>
           <a href="https://instagram.com/globehunter" target="_blank" rel="noreferrer">Instagram</a>
           <a href="https://github.com/hugentobler/hvgentobler-next" target="_blank" rel="noreferrer">Site Source</a>
